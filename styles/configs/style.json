@@ -1,8 +1,30 @@
 {
-  "typeScale": [3, 2.25, 1.5, 1.25, 1, 0.875, 0.75],
-  "spacing": [0.125, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 8, 16],
+  "typeScale": [
+    3,
+    2.25,
+    1.5,
+    1.25,
+    1,
+    0.875,
+    0.75
+  ],
+  "spacing": [
+    0.125,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2,
+    3,
+    4,
+    8,
+    16
+  ],
   "customMedia": [
-    { "s": 20 },
+    {
+      "s": 20
+    },
     {
       "ns": {
         "value": 40,
@@ -41,7 +63,6 @@
     "black-05": "rgba(0,0,0,.05)",
     "black-025": "rgba(0,0,0,.025)",
     "black-0125": "rgba(0,0,0,.0125)",
-
     "white-90": "rgba(255,255,255,.9)",
     "white-80": "rgba(255,255,255,.8)",
     "white-70": "rgba(255,255,255,.7)",
@@ -57,8 +78,8 @@
   },
   "semanticColors": {
     "background": {
-      "base": "#142032",
-      "base--inverted": "#f2f4f5",
+      "base": "#FFFFFF",
+      "base--inverted": "#142032",
       "action-primary": "#F71963",
       "action-secondary": "#000711",
       "emphasis": "#f71963",
@@ -69,7 +90,7 @@
       "danger--faded": "#ffe6e6",
       "warning": "#ffb100",
       "warning--faded": "#fff6e0",
-      "muted-1": "#FFFFFF",
+      "muted-1": "#f2f4f5",
       "muted-2": "#E7E9EE",
       "muted-3": "#232D46",
       "muted-4": "#e3e4e6",
@@ -241,18 +262,66 @@
       "warning--faded": "#1a1a1a"
     }
   },
-  "borderWidths": [0, 0.125, 0.25, 0.5, 1, 2],
-  "borderRadius": [0, 0.125, 0.25, 0.5, 1],
-  "widths": [1, 2, 4, 8, 16],
-  "maxWidths": [1, 2, 4, 8, 16, 32, 48, 64, 96],
-  "heights": [1, 2, 4, 8, 16],
+  "borderWidths": [
+    0,
+    0.125,
+    0.25,
+    0.5,
+    1,
+    2
+  ],
+  "borderRadius": [
+    0,
+    0.125,
+    0.25,
+    0.5,
+    1
+  ],
+  "widths": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "maxWidths": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    48,
+    64,
+    96
+  ],
+  "heights": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
   "sizes": [
-    { "name": "small", "value": 2 },
-    { "name": "regular", "value": 2.5 },
-    { "name": "large", "value": 3 }
+    {
+      "name": "small",
+      "value": 2
+    },
+    {
+      "name": "regular",
+      "value": 2.5
+    },
+    {
+      "name": "large",
+      "value": 3
+    }
   ],
   "typography": {
-    "measure": [30, 34, 20],
+    "measure": [
+      30,
+      34,
+      20
+    ],
     "styles": {
       "heading-1": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
@@ -347,5 +416,19 @@
       }
     }
   },
-  "opacity": [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.05, 0.025, 0]
+  "opacity": [
+    1,
+    0.9,
+    0.8,
+    0.7,
+    0.6,
+    0.5,
+    0.4,
+    0.3,
+    0.2,
+    0.1,
+    0.05,
+    0.025,
+    0
+  ]
 }

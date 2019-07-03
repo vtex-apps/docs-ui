@@ -33,14 +33,14 @@ const Navbar: FunctionComponent<
   return (
     <nav className="flex">
       <div
-        className="fixed bg-base c-muted-1 w-100 flex flex-column flex-row-l justify-between z-5"
+        className="fixed bg-base--inverted c-muted-1 w-100 flex flex-column flex-row-l justify-between z-5"
         style={{
           boxShadow: `0px 3px 20px rgba(0, 0, 0, 0.3)`,
         }}
       >
         <div className="flex">
           <button
-            className="dn-l bg-base c-on-base w-33 w-50-l bn"
+            className="dn-l bg-base--inverted c-on-base w-33 w-50-l bn"
             onClick={() => setOpenNav(!openNav)}
           >
             <IconBars />
