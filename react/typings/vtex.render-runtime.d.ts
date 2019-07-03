@@ -12,7 +12,7 @@ declare module 'vtex.render-runtime' {
   export const NoSSR: any
   export const RenderContextConsumer: ReactElement
   export const canUseDOM: boolean
-  export const withRuntimeContext: ReactElement
+  export const withRuntimeContext: any
   export const Helmet: any
   export const useRuntime: () => {
     culture: {
