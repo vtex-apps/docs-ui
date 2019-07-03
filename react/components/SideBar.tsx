@@ -1,36 +1,37 @@
 import React, { FunctionComponent, useState } from 'react'
 import { graphql, compose } from 'react-apollo'
 import { branch, renderComponent } from 'recompose'
-import { Link, useRuntime } from 'vtex.render-runtime'
+import { Link, withRuntimeContext } from 'vtex.render-runtime'
 import { IconCaretDown, IconCaretUp } from 'vtex.styleguide'
 
 import Skeleton from './Skeleton'
+import EmptySummary from './EmptySummary'
 
 import * as Summary from '../graphql/getAppSummary.graphql'
 
-const SideBar: FunctionComponent<any> = ({ summaryQuery }) => {
+const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
 
-  const { query } = useRuntime()
+  const { app } = runtime.route.params
   const [open, setOpen] = useState(false)
 
   return (
     <ul className="pa7 mt0 list br b--muted-5">
-      {summaryQuery.getAppSummary.chapterList.map((app: any) => (
-        <li className="pv3 link" key={app.urlName}>
+      {summaryQuery.getAppSummary.chapterList.map((appItem: any) => (
+        <li className="pv3 link" key={appItem.urlName}>
           <div className="flex justify-between items-center">
-            {app.path ?
-              <Link to={`/docs?app=${query.app}&filePath=${app.path}`}>
-                {app.title}
-              </Link> : <p>{app.title}</p>
+            {appItem.path ?
+              <Link to={`/docs/${app}&file=${appItem.path}`}>
+                {appItem.title}
+              </Link> : <p>{appItem.title}</p>
             }
             <div className="ph4" onClick={() => setOpen(!open)}>
-              {app.articles.length > 0 && (open ? <IconCaretUp /> : <IconCaretDown />)}
+              {appItem.articles.length > 0 && (open ? <IconCaretUp /> : <IconCaretDown />)}
             </div>
           </div>
           <div hidden={!open}>
-            {app.articles.length > 0 && app.articles.map((article: any) => (
+            {appItem.articles.length > 0 && appItem.articles.map((article: any) => (
               <li className="ph4 pv3 link">
-                <Link to={`/docs?app=${query.app}&filePath=${article.path}`}>
+                <Link to={`/docs?app=${app}&file=${article.path}`}>
                   {article.title}
                 </Link>
               </li>
@@ -43,11 +44,11 @@ const SideBar: FunctionComponent<any> = ({ summaryQuery }) => {
 }
 
 export default compose(
+  withRuntimeContext,
   graphql(Summary.default, {
     name: 'summaryQuery',
-    options: () => {
-      const params = new URLSearchParams(location.search)
-      const appName = params.get('app')
+    options: (props: { runtime: any }) => {
+      const appName = props.runtime.route.params.app
       return {
         variables: {
           appName,
@@ -59,4 +60,8 @@ export default compose(
     ({ summaryQuery }: any) => summaryQuery.loading,
     renderComponent(Skeleton)
   ),
+  branch(
+    ({ summaryQuery }: any) => !!summaryQuery.error,
+    renderComponent(EmptySummary)
+  )
 )(SideBar)
