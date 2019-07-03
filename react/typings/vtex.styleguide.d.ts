@@ -11,4 +11,5 @@ declare module 'vtex.styleguide' {
   export const IconDeny
   export const Spinner
   export const EmptyState
+  export const Card
 }
