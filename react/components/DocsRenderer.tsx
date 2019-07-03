@@ -45,8 +45,10 @@ export default compose(
   graphql(MarkdownFile.default, {
     name: 'markdownQuery',
     options: (props: { runtime: any }) => {
-      const appName = props.runtime.route.params.app
+      const version = props.runtime.query.version
+      const buildNumber = props.runtime.query.build
       const fileName = props.runtime.query.file
+      const appName = `${props.runtime.route.params.app}${version ? `@${version}` : ''}${buildNumber ? `+${buildNumber}` : ''}`
       return {
         variables: {
           appName,
