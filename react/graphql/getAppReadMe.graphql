@@ -1,0 +1,13 @@
+query getAppReadMe($appName: String) {
+  getAppReadMe(appName: $appName) {
+    meta {
+      title
+      description
+      version
+      tags
+      git
+      date
+    }
+    markdown
+  }
+}

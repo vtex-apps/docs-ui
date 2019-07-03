@@ -1,0 +1,13 @@
+{
+  "extends": "vtex-react",
+  "rules": {
+    "no-irregular-whitespace": 0,
+    "@typescript-eslint/no-use-before-define": false,
+    "@typescript-eslint/no-explicit-any": false,
+    "react/jsx-pascal-case": false
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  }
+}

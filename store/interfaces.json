@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "blocks": [
+      "docs.home"
+    ]
+  },
+  "docs.home": {
+    "component": "Docs"
+  }
+}

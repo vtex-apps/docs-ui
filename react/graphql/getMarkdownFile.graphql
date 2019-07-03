@@ -1,0 +1,12 @@
+query getMarkdownFile($appName: String, $fileName: String) {
+  getMarkdownFile(appName: $appName, fileName: $fileName) {
+    meta {
+      title
+      description
+      tags
+      version
+      git
+    }
+    markdown
+  }
+}
