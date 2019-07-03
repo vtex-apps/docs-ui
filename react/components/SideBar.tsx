@@ -48,7 +48,9 @@ export default compose(
   graphql(Summary.default, {
     name: 'summaryQuery',
     options: (props: { runtime: any }) => {
-      const appName = props.runtime.route.params.app
+      const version = props.runtime.query.version
+      const buildNumber = props.runtime.query.build
+      const appName = `${props.runtime.route.params.app}${version ? `@${version}` : ''}${buildNumber ? `+${buildNumber}` : ''}`
       return {
         variables: {
           appName,
