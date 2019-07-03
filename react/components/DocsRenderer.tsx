@@ -3,6 +3,7 @@ import remark from 'remark'
 import remark2react from 'remark-react'
 import { graphql, compose } from 'react-apollo'
 import { branch, renderComponent } from 'recompose'
+import { withRuntimeContext } from 'vtex.render-runtime'
 
 import Skeleton from './Skeleton'
 import EmptyDocs from './EmptyDocs'
@@ -40,12 +41,12 @@ const DocsRenderer: FunctionComponent<any> = ({ markdownQuery }) => {
 }
 
 export default compose(
+  withRuntimeContext,
   graphql(MarkdownFile.default, {
     name: 'markdownQuery',
-    options: () => {
-      const params = new URLSearchParams(location.search)
-      const appName = params.get('app')
-      const fileName = params.get('filePath')
+    options: (props: { runtime: any }) => {
+      const appName = props.runtime.route.params.app
+      const fileName = props.runtime.query.file
       return {
         variables: {
           appName,
