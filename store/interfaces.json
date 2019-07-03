@@ -6,5 +6,8 @@
   },
   "docs.home": {
     "component": "Docs"
+  },
+  "docs.app": {
+    "component": "AppDocs"
   }
 }

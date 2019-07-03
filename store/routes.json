@@ -1,5 +1,8 @@
 {
   "docs.home": {
     "path": "/docs"
+  },
+  "docs.app": {
+    "path": "/docs/:app"
   }
 }
