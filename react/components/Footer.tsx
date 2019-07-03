@@ -32,7 +32,7 @@ const footerLinks = [
 ]
 
 const Footer: FunctionComponent = () => (
-  <footer className="bg-base pa10-l pv7 c-muted-1">
+  <footer className="bg-base--inverted pa10-l pv7 c-muted-1">
     <div className="flex flex-wrap justify-between">
       <div className="w-33-l ph4 ph0-l">
         <img src={Logo} alt="VTEX" />
