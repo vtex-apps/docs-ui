@@ -11,7 +11,7 @@ import * as Summary from '../graphql/getAppSummary.graphql'
 
 const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
 
-  const { app } = runtime.route.params
+  const { route: { params: { app } }, query: { version, build } } = runtime
   const [open, setOpen] = useState(false)
 
   return (
@@ -20,7 +20,7 @@ const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
         <li className="pv3 link" key={appItem.urlName}>
           <div className="flex justify-between items-center">
             {appItem.path ?
-              <Link to={`/docs/${app}&file=${appItem.path}`}>
+              <Link to={`/docs/${app}?file=${appItem.path}${version ? `&version=${version}` : ''}${build ? `&build=${build}` : ''}`}>
                 {appItem.title}
               </Link> : <p>{appItem.title}</p>
             }
@@ -31,7 +31,7 @@ const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
           <div hidden={!open}>
             {appItem.articles.length > 0 && appItem.articles.map((article: any) => (
               <li className="ph4 pv3 link">
-                <Link to={`/docs?app=${app}&file=${article.path}`}>
+                <Link to={`/docs/${app}?file=${article.path}${version ? `&version=${version}` : ''}${build ? `&build=${build}` : ''}`}>
                   {article.title}
                 </Link>
               </li>
