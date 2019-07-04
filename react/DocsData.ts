@@ -1,5 +1,6 @@
 export const availableDocs = [
   { urlName: 'vtex.store-components', formattedName: 'Store Components' },
+  { urlName: 'vtex.release-notes', formattedName: 'Release Notes' },
   { urlName: 'vtex.store-header', formattedName: 'Store Header' },
   { urlName: 'vtex.order-placed', formattedName: 'Order Placed' },
   { urlName: 'vtex.store-footer', formattedName: 'Store Footer' },
