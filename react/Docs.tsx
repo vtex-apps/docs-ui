@@ -24,7 +24,7 @@ const Docs: FunctionComponent<any> = () => {
         <div className="w-80-l w-90 center flex flex-wrap justify-between">
           {availableDocs.map((app) => (
             <div className="w-40 mv5">
-              <Link to={`/docs/${app.urlName}`}>
+              <Link to={`/docs/${app.urlName}?file=README.md`}>
                 <Card>
                   <h2 className="t-heading-2 tc mv9 c-muted-5 no-underline">{app.formattedName}</h2>
                 </Card>
