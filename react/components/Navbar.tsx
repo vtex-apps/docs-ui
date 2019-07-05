@@ -47,7 +47,7 @@ const Navbar: FunctionComponent<
           </button>
           <div className="w-40 w-50-l">
             <Link
-              page="io.landing"
+              to="https://vtex.io"
               className="c-muted-1 self-center flex items-center link"
             >
               <img src={logoPath} className="h3" alt="VTEX" />
@@ -67,12 +67,12 @@ const Navbar: FunctionComponent<
               </a>
             </li>
             <li className="mh5 mv5 mv0-l">
-              <Link className="link c-muted-1" page="io.store-features">
+              <Link className="link c-muted-1" page="https://vtex.io/store-features">
                 {intl.formatMessage({ id: 'io.navbar.feature-list' })}
               </Link>
             </li>
             <li className="mh5 mv5 mv0-l">
-              <Link page="io.faq" className="link c-muted-1">
+              <Link page="https://vtex.io/faq" className="link c-muted-1">
                 {intl.formatMessage({ id: 'io.navbar.faq' })}
               </Link>
             </li>
