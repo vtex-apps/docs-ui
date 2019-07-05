@@ -26,8 +26,5 @@ export const availableDocs = [
   { urlName: 'vtex.product-summary', formattedName: 'Product Summary' },
   { urlName: 'vtex.store-icons', formattedName: 'Store Icons' },
   { urlName: 'vtex.rich-text', formattedName: 'Rich Text' },
-  { urlName: 'vtex.wishlist', formattedName: 'Wishlist' },
-  { urlName: 'vtex.facebook-pixel', formattedName: 'Facebook Pixel' },
-  { urlName: 'vtex.google-adwords', formattedName: 'Google Adwords' },
-  { urlName: 'vtex.google-tag-manager', formattedName: 'Google Tag Manager' },
+  { urlName: 'vtex.wishlist', formattedName: 'Wishlist' }
 ]
