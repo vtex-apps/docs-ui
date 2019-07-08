@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Helmet, Link } from 'vtex.render-runtime'
-import { Card } from 'vtex.styleguide'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import CustomCard from './components/CustomCard'
 
 import favicon from './images/favicon.png'
 import { availableDocs } from './DocsData'
@@ -17,7 +17,7 @@ const Docs: FunctionComponent<any> = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <Navbar />
-      <main className="w-100 pv10 bg-muted-1">
+      <main className="w-100 pv10 bg-base--inverted">
         <h1 className="c-base t-heading-1 w-90 w-80-ns center mb8">
           Documentation
         </h1>
@@ -25,9 +25,9 @@ const Docs: FunctionComponent<any> = () => {
           {availableDocs.map((app) => (
             <div className="w-40 mv5">
               <Link to={`/docs/${app.urlName}?file=README.md`}>
-                <Card>
-                  <h2 className="t-heading-2 tc mv9 c-muted-5 no-underline">{app.formattedName}</h2>
-                </Card>
+                <CustomCard>
+                  <h2 className="t-heading-2 tc c-muted-5 no-underline">{app.formattedName}</h2>
+                </CustomCard>
               </Link>
             </div>
           ))}
