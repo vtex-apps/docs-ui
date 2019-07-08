@@ -67,12 +67,12 @@ const Navbar: FunctionComponent<
               </a>
             </li>
             <li className="mh5 mv5 mv0-l">
-              <Link className="link c-muted-1" page="https://vtex.io/store-features">
+              <Link className="link c-muted-1" to="https://vtex.io/store-features">
                 {intl.formatMessage({ id: 'io.navbar.feature-list' })}
               </Link>
             </li>
             <li className="mh5 mv5 mv0-l">
-              <Link page="https://vtex.io/faq" className="link c-muted-1">
+              <Link to="https://vtex.io/faq" className="link c-muted-1">
                 {intl.formatMessage({ id: 'io.navbar.faq' })}
               </Link>
             </li>
