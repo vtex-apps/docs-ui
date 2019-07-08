@@ -4,9 +4,10 @@ import { Helmet, Link } from 'vtex.render-runtime'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CustomCard from './components/CustomCard'
+import HomeSideBar from './components/HomeSidebar'
 
 import favicon from './images/favicon.png'
-import { availableDocs } from './DocsData'
+import { items } from './content/HomeCards'
 
 const Docs: FunctionComponent<any> = () => {
   return (
@@ -17,20 +18,25 @@ const Docs: FunctionComponent<any> = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <Navbar />
-      <main className="w-100 pv10 bg-base--inverted">
-        <h1 className="c-base t-heading-1 w-90 w-80-ns center mb8">
-          Documentation
-        </h1>
-        <div className="w-80-l w-90 center flex flex-wrap justify-between">
-          {availableDocs.map((app) => (
-            <div className="w-40 mv5">
-              <Link to={`/docs/${app.urlName}?file=README.md`}>
-                <CustomCard>
-                  <h2 className="t-heading-2 tc c-muted-5 no-underline">{app.formattedName}</h2>
-                </CustomCard>
-              </Link>
-            </div>
-          ))}
+      <main className="w-100 pv10 bg-base--inverted flex">
+        <div className="pt6">
+          <HomeSideBar />
+        </div>
+        <div>
+          <h1 className="c-base t-heading-1 w-90 w-80-ns center mb8">
+            Documentation
+          </h1>
+          <div className="w-80-l w-90 center flex flex-wrap justify-between">
+            {items.map((item) => (
+              <div className="w-40 mv5">
+                <Link to={item.link} className="no-underline">
+                  <CustomCard>
+                    <h4 className="t-heading-4 tc c-muted-5">{item.text}</h4>
+                  </CustomCard>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
       <Footer />
