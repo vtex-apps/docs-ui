@@ -20,7 +20,7 @@ const Docs: FunctionComponent<any> = () => {
         <h1 className="c-base t-heading-1 w-90 w-80-ns center mb8">
           Documentation
         </h1>
-        <div className="w-80-l w-90 center flex br3 bg-base">
+        <div className="w-80-l w-90 center flex br3 bg-base--inverted">
           <aside className="w-25-l ml5-l w-90 center">
             <SideBar />
           </aside>
