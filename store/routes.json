@@ -1,8 +1,11 @@
 {
   "docs.home": {
-    "path": "/docs"
+    "path": "/docs/home"
   },
   "docs.app": {
     "path": "/docs/:app"
+  },
+  "docs.construction": {
+    "path": "/docs"
   }
 }

@@ -9,5 +9,8 @@
   },
   "docs.app": {
     "component": "AppDocs"
+  },
+  "docs.construction": {
+    "component": "UnderConstruction"
   }
 }
