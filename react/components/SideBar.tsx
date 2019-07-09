@@ -34,7 +34,7 @@ function getArticles(chapterList: Chapter[], app: string, version: string, build
       <li className="link" key={chapter.path}>
         <div className="flex justify-between items-center">
           {chapter.path ?
-            <Link to={`/docs/${app}?file=${chapter.path}${version ? `&version=${version}` : ''}${build ? `&build=${build}` : ''}`}>
+            <Link to={`/docs/${app}/${chapter.path}${version ? `&version=${version}` : ''}`}>
               <p>{chapter.title}</p>
             </Link> : <p>{chapter.title}</p>
           }
@@ -56,8 +56,7 @@ export default compose(
     name: 'summaryQuery',
     options: (props: { runtime: any }) => {
       const version = props.runtime.query.version
-      const buildNumber = props.runtime.query.build
-      const appName = `${props.runtime.route.params.app}${version ? `@${version}` : ''}${buildNumber ? `+${buildNumber}` : ''}`
+      const appName = `${props.runtime.route.params.app}${version ? `@${version}` : ''}`
       return {
         variables: {
           appName,

@@ -42,10 +42,10 @@ export default compose(
   graphql(MarkdownFile.default, {
     name: 'markdownQuery',
     options: (props: { runtime: any }) => {
+      const { app, file } = props.runtime.route.params
+      const fileName = file || 'README.md'
       const version = props.runtime.query.version
-      const buildNumber = props.runtime.query.build
-      const fileName = props.runtime.query.file
-      const appName = `${props.runtime.route.params.app}${version ? `@${version}` : ''}${buildNumber ? `+${buildNumber}` : ''}`
+      const appName = `${app}${version ? `@${version}` : ''}`
       return {
         variables: {
           appName,

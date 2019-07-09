@@ -3,7 +3,7 @@
     "path": "/docs/home"
   },
   "docs.app": {
-    "path": "/docs/:app"
+    "path": "/docs/:app(/:file)"
   },
   "docs.construction": {
     "path": "/docs"
