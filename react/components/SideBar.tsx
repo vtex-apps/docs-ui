@@ -15,7 +15,18 @@ interface Chapter {
   articles: Chapter[]
 }
 
-const getArticles: any = (chapterList: Chapter[], app: string, version: string, build: string) => {
+const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
+
+  const { route: { params: { app } }, query: { version, build } } = runtime
+
+  return (
+    <ul className="pa7 mt0 list br b--muted-5">
+      {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
+    </ul>
+  )
+}
+
+function getArticles(chapterList: Chapter[], app: string, version: string, build: string): any {
   return chapterList.map((chapter: Chapter) => {
     const [open, setOpen] = useState(false)
 
@@ -37,17 +48,6 @@ const getArticles: any = (chapterList: Chapter[], app: string, version: string, 
       </li>
     )
   })
-}
-
-const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
-
-  const { route: { params: { app } }, query: { version, build } } = runtime
-
-  return (
-    <ul className="pa7 mt0 list br b--muted-5">
-      {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
-    </ul>
-  )
 }
 
 export default compose(
