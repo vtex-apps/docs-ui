@@ -20,9 +20,6 @@ const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
   const { route: { params: { app } }, query: { version, build } } = runtime
 
   return (
-    // <ul className="pa7 mt0 list br b--muted-5">
-    //   {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
-    // </ul>
     <ul className="list pa6 pt10">
       {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
     </ul>
