@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## Added
+
+- Tag list taken from the markdown file front-matter in the `DocsRenderer` component.
+- Custom `<li>` tag for Remark.
+- `Edit this page on GitHub` link at the bottom of the `AppDocs` page, using the `git` property taken from the markdown file front-matter.
+
+## Fix
+
+- Links to `ID`s that were not lowercase would not work, now they do.
+
+## Changed
+
+- Overall layout updates. 
 
 ## [0.2.0] - 2019-07-08
 ## Added
