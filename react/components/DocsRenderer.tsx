@@ -11,31 +11,28 @@ import { remarkReactComponents } from './CustomTags'
 
 import * as MarkdownFile from '../graphql/getMarkdownFile.graphql'
 
+interface MetaData {
+  title: string
+  description: string
+  tags: string[]
+  version: string
+  git: string
+}
+
 const DocsRenderer: FunctionComponent<any> = ({ markdownQuery }) => {
-  const { metaData, markdown } = markdownQuery.getMarkdownFile
+  const { meta, markdown }: { meta: MetaData, markdown: string } = markdownQuery.getMarkdownFile
 
   return (
-    <article className="pa7 w-100">
+    <article className="ph9 w-100">
+      {meta.tags && <p>Tags: {meta.tags.toString()}</p>}
       {
         remark()
           .use(remark2react, {
-            remarkReactComponents: {
-              ...remarkReactComponents,
-              img: ({ src }: { src: string }) => {
-                return src[0] === '/' ? (
-                  <img
-                    src={`https://raw.githubusercontent.com/${
-                      metaData.git
-                      }/master${src}`}
-                  />
-                ) : (
-                    <img src={src} />
-                  )
-              },
-            },
+            remarkReactComponents,
           })
           .processSync(markdown).contents
       }
+      {meta.git && <p>Edit this page on <a href={meta.git}>GitHub</a></p>}
     </article>
   )
 }
