@@ -57,7 +57,7 @@ const customTableHeader: FunctionComponent = ({ children }) => (
 )
 
 const customTableData: FunctionComponent = ({ children }) => (
-  <td className="tc pv4">{children}</td>
+  <td className="tc pv4 ph4">{children}</td>
 )
 
 const customPre: FunctionComponent = ({ children }) => (
@@ -68,17 +68,21 @@ const customPre: FunctionComponent = ({ children }) => (
   </pre>
 )
 
+const customListItem: FunctionComponent = ({ children }) => (
+  <li><p className="t-body lh-title">{children}</p></li>
+)
+
 const customAnchor: FunctionComponent<AnchorHTMLAttributes<any>> = ({
   href,
   children,
 }) => {
   return href && href[0] === '#' ? (
-    <AnchorLink offset={() => 80} href={href}>
+    <AnchorLink offset={() => 80} href={href.toLowerCase()}>
       {children}
     </AnchorLink>
   ) : (
-    <a href={href}>{children}</a>
-  )
+      <a href={href}>{children}</a>
+    )
 }
 
 export const remarkReactComponents = {
@@ -92,4 +96,5 @@ export const remarkReactComponents = {
   pre: customPre,
   th: customTableHeader,
   td: customTableData,
+  li: customListItem
 }
