@@ -20,7 +20,10 @@ const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
   const { route: { params: { app } }, query: { version, build } } = runtime
 
   return (
-    <ul className="pa7 mt0 list br b--muted-5">
+    // <ul className="pa7 mt0 list br b--muted-5">
+    //   {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
+    // </ul>
+    <ul className="list pa6 pt10">
       {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
     </ul>
   )
@@ -31,11 +34,11 @@ function getArticles(chapterList: Chapter[], app: string, version: string, build
     const [open, setOpen] = useState(false)
 
     return (
-      <li className="pv3 link" key={chapter.path}>
+      <li className="link" key={chapter.path}>
         <div className="flex justify-between items-center">
           {chapter.path ?
             <Link to={`/docs/${app}?file=${chapter.path}${version ? `&version=${version}` : ''}${build ? `&build=${build}` : ''}`}>
-              {chapter.title}
+              <p>{chapter.title}</p>
             </Link> : <p>{chapter.title}</p>
           }
           <div className="ph4" onClick={() => setOpen(!open)}>

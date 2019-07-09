@@ -16,17 +16,12 @@ const Docs: FunctionComponent<any> = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <Navbar />
-      <main className="w-100 pv10 bg-muted-1">
-        <h1 className="c-base t-heading-1 w-90 w-80-ns center mb8">
-          Documentation
-        </h1>
-        <div className="w-80-l w-90 center flex br3 bg-base--inverted">
-          <aside className="w-25-l ml5-l w-90 center">
-            <SideBar />
-          </aside>
-          <div className="w-75-l overflow-scroll">
-            <DocsRenderer />
-          </div>
+      <main className="w-100 bg-base--inverted flex">
+        <div className="bg-muted-1 w-20">
+          <SideBar />
+        </div>
+        <div className="pv10 w-80-l w-90 center">
+          <DocsRenderer />
         </div>
       </main>
       <Footer />
