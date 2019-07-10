@@ -12,4 +12,5 @@ declare module 'vtex.styleguide' {
   export const Spinner
   export const EmptyState
   export const Card
+  export const Dropdown
 }
