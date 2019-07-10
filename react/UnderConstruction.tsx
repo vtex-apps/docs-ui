@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 
 import favicon from './images/favicon.png'
 
-const Docs: FunctionComponent<any> = () => {
+const UnderConstruction: FunctionComponent = () => {
   return (
     <Fragment>
       <Helmet>
@@ -27,4 +27,4 @@ const Docs: FunctionComponent<any> = () => {
   )
 }
 
-export default Docs
+export default UnderConstruction
