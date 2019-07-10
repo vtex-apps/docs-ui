@@ -7,7 +7,7 @@ import SideBar from './components/SideBar'
 import DocsRenderer from './components/DocsRenderer'
 import favicon from './images/favicon.png'
 
-const Docs: FunctionComponent<any> = () => {
+const Docs: FunctionComponent = () => {
   return (
     <Fragment>
       <Helmet>
