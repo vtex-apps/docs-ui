@@ -25,5 +25,8 @@ declare module 'vtex.render-runtime' {
       app: string
       filePath?: string
     }
+    route: {
+      params: any
+    }
   }
 }

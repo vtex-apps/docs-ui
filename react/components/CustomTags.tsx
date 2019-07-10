@@ -3,6 +3,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { coy } from 'react-syntax-highlighter/dist/styles/prism'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
+import { useRuntime } from 'vtex.render-runtime'
+
 const customParagraph: FunctionComponent = ({ children }) => (
   <p className="t-body lh-title">{children}</p>
 )
@@ -76,13 +78,29 @@ const customAnchor: FunctionComponent<AnchorHTMLAttributes<any>> = ({
   href,
   children,
 }) => {
-  return href && href[0] === '#' ? (
-    <AnchorLink offset={() => 80} href={href.toLowerCase()}>
-      {children}
-    </AnchorLink>
-  ) : (
-      <a href={href}>{children}</a>
+
+  const { route } = useRuntime()
+
+  const isIdLink = !!href && href[0] === '#'
+  const isRelativeLink = !!href && href[0] === '/'
+
+  if (isIdLink && !!href) {
+    return (
+      <AnchorLink offset={() => 80} href={href.toLowerCase()}>
+        {children}
+      </AnchorLink>
     )
+  }
+
+  if (isRelativeLink) {
+    return (
+      <a href={`/docs/${route.params.app}${href}`}>{children}</a>
+    )
+  }
+
+  return (
+    <a href={href}>{children}</a>
+  )
 }
 
 export const remarkReactComponents = {
