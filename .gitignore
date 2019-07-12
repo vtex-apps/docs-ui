@@ -34,4 +34,3 @@ docs/_book/
 npm-debug.log
 .build/
 lib
-.eslintrc
