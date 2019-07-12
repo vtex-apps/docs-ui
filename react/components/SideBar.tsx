@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, ReactNode } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import { graphql, compose } from 'react-apollo'
 import { branch, renderComponent } from 'recompose'
 import { Link, withRuntimeContext } from 'vtex.render-runtime'
@@ -16,30 +16,50 @@ interface Chapter {
 }
 
 const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
-
-  const { route: { params: { app } }, query: { version, build } } = runtime
+  const {
+    route: {
+      params: { app },
+    },
+    query: { version, build },
+  } = runtime
 
   return (
-    <ul className="list pa6 pt10">
+    <ul className="list pa6 pt10" role="menu">
       {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
     </ul>
   )
 }
 
-function getArticles(chapterList: Chapter[], app: string, version: string, build: string): any {
+function getArticles(
+  chapterList: Chapter[],
+  app: string,
+  version: string,
+  build: string
+): any {
   return chapterList.map((chapter: Chapter) => {
     const [open, setOpen] = useState(false)
 
     return (
       <li className="link" key={chapter.path}>
         <div className="flex justify-between items-center">
-          {chapter.path ?
-            <Link to={`/docs/${app}/${chapter.path}${version ? `&version=${version}` : ''}`}>
+          {chapter.path ? (
+            <Link
+              to={`/docs/${app}/${chapter.path}${
+                version ? `&version=${version}` : ''
+              }`}>
               <p>{chapter.title}</p>
-            </Link> : <p>{chapter.title}</p>
-          }
-          <div className="ph4" onClick={() => setOpen(!open)}>
-            {chapter.articles.length > 0 && (open ? <IconCaretUp /> : <IconCaretDown />)}
+            </Link>
+          ) : (
+            <p>{chapter.title}</p>
+          )}
+          <div
+            className="ph4"
+            onClick={() => setOpen(!open)}
+            onKeyPress={() => setOpen(!open)}
+            role="menuitem"
+            tabIndex={0}>
+            {chapter.articles.length > 0 &&
+              (open ? <IconCaretUp /> : <IconCaretDown />)}
           </div>
         </div>
         <div hidden={!open} className="pa3">
@@ -56,7 +76,9 @@ export default compose(
     name: 'summaryQuery',
     options: (props: { runtime: any }) => {
       const version = props.runtime.query.version
-      const appName = `${props.runtime.route.params.app}${version ? `@${version}` : ''}`
+      const appName = `${props.runtime.route.params.app}${
+        version ? `@${version}` : ''
+      }`
       return {
         variables: {
           appName,

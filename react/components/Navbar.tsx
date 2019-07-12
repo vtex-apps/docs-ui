@@ -36,20 +36,17 @@ const Navbar: FunctionComponent<
         className="fixed bg-base c-muted-1 w-100 flex flex-column flex-row-l justify-between z-5"
         style={{
           boxShadow: `0px 3px 20px rgba(0, 0, 0, 0.3)`,
-        }}
-      >
+        }}>
         <div className="flex">
           <button
             className="dn-l bg-base c-on-base w-33 w-50-l bn"
-            onClick={() => setOpenNav(!openNav)}
-          >
+            onClick={() => setOpenNav(!openNav)}>
             <IconBars />
           </button>
           <div className="w-40 w-50-l">
             <Link
               to="https://vtex.io"
-              className="c-muted-1 self-center flex items-center link"
-            >
+              className="c-muted-1 self-center flex items-center link">
               <img src={logoPath} className="h3" alt="VTEX" />
               <p className="dn-s flex-l">|</p>
               <p className="dn-s flex-l ml3">Developer</p>
@@ -61,13 +58,14 @@ const Navbar: FunctionComponent<
             <li className="mh5 mv5 mv0-l">
               <a
                 className="link c-muted-1"
-                href="https://docs.google.com/document/d/1ZM0sF22yPxaKZ9jvKWR-h8Ba00shHZS5uWgQmA8Tg7U/edit?usp=sharing"
-              >
+                href="https://docs.google.com/document/d/1ZM0sF22yPxaKZ9jvKWR-h8Ba00shHZS5uWgQmA8Tg7U/edit?usp=sharing">
                 {intl.formatMessage({ id: 'io.navbar.learn' })}
               </a>
             </li>
             <li className="mh5 mv5 mv0-l">
-              <Link className="link c-muted-1" to="https://vtex.io/store-features">
+              <Link
+                className="link c-muted-1"
+                to="https://vtex.io/store-features">
                 {intl.formatMessage({ id: 'io.navbar.feature-list' })}
               </Link>
             </li>
@@ -81,22 +79,19 @@ const Navbar: FunctionComponent<
                 <div className="h-100 relative w3">
                   <button
                     onClick={() => setOpenLocaleSelector(!openLocaleSelector)}
-                    className="c-muted-1 bg-base bn flex items-center pointer"
-                  >
+                    className="c-muted-1 bg-base bn flex items-center pointer">
                     <p className="ttu mr4">{splitLocale(selectedLocale.id)}</p>
                     {openLocaleSelector ? <IconCaretUp /> : <IconCaretDown />}
                   </button>
                   <div
                     hidden={!openLocaleSelector}
-                    className="z-4 bg-base pa3 absolute"
-                  >
+                    className="z-4 bg-base pa3 absolute">
                     {supportedLangs.map(({ id }) => (
                       <button
                         className="tc ttu c-muted-1 pointer bn bg-base"
                         onClick={handleLocaleClick}
                         id={id}
-                        key={id}
-                      >
+                        key={id}>
                         {splitLocale(id)}
                       </button>
                     ))}

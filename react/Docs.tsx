@@ -27,8 +27,8 @@ const Docs: FunctionComponent<any> = () => {
             Documentation
           </h1>
           <div className="w-80-l w-90 center flex flex-wrap justify-between">
-            {items.map((item) => (
-              <div className="w-40 mv5">
+            {items.map(item => (
+              <div className="w-40 mv5" key={item.link}>
                 <Link to={item.link} className="no-underline">
                   <CustomCard>
                     <h4 className="t-heading-4 tc c-muted-5">{item.text}</h4>

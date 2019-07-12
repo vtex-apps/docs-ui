@@ -26,5 +26,5 @@ export const availableDocs = [
   { urlName: 'vtex.product-summary', formattedName: 'Product Summary' },
   { urlName: 'vtex.store-icons', formattedName: 'Store Icons' },
   { urlName: 'vtex.rich-text', formattedName: 'Rich Text' },
-  { urlName: 'vtex.wishlist', formattedName: 'Wishlist' }
+  { urlName: 'vtex.wishlist', formattedName: 'Wishlist' },
 ]

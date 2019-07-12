@@ -20,7 +20,10 @@ interface MetaData {
 }
 
 const DocsRenderer: FunctionComponent<any> = ({ markdownQuery }) => {
-  const { meta, markdown }: { meta: MetaData, markdown: string } = markdownQuery.getMarkdownFile
+  const {
+    meta,
+    markdown,
+  }: { meta: MetaData; markdown: string } = markdownQuery.getMarkdownFile
 
   return (
     <article className="ph9 w-100">
@@ -32,7 +35,11 @@ const DocsRenderer: FunctionComponent<any> = ({ markdownQuery }) => {
           })
           .processSync(markdown).contents
       }
-      {meta.git && <p>Edit this page on <a href={meta.git}>GitHub</a></p>}
+      {meta.git && (
+        <p>
+          Edit this page on <a href={meta.git}>GitHub</a>
+        </p>
+      )}
     </article>
   )
 }

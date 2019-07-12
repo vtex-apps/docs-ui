@@ -12,8 +12,7 @@ const customParagraph: FunctionComponent = ({ children }) => (
 const customH1: FunctionComponent = ({ children }) => (
   <h1
     id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-2 bb b--muted-4"
-  >
+    className="t-heading-2 bb b--muted-4">
     {children}
   </h1>
 )
@@ -21,8 +20,7 @@ const customH1: FunctionComponent = ({ children }) => (
 const customH2: FunctionComponent = ({ children }) => (
   <h2
     id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-3"
-  >
+    className="t-heading-3">
     {children}
   </h2>
 )
@@ -30,8 +28,7 @@ const customH2: FunctionComponent = ({ children }) => (
 const customH3: FunctionComponent = ({ children }) => (
   <h3
     id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-4"
-  >
+    className="t-heading-4">
     {children}
   </h3>
 )
@@ -39,8 +36,7 @@ const customH3: FunctionComponent = ({ children }) => (
 const customH4: FunctionComponent = ({ children }) => (
   <h4
     id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-5"
-  >
+    className="t-heading-5">
     {children}
   </h4>
 )
@@ -48,8 +44,7 @@ const customH4: FunctionComponent = ({ children }) => (
 const customH5: FunctionComponent = ({ children }) => (
   <h5
     id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-6"
-  >
+    className="t-heading-6">
     {children}
   </h5>
 )
@@ -71,14 +66,16 @@ const customPre: FunctionComponent = ({ children }) => (
 )
 
 const customListItem: FunctionComponent = ({ children }) => (
-  <li><p className="t-body lh-title">{children}</p></li>
+  <li>
+    <p className="t-body lh-title">{children}</p>
+  </li>
 )
 
 const customAnchor: FunctionComponent<AnchorHTMLAttributes<any>> = ({
   href,
   children,
 }) => {
-
+  /* eslint-disable react-hooks/rules-of-hooks */
   const { route } = useRuntime()
 
   const isIdLink = !!href && href[0] === '#'
@@ -93,14 +90,10 @@ const customAnchor: FunctionComponent<AnchorHTMLAttributes<any>> = ({
   }
 
   if (isRelativeLink) {
-    return (
-      <a href={`/docs/${route.params.app}${href}`}>{children}</a>
-    )
+    return <a href={`/docs/${route.params.app}${href}`}>{children}</a>
   }
 
-  return (
-    <a href={href}>{children}</a>
-  )
+  return <a href={href}>{children}</a>
 }
 
 export const remarkReactComponents = {
@@ -114,5 +107,5 @@ export const remarkReactComponents = {
   pre: customPre,
   th: customTableHeader,
   td: customTableData,
-  li: customListItem
+  li: customListItem,
 }
