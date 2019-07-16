@@ -16,7 +16,7 @@ interface Chapter {
   articles: Chapter[]
 }
 
-const SideBar: FunctionComponent<any> = () => {
+const SideBar: FunctionComponent = () => {
   const { major } = useAppVersionState()
   const {
     route: { params },
