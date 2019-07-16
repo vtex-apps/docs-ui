@@ -23,5 +23,6 @@
   "io.footer.partners.vtex": "VTEX Partners",
   "io.footer.partners.find": "Find a partner",
   "io.footer.partners.program": "Partner Program",
-  "io.footer.partners.appstore": "VTEX App Store"
+  "io.footer.partners.appstore": "VTEX App Store",
+  "docs.docs-renderer.github": "Edit this page on GitHub"
 }

@@ -3,6 +3,7 @@ import remark from 'remark'
 import remark2react from 'remark-react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
+import { FormattedMessage } from 'react-intl'
 
 import Skeleton from './Skeleton'
 import EmptyDocs from './EmptyDocs'
@@ -53,9 +54,9 @@ const DocsRenderer: FunctionComponent = () => {
                 .processSync(markdown).contents
             }
             {meta.git && (
-              <p>
-                Edit this page on <a href={meta.git}>GitHub</a>
-              </p>
+              <a href={meta.git}>
+                <FormattedMessage id="docs.docs-renderer.github" />
+              </a>
             )}
           </article>
         )
