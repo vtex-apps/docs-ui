@@ -1,6 +1,10 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useContext, createContext, Fragment } from 'react'
 import { useRuntime, withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
+import { renderComponent, branch, renderNothing } from 'recompose'
+
+import Skeleton from './Skeleton'
+import EmptyAppDocs from './EmptyAppDocs'
 
 import * as appMajorsQuery from '../graphql/getAppMajors.graphql'
 
@@ -17,17 +21,23 @@ const AppVersionStateContext = createContext<State | undefined>(undefined)
 const AppVersionDispatchContext = createContext<Dispatch | undefined>(undefined)
 
 function AppVersionProvider({ children, appMajorsQuery }: any) {
+  const { loading, error } = appMajorsQuery
+
   const {
     route: { params },
   } = useRuntime()
   const urlVersion = params.app.split('@')[1]
   const hasVersion = !!urlVersion
+  const majorFromQuery = loading
+    ? ''
+    : `${appMajorsQuery.getAppMajors.latestMajor}.x`
+  const availableMajors = loading
+    ? ['']
+    : appMajorsQuery.getAppMajors.publishedMajors
 
   const [versionInfo, setVersionInfo] = useState({
-    major: `${
-      hasVersion ? urlVersion : appMajorsQuery.getAppMajors.latestMajor
-    }`,
-    availableMajors: appMajorsQuery.getAppMajors.publishedMajors,
+    major: `${hasVersion ? urlVersion : majorFromQuery}`,
+    availableMajors,
   })
 
   return (
@@ -72,7 +82,15 @@ const EnhancedAppVersionProvider = compose(
         },
       }
     },
-  })
+  }),
+  branch(
+    ({ appMajorsQuery }: any) => appMajorsQuery.loading,
+    renderComponent(Skeleton)
+  ),
+  branch(
+    ({ appMajorsQuery }: any) => !!appMajorsQuery.error,
+    renderComponent(EmptyAppDocs)
+  )
 )(AppVersionProvider)
 
 export { EnhancedAppVersionProvider, useAppVersionState, useAppVersionDispatch }
