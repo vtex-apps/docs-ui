@@ -1,7 +1,7 @@
 import React, { useState, useContext, createContext, Fragment } from 'react'
 import { useRuntime, withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
-import { renderComponent, branch, renderNothing } from 'recompose'
+import { renderComponent, branch } from 'recompose'
 
 import Skeleton from './Skeleton'
 import EmptyAppDocs from './EmptyAppDocs'
@@ -21,19 +21,13 @@ const AppVersionStateContext = createContext<State | undefined>(undefined)
 const AppVersionDispatchContext = createContext<Dispatch | undefined>(undefined)
 
 function AppVersionProvider({ children, appMajorsQuery }: any) {
-  const { loading, error } = appMajorsQuery
-
   const {
     route: { params },
   } = useRuntime()
   const urlVersion = params.app.split('@')[1]
   const hasVersion = !!urlVersion
-  const majorFromQuery = loading
-    ? ''
-    : `${appMajorsQuery.getAppMajors.latestMajor}.x`
-  const availableMajors = loading
-    ? ['']
-    : appMajorsQuery.getAppMajors.publishedMajors
+  const majorFromQuery = `${appMajorsQuery.getAppMajors.latestMajor}.x`
+  const availableMajors = appMajorsQuery.getAppMajors.publishedMajors
 
   const [versionInfo, setVersionInfo] = useState({
     major: `${hasVersion ? urlVersion : majorFromQuery}`,
