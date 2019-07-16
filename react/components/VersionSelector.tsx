@@ -7,7 +7,9 @@ const VersionSelector: FunctionComponent = () => {
   const { major, availableMajors } = useAppVersionState()
   const setMajorInfo = useAppVersionDispatch()
 
-  const options = useMemo(() => getDropdownOptions(availableMajors), [])
+  const options = useMemo(() => getDropdownOptions(availableMajors), [
+    availableMajors,
+  ])
 
   return (
     <div className="w-40 flex">
@@ -15,7 +17,7 @@ const VersionSelector: FunctionComponent = () => {
         options={options}
         value={major[0]}
         onChange={(e: any, value: string) => {
-          setMajorInfo({ major: value, availableMajors })
+          setMajorInfo({ type: 'updateMajor', value })
         }}
       />
     </div>

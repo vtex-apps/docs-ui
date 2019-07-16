@@ -1,4 +1,10 @@
-import React, { useState, useContext, createContext, Fragment } from 'react'
+import React, {
+  useState,
+  useContext,
+  createContext,
+  Fragment,
+  useReducer,
+} from 'react'
 import { useRuntime, withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
 import { renderComponent, branch } from 'recompose'
@@ -8,10 +14,10 @@ import EmptyAppDocs from './EmptyAppDocs'
 
 import * as appMajorsQuery from '../graphql/getAppMajors.graphql'
 
-type Dispatch = (newMajorInfo: {
-  major: string
-  availableMajors: string[]
-}) => void
+type Action =
+  | { type: 'updateMajor'; value: string }
+  | { type: 'updateAvailableMajors'; value: string[] }
+type Dispatch = (action: Action) => void
 interface State {
   major: string
   availableMajors: string[]
@@ -19,6 +25,20 @@ interface State {
 
 const AppVersionStateContext = createContext<State | undefined>(undefined)
 const AppVersionDispatchContext = createContext<Dispatch | undefined>(undefined)
+
+function appVersionReducer(state: State, action: Action) {
+  switch (action.type) {
+    case 'updateMajor': {
+      return { major: action.value, availableMajors: state.availableMajors }
+    }
+    case 'updateAvailableMajors': {
+      return { major: state.major, availableMajors: action.value }
+    }
+    default: {
+      return state
+    }
+  }
+}
 
 function AppVersionProvider({ children, appMajorsQuery }: any) {
   const {
@@ -29,14 +49,14 @@ function AppVersionProvider({ children, appMajorsQuery }: any) {
   const majorFromQuery = `${appMajorsQuery.getAppMajors.latestMajor}.x`
   const availableMajors = appMajorsQuery.getAppMajors.publishedMajors
 
-  const [versionInfo, setVersionInfo] = useState({
+  const [versionInfo, dispatch] = useReducer(appVersionReducer, {
     major: `${hasVersion ? urlVersion : majorFromQuery}`,
     availableMajors,
   })
 
   return (
     <AppVersionStateContext.Provider value={versionInfo}>
-      <AppVersionDispatchContext.Provider value={setVersionInfo}>
+      <AppVersionDispatchContext.Provider value={dispatch}>
         {children}
       </AppVersionDispatchContext.Provider>
     </AppVersionStateContext.Provider>
