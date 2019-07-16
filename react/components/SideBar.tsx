@@ -37,8 +37,8 @@ const SideBar: FunctionComponent<any> = () => {
         error?: ApolloError
         data: { getAppSummary: { chapterList: Chapter[] } }
       }) => {
-        if (loading) return Skeleton
-        if (error) return EmptySummary
+        if (loading) return <Skeleton />
+        if (error) return <EmptySummary />
 
         return (
           <ul className="list pa6 pt10" role="menu">
