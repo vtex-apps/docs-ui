@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useMemo } from 'react'
 import { Dropdown } from 'vtex.styleguide'
 
 import { useAppVersionState, useAppVersionDispatch } from './AppVersionContext'
@@ -7,10 +7,12 @@ const VersionSelector: FunctionComponent = () => {
   const { major, availableMajors } = useAppVersionState()
   const setMajorInfo = useAppVersionDispatch()
 
+  const options = useMemo(() => getDropdownOptions(availableMajors), [])
+
   return (
     <div className="w-40 flex">
       <Dropdown
-        options={getDropdownOptions(availableMajors)}
+        options={options}
         value={major[0]}
         onChange={(e: any, value: string) => {
           setMajorInfo({ major: value, availableMajors })
