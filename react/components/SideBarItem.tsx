@@ -34,7 +34,7 @@ const SideBarItem: FunctionComponent<Props> = ({
           onClick={() => setOpen(!open)}
           onKeyPress={() => setOpen(!open)}
           role="menuitem"
-          tabIndex={0}>
+          tabIndex={-1}>
           {hasArticles && (open ? <IconCaretUp /> : <IconCaretDown />)}
         </div>
       </div>
