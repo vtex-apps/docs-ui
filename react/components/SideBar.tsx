@@ -1,11 +1,12 @@
-import React, { FunctionComponent, useState } from 'react'
-import { graphql, compose } from 'react-apollo'
-import { branch, renderComponent } from 'recompose'
-import { Link, withRuntimeContext } from 'vtex.render-runtime'
-import { IconCaretDown, IconCaretUp } from 'vtex.styleguide'
+import React, { FunctionComponent } from 'react'
+import { Query } from 'react-apollo'
+import { ApolloError } from 'apollo-client'
+import { useRuntime } from 'vtex.render-runtime'
 
+import { useAppVersionState } from './AppVersionContext'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
+import SideBarItem from './SideBarItem'
 
 import * as Summary from '../graphql/getAppSummary.graphql'
 
@@ -15,83 +16,55 @@ interface Chapter {
   articles: Chapter[]
 }
 
-const SideBar: FunctionComponent<any> = ({ summaryQuery, runtime }) => {
+const SideBar: FunctionComponent<any> = () => {
+  const { major } = useAppVersionState()
   const {
-    route: {
-      params: { app },
-    },
-    query: { version, build },
-  } = runtime
+    route: { params },
+  } = useRuntime()
+  const { app } = params
+  const [appName] = app.split('@')
+
+  const finalAppName = `${appName}@${major}.x`
 
   return (
-    <ul className="list pa6 pt10" role="menu">
-      {getArticles(summaryQuery.getAppSummary.chapterList, app, version, build)}
-    </ul>
+    <Query query={Summary.default} variables={{ appName: finalAppName }}>
+      {({
+        loading,
+        error,
+        data,
+      }: {
+        loading: boolean
+        error?: ApolloError
+        data: { getAppSummary: { chapterList: Chapter[] } }
+      }) => {
+        if (loading) return Skeleton
+        if (error) return EmptySummary
+
+        return (
+          <ul className="list pa6 pt10" role="menu">
+            {getArticles(data.getAppSummary.chapterList, appName, major)}
+          </ul>
+        )
+      }}
+    </Query>
   )
 }
 
 function getArticles(
   chapterList: Chapter[],
   app: string,
-  version: string,
-  build: string
+  version: string
 ): any {
-  return chapterList.map((chapter: Chapter) => {
-    const [open, setOpen] = useState(false)
-
-    return (
-      <li className="link" key={chapter.path}>
-        <div className="flex justify-between items-center">
-          {chapter.path ? (
-            <Link
-              to={`/docs/${app}/${chapter.path}${
-                version ? `&version=${version}` : ''
-              }`}>
-              <p>{chapter.title}</p>
-            </Link>
-          ) : (
-            <p>{chapter.title}</p>
-          )}
-          <div
-            className="ph4"
-            onClick={() => setOpen(!open)}
-            onKeyPress={() => setOpen(!open)}
-            role="menuitem"
-            tabIndex={0}>
-            {chapter.articles.length > 0 &&
-              (open ? <IconCaretUp /> : <IconCaretDown />)}
-          </div>
-        </div>
-        <div hidden={!open} className="pa3">
-          {getArticles(chapter.articles, app, version, build)}
-        </div>
-      </li>
-    )
-  })
+  return chapterList.map((chapter: Chapter) => (
+    <SideBarItem
+      appName={app}
+      text={chapter.title}
+      link={chapter.path}
+      hasArticles={chapter.articles.length > 0}
+      key={app}>
+      {getArticles(chapter.articles, app, version)}
+    </SideBarItem>
+  ))
 }
 
-export default compose(
-  withRuntimeContext,
-  graphql(Summary.default, {
-    name: 'summaryQuery',
-    options: (props: { runtime: any }) => {
-      const version = props.runtime.query.version
-      const appName = `${props.runtime.route.params.app}${
-        version ? `@${version}` : ''
-      }`
-      return {
-        variables: {
-          appName,
-        },
-      }
-    },
-  }),
-  branch(
-    ({ summaryQuery }: any) => summaryQuery.loading,
-    renderComponent(Skeleton)
-  ),
-  branch(
-    ({ summaryQuery }: any) => !!summaryQuery.error,
-    renderComponent(EmptySummary)
-  )
-)(SideBar)
+export default SideBar
