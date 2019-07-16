@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { useRuntime } from 'vtex.render-runtime'
 
-import { useAppVersionState } from './AppVersionContext'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 import SideBarItem from './SideBarItem'
+import { useAppVersionState } from './AppVersionContext'
+import { useAppNameAndFile } from '../hooks/useAppName'
 
 import * as Summary from '../graphql/getAppSummary.graphql'
 
@@ -18,16 +18,10 @@ interface Chapter {
 
 const SideBar: FunctionComponent = () => {
   const { major } = useAppVersionState()
-  const {
-    route: { params },
-  } = useRuntime()
-  const { app } = params
-  const [appName] = app.split('@')
-
-  const finalAppName = `${appName}@${major}.x`
+  const { appName } = useAppNameAndFile(major)
 
   return (
-    <Query query={Summary.default} variables={{ appName: finalAppName }}>
+    <Query query={Summary.default} variables={{ appName }}>
       {({
         loading,
         error,

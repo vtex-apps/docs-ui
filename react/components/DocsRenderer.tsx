@@ -3,12 +3,12 @@ import remark from 'remark'
 import remark2react from 'remark-react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { useRuntime } from 'vtex.render-runtime'
 
 import Skeleton from './Skeleton'
 import EmptyDocs from './EmptyDocs'
 import { remarkReactComponents } from './CustomTags'
 import { useAppVersionState } from './AppVersionContext'
+import { useAppNameAndFile } from '../hooks/useAppName'
 
 import * as MarkdownFile from '../graphql/getMarkdownFile.graphql'
 
@@ -22,19 +22,10 @@ interface MetaData {
 
 const DocsRenderer: FunctionComponent = () => {
   const { major } = useAppVersionState()
-  const {
-    route: { params },
-  } = useRuntime()
-  const { app, file } = params
-  const [appName] = app.split('@')
-  const fileName = file || 'README.md'
-
-  const finalAppName = `${appName}@${major}.x`
+  const { appName, fileName } = useAppNameAndFile(major)
 
   return (
-    <Query
-      query={MarkdownFile.default}
-      variables={{ appName: finalAppName, fileName }}>
+    <Query query={MarkdownFile.default} variables={{ appName, fileName }}>
       {({
         loading,
         error,
