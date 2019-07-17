@@ -34,28 +34,28 @@ export const CustomRenderers = {
 
       case 2:
         return (
-          <h2 id={hashId} className="mt9 mb5 t-heading-2 c-on-base">
+          <h2 id={hashId} className="t-heading-2 mt9 mb5 c-on-base">
             {props.children}
           </h2>
         )
 
       case 3:
         return (
-          <h3 id={hashId} className="mt7 t-heading-3 c-on-base">
+          <h3 id={hashId} className="t-heading-3 mt7 c-on-base">
             {props.children}
           </h3>
         )
 
       case 4:
         return (
-          <h4 id={hashId} className="mt7 t-heading-4 c-on-base">
+          <h4 id={hashId} className="t-heading-4 mt7 c-on-base">
             {props.children}
           </h4>
         )
 
       case 5:
         return (
-          <h5 id={hashId} className="mt5 mb5 t-heading-5 c-on-base lh-copy">
+          <h5 id={hashId} className="t-heading-5 mt5 mb5 c-on-base lh-copy">
             {props.children}
           </h5>
         )
