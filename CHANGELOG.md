@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## Added
+
+- Support for rendering raw HTMl from Markdown files.
+- Support for 3 special CSS classes for highlighting text:
+  - `alert-info`
+  - `alert-danger`
+  - `alert-warning`
+
+## Changed
+
+- `react-markdown` is now used by `DocsRenderer` component as `remark-react` was removed.
 
 ## [0.6.0] - 2019-07-17
 ## Added
