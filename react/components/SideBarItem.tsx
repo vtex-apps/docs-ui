@@ -6,14 +6,16 @@ import { IconCaretDown, IconCaretRight } from 'vtex.styleguide'
 interface Props {
   text: string
   link?: string
-  appName: string
+  appName?: string
   hasArticles?: boolean
+  depth: number
 }
 
 const SideBarItem: FunctionComponent<Props> = ({
   text,
   link,
   appName,
+  depth,
   hasArticles,
   children,
 }) => {
@@ -26,10 +28,20 @@ const SideBarItem: FunctionComponent<Props> = ({
           <Link
             to={`/docs/${appName}/${link}`}
             className="no-underline c-on-base">
-            <p>{text}</p>
+            {depth === 0 ? (
+              <p className="mv4">
+                <strong>{text}</strong>
+              </p>
+            ) : (
+              <p className="c-muted-2 mv4">{text}</p>
+            )}
           </Link>
+        ) : depth === 0 ? (
+          <p className="mv4">
+            <strong>{text}</strong>
+          </p>
         ) : (
-          <p>{text}</p>
+          <p className="c-muted-2 mv4">{text}</p>
         )}
         <div
           className="ph4"
