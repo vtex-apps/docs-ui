@@ -5,7 +5,7 @@ import RightArrow from './icons/RightArrow'
 import { FormattedMessage } from 'react-intl'
 
 const LatestFeatures = () => (
-  <section className="mv7">
+  <section className="mv9">
     <h2 className="t-heading-2 normal">
       <FormattedMessage id="docs/latest-features" />
     </h2>
