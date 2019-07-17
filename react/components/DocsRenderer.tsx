@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from 'react'
-import remark from 'remark'
-import remark2react from 'remark-react'
+import ReactMarkdown from 'react-markdown'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { FormattedMessage } from 'react-intl'
 
 import Skeleton from './Skeleton'
 import EmptyDocs from './EmptyDocs'
-import { remarkReactComponents } from './CustomTags'
+import { helpRenderers } from './CustomTags'
 import { useAppVersionState } from './AppVersionContext'
 import { useAppNameAndFile } from '../hooks/useAppName'
 
@@ -46,13 +45,11 @@ const DocsRenderer: FunctionComponent = () => {
         return (
           <article className="ph9 w-100 min-vh-100">
             {meta.tags && <p>Tags: {meta.tags.toString()}</p>}
-            {
-              remark()
-                .use(remark2react, {
-                  remarkReactComponents,
-                })
-                .processSync(markdown).contents
-            }
+            <ReactMarkdown
+              source={markdown}
+              escapeHtml={false}
+              renderers={helpRenderers}
+            />
             {meta.git && (
               <a href={meta.git}>
                 <FormattedMessage id="docs.docs-renderer.github" />
