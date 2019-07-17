@@ -1,7 +1,7 @@
 import React, { useState, FunctionComponent } from 'react'
 
 import { Link } from 'vtex.render-runtime'
-import { IconCaretDown, IconCaretUp } from 'vtex.styleguide'
+import { IconCaretDown, IconCaretRight } from 'vtex.styleguide'
 
 interface Props {
   text: string
@@ -23,7 +23,9 @@ const SideBarItem: FunctionComponent<Props> = ({
     <li className="link">
       <div className="flex justify-between items-center">
         {link ? (
-          <Link to={`/docs/${appName}/${link}`}>
+          <Link
+            to={`/docs/${appName}/${link}`}
+            className="no-underline c-on-base">
             <p>{text}</p>
           </Link>
         ) : (
@@ -35,7 +37,7 @@ const SideBarItem: FunctionComponent<Props> = ({
           onKeyPress={() => setOpen(!open)}
           role="menuitem"
           tabIndex={-1}>
-          {hasArticles && (open ? <IconCaretUp /> : <IconCaretDown />)}
+          {hasArticles && (open ? <IconCaretDown /> : <IconCaretRight />)}
         </div>
       </div>
       <div hidden={!open} className="pa3">
