@@ -1,19 +1,40 @@
 import React from 'react'
 
 import { items } from '../content/SideBar'
+import SideBarItem from './SideBarItem'
+
+import VTEXBlack from './icons/VTEXBlack'
+
+interface SideBarContent {
+  text: string
+  link: string
+  articles: SideBarContent[] | []
+}
 
 const HomeSideBar = () => (
-  <nav>
-    <ul className="list pa6 pt10">
-      {items.map(item => (
-        <li key={item.link}>
-          <a href={item.link} className="no-underline">
-            <p className="link c-muted-5">{item.text}</p>
-          </a>
-        </li>
-      ))}
+  <nav className="min-h-100 br b--muted-4">
+    <VTEXBlack />
+    <ul className="list pa5 pt9">
+      {getArticles(items, 'vtex.docs-ui', '2.x')}
     </ul>
   </nav>
 )
+
+function getArticles(
+  chapterList: SideBarContent[],
+  app: string,
+  version: string
+): any {
+  return chapterList.map((chapter: SideBarContent) => (
+    <SideBarItem
+      appName={app}
+      text={chapter.text}
+      link={chapter.link}
+      hasArticles={chapter.articles.length > 0}
+      key={app}>
+      {getArticles(chapter.articles, app, version)}
+    </SideBarItem>
+  ))
+}
 
 export default HomeSideBar
