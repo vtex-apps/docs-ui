@@ -16,7 +16,7 @@ const UnderConstruction: FunctionComponent = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <Navbar />
-      <main className="w-100 pv10 min-vh-75 bg-base--inverted">
+      <main className="w-100 pv10 min-vh-75 bg-base">
         <EmptyState title="Under Construction">
           <p>This page is still being developed.</p>
           <p>Come back in a bit and something awesome should be here!</p>
