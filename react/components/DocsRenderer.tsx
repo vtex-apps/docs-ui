@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl'
 
 import Skeleton from './Skeleton'
 import EmptyDocs from './EmptyDocs'
-import { helpRenderers } from './CustomTags'
+import { CustomRenderers } from './CustomTags'
 import { useAppVersionState } from './AppVersionContext'
 import { useAppNameAndFile } from '../hooks/useAppName'
 
@@ -48,7 +48,7 @@ const DocsRenderer: FunctionComponent = () => {
             <ReactMarkdown
               source={markdown}
               escapeHtml={false}
-              renderers={helpRenderers}
+              renderers={CustomRenderers}
             />
             {meta.git && (
               <a href={meta.git}>
