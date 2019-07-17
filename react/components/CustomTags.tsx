@@ -2,6 +2,7 @@ import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { coy } from 'react-syntax-highlighter/dist/styles/prism'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import slugify from 'slugify'
 
 import { useRuntime } from 'vtex.render-runtime'
 
@@ -22,7 +23,7 @@ export const CustomRenderers = {
   },
   emphasis: (props: any) => <em className="i">{props.children}</em>,
   heading: (props: any) => {
-    const hashId = `${props.children}`.toLowerCase().replace(' ', '-')
+    const hashId = getHeadingSlug(props.children)
 
     switch (props.level) {
       case 1:
@@ -145,4 +146,14 @@ export const CustomRenderers = {
   },
   tableRow: (props: any) => <tr className="bb b--muted-3">{props.children}</tr>,
   thematicBreak: () => <hr className="mv7" />,
+}
+
+function slug(str: string) {
+  const replaced = (str && str.replace(/[*+~.()'"!:@&[\]]/g, '')) || ''
+  const slugified = slugify(replaced, { lower: true }) || ''
+  return slugified
+}
+
+function getHeadingSlug(childNodes: any) {
+  return slug(childNodes[0].props.children)
 }
