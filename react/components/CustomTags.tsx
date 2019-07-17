@@ -1,116 +1,11 @@
-import React, { FunctionComponent, AnchorHTMLAttributes } from 'react'
+import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { coy } from 'react-syntax-highlighter/dist/styles/prism'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import { useRuntime } from 'vtex.render-runtime'
 
-const customParagraph: FunctionComponent = ({ children }) => (
-  <p className="t-body lh-title">{children}</p>
-)
-
-const customH1: FunctionComponent = ({ children }) => (
-  <h1
-    id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-2 bb b--muted-4">
-    {children}
-  </h1>
-)
-
-const customH2: FunctionComponent = ({ children }) => (
-  <h2
-    id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-3">
-    {children}
-  </h2>
-)
-
-const customH3: FunctionComponent = ({ children }) => (
-  <h3
-    id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-4">
-    {children}
-  </h3>
-)
-
-const customH4: FunctionComponent = ({ children }) => (
-  <h4
-    id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-5">
-    {children}
-  </h4>
-)
-
-const customH5: FunctionComponent = ({ children }) => (
-  <h5
-    id={`${children}`.toLowerCase().replace(' ', '-')}
-    className="t-heading-6">
-    {children}
-  </h5>
-)
-
-const customTableHeader: FunctionComponent = ({ children }) => (
-  <th className="tc ph4">{children}</th>
-)
-
-const customTableData: FunctionComponent = ({ children }) => (
-  <td className="tc pv4 ph4">{children}</td>
-)
-
-const customPre: FunctionComponent = ({ children }) => (
-  <pre>
-    <SyntaxHighlighter language="javascript" style={coy}>
-      {children}
-    </SyntaxHighlighter>
-  </pre>
-)
-
-const customListItem: FunctionComponent = ({ children }) => (
-  <li>
-    <p className="t-body lh-title">{children}</p>
-  </li>
-)
-
-const customAnchor: FunctionComponent<AnchorHTMLAttributes<any>> = ({
-  href,
-  children,
-}) => {
-  /* eslint-disable react-hooks/rules-of-hooks */
-  const { route } = useRuntime()
-
-  const isIdLink = !!href && href[0] === '#'
-  const isRelativeLink = !!href && href[0] === '/'
-
-  if (isIdLink && !!href) {
-    return (
-      <AnchorLink offset={() => 80} href={href.toLowerCase()}>
-        {children}
-      </AnchorLink>
-    )
-  }
-
-  if (isRelativeLink) {
-    return <a href={`/docs/${route.params.app}${href}`}>{children}</a>
-  }
-
-  return <a href={href}>{children}</a>
-}
-
-export const remarkReactComponents = {
-  h1: customH1,
-  h2: customH2,
-  h3: customH3,
-  h4: customH4,
-  h5: customH5,
-  a: customAnchor,
-  p: customParagraph,
-  pre: customPre,
-  th: customTableHeader,
-  td: customTableData,
-  li: customListItem,
-}
-
-export const helpRenderers = {
+export const CustomRenderers = {
   break: () => <br />,
   code: (props: any) => {
     const codeBlock = props.value.replace(/“/gm, '"').replace(/”/gm, '"')
@@ -126,71 +21,55 @@ export const helpRenderers = {
     )
   },
   emphasis: (props: any) => <em className="i">{props.children}</em>,
-  // heading: (props: any) => {
-  //   switch (props.level) {
-  //     case 1:
-  //       return (
-  //         <h1 className="t-heading-1 c-on-base mt7 mb7">
-  //           {props.children}
-  //         </h1>
-  //       )
+  heading: (props: any) => {
+    const hashId = `${props.children}`.toLowerCase().replace(' ', '-')
 
-  //     case 2:
-  //       return (
-  //         <h2 className="mt9 mb5">
-  //           <a
-  //             className="t-heading-2 no-underline c-on-base mv0"
-  //             href=''
-  //           >
-  //             {props.children}
-  //           </a>
-  //         </h2>
-  //       )
+    switch (props.level) {
+      case 1:
+        return (
+          <h1 id={hashId} className="t-heading-1 c-on-base mt7 mb7">
+            {props.children}
+          </h1>
+        )
 
-  //     case 3:
-  //       return (
-  //         <h3 className="mt7">
-  //           <a
-  //             className="t-heading-3 no-underline c-on-base mv0"
-  //             href=''
-  //           >
-  //             {props.children}
-  //           </a>
-  //         </h3>
-  //       )
+      case 2:
+        return (
+          <h2 id={hashId} className="mt9 mb5 t-heading-2 c-on-base">
+            {props.children}
+          </h2>
+        )
 
-  //     case 4:
-  //       return (
-  //         <h4 className="mt7">
-  //           <a
-  //             className="t-heading-4 no-underline c-on-base mv0"
-  //             href=''
-  //           >
-  //             {props.children}
-  //           </a>
-  //         </h4>
-  //       )
+      case 3:
+        return (
+          <h3 id={hashId} className="mt7 t-heading-3 c-on-base">
+            {props.children}
+          </h3>
+        )
 
-  //     case 5:
-  //       return (
-  //         <h5 className="mt5 mb5">
-  //           <a
-  //             className="t-heading-5 c-on-base mv0 lh-copy"
-  //             href=''
-  //           >
-  //             {props.children}
-  //           </a>
-  //         </h5>
-  //       )
+      case 4:
+        return (
+          <h4 id={hashId} className="mt7 t-heading-4 c-on-base">
+            {props.children}
+          </h4>
+        )
 
-  //     case 6:
-  //       return (
-  //         <h6 className="t-heading-6 c-on-base mv5 lh-copy">
-  //           {props.children}
-  //         </h6>
-  //       )
-  //   }
-  // },
+      case 5:
+        return (
+          <h5 id={hashId} className="mt5 mb5 t-heading-5 c-on-base lh-copy">
+            {props.children}
+          </h5>
+        )
+
+      case 6:
+        return (
+          <h6 id={hashId} className="t-heading-6 c-on-base mv5 lh-copy">
+            {props.children}
+          </h6>
+        )
+      default:
+        return <p className="c-on-base lh-copy">{props.children}</p>
+    }
+  },
   image: (props: any) => (
     <span className="mv5 mh0">
       <img className="db center mv9 shadow-4" src={props.src} alt={props.alt} />
@@ -234,10 +113,10 @@ export const helpRenderers = {
     return <ul className="t-body c-on-base mb7 lh-copy">{props.children}</ul>
   },
   listItem: (props: any) => (
-    <li className="t-body c-on-base mb5 lh-copy">{props.children}</li>
+    <li className="t-body c-on-base mv4 lh-copy">{props.children}</li>
   ),
   paragraph: (props: any) => (
-    <p className="t-body c-on-base mb7">{props.children}</p>
+    <p className="t-body c-on-base mb7 lh-copy">{props.children}</p>
   ),
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,
   table: (props: any) => (
@@ -259,7 +138,7 @@ export const helpRenderers = {
     }
 
     return (
-      <td className="t-body pa5" style={{ minWidth: '15rem' }}>
+      <td className="t-body pa5" style={{ minWidth: '10rem' }}>
         {props.children}
       </td>
     )
