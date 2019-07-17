@@ -5,8 +5,14 @@
   "docs/components": "Components",
   "docs/resources": "Resources",
   "docs/community": "Community",
-  "docs/latest-features": "Latest features",
+  "docs/latest-features": "VTEX IO Latest features",
   "docs/apis": "Our APIs",
   "docs/partner": "Become a partner",
-  "docs/visit-us": "visit us at www.vtex.com"
+  "docs/visit-us": "visit us at www.vtex.com",
+  "docs/community-help": "Need help?",
+  "docs/community-join": "Join our community!",
+  "docs/empty-docs": "We could not fetch the documentation on this component right now.",
+  "docs/empty-summary": "We could not fetch the summary for this app.",
+  "docs/latest-features-description": "Here's a sneak peek at the new features we added last week:",
+  "docs/see-all": "See all"
 }
