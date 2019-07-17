@@ -11,28 +11,24 @@ interface SideBarContent {
   articles: SideBarContent[] | []
 }
 
+let articleDepth = 0
+
 const HomeSideBar = () => (
   <nav className="min-h-100 br b--muted-4">
     <VTEXBlack />
-    <ul className="list pa5 pt9">
-      {getArticles(items, 'vtex.docs-ui', '2.x')}
-    </ul>
+    <ul className="list pa5 pt9">{getArticles(items, articleDepth)}</ul>
   </nav>
 )
 
-function getArticles(
-  chapterList: SideBarContent[],
-  app: string,
-  version: string
-): any {
+function getArticles(chapterList: SideBarContent[], depth: number): any {
   return chapterList.map((chapter: SideBarContent) => (
     <SideBarItem
-      appName={app}
       text={chapter.text}
       link={chapter.link}
       hasArticles={chapter.articles.length > 0}
-      key={app}>
-      {getArticles(chapter.articles, app, version)}
+      key={chapter.text}
+      depth={depth}>
+      {getArticles(chapter.articles, depth + 1)}
     </SideBarItem>
   ))
 }

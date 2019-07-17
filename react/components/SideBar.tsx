@@ -16,6 +16,8 @@ interface Chapter {
   articles: Chapter[]
 }
 
+let articleDepth = 0
+
 const SideBar: FunctionComponent = () => {
   const { major } = useAppVersionState()
   const { appName } = useAppNameAndFile(major)
@@ -36,7 +38,12 @@ const SideBar: FunctionComponent = () => {
 
         return (
           <ul className="list pa6 pt10" role="menu">
-            {getArticles(data.getAppSummary.chapterList, appName, major)}
+            {getArticles(
+              data.getAppSummary.chapterList,
+              appName,
+              major,
+              articleDepth
+            )}
           </ul>
         )
       }}
@@ -47,7 +54,8 @@ const SideBar: FunctionComponent = () => {
 function getArticles(
   chapterList: Chapter[],
   app: string,
-  version: string
+  version: string,
+  depth: number
 ): any {
   return chapterList.map((chapter: Chapter) => (
     <SideBarItem
@@ -55,8 +63,9 @@ function getArticles(
       text={chapter.title}
       link={chapter.path}
       hasArticles={chapter.articles.length > 0}
-      key={app}>
-      {getArticles(chapter.articles, app, version)}
+      key={app}
+      depth={depth}>
+      {getArticles(chapter.articles, app, version, depth + 1)}
     </SideBarItem>
   ))
 }
