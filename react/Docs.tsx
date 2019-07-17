@@ -18,7 +18,7 @@ const Docs: FunctionComponent<any> = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <Navbar />
-      <main className="w-100 bg-base--inverted flex">
+      <main className="w-100 bg-base flex">
         <div className="bg-muted-1 w-20">
           <HomeSideBar />
         </div>
