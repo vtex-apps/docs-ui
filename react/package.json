@@ -11,9 +11,7 @@
     "react-ga": "^2.5.7",
     "react-markdown": "^4.1.0",
     "react-syntax-highlighter": "^10.3.0",
-    "recompose": "^0.30.0",
-    "remark": "^10.0.1",
-    "remark-react": "^5.0.1"
+    "recompose": "^0.30.0"
   },
   "devDependencies": {
     "@types/graphql": "^0.13.3",
