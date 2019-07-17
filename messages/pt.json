@@ -1,11 +1,12 @@
 {
-  "docs/docs-renderer-github": "Edit this page on GitHub",
-  "docs/docs-getting-started": "Getting Started",
-  "docs/docs-recipes": "Recipes",
-  "docs/docs-components": "Components",
-  "docs/docs-resources": "Resources",
-  "docs/docs.community": "Community",
-  "docs/docs-latest-features": "Latest features",
-  "docs/docs-apis": "Our APIs",
-  "docs/docs-partner": "Become a partner"
+  "docs/renderer-github": "Edit this page on GitHub",
+  "docs/getting-started": "Getting Started",
+  "docs/recipes": "Recipes",
+  "docs/components": "Components",
+  "docs/resources": "Resources",
+  "docs/community": "Community",
+  "docs/latest-features": "Latest features",
+  "docs/apis": "Our APIs",
+  "docs/partner": "Become a partner",
+  "docs/visit-us": "visit us at www.vtex.com"
 }
