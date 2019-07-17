@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from 'react'
-import { Helmet } from 'vtex.render-runtime'
+import { Helmet, NoSSR } from 'vtex.render-runtime'
 
 import Footer from './components/Footer'
 import HomeSideBar from './components/HomeSidebar'
@@ -18,9 +18,11 @@ const Home: FunctionComponent<any> = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <div className="flex min-h-100">
-        <div className="w-20 min-h-100">
-          <HomeSideBar />
-        </div>
+        <NoSSR>
+          <div className="w-20 min-h-100">
+            <HomeSideBar />
+          </div>
+        </NoSSR>
         <div className="w-100">
           <main className="w-80 flex">
             <div className="pv9">
