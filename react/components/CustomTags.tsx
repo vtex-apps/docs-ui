@@ -2,11 +2,33 @@ import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { coy } from 'react-syntax-highlighter/dist/styles/prism'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import slugify from 'slugify'
-
 import { useRuntime } from 'vtex.render-runtime'
 
+import ArticleNav from './ArticleNav'
+import { slug } from '../utils'
+
 export const CustomRenderers = {
+  root: ({ children }: any) => {
+    const TOCLines: string[] = children.reduce(
+      (acc: any, { key, props }: any) => {
+        // Skip non-headings and H1's
+        if (key.indexOf('heading') !== 0 || props.level === 1) {
+          return acc
+        }
+
+        const { value } = props.children[0].props
+        return acc.concat([`${value}`])
+      },
+      []
+    )
+
+    return (
+      <div className="flex">
+        <div className="flex flex-column w-70">{children}</div>
+        <ArticleNav headings={TOCLines} />
+      </div>
+    )
+  },
   break: () => <br />,
   code: (props: any) => {
     const codeBlock = props.value.replace(/“/gm, '"').replace(/”/gm, '"')
@@ -73,7 +95,7 @@ export const CustomRenderers = {
   },
   image: (props: any) => (
     <span className="mv5 mh0">
-      <img className="db center mv9 shadow-4" src={props.src} alt={props.alt} />
+      <img className="shadow-4" src={props.src} alt={props.alt} />
     </span>
   ),
   inlineCode: (props: any) => (
@@ -146,12 +168,6 @@ export const CustomRenderers = {
   },
   tableRow: (props: any) => <tr className="bb b--muted-3">{props.children}</tr>,
   thematicBreak: () => <hr className="mv7" />,
-}
-
-function slug(str: string) {
-  const replaced = (str && str.replace(/[*+~.()'"!:@&[\]]/g, '')) || ''
-  const slugified = slugify(replaced, { lower: true }) || ''
-  return slugified
 }
 
 function getHeadingSlug(childNodes: any) {
