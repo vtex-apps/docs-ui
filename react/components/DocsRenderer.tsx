@@ -7,7 +7,6 @@ import { FormattedMessage } from 'react-intl'
 import Skeleton from './Skeleton'
 import EmptyDocs from './EmptyDocs'
 import { CustomRenderers } from './CustomTags'
-import { useAppVersionState } from './AppVersionContext'
 import { useAppNameAndFile } from '../hooks/useAppName'
 
 import * as MarkdownFile from '../graphql/getMarkdownFile.graphql'
@@ -21,8 +20,7 @@ interface MetaData {
 }
 
 const DocsRenderer: FunctionComponent = () => {
-  const { major } = useAppVersionState()
-  const { appName, fileName } = useAppNameAndFile(major)
+  const { appName, fileName } = useAppNameAndFile()
 
   return (
     <Query query={MarkdownFile.default} variables={{ appName, fileName }}>
@@ -44,7 +42,6 @@ const DocsRenderer: FunctionComponent = () => {
 
         return (
           <article className="ph9 w-100 min-vh-100">
-            {meta.tags && <p>Tags: {meta.tags.toString()}</p>}
             <ReactMarkdown
               source={markdown}
               escapeHtml={false}
