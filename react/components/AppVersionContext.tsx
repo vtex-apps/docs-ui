@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useContext,
-  createContext,
-  Fragment,
-  useReducer,
-} from 'react'
+import React, { useContext, createContext, useReducer } from 'react'
 import { useRuntime, withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
 import { renderComponent, branch } from 'recompose'
