@@ -29,19 +29,15 @@ const SideBarItem: FunctionComponent<Props> = ({
             to={`/docs/${appName}/${link}`}
             className="no-underline c-on-base">
             {depth === 0 ? (
-              <p className="mv4">
-                <strong>{text}</strong>
-              </p>
+              <p className="mv4 t-heading-5">{text}</p>
             ) : (
-              <p className="c-muted-2 mv4">{text}</p>
+              <p className="c-muted-2 mv3">{text}</p>
             )}
           </Link>
         ) : depth === 0 ? (
-          <p className="mv4">
-            <strong>{text}</strong>
-          </p>
+          <p className="mv4 t-heading-5">{text}</p>
         ) : (
-          <p className="c-muted-2 mv4">{text}</p>
+          <p className="c-muted-2 mv3">{text}</p>
         )}
         <div
           className="ph4"

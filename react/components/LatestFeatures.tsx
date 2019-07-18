@@ -6,20 +6,20 @@ import { FormattedMessage } from 'react-intl'
 
 const LatestFeatures = () => (
   <section className="mv9">
-    <h2 className="t-heading-2 normal">
+    <h2 className="t-heading-2 normal mv4">
       <FormattedMessage id="docs/latest-features" />
     </h2>
     <p className="c-muted-2">
       <FormattedMessage id="docs/latest-features-description" />
     </p>
-    <ul className="list ml0 w-100">
+    <div className="list ml0 w-100">
       {latest.map(item => (
-        <li className="pv5 bb b--muted-3" key={item.title}>
-          <p className="t-heading-4">{item.title}</p>
-          <p className="t-body c-on-base lh-copy">{item.description}</p>
-        </li>
+        <div className="pv4 bb b--muted-3 items-center" key={item.title}>
+          <p className="t-heading-4 normal mv2">{item.title}</p>
+          <p className="t-body c-on-base mb2">{item.description}</p>
+        </div>
       ))}
-    </ul>
+    </div>
     <div className="flex items-center mv5">
       <p className="t-body mr5">
         <FormattedMessage id="docs/see-all" />
