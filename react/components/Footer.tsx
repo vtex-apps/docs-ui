@@ -15,32 +15,32 @@ const Footer: FunctionComponent = () => {
       <div className="flex-l ph4 flex-wrap dn-s justify-between w-100">
         <div className="flex justify-between w-50">
           <div className="list">
-            <li className={listItemClasses}>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/getting-started" />
-            </li>
-            <li className={listItemClasses}>
+            </div>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/recipes" />
-            </li>
-            <li className={listItemClasses}>
+            </div>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/components" />
-            </li>
-            <li className={listItemClasses}>
+            </div>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/resources" />
-            </li>
+            </div>
           </div>
           <div className="list">
-            <li className={listItemClasses}>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/community" />
-            </li>
-            <li className={listItemClasses}>
+            </div>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/latest-features" />
-            </li>
-            <li className={listItemClasses}>
+            </div>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/apis" />
-            </li>
-            <li className={listItemClasses}>
+            </div>
+            <div className={listItemClasses}>
               <FormattedMessage id="docs/partner" />
-            </li>
+            </div>
           </div>
         </div>
         <div className="flex">
