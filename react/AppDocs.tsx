@@ -18,7 +18,7 @@ const AppDocs: FunctionComponent = () => {
       </Helmet>
       <main className="w-100 bg-base flex">
         <EnhancedAppVersionProvider>
-          <div className="bg-muted-1 w-20">
+          <div className="w-25 min-h-100">
             <SideBar />
           </div>
           <div className="pv10 w-80-l w-90 center flex flex-column">
