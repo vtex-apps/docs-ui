@@ -11,12 +11,10 @@ interface SideBarContent {
   articles: SideBarContent[] | []
 }
 
-let articleDepth = 0
-
 const HomeSideBar = () => (
   <nav className="min-h-100 br b--muted-4">
     <VTEXBlack />
-    <ul className="list pr5 pb5 pl7 pt9">{getArticles(items, articleDepth)}</ul>
+    <ul className="list pr5 pb5 pl7 pt9">{getArticles(items, 0)}</ul>
   </nav>
 )
 
