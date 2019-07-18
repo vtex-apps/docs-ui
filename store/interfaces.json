@@ -12,5 +12,23 @@
   },
   "docs.construction": {
     "component": "UnderConstruction"
+  },
+  "docs.recipes": {
+    "component": "UnderConstruction"
+  },
+  "docs.recipes.recipe": {
+    "component": "UnderConstruction"
+  },
+  "docs.components": {
+    "component": "UnderConstruction"
+  },
+  "docs.resources": {
+    "component": "UnderConstruction"
+  },
+  "docs.lastest": {
+    "component": "UnderConstruction"
+  },
+  "docs.getting-started": {
+    "component": "UnderConstruction"
   }
 }
