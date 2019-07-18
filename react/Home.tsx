@@ -7,6 +7,7 @@ import LatestFeatures from './components/LatestFeatures'
 import Community from './components/Community'
 
 import favicon from './images/favicon.png'
+import { FormattedMessage } from 'react-intl'
 
 const Home: FunctionComponent<any> = () => {
   return (
@@ -19,7 +20,7 @@ const Home: FunctionComponent<any> = () => {
       </Helmet>
       <div className="flex min-h-100">
         <NoSSR>
-          <div className="w-20 min-h-100">
+          <div className="w-25 min-h-100">
             <HomeSideBar />
           </div>
         </NoSSR>
@@ -27,7 +28,7 @@ const Home: FunctionComponent<any> = () => {
           <main className="w-80 flex">
             <div className="pv9">
               <h1 className="t-heading-1 normal c-emphasis w-90 w-80-ns center mb6">
-                Build with IO
+                <FormattedMessage id="docs/build" />
               </h1>
               <p className="small c-on-base w-90 w-80-ns center mb8">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -38,11 +39,13 @@ const Home: FunctionComponent<any> = () => {
                   <div
                     className="pa5 bg-muted-5 flex flex-column justify-end"
                     style={{ width: '242px', height: '330px' }}>
-                    <p className="t-small">
-                      <strong>GETTING STARTED</strong>
+                    <p className="t-small ttu">
+                      <strong>
+                        <FormattedMessage id="docs/getting-started" />
+                      </strong>
                     </p>
                     <p className="t-heading-4 mv3 normal">
-                      Create stores on IO with Store Framework
+                      <FormattedMessage id="docs/create-stores" />
                     </p>
                   </div>
                   <div
@@ -56,7 +59,9 @@ const Home: FunctionComponent<any> = () => {
                       className="bg-muted-4"
                       style={{ width: '242px', height: '120px' }}
                     />
-                    <p className="t-heading-4">Recipes</p>
+                    <p className="t-heading-4">
+                      <FormattedMessage id="docs/recipes" />
+                    </p>
                     <p className="c-muted-1">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod.
@@ -67,7 +72,9 @@ const Home: FunctionComponent<any> = () => {
                       className="bg-muted-4"
                       style={{ width: '242px', height: '120px' }}
                     />
-                    <p className="t-heading-4">Our components</p>
+                    <p className="t-heading-4">
+                      <FormattedMessage id="docs/our-components" />
+                    </p>
                     <p className="c-muted-1">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod.
@@ -78,7 +85,9 @@ const Home: FunctionComponent<any> = () => {
                       className="bg-muted-4"
                       style={{ width: '242px', height: '120px' }}
                     />
-                    <p className="t-heading-4">Resources</p>
+                    <p className="t-heading-4">
+                      <FormattedMessage id="docs/resources" />
+                    </p>
                     <p className="c-muted-1">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod.

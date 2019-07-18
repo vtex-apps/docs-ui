@@ -14,5 +14,8 @@
   "docs/empty-docs": "We could not fetch the documentation on this component right now.",
   "docs/empty-summary": "We could not fetch the summary for this app.",
   "docs/latest-features-description": "Here's a sneak peek at the new features we added last week:",
-  "docs/see-all": "See all"
+  "docs/see-all": "See all",
+  "docs/build": "Build with IO",
+  "docs/create-stores": "Create stores on IO with Store Framework",
+  "docs/our-components": "Our components"
 }
