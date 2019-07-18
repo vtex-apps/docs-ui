@@ -5,16 +5,16 @@ import VTEXBlack from './icons/VTEXBlack'
 import ExternalLink from './icons/ExternalLink'
 
 const Footer: FunctionComponent = () => {
-  const listItemClasses = 't-body mv3 c-on-muted-3'
+  const listItemClasses = 't-body mv3 c-on-muted-4'
 
   return (
-    <footer className="bg-base pa7-l w-100 pv7 bg-muted-3">
-      <div className="pa6">
+    <footer className="bg-base pa8 w-100 bg-muted-4">
+      <div className="pt6 pb8">
         <VTEXBlack />
       </div>
       <div className="flex-l ph4 flex-wrap dn-s justify-between w-100">
-        <div className="flex">
-          <ul className="list">
+        <div className="flex justify-between w-50">
+          <div className="list">
             <li className={listItemClasses}>
               <FormattedMessage id="docs/getting-started" />
             </li>
@@ -27,8 +27,8 @@ const Footer: FunctionComponent = () => {
             <li className={listItemClasses}>
               <FormattedMessage id="docs/resources" />
             </li>
-          </ul>
-          <ul className="list">
+          </div>
+          <div className="list">
             <li className={listItemClasses}>
               <FormattedMessage id="docs/community" />
             </li>
@@ -41,11 +41,13 @@ const Footer: FunctionComponent = () => {
             <li className={listItemClasses}>
               <FormattedMessage id="docs/partner" />
             </li>
-          </ul>
+          </div>
         </div>
-        <p className="self-baseline c-on-muted-3">
-          <FormattedMessage id="docs/visit-us" /> <ExternalLink />
-        </p>
+        <div className="flex">
+          <p className="c-on-muted-3 self-baseline">
+            <FormattedMessage id="docs/visit-us" /> <ExternalLink />
+          </p>
+        </div>
       </div>
     </footer>
   )
