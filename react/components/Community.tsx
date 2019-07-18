@@ -1,9 +1,13 @@
-import React from 'react'
-import { FormattedMessage } from 'react-intl'
+import React, { FunctionComponent } from 'react'
+import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 
-const Community = () => (
+import { slug } from '../utils'
+
+const Community: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
-    <h2 className="t-heading-2 normal">
+    <h2
+      id={slug(intl.formatMessage({ id: 'docs/community-help' }))}
+      className="t-heading-2 normal">
       <FormattedMessage id="docs/community-help" />
     </h2>
     <div className="flex items-center">
@@ -21,4 +25,4 @@ const Community = () => (
   </section>
 )
 
-export default Community
+export default injectIntl(Community)
