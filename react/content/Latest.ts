@@ -10,7 +10,7 @@ export const latest = [
       'Display products/SKU IDs and reference anywhere on your Product page, Shelf and Search Results.',
   },
   {
-    title: 'Storefront page customization by URL',
+    title: 'New Search Bar component',
     description:
       'Use its new prop as true and enable store users to search by the desired category, brand and collection.',
   },
