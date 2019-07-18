@@ -1,26 +1,27 @@
-import React, { FunctionComponent } from 'react'
+import React, { ReactElement, FunctionComponent } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 
+import { items } from '../content/SideBar'
+import SideBarItem from './SideBarItem'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
-import SideBarItem from './SideBarItem'
-import { useAppVersionState } from './AppVersionContext'
 import { useAppNameAndFile } from '../hooks/useAppName'
+
+import VTEXBlack from './icons/VTEXBlack'
 
 import * as Summary from '../graphql/getAppSummary.graphql'
 
 interface Chapter {
-  path: string
   title: string
-  articles: Chapter[]
+  path: string
+  articles: [] | Chapter[]
 }
 
 const SideBar: FunctionComponent = () => {
-  const { major } = useAppVersionState()
-  const { appName } = useAppNameAndFile(major)
+  const { appName } = useAppNameAndFile()
 
-  return (
+  return appName ? (
     <Query query={Summary.default} variables={{ appName }}>
       {({
         loading,
@@ -35,32 +36,41 @@ const SideBar: FunctionComponent = () => {
         if (error) return <EmptySummary />
 
         return (
-          <ul className="list pa6 pt10" role="menu">
-            {getArticles(data.getAppSummary.chapterList, appName, major, 0)}
-          </ul>
+          <nav className="min-h-100 br b--muted-4">
+            <VTEXBlack />
+            {getArticles(data.getAppSummary.chapterList, 0, appName)}
+          </nav>
         )
       }}
     </Query>
+  ) : (
+    <nav className="min-h-100 br b--muted-4">
+      <VTEXBlack />
+      {getArticles(items, 0, appName)}
+    </nav>
   )
 }
 
 function getArticles(
   chapterList: Chapter[],
-  app: string,
-  version: string,
-  depth: number
-): any {
-  return chapterList.map((chapter: Chapter) => (
-    <SideBarItem
-      appName={app}
-      text={chapter.title}
-      link={chapter.path}
-      hasArticles={chapter.articles.length > 0}
-      key={chapter.title}
-      depth={depth}>
-      {getArticles(chapter.articles, app, version, depth + 1)}
-    </SideBarItem>
-  ))
+  depth: number,
+  app?: string
+): ReactElement {
+  return (
+    <div className={`list ${depth > 0 ? 'pl0 pr2 pt5 pb5' : 'pa7'}`}>
+      {chapterList.map((chapter: Chapter) => (
+        <SideBarItem
+          appName={app}
+          text={chapter.title}
+          link={chapter.path}
+          hasArticles={chapter.articles.length > 0}
+          key={chapter.title}
+          depth={depth}>
+          {getArticles(chapter.articles, depth + 1, app)}
+        </SideBarItem>
+      ))}
+    </div>
+  )
 }
 
 export default SideBar

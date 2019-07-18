@@ -20,37 +20,38 @@ const SideBarItem: FunctionComponent<Props> = ({
   children,
 }) => {
   const [open, setOpen] = useState(false)
+  const linkUrl = link && `/docs${appName ? `/${appName}` : ''}/${link}`
+
+  const ZeroDepthItem = () => <p className="mv4 t-heading-5">{text}</p>
+
+  const NormalItem = () => <p className="c-muted-2 mv3">{text}</p>
 
   return (
     <div className="link">
-      <div className="flex justify-between items-center">
-        {link ? (
-          <Link
-            to={`/docs/${appName}/${link}`}
-            className="no-underline c-on-base">
-            {depth === 0 ? (
-              <p className="mv4 t-heading-5">{text}</p>
-            ) : (
-              <p className="c-muted-2 mv3">{text}</p>
-            )}
+      <div
+        className={`flex justify-between items-center ${
+          depth >= 2 ? 'b--muted-3 bl bw1 pl4 t-small' : ''
+        }`}
+        onClick={() => setOpen(!open)}
+        onKeyPress={() => setOpen(!open)}
+        role="menuitem"
+        tabIndex={-1}>
+        {linkUrl ? (
+          <Link to={linkUrl} className="no-underline c-on-base">
+            {depth === 0 ? <ZeroDepthItem /> : <NormalItem />}
           </Link>
         ) : depth === 0 ? (
-          <p className="mv4 t-heading-5">{text}</p>
+          <ZeroDepthItem />
         ) : (
-          <p className="c-muted-2 mv3">{text}</p>
+          <NormalItem />
         )}
-        <div
-          className="ph4"
-          onClick={() => setOpen(!open)}
-          onKeyPress={() => setOpen(!open)}
-          role="menuitem"
-          tabIndex={-1}>
-          {hasArticles && (open ? <IconCaretDown /> : <IconCaretRight />)}
+        <div className="ph2">
+          {hasArticles &&
+            depth === 0 &&
+            (open ? <IconCaretDown /> : <IconCaretRight />)}
         </div>
       </div>
-      <div hidden={!open} className="pa3">
-        {children}
-      </div>
+      {hasArticles && <div hidden={!open}>{children}</div>}
     </div>
   )
 }
