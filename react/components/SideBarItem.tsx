@@ -22,7 +22,7 @@ const SideBarItem: FunctionComponent<Props> = ({
   const [open, setOpen] = useState(false)
 
   return (
-    <li className="link">
+    <div className="link">
       <div className="flex justify-between items-center">
         {link ? (
           <Link
@@ -51,7 +51,7 @@ const SideBarItem: FunctionComponent<Props> = ({
       <div hidden={!open} className="pa3">
         {children}
       </div>
-    </li>
+    </div>
   )
 }
 
