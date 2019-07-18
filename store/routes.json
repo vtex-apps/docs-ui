@@ -7,5 +7,23 @@
   },
   "docs.construction": {
     "path": "/docs"
+  },
+  "docs.recipes": {
+    "path": "/docs/recipes"
+  },
+  "docs.recipes.recipe": {
+    "path": "/docs/recipes/:recipe"
+  },
+  "docs.components": {
+    "path": "/docs/components"
+  },
+  "docs.resources": {
+    "path": "/docs/resources"
+  },
+  "docs.lastest": {
+    "path": "/docs/latest"
+  },
+  "docs.getting-started": {
+    "path": "/docs/getting-started"
   }
 }
