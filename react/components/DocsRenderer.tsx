@@ -52,7 +52,7 @@ const DocsRenderer: FunctionComponent = () => {
             />
             {meta.git && (
               <a href={meta.git}>
-                <FormattedMessage id="docs.docs-renderer.github" />
+                <FormattedMessage id="docs/renderer-github" />
               </a>
             )}
           </article>
