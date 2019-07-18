@@ -56,7 +56,7 @@ function getArticles(
       text={chapter.title}
       link={chapter.path}
       hasArticles={chapter.articles.length > 0}
-      key={app}
+      key={chapter.title}
       depth={depth}>
       {getArticles(chapter.articles, app, version, depth + 1)}
     </SideBarItem>
