@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 import { Helmet, NoSSR } from 'vtex.render-runtime'
 
 import Footer from './components/Footer'
-import HomeSideBar from './components/HomeSidebar'
+import SideBar from './components/SideBar'
 import LatestFeatures from './components/LatestFeatures'
 import Community from './components/Community'
 import ArticleNav from './components/ArticleNav'
@@ -29,7 +29,7 @@ const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
       <div className="flex min-h-100">
         <NoSSR>
           <div className="w-25 min-h-100">
-            <HomeSideBar />
+            <SideBar />
           </div>
         </NoSSR>
         <div className="w-100">
