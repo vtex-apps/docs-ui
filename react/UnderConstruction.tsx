@@ -30,9 +30,6 @@ const UnderConstruction: FunctionComponent = () => {
                 <p>Come back in a bit and something awesome should be here!</p>
               </EmptyState>
             </main>
-            {/* <div className="pv9">
-              <ArticleNav headings={homeHeadings} />
-            </div> */}
           </div>
           <Footer />
         </div>
