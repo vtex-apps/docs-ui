@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+
+- Better support for Chapters with multiple sub-levels in the SideBar.
+
+### Changed
+
+- Unify `SideBar` and `HomeSideBar` into a single component.
 
 ## [0.9.0] - 2019-07-18
 ### Added
