@@ -1,9 +1,5 @@
 {
-  "docs": {
-    "blocks": [
-      "docs.home"
-    ]
-  },
+  "docs": {},
   "docs.home": {
     "component": "Home"
   },
@@ -13,11 +9,11 @@
   "docs.construction": {
     "component": "UnderConstruction"
   },
-  "docs.recipes": {
-    "component": "UnderConstruction"
+  "docs.recipes-list": {
+    "component": "RecipesList"
   },
-  "docs.recipes.recipe": {
-    "component": "UnderConstruction"
+  "docs.recipe": {
+    "component": "Recipe"
   },
   "docs.components": {
     "component": "UnderConstruction"
