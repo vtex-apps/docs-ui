@@ -18,5 +18,13 @@
   "docs/build": "Build with IO",
   "docs/create-stores": "Create stores on IO with Store Framework",
   "docs/our-components": "Our components",
-  "docs/article-nav": "On this section"
+  "docs/article-nav": "On this section",
+  "docs/recipes/styles": "Style Recipes",
+  "docs/recipes/layout": "Layout Recipes",
+  "docs/recipes/content": "Content Recipes",
+  "docs/recipes/routes": "Routes Recipes",
+  "docs/recipes/plugins": "Plugins Recipes",
+  "docs/recipes/custom-blocks": "Custom Blocks Recipes",
+  "docs/recipes/all": "All Recipes",
+  "docs/read-more": "Read more"
 }
