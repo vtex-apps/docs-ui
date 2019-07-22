@@ -8,7 +8,7 @@
     "docs": "0.x",
     "react": "3.x",
     "messages": "1.x",
-    "store": "0.x",
+    "pages": "1.x",
     "styles": "1.x"
   },
   "dependencies": {

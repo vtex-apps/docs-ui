@@ -2,17 +2,11 @@
   "docs.home": {
     "path": "/docs/home"
   },
-  "docs.app": {
-    "path": "/docs/:app(/:file)"
+  "docs.recipes-list": {
+    "path": "/docs/recipes/:category"
   },
-  "docs.construction": {
-    "path": "/docs"
-  },
-  "docs.recipes": {
-    "path": "/docs/recipes"
-  },
-  "docs.recipes.recipe": {
-    "path": "/docs/recipes/:recipe"
+  "docs.recipe": {
+    "path": "/docs/recipes/:category/:recipe"
   },
   "docs.components": {
     "path": "/docs/components"
@@ -25,5 +19,8 @@
   },
   "docs.getting-started": {
     "path": "/docs/getting-started"
+  },
+  "docs.app": {
+    "path": "/docs/app/:app(/:file)"
   }
 }
