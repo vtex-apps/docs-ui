@@ -20,7 +20,9 @@ const SideBarItem: FunctionComponent<Props> = ({
   children,
 }) => {
   const [open, setOpen] = useState(false)
-  const linkUrl = link && `/docs${appName ? `/${appName}` : ''}/${link}`
+  const isIODocs = appName && appName.split('@')[0] === 'vtex.io-documentation'
+  const linkUrl =
+    link && `/docs${!isIODocs && appName ? `/${appName}` : ''}/${link}`
 
   const ZeroDepthItem = () => <p className="mv4 t-heading-5">{text}</p>
 
