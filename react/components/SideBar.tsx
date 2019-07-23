@@ -2,7 +2,6 @@ import React, { ReactElement, FunctionComponent } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 
-import { items } from '../content/SideBar'
 import SideBarItem from './SideBarItem'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
@@ -19,9 +18,10 @@ interface Chapter {
 }
 
 const SideBar: FunctionComponent = () => {
-  const { appName } = useAppNameAndFile()
+  const appName =
+    useAppNameAndFile().appName || 'vtex.io-documentation@0.0.2-beta'
 
-  return appName ? (
+  return (
     <Query query={Summary.default} variables={{ appName }}>
       {({
         loading,
@@ -43,11 +43,6 @@ const SideBar: FunctionComponent = () => {
         )
       }}
     </Query>
-  ) : (
-    <nav className="min-h-100 br b--muted-4">
-      <VTEXBlack />
-      {getArticles(items, 0, appName)}
-    </nav>
   )
 }
 
