@@ -116,7 +116,7 @@ export default compose(
       return {
         variables: {
           category: params.category,
-          appName: 'vtex.io-documentation@0.0.2-beta.1',
+          appName: 'vtex.io-documentation@0.x',
         },
       }
     },
