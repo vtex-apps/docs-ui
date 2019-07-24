@@ -81,7 +81,7 @@ const RecipesList: FunctionComponent<Props> = ({
                       key={slug(recipe.description)}
                       title={recipe.title}
                       description={recipe.description}
-                      link={`${params.category}/test`}
+                      link={getShortRecipePath(recipe.path)}
                     />
                   ))}
                 </div>
@@ -98,11 +98,17 @@ const RecipesList: FunctionComponent<Props> = ({
 interface Recipe {
   title: string
   description: string
+  path: string
 }
 
 interface Props {
   RecipeListQuery: { getRecipeList: Recipe[] }
   runtime: any
+}
+
+function getShortRecipePath(path: string) {
+  // the path will always be something like: dist/vtex.docs-graphql/Recipes/<category>/<fileName>.md
+  return path.substring(31, path.length - 3)
 }
 
 export default compose(
