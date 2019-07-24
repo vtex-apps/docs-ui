@@ -8,8 +8,11 @@
   "docs.recipe": {
     "path": "/docs/recipes/:category/:recipe"
   },
-  "docs.components": {
-    "path": "/docs/components"
+  "docs.components-list": {
+    "path": "/docs/components/:category"
+  },
+  "docs.component": {
+    "path": "/docs/components/:category/:component(/:file)"
   },
   "docs.resources": {
     "path": "/docs/resources"
