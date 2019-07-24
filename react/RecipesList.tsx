@@ -39,7 +39,10 @@ defineMessages({
   },
 })
 
-const RecipesList: FunctionComponent<any> = ({ RecipeListQuery, runtime }) => {
+const RecipesList: FunctionComponent<Props> = ({
+  RecipeListQuery,
+  runtime,
+}) => {
   const {
     route: { params },
   } = runtime
@@ -73,7 +76,7 @@ const RecipesList: FunctionComponent<any> = ({ RecipeListQuery, runtime }) => {
                   Quisque volutpat ornare consequat.
                 </p>
                 <div className="w-90 w-80-ns center">
-                  {RecipeListQuery.getRecipeList.map((recipe: any) => (
+                  {RecipeListQuery.getRecipeList.map((recipe: Recipe) => (
                     <RecipeListItem
                       key={slug(recipe.description)}
                       title={recipe.title}
@@ -90,6 +93,16 @@ const RecipesList: FunctionComponent<any> = ({ RecipeListQuery, runtime }) => {
       </div>
     </Fragment>
   )
+}
+
+interface Recipe {
+  title: string
+  description: string
+}
+
+interface Props {
+  RecipeListQuery: { getRecipeList: Recipe[] }
+  runtime: any
 }
 
 export default compose(
