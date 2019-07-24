@@ -3,7 +3,6 @@ import { Helmet } from 'vtex.render-runtime'
 
 import Footer from './components/Footer'
 import SideBar from './components/SideBar'
-import DocsRenderer from './components/DocsRenderer'
 import { EnhancedAppVersionProvider } from './components/AppVersionContext'
 import VersionSelector from './components/VersionSelector'
 import favicon from './images/favicon.png'
@@ -25,7 +24,6 @@ const AppDocs: FunctionComponent = () => {
             <div className="self-end ph9">
               <VersionSelector />
             </div>
-            <DocsRenderer />
           </div>
         </EnhancedAppVersionProvider>
       </main>
