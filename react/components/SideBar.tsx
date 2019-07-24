@@ -18,8 +18,7 @@ interface Chapter {
 }
 
 const SideBar: FunctionComponent = () => {
-  const appName =
-    useAppNameAndFile().appName || 'vtex.io-documentation@0.0.2-beta'
+  const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
 
   return (
     <Query query={Summary.default} variables={{ appName }}>
