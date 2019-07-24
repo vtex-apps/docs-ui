@@ -15,7 +15,10 @@
   "docs.recipe": {
     "component": "Recipe"
   },
-  "docs.components": {
+  "docs.components-list": {
+    "component": "UnderConstruction"
+  },
+  "docs.component": {
     "component": "UnderConstruction"
   },
   "docs.resources": {
