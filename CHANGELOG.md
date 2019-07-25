@@ -7,15 +7,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Update `vtex.docs-graphql` version to `1.x`.
+
 ## [0.12.0] - 2019-07-25
 
+### Added
+
+- New `RecipeView` page.
+
 ## [0.11.0] - 2019-07-25
+
 ### Added
 
 - Dynamic recipes listing page.
 - New `RecipeList` GraphQL query.
 
 ## [0.10.0] - 2019-07-19
+
 ### Added
 
 - Better support for Chapters with multiple sub-levels in the SideBar.
@@ -25,11 +35,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Unify `SideBar` and `HomeSideBar` into a single component.
 
 ## [0.9.0] - 2019-07-18
+
 ### Added
 
 - Article navigation bar based on the headers present in the page.
 
 ## [0.8.0] - 2019-07-18
+
 ### Added
 
 - New Docs homepage.
@@ -40,6 +52,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Clean-up and update Messages.
 
 ## [0.7.0] - 2019-07-17
+
 ## Added
 
 - Support for rendering raw HTMl from Markdown files.
@@ -53,22 +66,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `react-markdown` is now used by `DocsRenderer` component as `remark-react` was removed.
 
 ## [0.6.0] - 2019-07-17
+
 ## Added
 
 - Version selection feature at `vtex.io/docs/:app(:/file)`.
 
 ## [0.5.0] - 2019-07-10
+
 ## Added
 
 - Support for relative links from one markdown file to another.
 
 ## [0.4.0] - 2019-07-10
+
 ## Changed
 
 - App documentation url format to `/docs/:appName(/:fileName)`.
 - When no `:fileName` param is given, the UI defaults to show the `README.md` file.
 
 ## [0.3.0] - 2019-07-09
+
 ## Added
 
 - Tag list taken from the markdown file front-matter in the `DocsRenderer` component.
@@ -81,9 +98,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Changed
 
-- Overall layout updates. 
+- Overall layout updates.
 
 ## [0.2.0] - 2019-07-08
+
 ## Added
 
 - New Under Construction page.
@@ -94,12 +112,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `/docs` renders `UnderConstruction` component.
 
 ## [0.1.4] - 2019-07-08
+
 ## Fix
 
 - Inverted colors on `AppDocs` component.
 - Broken Navbar links
 
 ## [0.1.3] - 2019-07-08
+
 ## Changed
 
 - Semantic colors defined in `styles/configs/style.json`.
@@ -109,11 +129,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - CustomCard component.
 
 ## [0.1.2] - 2019-07-08
+
 ## Fix
 
 - Trigger new build for the Styles builder.
 
 ## [0.1.1] - 2019-07-05
+
 ## Fix
 
 - Navbar links
