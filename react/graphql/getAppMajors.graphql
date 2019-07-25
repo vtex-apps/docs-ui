@@ -1,6 +1,0 @@
-query getAppMajors($appName: String) {
-  getAppMajors(appName: $appName) {
-    latestMajor
-    publishedMajors
-  }
-}

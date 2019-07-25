@@ -1,5 +1,5 @@
-query getAppReadMe($appName: String) {
-  getAppReadMe(appName: $appName) {
+query appReadMe($appName: String) {
+  appReadMe(appName: $appName) {
     meta {
       title
       description

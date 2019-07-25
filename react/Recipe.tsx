@@ -10,7 +10,7 @@ import favicon from './images/favicon.png'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 
-import * as MarkdownFile from './graphql/getMarkdownFile.graphql'
+import * as MarkdownFile from './graphql/markdownFile.graphql'
 
 const Recipe: FunctionComponent = () => {
   const {
@@ -42,13 +42,13 @@ const Recipe: FunctionComponent = () => {
             }: {
               loading: boolean
               error?: ApolloError
-              data: { getMarkdownFile: { markdown: string; meta: MetaData } }
+              data: { markdownFile: { markdown: string; meta: MetaData } }
             }) => {
               if (loading) return <Skeleton />
               if (error) return <EmptyDocs />
 
               const {
-                getMarkdownFile: { markdown, meta },
+                markdownFile: { markdown, meta },
               } = data
 
               return <DocsRenderer markdown={markdown} meta={meta} />

@@ -1,5 +1,5 @@
-query getAppSummary($appName: String) {
-  getAppSummary(appName: $appName) {
+query appSummary($appName: String) {
+  appSummary(appName: $appName) {
     markdown
     chapterList {
       path

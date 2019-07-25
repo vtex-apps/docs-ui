@@ -1,0 +1,6 @@
+query appMajors($appName: String) {
+  appMajors(appName: $appName) {
+    latestMajor
+    publishedMajors
+  }
+}

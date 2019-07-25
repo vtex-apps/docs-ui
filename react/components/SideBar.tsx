@@ -9,7 +9,7 @@ import { useAppNameAndFile } from '../hooks/useAppName'
 
 import VTEXBlack from './icons/VTEXBlack'
 
-import * as Summary from '../graphql/getAppSummary.graphql'
+import * as Summary from '../graphql/appSummary.graphql'
 
 interface Chapter {
   title: string
@@ -29,7 +29,7 @@ const SideBar: FunctionComponent = () => {
       }: {
         loading: boolean
         error?: ApolloError
-        data: { getAppSummary: { chapterList: Chapter[] } }
+        data: { appSummary: { chapterList: Chapter[] } }
       }) => {
         if (loading) return <Skeleton />
         if (error) return <EmptySummary />
@@ -37,7 +37,7 @@ const SideBar: FunctionComponent = () => {
         return (
           <nav className="min-h-100 br b--muted-4">
             <VTEXBlack />
-            {getArticles(data.getAppSummary.chapterList, 0, appName)}
+            {getArticles(data.appSummary.chapterList, 0, appName)}
           </nav>
         )
       }}

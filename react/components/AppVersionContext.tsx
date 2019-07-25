@@ -6,7 +6,7 @@ import { renderComponent, branch } from 'recompose'
 import Skeleton from './Skeleton'
 import EmptyAppDocs from './EmptyAppDocs'
 
-import * as appMajorsQuery from '../graphql/getAppMajors.graphql'
+import * as appMajorsQuery from '../graphql/appMajors.graphql'
 
 type Action =
   | { type: 'updateMajor'; value: string }
