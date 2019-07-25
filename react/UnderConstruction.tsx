@@ -16,15 +16,15 @@ const UnderConstruction: FunctionComponent = () => {
         <meta name="description" content="Documentation on VTEX IO" />
         <link rel="icon" href={favicon} />
       </Helmet>
-      <div className="flex min-h-100">
+      <div className="flex min-vh-100">
         <NoSSR>
           <div className="w-25 min-h-100">
             <SideBar />
           </div>
         </NoSSR>
-        <div className="w-100">
+        <div className="w-100 flex flex-column justify-between">
           <div className="flex">
-            <main className="w-100 pv10 min-vh-75 bg-base">
+            <main className="w-100 pv10 min-vh-75">
               <EmptyState title="Under Construction">
                 <p>This page is still being developed.</p>
                 <p>Come back in a bit and something awesome should be here!</p>
