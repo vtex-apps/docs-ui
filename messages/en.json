@@ -27,6 +27,11 @@
   "docs/recipes/custom-blocks": "Custom Blocks Recipes",
   "docs/recipes/all": "All Recipes",
   "docs/read-more": "Read more",
+  "docs/components/general": "General Components",
+  "docs/components/navigation": "Navigation Components",
+  "docs/components/product-related": "Product Related Components",
+  "docs/components/search-related": "Search Related Components",
+  "docs/components/all": "All Components",
   "docs/lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ligula sagittis, dignissim nisi non, interdum elit. Vivamus eget dolor egestas, hendrerit urna a, finibus enim. Phasellus mollis mollis dui ut mattis. In ut purus sem. Quisque volutpat ornare consequat.",
   "docs/lorem-short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 }
