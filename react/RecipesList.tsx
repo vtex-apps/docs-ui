@@ -69,11 +69,7 @@ const RecipesList: FunctionComponent<Props> = ({
                   <FormattedMessage id={`docs/recipes/${params.category}`} />
                 </h1>
                 <p className="small c-on-base w-90 w-80-ns center mb8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  vel ligula sagittis, dignissim nisi non, interdum elit.
-                  Vivamus eget dolor egestas, hendrerit urna a, finibus enim.
-                  Phasellus mollis mollis dui ut mattis. In ut purus sem.
-                  Quisque volutpat ornare consequat.
+                  <FormattedMessage id="docs/lorem" />
                 </p>
                 <div className="w-90 w-80-ns center">
                   {RecipeListQuery.getRecipeList.map((recipe: Recipe) => (
@@ -108,7 +104,9 @@ interface Props {
 
 function getShortRecipePath(path: string) {
   // the path will always be something like: dist/vtex.docs-graphql/Recipes/<category>/<fileName>.md
-  return path.substring(31, path.length - 3)
+  const PATH_PREFIX = 'dist/vtex.docs-graphql/Recipes/'
+  const FILE_EXTENSION = '.md'
+  return path.substring(PATH_PREFIX.length, path.length - FILE_EXTENSION.length)
 }
 
 export default compose(
