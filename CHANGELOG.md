@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Links in the SideBar now trim the file extensions to avoid requests with duplicate file extensions, such as `.md.md`.
+
 ### Changed
 
 - Update `vtex.docs-graphql` version to `1.x`.
