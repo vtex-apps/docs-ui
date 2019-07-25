@@ -16,7 +16,7 @@
     "component": "Recipe"
   },
   "docs.components-list": {
-    "component": "UnderConstruction"
+    "component": "ComponentsGrid"
   },
   "docs.component": {
     "component": "UnderConstruction"
