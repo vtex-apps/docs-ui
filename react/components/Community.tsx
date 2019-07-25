@@ -17,8 +17,7 @@ const Community: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
           <FormattedMessage id="docs/community-join" />
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod.
+          <FormattedMessage id="docs/lorem-short" />
         </p>
       </div>
     </div>

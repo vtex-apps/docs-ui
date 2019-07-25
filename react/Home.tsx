@@ -42,8 +42,7 @@ const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
                   <FormattedMessage id="docs/build" />
                 </h1>
                 <p className="small c-on-base w-90 w-80-ns center mb8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                  <FormattedMessage id="docs/lorem-short" />
                 </p>
                 <div className="w-90 w-80-ns center">
                   <div className="flex w-100">
@@ -74,8 +73,7 @@ const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
                         <FormattedMessage id="docs/recipes" />
                       </p>
                       <p className="c-muted-1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod.
+                        <FormattedMessage id="docs/lorem-short" />
                       </p>
                     </div>
                     <div className="mh3">
@@ -87,8 +85,7 @@ const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
                         <FormattedMessage id="docs/our-components" />
                       </p>
                       <p className="c-muted-1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod.
+                        <FormattedMessage id="docs/lorem-short" />
                       </p>
                     </div>
                     <div>
@@ -100,8 +97,7 @@ const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
                         <FormattedMessage id="docs/resources" />
                       </p>
                       <p className="c-muted-1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod.
+                        <FormattedMessage id="docs/lorem-short" />
                       </p>
                     </div>
                   </div>
