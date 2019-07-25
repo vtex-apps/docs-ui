@@ -56,7 +56,7 @@ function getArticles(
         <SideBarItem
           appName={app}
           text={chapter.title}
-          link={chapter.path}
+          link={chapter.path && removeFileExtension(chapter.path)}
           hasArticles={chapter.articles.length > 0}
           key={chapter.title}
           depth={depth}>
@@ -65,6 +65,13 @@ function getArticles(
       ))}
     </div>
   )
+}
+
+function removeFileExtension(fileName: string) {
+  const MARKDOWN_EXTENSION = '.md'
+  return fileName.endsWith(MARKDOWN_EXTENSION)
+    ? fileName.substring(0, fileName.length - MARKDOWN_EXTENSION.length)
+    : fileName
 }
 
 export default SideBar
