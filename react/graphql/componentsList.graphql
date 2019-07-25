@@ -1,0 +1,39 @@
+query componentsList($appName: String, $category: String) {
+  componentsList(appName: $appName) {
+    general {
+      appName
+      file
+      title
+      description
+      url
+    }
+    navigation {
+      appName
+      file
+      title
+      description
+      url
+    }
+    product {
+      appName
+      file
+      title
+      description
+      url
+    }
+    search {
+      appName
+      file
+      title
+      description
+      url
+    }
+    all {
+      appName
+      file
+      title
+      description
+      url
+    }
+  }
+}
