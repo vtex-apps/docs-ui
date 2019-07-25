@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.12.1] - 2019-07-25
+
 ### Fixed
 
 - Links in the SideBar now trim the file extensions to avoid requests with duplicate file extensions, such as `.md.md`.
