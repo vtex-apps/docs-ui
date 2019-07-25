@@ -10,7 +10,7 @@ import { slug } from './utils'
 
 import favicon from './images/favicon.png'
 
-import * as RecipeList from './graphql/RecipeList.graphql'
+import * as RecipeList from './graphql/recipeList.graphql'
 
 defineMessages({
   style: {
@@ -39,10 +39,7 @@ defineMessages({
   },
 })
 
-const RecipesList: FunctionComponent<Props> = ({
-  RecipeListQuery,
-  runtime,
-}) => {
+const RecipesList: FunctionComponent<any> = ({ RecipeListQuery, runtime }) => {
   const {
     route: { params },
   } = runtime
@@ -72,7 +69,7 @@ const RecipesList: FunctionComponent<Props> = ({
                   <FormattedMessage id="docs/lorem" />
                 </p>
                 <div className="w-90 w-80-ns center">
-                  {RecipeListQuery.getRecipeList.map((recipe: Recipe) => (
+                  {RecipeListQuery.recipeList.map((recipe: Recipe) => (
                     <RecipeListItem
                       key={slug(recipe.description)}
                       title={recipe.title}
@@ -95,11 +92,6 @@ interface Recipe {
   title: string
   description: string
   path: string
-}
-
-interface Props {
-  RecipeListQuery: { getRecipeList: Recipe[] }
-  runtime: any
 }
 
 function getShortRecipePath(path: string) {

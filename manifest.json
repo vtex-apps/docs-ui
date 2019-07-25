@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
-    "vtex.docs-graphql": "0.x"
+    "vtex.docs-graphql": "1.x"
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
