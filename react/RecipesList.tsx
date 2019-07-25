@@ -12,7 +12,7 @@ import { slug } from './utils'
 
 import favicon from './images/favicon.png'
 
-import * as RecipeList from './graphql/recipeList.graphql'
+import * as RecipeList from './graphql/recipesList.graphql'
 
 defineMessages({
   style: {
