@@ -28,7 +28,7 @@ const Recipe: FunctionComponent = () => {
         <div className="w-25 min-h-100">
           <SideBar />
         </div>
-        <div className="pv10 w-80-l w-90 center flex flex-column">
+        <div className="pv9 w-80-l w-90 center flex flex-column">
           <Query
             query={MarkdownFile.default}
             variables={{
