@@ -1,5 +1,6 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
+import { branch, renderComponent } from 'recompose'
 import { ApolloError } from 'apollo-client'
 import { Helmet, withRuntimeContext } from 'vtex.render-runtime'
 
@@ -93,5 +94,9 @@ export default compose(
         appName: props.runtime.route.params.component,
       },
     }),
-  })
+  }),
+  branch(
+    ({ AppMajorsQuery }: any) => !!AppMajorsQuery.error,
+    renderComponent(EmptyDocs)
+  )
 )(ComponentDocs)
