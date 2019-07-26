@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.14.0] - 2019-07-26
+
 ### Added
 
 - New `ComponentDocs` page that lives at `/docs/components/:category/:component(/:file)`.
