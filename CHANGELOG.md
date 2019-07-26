@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- New `ComponentDocs` page that lives at `/docs/components/:category/:component(/:file)`.
+
 ## [0.13.0] - 2019-07-25
+
+### Added
+
+- New `ComponentGrid` to visualize all available components under a certain category.
 
 ## [0.12.1] - 2019-07-25
 
