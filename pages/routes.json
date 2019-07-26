@@ -17,7 +17,7 @@
   "docs.resources": {
     "path": "/docs/resources"
   },
-  "docs.lastest": {
+  "docs.latest": {
     "path": "/docs/latest"
   },
   "docs.getting-started": {
