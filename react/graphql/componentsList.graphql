@@ -1,4 +1,4 @@
-query componentsList($appName: String, $category: String) {
+query componentsList($appName: String) {
   componentsList(appName: $appName) {
     general {
       appName
