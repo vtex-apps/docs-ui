@@ -17,7 +17,7 @@ export const CustomRenderers = {
         }
 
         const { value } = props.children[0].props
-        return acc.concat([`${value}`])
+        return value ? acc.concat([`${value}`]) : acc
       },
       []
     )
@@ -25,7 +25,7 @@ export const CustomRenderers = {
     return (
       <div className="flex">
         <div className="flex flex-column w-70">{children}</div>
-        <ArticleNav headings={TOCLines} />
+        {TOCLines.length > 0 && <ArticleNav headings={TOCLines} />}
       </div>
     )
   },
@@ -45,7 +45,7 @@ export const CustomRenderers = {
   },
   emphasis: (props: any) => <em className="i">{props.children}</em>,
   heading: (props: any) => {
-    const hashId = getHeadingSlug(props.children)
+    const hashId = slug(props.children)
 
     switch (props.level) {
       case 1:
@@ -168,8 +168,4 @@ export const CustomRenderers = {
   },
   tableRow: (props: any) => <tr className="bb b--muted-3">{props.children}</tr>,
   thematicBreak: () => <hr className="mv7" />,
-}
-
-function getHeadingSlug(childNodes: any) {
-  return slug(childNodes[0].props.children)
 }
