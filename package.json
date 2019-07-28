@@ -13,7 +13,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn lint:locales && yarn locales:fix",
+      "pre-commit": "yarn lint && yarn lint:locales",
       "pre-push": "yarn verify"
     }
   },
