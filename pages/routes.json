@@ -21,7 +21,7 @@
     "path": "/docs/latest"
   },
   "docs.getting-started": {
-    "path": "/docs/getting-started"
+    "path": "/docs/getting-started/:track/:article"
   },
   "docs.app": {
     "path": "/docs/app/:app(/:file)"
