@@ -1,5 +1,5 @@
-query recipeList($appName: String, $category: String) {
-  recipeList(appName: $appName, category: $category) {
+query recipeList($appName: String, $category: String, $locale: String) {
+  recipeList(appName: $appName, category: $category, locale: $locale) {
     title
     description
     path

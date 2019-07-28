@@ -1,5 +1,5 @@
-query componentsList($appName: String) {
-  componentsList(appName: $appName) {
+query componentsList($appName: String, $locale: String) {
+  componentsList(appName: $appName, locale: $locale) {
     general {
       appName
       file
