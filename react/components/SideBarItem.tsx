@@ -24,7 +24,8 @@ const SideBarItem: FunctionComponent<Props> = ({
   const linkUrl =
     link && `/docs${!isIODocs && appName ? `/${appName}` : ''}/${link}`
 
-  const ZeroDepthItem = () => <p className="mv4 t-heading-5">{text}</p>
+  const ZeroDepthItem = () =>
+    text !== 'Introduction' ? <p className="mv4 t-heading-5">{text}</p> : null
 
   const NormalItem = () => <p className="c-muted-2 mv3">{text}</p>
 
