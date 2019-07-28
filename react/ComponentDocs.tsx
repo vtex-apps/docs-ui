@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { branch, renderComponent } from 'recompose'
 import { ApolloError } from 'apollo-client'
-import { Helmet, withRuntimeContext } from 'vtex.render-runtime'
+import { Helmet, withRuntimeContext, NoSSR } from 'vtex.render-runtime'
 
 import Footer from './components/Footer'
 import SideBar from './components/SideBar'
@@ -28,9 +28,11 @@ const ComponentDocs: FunctionComponent<any> = ({ AppMajorsQuery, runtime }) => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <main className="w-100 bg-base flex">
-        <div className="w-25 min-h-100">
-          <SideBar />
-        </div>
+        <NoSSR>
+          <div className="w-25 min-h-100">
+            <SideBar />
+          </div>
+        </NoSSR>
         <div className="pv9 w-80-l w-90 center flex flex-column">
           <Query
             query={MarkdownFile.default}
