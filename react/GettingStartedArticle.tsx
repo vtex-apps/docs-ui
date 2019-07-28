@@ -11,7 +11,7 @@ import {
 
 import Footer from './components/Footer'
 import SideBar from './components/SideBar'
-import GettingStartedArticlesRenderer from './components/GettingStartedArticlesRenderer'
+import GettingStartedArticlesRenderer from './components/GettingStartedArticleRenderer'
 import favicon from './images/favicon.png'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
