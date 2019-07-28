@@ -1,6 +1,8 @@
 {
   "docs/renderer-github": "Edit this page on GitHub",
   "docs/getting-started": "Getting Started",
+  "docs/getting-started/next": "Next article",
+  "docs/getting-started/previous": "Previous article",
   "docs/recipes": "Recipes",
   "docs/components": "Components",
   "docs/resources": "Resources",
