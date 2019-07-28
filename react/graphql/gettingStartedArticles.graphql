@@ -1,0 +1,3 @@
+query GettingStartedArticles($track: String, $locale: String) {
+  gettingStartedArticles(track: $track, locale: $locale)
+}
