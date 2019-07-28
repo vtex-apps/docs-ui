@@ -8,10 +8,10 @@ import Footer from './components/Footer'
 import SideBar from './components/SideBar'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
+import Skeleton from './components/Skeleton'
 import { slug } from './utils'
 
 import favicon from './images/favicon.png'
-
 import * as RecipeList from './graphql/recipesList.graphql'
 
 defineMessages({
@@ -125,6 +125,10 @@ export default compose(
       }
     },
   }),
+  branch(
+    ({ RecipeListQuery }: any) => RecipeListQuery.loading,
+    renderComponent(Skeleton)
+  ),
   branch(
     ({ RecipeListQuery }: any) => !!RecipeListQuery.error,
     renderComponent(EmptyDocs)
