@@ -1,5 +1,5 @@
-query appReadMe($appName: String) {
-  appReadMe(appName: $appName) {
+query appReadMe($appName: String, $locale: String) {
+  appReadMe(appName: $appName, locale: $locale) {
     meta {
       title
       description

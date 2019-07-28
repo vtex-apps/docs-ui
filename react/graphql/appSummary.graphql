@@ -1,5 +1,5 @@
-query appSummary($appName: String) {
-  appSummary(appName: $appName) {
+query appSummary($appName: String, $locale: String) {
+  appSummary(appName: $appName, locale: $locale) {
     markdown
     chapterList {
       path
