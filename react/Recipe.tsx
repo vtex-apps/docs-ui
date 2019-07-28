@@ -34,6 +34,7 @@ const Recipe: FunctionComponent = () => {
             variables={{
               appName: 'vtex.io-documentation@0.x',
               fileName: `Recipes/${params.category}/${params.recipe}.md`,
+              locale: 'en',
             }}>
             {({
               loading,

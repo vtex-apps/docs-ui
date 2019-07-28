@@ -21,7 +21,7 @@ const SideBar: FunctionComponent = () => {
   const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
 
   return (
-    <Query query={Summary.default} variables={{ appName }}>
+    <Query query={Summary.default} variables={{ appName, locale: 'en' }}>
       {({
         loading,
         error,

@@ -97,10 +97,15 @@ interface Recipe {
 }
 
 function getShortRecipePath(path: string) {
-  // the path will always be something like: dist/vtex.docs-graphql/Recipes/<category>/<fileName>.md
+  // the path will always be something like: dist/vtex.docs-graphql/Recipes/<locale>/<category>/<fileName>.md
   const PATH_PREFIX = 'dist/vtex.docs-graphql/Recipes/'
+  // the <locale> section will always be one of 'en/', 'pt/', 'es/'
+  const LOCALE_LENGTH = 3
   const FILE_EXTENSION = '.md'
-  return path.substring(PATH_PREFIX.length, path.length - FILE_EXTENSION.length)
+  return path.substring(
+    PATH_PREFIX.length + LOCALE_LENGTH,
+    path.length - FILE_EXTENSION.length
+  )
 }
 
 export default compose(
@@ -115,6 +120,7 @@ export default compose(
         variables: {
           category: params.category,
           appName: 'vtex.io-documentation@0.x',
+          locale: 'en',
         },
       }
     },

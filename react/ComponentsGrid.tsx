@@ -112,6 +112,7 @@ export default compose(
     options: {
       variables: {
         appName: 'vtex.io-documentation@0.x',
+        locale: 'en',
       },
     },
   }),
