@@ -6,13 +6,13 @@ import { branch, renderComponent } from 'recompose'
 
 import Footer from './components/Footer'
 import SideBar from './components/SideBar'
+import ComponentGridItem from './components/ComponentGridItem'
+import EmptyDocs from './components/EmptyDocs'
+import Skeleton from './components/Skeleton'
 import { slug } from './utils'
 
 import favicon from './images/favicon.png'
-
 import * as ComponentList from './graphql/componentsList.graphql'
-import ComponentGridItem from './components/ComponentGridItem'
-import EmptyDocs from './components/EmptyDocs'
 
 defineMessages({
   general: {
@@ -116,6 +116,10 @@ export default compose(
       },
     },
   }),
+  branch(
+    ({ ComponentsListQuery }: any) => ComponentsListQuery.loading,
+    renderComponent(Skeleton)
+  ),
   branch(
     ({ ComponentsListQuery }: any) => !!ComponentsListQuery.error,
     renderComponent(EmptyDocs)

@@ -98,6 +98,10 @@ export default compose(
     }),
   }),
   branch(
+    ({ AppMajorsQuery }: any) => AppMajorsQuery.loading,
+    renderComponent(Skeleton)
+  ),
+  branch(
     ({ AppMajorsQuery }: any) => !!AppMajorsQuery.error,
     renderComponent(EmptyDocs)
   )
