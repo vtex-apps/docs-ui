@@ -13,7 +13,9 @@ import { slug } from './utils'
 import favicon from './images/favicon.png'
 import * as ResourceList from './graphql/resourcesList.graphql'
 
-const ResourcesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
+const ResourcesList: FunctionComponent<InnerProps> = ({
+  ResourcesListQueryData,
+}) => {
   return (
     <Fragment>
       <Helmet>
@@ -39,7 +41,7 @@ const ResourcesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
                   <FormattedMessage id="docs/lorem" />
                 </p>
                 <div className="w-90 w-80-ns center">
-                  {ResourcesListQuery.resourcesList.map(
+                  {ResourcesListQueryData.resourcesList.map(
                     (resource: Resource) => (
                       <RecipeListItem
                         key={slug(resource.description)}
@@ -62,12 +64,6 @@ const ResourcesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
   )
 }
 
-interface Resource {
-  title: string
-  description: string
-  path: string
-}
-
 function getShortResourcePath(path: string) {
   // the path will always be something like: dist/vtex.docs-graphql/<locale>/Resources/<fileName>.md
   const PATH_PREFIX = 'dist/vtex.docs-graphql/Resources/'
@@ -80,30 +76,40 @@ function getShortResourcePath(path: string) {
   )
 }
 
+interface Resource {
+  title: string
+  description: string
+  path: string
+}
+
+interface QueryResults {
+  loading: boolean
+  resourcesList: Resource[]
+}
+
+interface InnerProps {
+  ResourcesListQueryData: QueryResults
+}
+
 export default compose(
   withRuntimeContext,
   graphql(ResourceList.default, {
     name: 'ResourcesListQuery',
-    options: (props: { runtime: any }) => {
-      const {
-        route: { params },
-      } = props.runtime
-      return {
-        variables: {
-          appName: 'vtex.io-documentation@0.x',
-          locale: 'en',
-        },
-      }
+    options: {
+      variables: {
+        appName: 'vtex.io-documentation@0.x',
+        locale: 'en',
+      },
     },
   }),
   branch(
-    ({ ResourcesListQuery }: any) => ResourcesListQuery.loading,
+    ({ ResourcesListQueryData }: InnerProps) => ResourcesListQueryData.loading,
     renderNothing
   ),
   branch(
-    ({ ResourcesListQuery }: any) =>
-      !!ResourcesListQuery.error ||
-      ResourcesListQuery.resourcesList.length === 0,
+    ({ ResourcesListQueryData }: InnerProps) =>
+      !ResourcesListQueryData.resourcesList ||
+      ResourcesListQueryData.resourcesList.length === 0,
     renderComponent(EmptyDocs)
   )
 )(ResourcesList)
