@@ -45,7 +45,7 @@ export const CustomRenderers = {
   },
   emphasis: (props: any) => <em className="i">{props.children}</em>,
   heading: (props: any) => {
-    const hashId = slug(props.children)
+    const hashId = getHeadingSlug(props.children)
 
     switch (props.level) {
       case 1:
@@ -168,4 +168,10 @@ export const CustomRenderers = {
   },
   tableRow: (props: any) => <tr className="bb b--muted-3">{props.children}</tr>,
   thematicBreak: () => <hr className="mv7" />,
+}
+
+function getHeadingSlug(childNodes: any) {
+  return (
+    (childNodes[0].props.children && slug(childNodes[0].props.children)) || ''
+  )
 }
