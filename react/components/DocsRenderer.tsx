@@ -6,7 +6,7 @@ import { CustomRenderers } from './CustomTags'
 
 const DocsRenderer: FunctionComponent<Props> = ({ markdown, meta }) => {
   return (
-    <article className="ph9 w-100 min-vh-100">
+    <article className="ph9-l ph5 w-100 min-vh-100">
       <ReactMarkdown
         source={markdown}
         escapeHtml={false}

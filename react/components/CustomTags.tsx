@@ -9,6 +9,11 @@ import { slug } from '../utils'
 
 export const CustomRenderers = {
   root: ({ children }: any) => {
+    /* eslint-disable react-hooks/rules-of-hooks */
+    const { hints } = useRuntime()
+
+    if (hints.mobile) return children
+
     const TOCLines: string[] = children.reduce(
       (acc: any, { key, props }: any) => {
         // Skip non-headings and H1's
@@ -24,7 +29,7 @@ export const CustomRenderers = {
 
     return (
       <div className="flex">
-        <div className="flex flex-column w-70">{children}</div>
+        <div className="flex flex-column w-70-l">{children}</div>
         {TOCLines.length > 0 && <ArticleNav headings={TOCLines} />}
       </div>
     )

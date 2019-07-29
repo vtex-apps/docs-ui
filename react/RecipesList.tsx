@@ -56,13 +56,13 @@ const RecipesList: FunctionComponent<any> = ({ RecipeListQuery, runtime }) => {
       </Helmet>
       <div className="flex min-h-100">
         <NoSSR>
-          <div className="w-25 min-h-100">
+          <div className="w-25-l min-h-100-l">
             <SideBar />
           </div>
         </NoSSR>
         <div className="w-100">
           <div className="flex">
-            <main className="flex w-80">
+            <main className="flex w-80-l w-90">
               <div className="pv9">
                 <h1 className="t-heading-1 normal w-90 w-80-ns center mb6">
                   <FormattedMessage id={`docs/recipes/${params.category}`} />
