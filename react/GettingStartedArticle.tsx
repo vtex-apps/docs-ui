@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { branch, renderComponent } from 'recompose'
+import { branch, renderComponent, renderNothing } from 'recompose'
 import {
   Helmet,
   useRuntime,
@@ -139,6 +139,6 @@ export default compose(
   branch(
     ({ GettingStartedArticlesQuery }: any) =>
       GettingStartedArticlesQuery.loading,
-    renderComponent(Skeleton)
+    renderNothing
   )
 )(GettingStartedArticle)
