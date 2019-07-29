@@ -1,8 +1,8 @@
 import slugify from 'slugify'
 
-function slug(str?: string | Record<string, any>) {
+function slug(str: string) {
   const replaced =
-    (str && str.toString().replace(/[*+~.()'"!:@&[\]]/g, '')) || ''
+    (typeof str === 'string' && str.replace(/[*+~.()'"!:@&[\]]/g, '')) || ''
   const slugified = slugify(replaced, { lower: true }) || ''
   return slugified
 }
