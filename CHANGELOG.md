@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- New `GettingStartedArticle` and `GettingStartedArticleRenderer` components to live at `/docs/getting-started/:track/:article`.
+- New `GettingStartedArticle` component to live at `/docs/getting-started/:track/:article`.
 
 ## [0.14.0] - 2019-07-26
 
