@@ -46,7 +46,7 @@ const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
                 </p>
                 <div className="w-90 w-80-ns center">
                   <div className="flex w-100">
-                    <div className="w-25-l pt8 ph5 bg-muted-5 flex flex-column justify-end">
+                    <div className="w-25-l w-100 pt8 ph5 bg-muted-5 flex flex-column justify-end">
                       <p className="t-small ttu pv6">
                         <strong>
                           <FormattedMessage id="docs/getting-started" />
