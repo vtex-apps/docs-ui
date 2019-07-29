@@ -19,10 +19,10 @@ const RecipeListItem: FunctionComponent<Props> = ({
   <article className="flex flex-column justify-center mv4 no-underline">
     <h2 className="t-heading-2 normal">{title}</h2>
     <p className="t-body c-on-base">{description}</p>
-    <Link to={link} className="flex items-center">
-      <p className="mr4">
+    <Link to={link} className="flex items-center mv5">
+      <span className="mr4">
         <FormattedMessage id="docs/read-more" />
-      </p>
+      </span>
       <RightArrow />
     </Link>
   </article>
