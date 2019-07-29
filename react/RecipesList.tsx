@@ -2,13 +2,12 @@ import React, { Fragment, FunctionComponent } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { Helmet, NoSSR, withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
-import { branch, renderComponent } from 'recompose'
+import { branch, renderComponent, renderNothing } from 'recompose'
 
 import Footer from './components/Footer'
 import SideBar from './components/SideBar'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
-import Skeleton from './components/Skeleton'
 import { slug } from './utils'
 
 import favicon from './images/favicon.png'
@@ -125,10 +124,7 @@ export default compose(
       }
     },
   }),
-  branch(
-    ({ RecipeListQuery }: any) => RecipeListQuery.loading,
-    renderComponent(Skeleton)
-  ),
+  branch(({ RecipeListQuery }: any) => RecipeListQuery.loading, renderNothing),
   branch(
     ({ RecipeListQuery }: any) => !!RecipeListQuery.error,
     renderComponent(EmptyDocs)

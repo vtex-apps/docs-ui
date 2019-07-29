@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
-import { branch, renderComponent } from 'recompose'
+import { branch, renderComponent, renderNothing } from 'recompose'
 import { ApolloError } from 'apollo-client'
 import { Helmet, withRuntimeContext, NoSSR } from 'vtex.render-runtime'
 
@@ -97,10 +97,7 @@ export default compose(
       },
     }),
   }),
-  branch(
-    ({ AppMajorsQuery }: any) => AppMajorsQuery.loading,
-    renderComponent(Skeleton)
-  ),
+  branch(({ AppMajorsQuery }: any) => AppMajorsQuery.loading, renderNothing),
   branch(
     ({ AppMajorsQuery }: any) => !!AppMajorsQuery.error,
     renderComponent(EmptyDocs)
