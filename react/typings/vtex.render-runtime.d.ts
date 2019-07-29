@@ -28,5 +28,11 @@ declare module 'vtex.render-runtime' {
     route: {
       params: any
     }
+    hints: {
+      desktop: boolean
+      mobile: boolean
+      phone: boolean
+      tablet: boolean
+    }
   }
 }
