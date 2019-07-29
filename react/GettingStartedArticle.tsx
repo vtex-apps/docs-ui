@@ -7,11 +7,12 @@ import {
   useRuntime,
   withRuntimeContext,
   NoSSR,
+  Link,
 } from 'vtex.render-runtime'
 
 import Footer from './components/Footer'
 import SideBar from './components/SideBar'
-import GettingStartedArticlesRenderer from './components/GettingStartedArticleRenderer'
+import DocsRenderer from './components/DocsRenderer'
 import favicon from './images/favicon.png'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
@@ -27,6 +28,10 @@ const GettingStartedArticle: FunctionComponent = ({
   } = useRuntime()
 
   const articles = GettingStartedArticlesQuery.gettingStartedArticles
+
+  const currentArticle: number = Number.parseInt(
+    useRuntime().route.params.article
+  )
 
   return (
     <Fragment>
@@ -68,11 +73,25 @@ const GettingStartedArticle: FunctionComponent = ({
               } = data
 
               return (
-                <GettingStartedArticlesRenderer
-                  markdown={markdown}
-                  meta={meta}
-                  articleList={articles}
-                />
+                <Fragment>
+                  <DocsRenderer markdown={markdown} meta={meta} />
+                  <div className="flex justify-between w-75 ph9">
+                    {hasPrevArticle(currentArticle) && (
+                      <Link
+                        className="link no-underline t-body"
+                        to={`${currentArticle - 1}`}>
+                        <span>Previous article</span>
+                      </Link>
+                    )}
+                    {hasNextArticle(articles, currentArticle) && (
+                      <Link
+                        className="link no-underline t-body"
+                        to={`${currentArticle + 1}`}>
+                        <span>Next article</span>
+                      </Link>
+                    )}
+                  </div>
+                </Fragment>
               )
             }}
           </Query>
@@ -89,6 +108,18 @@ interface MetaData {
   tags: string[]
   version: string
   git: string
+}
+
+function hasNextArticle(
+  articleList: Record<string, string>,
+  currentArticle: number
+) {
+  const numberOfArticles = Object.keys(articleList).length
+  return currentArticle < numberOfArticles
+}
+
+function hasPrevArticle(currentArticle: number) {
+  return currentArticle > 1
 }
 
 export default compose(
