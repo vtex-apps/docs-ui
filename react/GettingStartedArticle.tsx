@@ -42,11 +42,11 @@ const GettingStartedArticle: FunctionComponent = ({
       </Helmet>
       <main className="w-100 bg-base flex">
         <NoSSR>
-          <div className="w-25 min-h-100">
+          <div className="w-25-l min-h-100-l">
             <SideBar />
           </div>
         </NoSSR>
-        <div className="pv9 w-80-l w-90 center flex flex-column">
+        <div className="pv9 w-80-l w-100 center flex flex-column">
           <Query
             query={MarkdownFile.default}
             variables={{

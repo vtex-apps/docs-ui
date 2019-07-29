@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ArticleNav: FunctionComponent<Props> = ({ headings }) => (
-  <nav className="pa5 flex flex-column t-small">
+  <nav className="pa5 flex-l flex-column t-small dn">
     <p className="ttu">
       <strong>
         <FormattedMessage id="docs/article-nav" />

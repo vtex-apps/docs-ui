@@ -18,7 +18,7 @@ const UnderConstruction: FunctionComponent = () => {
       </Helmet>
       <div className="flex min-vh-100">
         <NoSSR>
-          <div className="w-25 min-h-100">
+          <div className="w-25-l min-h-100-l">
             <SideBar />
           </div>
         </NoSSR>
