@@ -1,0 +1,7 @@
+query resourcesList($appName: String, $category: String, $locale: String) {
+  resourcesList(appName: $appName, category: $category, locale: $locale) {
+    title
+    description
+    path
+  }
+}
