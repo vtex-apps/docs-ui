@@ -15,7 +15,7 @@ const ComponentGridItem: FunctionComponent<Props> = ({
   description,
   link,
 }) => (
-  <article className="flex flex-column items-between pv4 mh3 bt b--muted-1">
+  <article className="flex flex-column items-between pv4 mh3-l bt b--muted-1">
     <h3 className="t-heading-4">{title}</h3>
     <div className="t-body c-on-base mv5">{description}</div>
     <Link to={link} className="flex items-center no-underline link c-emphasis">

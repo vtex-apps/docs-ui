@@ -56,15 +56,15 @@ const ComponentsGrid: FunctionComponent<any> = ({
         <meta name="description" content="Documentation on VTEX IO" />
         <link rel="icon" href={favicon} />
       </Helmet>
-      <div className="flex min-h-100">
+      <div className="flex flex-row-l flex-column min-h-100">
         <NoSSR>
-          <div className="w-25 min-h-100">
+          <div className="w-25-l min-h-100-l">
             <SideBar />
           </div>
         </NoSSR>
         <div className="w-100">
           <div className="flex">
-            <main className="flex w-90">
+            <main className="flex w-90-l">
               <div className="pv9 w-90 center">
                 <h1 className="t-heading-1 normal center mb6">
                   <FormattedMessage id={`docs/components/${params.category}`} />
@@ -75,7 +75,7 @@ const ComponentsGrid: FunctionComponent<any> = ({
                 <div className="flex flex-wrap">
                   {componentsListForCategory &&
                     componentsListForCategory.map((component: any) => (
-                      <div key={slug(component.title)} className="w-25">
+                      <div key={slug(component.title)} className="w-50 w-25-l">
                         <ComponentGridItem
                           title={component.title}
                           description={component.description}
