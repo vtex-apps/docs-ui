@@ -53,7 +53,9 @@ const SideBar: FunctionComponent = () => {
           </nav>
         ) : (
           <nav className="min-h-100 br b--muted-4">
-            <VTEXBlack />
+            <Link to="/docs/home" className="pl5">
+              <VTEXBlack />
+            </Link>
             {getArticles(data.appSummary.chapterList, 0, appName)}
           </nav>
         )
