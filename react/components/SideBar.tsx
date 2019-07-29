@@ -7,7 +7,7 @@ import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 import { useAppNameAndFile } from '../hooks/useAppName'
 import { Drawer } from 'vtex.store-drawer'
-import { Link, useRuntime } from 'vtex.render-runtime'
+import { Link } from 'vtex.render-runtime'
 
 import VTEXBlack from './icons/VTEXBlack'
 import * as Summary from '../graphql/appSummary.graphql'
@@ -20,7 +20,6 @@ interface Chapter {
 
 const SideBar: FunctionComponent = () => {
   const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
-  const { hints } = useRuntime()
 
   return (
     <Query query={Summary.default} variables={{ appName, locale: 'en' }}>
@@ -36,27 +35,30 @@ const SideBar: FunctionComponent = () => {
         if (loading) return <Skeleton />
         if (error) return <EmptySummary />
 
-        return hints.mobile ? (
-          <nav className="flex w-100 items-center fixed bg-base z-2">
-            <div className="w-50 pl4">
-              <Drawer>
-                <div className="flex flex-column w-90 center">
-                  {getArticles(data.appSummary.chapterList, 0, appName)}
-                </div>
-              </Drawer>
+        return (
+          <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-4">
+            {/* Mobile navigation */}
+            <div className="flex items-center dn-l">
+              <div className="w-50 pl4">
+                <Drawer>
+                  <div className="flex flex-column w-90 center">
+                    {getArticles(data.appSummary.chapterList, 0, appName)}
+                  </div>
+                </Drawer>
+              </div>
+              <div className="w-100 center">
+                <Link to="/docs/home">
+                  <VTEXBlack />
+                </Link>
+              </div>
             </div>
-            <div className="w-100 center">
-              <Link to="/docs/home">
+            {/* Desktop navigation */}
+            <div className="dn db-l">
+              <Link to="/docs/home" className="pl5">
                 <VTEXBlack />
               </Link>
+              {getArticles(data.appSummary.chapterList, 0, appName)}
             </div>
-          </nav>
-        ) : (
-          <nav className="min-h-100 br b--muted-4">
-            <Link to="/docs/home" className="pl5">
-              <VTEXBlack />
-            </Link>
-            {getArticles(data.appSummary.chapterList, 0, appName)}
           </nav>
         )
       }}
