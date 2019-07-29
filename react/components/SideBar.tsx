@@ -37,7 +37,7 @@ const SideBar: FunctionComponent = () => {
         if (error) return <EmptySummary />
 
         return hints.mobile ? (
-          <nav className="flex w-100 items-center fixed bg-base">
+          <nav className="flex w-100 items-center fixed bg-base z-2">
             <div className="w-50 pl4">
               <Drawer>
                 <div className="flex flex-column w-90 center">
