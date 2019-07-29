@@ -6,9 +6,10 @@ import SideBarItem from './SideBarItem'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 import { useAppNameAndFile } from '../hooks/useAppName'
+import { Drawer } from 'vtex.store-drawer'
+import { Link, useRuntime } from 'vtex.render-runtime'
 
 import VTEXBlack from './icons/VTEXBlack'
-
 import * as Summary from '../graphql/appSummary.graphql'
 
 interface Chapter {
@@ -19,6 +20,7 @@ interface Chapter {
 
 const SideBar: FunctionComponent = () => {
   const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
+  const { hints } = useRuntime()
 
   return (
     <Query query={Summary.default} variables={{ appName, locale: 'en' }}>
@@ -34,7 +36,22 @@ const SideBar: FunctionComponent = () => {
         if (loading) return <Skeleton />
         if (error) return <EmptySummary />
 
-        return (
+        return hints.mobile ? (
+          <nav className="flex w-100 items-center fixed bg-base">
+            <div className="w-50 pl4">
+              <Drawer>
+                <div className="flex flex-column w-90 center">
+                  {getArticles(data.appSummary.chapterList, 0, appName)}
+                </div>
+              </Drawer>
+            </div>
+            <div className="w-100 center">
+              <Link to="/docs/home">
+                <VTEXBlack />
+              </Link>
+            </div>
+          </nav>
+        ) : (
           <nav className="min-h-100 br b--muted-4">
             <VTEXBlack />
             {getArticles(data.appSummary.chapterList, 0, appName)}
@@ -51,7 +68,7 @@ function getArticles(
   app?: string
 ): ReactElement {
   return (
-    <div className={`list ${depth > 0 ? 'pl0 pr2 pt5 pb5' : 'pa7'}`}>
+    <div className={`list ${depth > 0 ? 'pl0-l pr2-l pt5 pb5' : 'pa7-l'}`}>
       {chapterList.map((chapter: Chapter) => (
         <SideBarItem
           appName={app}
