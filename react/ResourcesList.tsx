@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from 'react'
-import { FormattedMessage, defineMessages } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import { Helmet, NoSSR, withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
 import { branch, renderComponent, renderNothing } from 'recompose'
@@ -11,36 +11,9 @@ import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
 
 import favicon from './images/favicon.png'
-import * as ResourcesList from './graphql/resourcesList.graphql'
+import * as ResourceList from './graphql/resourcesList.graphql'
 
-defineMessages({
-  style: {
-    id: 'docs/recipes/style',
-    defaultMessage: '',
-  },
-  layout: {
-    id: 'docs/recipes/layout',
-    defaultMessage: '',
-  },
-  content: {
-    id: 'docs/recipes/content',
-    defaultMessage: '',
-  },
-  routes: {
-    id: 'docs/recipes/routes',
-    defaultMessage: '',
-  },
-  plugins: {
-    id: 'docs/recipes/plugins',
-    defaultMessage: '',
-  },
-  'custom-blocks': {
-    id: 'docs/recipes/custom-blocks',
-    defaultMessage: '',
-  },
-})
-
-const RecipesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
+const ResourcesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
   return (
     <Fragment>
       <Helmet>
@@ -66,14 +39,18 @@ const RecipesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
                   <FormattedMessage id="docs/lorem" />
                 </p>
                 <div className="w-90 w-80-ns center">
-                  {ResourcesListQuery.resourcesList.map((recipe: Recipe) => (
-                    <RecipeListItem
-                      key={slug(recipe.description)}
-                      title={recipe.title}
-                      description={recipe.description}
-                      link={`resources/${getShortRecipePath(recipe.path)}`}
-                    />
-                  ))}
+                  {ResourcesListQuery.resourcesList.map(
+                    (resource: Resource) => (
+                      <RecipeListItem
+                        key={slug(resource.description)}
+                        title={resource.title}
+                        description={resource.description}
+                        link={`resources/${getShortResourcePath(
+                          resource.path
+                        )}`}
+                      />
+                    )
+                  )}
                 </div>
               </div>
             </main>
@@ -85,13 +62,13 @@ const RecipesList: FunctionComponent<any> = ({ ResourcesListQuery }) => {
   )
 }
 
-interface Recipe {
+interface Resource {
   title: string
   description: string
   path: string
 }
 
-function getShortRecipePath(path: string) {
+function getShortResourcePath(path: string) {
   // the path will always be something like: dist/vtex.docs-graphql/<locale>/Resources/<fileName>.md
   const PATH_PREFIX = 'dist/vtex.docs-graphql/Resources/'
   // the <locale> section will always be one of 'en/', 'pt/', 'es/'
@@ -105,7 +82,7 @@ function getShortRecipePath(path: string) {
 
 export default compose(
   withRuntimeContext,
-  graphql(ResourcesList.default, {
+  graphql(ResourceList.default, {
     name: 'ResourcesListQuery',
     options: (props: { runtime: any }) => {
       const {
@@ -113,7 +90,6 @@ export default compose(
       } = props.runtime
       return {
         variables: {
-          category: params.category,
           appName: 'vtex.io-documentation@0.x',
           locale: 'en',
         },
@@ -130,4 +106,4 @@ export default compose(
       ResourcesListQuery.resourcesList.length === 0,
     renderComponent(EmptyDocs)
   )
-)(RecipesList)
+)(ResourcesList)
