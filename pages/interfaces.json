@@ -21,8 +21,11 @@
   "docs.component": {
     "component": "ComponentDocs"
   },
-  "docs.resources": {
+  "docs.resources-list": {
     "component": "ResourcesList"
+  },
+  "docs.resource": {
+    "component": "Resource"
   },
   "docs.latest": {
     "component": "UnderConstruction"

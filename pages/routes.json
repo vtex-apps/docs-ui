@@ -14,8 +14,11 @@
   "docs.component": {
     "path": "/docs/components/:category/:component(/:file)"
   },
-  "docs.resources": {
+  "docs.resources-list": {
     "path": "/docs/resources"
+  },
+  "docs.resource": {
+    "path": "/docs/resources/:resource"
   },
   "docs.latest": {
     "path": "/docs/latest"
