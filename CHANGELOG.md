@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.17.0] - 2019-07-29
+
 ### Added
 
 - New `Recipes` section that lives at `/docs/resources` and `/docs/resources/:resource`.
