@@ -11,7 +11,7 @@ const Community: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
       <FormattedMessage id="docs/community-help" />
     </h2>
     <div className="flex items-center">
-      <div className="bg-muted-2" style={{ width: '242px', height: '120px' }} />
+      <div className="bg-muted-2 w-25 pa8" />
       <div className="ml4">
         <p className="t-heading-4">
           <FormattedMessage id="docs/community-join" />
