@@ -22,7 +22,7 @@
     "component": "ComponentDocs"
   },
   "docs.resources": {
-    "component": "UnderConstruction"
+    "component": "ResourcesList"
   },
   "docs.latest": {
     "component": "UnderConstruction"
