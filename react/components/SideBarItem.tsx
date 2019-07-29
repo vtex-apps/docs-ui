@@ -25,14 +25,14 @@ const SideBarItem: FunctionComponent<Props> = ({
     link && `/docs${!isIODocs && appName ? `/${appName}` : ''}/${link}`
 
   const ZeroDepthItem = () =>
-    text !== 'Introduction' ? <p className="mv4 t-heading-5">{text}</p> : null
+    text !== 'Introduction' ? <h5 className="mv4 t-heading-5">{text}</h5> : null
 
-  const NormalItem = () => <p className="c-muted-2 mv3">{text}</p>
+  const NormalItem = () => <div className="c-muted-2 mv3">{text}</div>
 
   return (
     <div className="link">
       <div
-        className={`flex justify-between items-center ${
+        className={`flex justify-between items-center pointer ${
           depth >= 2 ? 'b--muted-3 bl bw1 pl4 t-small' : ''
         }`}
         onClick={() => setOpen(!open)}
