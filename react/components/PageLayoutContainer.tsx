@@ -16,7 +16,7 @@ const PageLayoutContainer: FunctionComponent = ({ children }) => {
         <meta name="description" content="Documentation on VTEX IO" />
         <link rel="icon" href={favicon} />
       </Helmet>
-      <div className="flex flex-row-l flex-column min-h-100">
+      <div className="flex flex-row-l flex-column min-vh-100">
         <NoSSR>
           <div className="w-25-l min-h-100-l">
             <SideBar />
