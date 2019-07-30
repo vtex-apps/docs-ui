@@ -33,9 +33,9 @@ const SideBarItem: FunctionComponent<Props> = ({
   const [open, setOpen] = useState(hasActiveChildren || isActive)
 
   const ZeroDepthItem = () =>
-    text !== 'Introduction' ? <div className="mv4 t-body">{text}</div> : null
+    text !== 'Introduction' ? <div className="mv4">{text}</div> : null
 
-  const NormalItem = () => <div className="mv3 t-body">{text}</div>
+  const NormalItem = () => <div className="mv3">{text}</div>
 
   return (
     <div className="link">
