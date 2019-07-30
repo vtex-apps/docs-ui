@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 
 import { slug } from './utils'
@@ -11,7 +11,7 @@ import Components from './components/icons/Components'
 import Resources from './components/icons/Resources'
 import RightArrow from './components/icons/RightArrow'
 
-const Home: FunctionComponent<InjectedIntlProps> = ({ intl }) => {
+const Home: FC<InjectedIntlProps> = ({ intl }) => {
   const homeHeadings = [
     intl.formatMessage({ id: 'docs/build' }),
     intl.formatMessage({ id: 'docs/latest-features' }),

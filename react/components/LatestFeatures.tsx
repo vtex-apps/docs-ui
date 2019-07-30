@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl'
 
 import { slug } from '../utils'
 import { latest } from '../content/Latest'
 import RightArrow from './icons/RightArrow'
 
-const LatestFeatures: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
+const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
     <h2
       id={slug(intl.formatMessage({ id: 'docs/latest-features' }))}

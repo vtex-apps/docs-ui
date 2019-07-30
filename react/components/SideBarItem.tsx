@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent } from 'react'
+import React, { useState, FC } from 'react'
 
 import { Link, useRuntime } from 'vtex.render-runtime'
 import { IconCaretDown, IconCaretRight } from 'vtex.styleguide'
@@ -12,7 +12,7 @@ interface Props {
   depth: number
 }
 
-const SideBarItem: FunctionComponent<Props> = ({
+const SideBarItem: FC<Props> = ({
   text,
   link,
   appName,

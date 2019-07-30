@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
@@ -10,11 +10,7 @@ interface Props {
   link: string
 }
 
-const ComponentGridItem: FunctionComponent<Props> = ({
-  title,
-  description,
-  link,
-}) => (
+const ComponentGridItem: FC<Props> = ({ title, description, link }) => (
   <article className="flex flex-column items-between pv4 mh3-l bt b--muted-1">
     <h3 className="t-heading-4">{title}</h3>
     <div className="t-body c-on-base mv5">{description}</div>

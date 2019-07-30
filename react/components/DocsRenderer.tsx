@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { FormattedMessage } from 'react-intl'
 
 import { CustomRenderers } from './CustomTags'
 
-const DocsRenderer: FunctionComponent<Props> = ({ markdown, meta }) => {
+const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
   return (
     <article className="ph9-l ph5 w-100 min-vh-100">
       <ReactMarkdown

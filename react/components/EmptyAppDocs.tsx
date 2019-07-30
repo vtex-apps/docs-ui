@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { EmptyState } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
 
-const EmptyDocs: FunctionComponent = () => (
+const EmptyDocs: FC = () => (
   <div className="pa10 w-100 flex justify-center">
     <EmptyState title="Sorry">
       <p>

@@ -1,6 +1,5 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
-import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
 import { branch, renderComponent, renderNothing } from 'recompose'
 
@@ -34,10 +33,7 @@ defineMessages({
   },
 })
 
-const ComponentsGrid: FunctionComponent<any> = ({
-  ComponentsListQuery,
-  runtime,
-}) => {
+const ComponentsGrid: FC<any> = ({ ComponentsListQuery, runtime }) => {
   const {
     route: { params },
   } = runtime
@@ -82,7 +78,6 @@ function removeFileExtension(fileName: string) {
 }
 
 export default compose(
-  withRuntimeContext,
   graphql(ComponentList.default, {
     name: 'ComponentsListQuery',
     options: {
