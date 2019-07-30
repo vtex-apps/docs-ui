@@ -5,6 +5,7 @@ import Footer from './Footer'
 
 import favicon from '../images/favicon.png'
 import SideBar from './SideBar'
+import TopNav from './TopNav'
 
 const PageLayoutContainer: FunctionComponent = ({ children }) => {
   return (
@@ -22,7 +23,8 @@ const PageLayoutContainer: FunctionComponent = ({ children }) => {
           </div>
         </NoSSR>
         <div className="w-100">
-          <div className="flex">
+          <div className="flex flex-column">
+            <TopNav />
             <main className="flex w-90-l">{children}</main>
           </div>
           <Footer />

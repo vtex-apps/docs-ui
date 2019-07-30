@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 
 import { slug } from '../utils'
+import CommunityIcon from './icons/CommunityIcon'
 
 const Community: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
@@ -11,8 +12,10 @@ const Community: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
       <FormattedMessage id="docs/community-help" />
     </h2>
     <div className="flex items-center">
-      <div className="bg-muted-2 w-25 pa8" />
-      <div className="ml4">
+      <div className="w-10-l w-25 mr6">
+        <CommunityIcon />
+      </div>
+      <div className="ml6">
         <p className="t-heading-4">
           <FormattedMessage id="docs/community-join" />
         </p>

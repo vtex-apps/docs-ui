@@ -68,7 +68,7 @@ interface InnerProps {
 export default compose(
   withRuntimeContext,
   graphql(ResourceList.default, {
-    name: 'ResourcesListQuery',
+    name: 'ResourcesListQueryData',
     options: {
       variables: {
         appName: 'vtex.io-documentation@0.x',
