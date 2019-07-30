@@ -25,7 +25,7 @@ const ArticleNav: FunctionComponent<Props> = ({ headings }) => (
             offset={() => 80}
             href={`#${slugifiedHeader}`}
             key={slugifiedHeader}>
-            <p className="c-muted-2">{heading}</p>
+            <p className="c-on-base">{heading}</p>
           </AnchorLink>
         )
       })}
