@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.17.1] - 2019-07-30
+
 ### Fixed
 
 - Inconsistent page layout.
