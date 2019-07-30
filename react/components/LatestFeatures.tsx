@@ -12,7 +12,7 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => (
       className="t-heading-2 normal mv4">
       <FormattedMessage id="docs/latest-features" />
     </h2>
-    <p className="c-muted-2">
+    <p className="c-on-base">
       <FormattedMessage id="docs/latest-features-description" />
     </p>
     <div className="list ml0 w-100">
