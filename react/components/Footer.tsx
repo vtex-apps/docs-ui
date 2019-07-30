@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import VTEXBlack from './icons/VTEXBlack'
+import VTEXWhite from './icons/VTEXWhite'
 import ExternalLink from './icons/ExternalLink'
 
 const Footer: FunctionComponent = () => {
-  const listItemClasses = 't-body mv3 c-on-muted-4'
+  const listItemClasses = 't-body mv3 c-muted-3'
 
   return (
-    <footer className="bg-base pa8 w-100 bg-muted-4">
+    <footer className="bg-base pa8-l pa6 w-100 bg-base--inverted">
       <div className="pt6 pb8">
-        <VTEXBlack />
+        <VTEXWhite />
       </div>
-      <div className="flex-l ph4 flex-wrap dn-s justify-between w-100">
-        <div className="flex justify-between w-50">
+      <div className="flex-l ph4 flex-wrap justify-between w-100">
+        <div className="flex justify-between w-50-l w-100">
           <div className="list">
             <div className={listItemClasses}>
               <FormattedMessage id="docs/getting-started" />
@@ -44,7 +44,7 @@ const Footer: FunctionComponent = () => {
           </div>
         </div>
         <div className="flex">
-          <p className="c-on-muted-3 self-baseline">
+          <p className="c-muted-3 self-baseline">
             <FormattedMessage id="docs/visit-us" /> <ExternalLink />
           </p>
         </div>

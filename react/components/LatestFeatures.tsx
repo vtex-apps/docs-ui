@@ -26,10 +26,10 @@ const LatestFeatures: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
       ))}
     </div>
     <div className="flex items-center mv5">
-      <p className="t-body mr5">
-        <FormattedMessage id="docs/see-all" />
-      </p>
-      <RightArrow />
+      <a href="resources" className="link no-underline c-emphasis mv5">
+        <span className="mr5">See all</span>
+        <RightArrow />
+      </a>
     </div>
   </section>
 )
