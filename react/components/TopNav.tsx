@@ -5,15 +5,21 @@ const TopNav = () => (
   <nav className="w-100 flex-l dn bg-base--inverted">
     <div className="flex w-90 justify-end">
       <div className="flex c-on-base--inverted pv5">
-        <span className="mv3 mh5">
-          <FormattedMessage id="docs/nav/docs" />
-        </span>
-        <span className="mv3 mh5">
+        <a
+          href="https://help.vtex.com/developer-docs"
+          className="link c-on-base--inverted no-underline mv3 mh5">
+          <FormattedMessage id="docs/nav/api" />
+        </a>
+        <a
+          href="https://github.com/vtex-apps/release-notes"
+          className="link c-on-base--inverted no-underline mv3 mh5">
           <FormattedMessage id="docs/nav/latest" />
-        </span>
-        <span className="mv3 mh5">
+        </a>
+        <a
+          href="https://www.vtex.com/partner/"
+          className="link c-on-base--inverted no-underline mv3 mh5">
           <FormattedMessage id="docs/nav/partner" />
-        </span>
+        </a>
       </div>
     </div>
   </nav>
