@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- New navigation bar at the top of all pages.
+- `SideBarItem` navigation indicator.
+
+### Fixed
+
+- Text colors for better accessibility.
+
 ## [0.17.1] - 2019-07-30
 
 ### Fixed
