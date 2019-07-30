@@ -26,7 +26,8 @@ declare module 'vtex.render-runtime' {
       filePath?: string
     }
     route: {
-      params: any
+      params: Record<string, string>
+      path: string
     }
     hints: {
       desktop: boolean
