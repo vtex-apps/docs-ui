@@ -41,7 +41,7 @@ const SideBar: FC = () => {
             <div className="flex items-center dn-l">
               <div className="w-50 pl4">
                 <Drawer>
-                  <div className="flex flex-column w-90 center">
+                  <div className="flex flex-column w-90 center" role="menu">
                     {getArticles(data.appSummary.chapterList, 0, appName)}
                   </div>
                 </Drawer>
@@ -53,7 +53,7 @@ const SideBar: FC = () => {
               </div>
             </div>
             {/* Desktop navigation */}
-            <div className="dn db-l">
+            <div className="dn db-l" role="menu">
               <Link to="/docs/home" className="pl5">
                 <VTEXBlack />
               </Link>
