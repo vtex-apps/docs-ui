@@ -1,11 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, Fragment } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 
 import { slug } from './utils'
 import LatestFeatures from './components/LatestFeatures'
 import Community from './components/Community'
 import ArticleNav from './components/ArticleNav'
-import PageLayoutContainer from './components/PageLayoutContainer'
 import Recipes from './components/icons/Recipes'
 import Components from './components/icons/Components'
 import Resources from './components/icons/Resources'
@@ -19,7 +18,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
   ]
 
   return (
-    <PageLayoutContainer>
+    <Fragment>
       <div className="pv9">
         <h1
           id={slug(intl.formatMessage({ id: 'docs/build' }))}
@@ -107,7 +106,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
       <div className="pv9">
         <ArticleNav headings={homeHeadings} />
       </div>
-    </PageLayoutContainer>
+    </Fragment>
   )
 }
 

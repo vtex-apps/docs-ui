@@ -1,11 +1,11 @@
 import React, { Fragment, FC } from 'react'
 import { Helmet, NoSSR } from 'vtex.render-runtime'
 
-import Footer from './Footer'
+import Footer from './components/Footer'
 
-import favicon from '../images/favicon.png'
-import SideBar from './SideBar'
-import TopNav from './TopNav'
+import favicon from './images/favicon.png'
+import SideBar from './components/SideBar'
+import TopNav from './components/TopNav'
 
 const PageLayoutContainer: FC = ({ children }) => {
   return (
@@ -25,7 +25,7 @@ const PageLayoutContainer: FC = ({ children }) => {
         <div className="w-100">
           <div className="flex flex-column">
             <TopNav />
-            <main className="flex w-90-l">{children}</main>
+            <main className="flex w-90-l">{children || 'Loading'}</main>
           </div>
           <Footer />
         </div>
