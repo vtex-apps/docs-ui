@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
@@ -11,11 +11,7 @@ interface Props {
   link: string
 }
 
-const RecipeListItem: FunctionComponent<Props> = ({
-  title,
-  description,
-  link,
-}) => (
+const RecipeListItem: FC<Props> = ({ title, description, link }) => (
   <article className="flex flex-column justify-center mv4 no-underline">
     <h2 className="t-heading-2 normal">{title}</h2>
     <p className="t-body c-on-base">{description}</p>

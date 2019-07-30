@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
@@ -38,7 +38,7 @@ defineMessages({
   },
 })
 
-const RecipesList: FunctionComponent<any> = ({ RecipeListQuery, runtime }) => {
+const RecipesList: FC<any> = ({ RecipeListQuery, runtime }) => {
   const {
     route: { params },
   } = runtime

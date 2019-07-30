@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { branch, renderComponent, renderNothing } from 'recompose'
 import { ApolloError } from 'apollo-client'
@@ -12,7 +12,7 @@ import PageLayoutContainer from './components/PageLayoutContainer'
 import * as MarkdownFile from './graphql/markdownFile.graphql'
 import * as AppMajors from './graphql/appMajors.graphql'
 
-const ComponentDocs: FunctionComponent<any> = ({ AppMajorsQuery, runtime }) => {
+const ComponentDocs: FC<any> = ({ AppMajorsQuery, runtime }) => {
   const { appName, fileName } = getComponentAndFileName(
     AppMajorsQuery.appMajors.latestMajor,
     runtime.route.params

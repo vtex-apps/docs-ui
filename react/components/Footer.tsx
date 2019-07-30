@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import VTEXWhite from './icons/VTEXWhite'
 import ExternalLink from './icons/ExternalLink'
 
-const Footer: FunctionComponent = () => {
+const Footer: FC = () => {
   const listItemClasses = 't-body mv3 c-muted-3'
 
   return (

@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { Dropdown } from 'vtex.styleguide'
 
 import { useAppVersionState, useAppVersionDispatch } from './AppVersionContext'
 
-const VersionSelector: FunctionComponent = () => {
+const VersionSelector: FC = () => {
   const { major, availableMajors } = useAppVersionState()
   const setMajorInfo = useAppVersionDispatch()
 

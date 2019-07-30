@@ -1,6 +1,5 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
 import { branch, renderComponent, renderNothing } from 'recompose'
 
@@ -11,9 +10,7 @@ import { slug } from './utils'
 import * as ResourceList from './graphql/resourcesList.graphql'
 import PageLayoutContainer from './components/PageLayoutContainer'
 
-const ResourcesList: FunctionComponent<InnerProps> = ({
-  ResourcesListQueryData,
-}) => {
+const ResourcesList: FC<InnerProps> = ({ ResourcesListQueryData }) => {
   return (
     <PageLayoutContainer>
       <div className="pv9">
@@ -66,7 +63,6 @@ interface InnerProps {
 }
 
 export default compose(
-  withRuntimeContext,
   graphql(ResourceList.default, {
     name: 'ResourcesListQueryData',
     options: {

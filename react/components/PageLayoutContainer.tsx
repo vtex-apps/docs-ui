@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from 'react'
+import React, { Fragment, FC } from 'react'
 import { Helmet, NoSSR } from 'vtex.render-runtime'
 
 import Footer from './Footer'
@@ -7,7 +7,7 @@ import favicon from '../images/favicon.png'
 import SideBar from './SideBar'
 import TopNav from './TopNav'
 
-const PageLayoutContainer: FunctionComponent = ({ children }) => {
+const PageLayoutContainer: FC = ({ children }) => {
   return (
     <Fragment>
       <Helmet>

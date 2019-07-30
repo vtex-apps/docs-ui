@@ -1,4 +1,4 @@
-import React, { ReactElement, FunctionComponent } from 'react'
+import React, { ReactElement, FC } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 
@@ -18,7 +18,7 @@ interface Chapter {
   articles: [] | Chapter[]
 }
 
-const SideBar: FunctionComponent = () => {
+const SideBar: FC = () => {
   const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
 
   return (

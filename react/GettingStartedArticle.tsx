@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from 'react'
+import React, { Fragment, FC } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderNothing } from 'recompose'
@@ -12,9 +12,7 @@ import PageLayoutContainer from './components/PageLayoutContainer'
 import * as MarkdownFile from './graphql/markdownFile.graphql'
 import * as GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
 
-const GettingStartedArticle: FunctionComponent = ({
-  GettingStartedArticlesQuery,
-}: any) => {
+const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
   const {
     route: { params },
   } = useRuntime()

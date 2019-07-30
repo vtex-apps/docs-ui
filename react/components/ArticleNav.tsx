@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from 'react'
+import React, { FC, Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
@@ -8,7 +8,7 @@ interface Props {
   headings: string[]
 }
 
-const ArticleNav: FunctionComponent<Props> = ({ headings }) => (
+const ArticleNav: FC<Props> = ({ headings }) => (
   <nav className="pa5 flex-l flex-column t-small dn">
     <p className="ttu">
       <strong>

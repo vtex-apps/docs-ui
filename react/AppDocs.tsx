@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from 'react'
+import React, { Fragment, FC } from 'react'
 import { Helmet } from 'vtex.render-runtime'
 
 import Footer from './components/Footer'
@@ -7,7 +7,7 @@ import { EnhancedAppVersionProvider } from './components/AppVersionContext'
 import VersionSelector from './components/VersionSelector'
 import favicon from './images/favicon.png'
 
-const AppDocs: FunctionComponent = () => {
+const AppDocs: FC = () => {
   return (
     <Fragment>
       <Helmet>

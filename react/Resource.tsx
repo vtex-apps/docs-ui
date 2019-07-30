@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { useRuntime } from 'vtex.render-runtime'
@@ -10,7 +10,7 @@ import EmptyDocs from './components/EmptyDocs'
 import * as MarkdownFile from './graphql/markdownFile.graphql'
 import PageLayoutContainer from './components/PageLayoutContainer'
 
-const Resource: FunctionComponent = () => {
+const Resource: FC = () => {
   const {
     route: { params },
   } = useRuntime()

@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { EmptyState } from 'vtex.styleguide'
 
 import PageLayoutContainer from './components/PageLayoutContainer'
 
-const UnderConstruction: FunctionComponent = () => {
+const UnderConstruction: FC = () => {
   return (
     <PageLayoutContainer>
       <div className="min-vh-100 w-100 flex justify-center items-center">

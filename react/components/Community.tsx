@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 
 import { slug } from '../utils'
 import CommunityIcon from './icons/CommunityIcon'
 
-const Community: FunctionComponent<InjectedIntlProps> = ({ intl }) => (
+const Community: FC<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
     <h2
       id={slug(intl.formatMessage({ id: 'docs/community-help' }))}
