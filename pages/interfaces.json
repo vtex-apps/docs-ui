@@ -1,5 +1,10 @@
 {
-  "docs": {},
+  "docs-wrapper": {
+    "component": "PageLayoutContainer"
+  },
+  "docs": {
+    "around": ["docs-wrapper"]
+  },
   "docs.home": {
     "component": "Home"
   },
