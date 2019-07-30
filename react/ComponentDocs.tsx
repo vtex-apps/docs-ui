@@ -1,13 +1,12 @@
 import React, { FC } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
-import { branch, renderComponent, renderNothing } from 'recompose'
+import { branch, renderComponent } from 'recompose'
 import { ApolloError } from 'apollo-client'
 import { withRuntimeContext } from 'vtex.render-runtime'
 
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
-import PageLayoutContainer from './components/PageLayoutContainer'
 
 import * as MarkdownFile from './graphql/markdownFile.graphql'
 import * as AppMajors from './graphql/appMajors.graphql'
@@ -19,35 +18,33 @@ const ComponentDocs: FC<any> = ({ AppMajorsQuery, runtime }) => {
   )
 
   return (
-    <PageLayoutContainer>
-      <div className="pv9 w-90-l w-100 center flex flex-column">
-        <Query
-          query={MarkdownFile.default}
-          variables={{
-            appName,
-            fileName: `${fileName}.md`,
-          }}>
-          {({
-            loading,
-            error,
-            data,
-          }: {
-            loading: boolean
-            error?: ApolloError
-            data: { markdownFile: { markdown: string; meta: MetaData } }
-          }) => {
-            if (loading) return <Skeleton />
-            if (error) return <EmptyDocs />
+    <div className="pv9 w-90-l w-100 center flex flex-column">
+      <Query
+        query={MarkdownFile.default}
+        variables={{
+          appName,
+          fileName: `${fileName}.md`,
+        }}>
+        {({
+          loading,
+          error,
+          data,
+        }: {
+          loading: boolean
+          error?: ApolloError
+          data: { markdownFile: { markdown: string; meta: MetaData } }
+        }) => {
+          if (loading) return <Skeleton />
+          if (error || data.markdownFile.markdown === '') return <EmptyDocs />
 
-            const {
-              markdownFile: { markdown, meta },
-            } = data
+          const {
+            markdownFile: { markdown, meta },
+          } = data
 
-            return <DocsRenderer markdown={markdown} meta={meta} />
-          }}
-        </Query>
-      </div>
-    </PageLayoutContainer>
+          return <DocsRenderer markdown={markdown} meta={meta} />
+        }}
+      </Query>
+    </div>
   )
 }
 
@@ -82,7 +79,10 @@ export default compose(
       },
     }),
   }),
-  branch(({ AppMajorsQuery }: any) => AppMajorsQuery.loading, renderNothing),
+  branch(
+    ({ AppMajorsQuery }: any) => AppMajorsQuery.loading,
+    renderComponent(Skeleton)
+  ),
   branch(
     ({ AppMajorsQuery }: any) => !!AppMajorsQuery.error,
     renderComponent(EmptyDocs)

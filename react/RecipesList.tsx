@@ -2,14 +2,14 @@ import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
-import { branch, renderComponent, renderNothing } from 'recompose'
+import { branch, renderComponent } from 'recompose'
 
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
 
 import * as RecipeList from './graphql/recipesList.graphql'
-import PageLayoutContainer from './components/PageLayoutContainer'
+import Skeleton from './components/Skeleton'
 
 defineMessages({
   style: {
@@ -44,26 +44,24 @@ const RecipesList: FC<any> = ({ RecipeListQuery, runtime }) => {
   } = runtime
 
   return (
-    <PageLayoutContainer>
-      <div className="pv9">
-        <h1 className="t-heading-1 normal w-90 w-80-ns center mb6">
-          <FormattedMessage id={`docs/recipes/${params.category}`} />
-        </h1>
-        <p className="small c-on-base w-90 w-80-ns center mb8">
-          <FormattedMessage id="docs/lorem" />
-        </p>
-        <div className="w-90 w-80-ns center">
-          {RecipeListQuery.recipeList.map((recipe: Recipe) => (
-            <RecipeListItem
-              key={slug(recipe.description)}
-              title={recipe.title}
-              description={recipe.description}
-              link={getShortRecipePath(recipe.path)}
-            />
-          ))}
-        </div>
+    <div className="pv9">
+      <h1 className="t-heading-1 normal w-90 w-80-ns center mb6">
+        <FormattedMessage id={`docs/recipes/${params.category}`} />
+      </h1>
+      <p className="small c-on-base w-90 w-80-ns center mb8">
+        <FormattedMessage id="docs/lorem" />
+      </p>
+      <div className="w-90 w-80-ns center">
+        {RecipeListQuery.recipeList.map((recipe: Recipe) => (
+          <RecipeListItem
+            key={slug(recipe.description)}
+            title={recipe.title}
+            description={recipe.description}
+            link={getShortRecipePath(recipe.path)}
+          />
+        ))}
       </div>
-    </PageLayoutContainer>
+    </div>
   )
 }
 
@@ -102,7 +100,10 @@ export default compose(
       }
     },
   }),
-  branch(({ RecipeListQuery }: any) => RecipeListQuery.loading, renderNothing),
+  branch(
+    ({ RecipeListQuery }: any) => RecipeListQuery.loading,
+    renderComponent(Skeleton)
+  ),
   branch(
     ({ RecipeListQuery }: any) => !!RecipeListQuery.error,
     renderComponent(EmptyDocs)
