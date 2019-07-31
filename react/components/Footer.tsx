@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl'
 
 import VTEXWhite from './icons/VTEXWhite'
 import ExternalLink from './icons/ExternalLink'
+import { Link } from 'vtex.render-runtime'
 
 const Footer: FC = () => {
   const listItemClasses = 't-body mv3 c-muted-3'
@@ -16,37 +17,71 @@ const Footer: FC = () => {
         <div className="flex justify-between w-50-l w-100">
           <div className="list">
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/getting-started" />
+              <Link
+                to="getting-started/what-is-vtex-io/1"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/getting-started" />
+              </Link>
             </div>
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/recipes" />
+              <Link
+                to="recipes/style"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/recipes" />
+              </Link>
             </div>
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/components" />
+              <Link
+                to="components/general"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/components" />
+              </Link>
             </div>
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/resources" />
+              <Link
+                to="resources"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/resources" />
+              </Link>
             </div>
           </div>
           <div className="list">
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/community" />
+              <Link
+                to="https://github.com/vtex-apps/store-discussion"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/community" />
+              </Link>
             </div>
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/latest-features" />
+              <Link
+                to="https://github.com/vtex-apps/release-notes"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/latest-features" />
+              </Link>
             </div>
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/apis" />
+              <Link
+                to="https://help.vtex.com/developer-docs"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/apis" />
+              </Link>
             </div>
             <div className={listItemClasses}>
-              <FormattedMessage id="docs/partner" />
+              <Link
+                to="https://www.vtex.com/partner/"
+                className="link no-underline c-on-base--inverted">
+                <FormattedMessage id="docs/partner" />
+              </Link>
             </div>
           </div>
         </div>
         <div className="flex">
-          <p className="c-muted-3 self-baseline">
+          <Link
+            to="https://vtex.com"
+            className="c-on-base--inverted link no-underline self-end">
             <FormattedMessage id="docs/visit-us" /> <ExternalLink />
-          </p>
+          </Link>
         </div>
       </div>
     </footer>
