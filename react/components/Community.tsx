@@ -8,7 +8,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
     <h2
       id={slug(intl.formatMessage({ id: 'docs/community-help' }))}
-      className="t-heading-2 normal">
+      className="t-heading-2">
       <FormattedMessage id="docs/community-help" />
     </h2>
     <a
