@@ -44,11 +44,11 @@ const SideBarItem: FC<Props> = ({
         role="menuitem"
         tabIndex={-1}>
         {link ? (
-          <a
+          <Link
             href={link}
             className={`no-underline ${isActive ? 'c-emphasis' : 'c-on-base'}`}>
             {depth === 0 ? <ZeroDepthItem /> : <NormalItem />}
-          </a>
+          </Link>
         ) : depth === 0 ? (
           <ZeroDepthItem />
         ) : (
