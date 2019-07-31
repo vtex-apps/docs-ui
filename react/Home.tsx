@@ -22,7 +22,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
       <div className="pv9">
         <h1
           id={slug(intl.formatMessage({ id: 'docs/build' }))}
-          className="t-heading-1 normal w-90 w-80-ns center mb6">
+          className="t-heading-1 fw1 w-90 w-80-ns center mb6">
           <FormattedMessage id="docs/build" />
         </h1>
         <p className="small c-on-base w-90 w-80-ns center mb8">
@@ -31,12 +31,12 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
         <div className="w-90 w-80-ns center">
           <div className="flex w-100">
             <div className="w-25-l w-100 pt9 ph5 bg-muted-5 flex flex-column justify-end">
-              <p className="t-small ttu pv4">
-                <strong>
+              <p className="t-small pv4">
+                <strong className="ttu">
                   <FormattedMessage id="docs/getting-started" />
                 </strong>
               </p>
-              <p className="t-heading-4 mv3 normal pv6">
+              <p className="t-heading-4 fw1 mv3 normal pv6 ttu">
                 <FormattedMessage id="docs/create-stores" />
               </p>
             </div>
@@ -47,7 +47,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div className="w-25-l w-10">
                 <Recipes />
               </div>
-              <p className="t-heading-4">
+              <p className="t-heading-4 fw1">
                 <FormattedMessage id="docs/recipes" />
               </p>
               <p className="c-muted-1">
@@ -66,7 +66,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div className="w-25-l w-10">
                 <Components />
               </div>
-              <p className="t-heading-4">
+              <p className="t-heading-4 fw1">
                 <FormattedMessage id="docs/our-components" />
               </p>
               <p className="c-muted-1">
@@ -85,7 +85,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div className="w-25-l w-10">
                 <Resources />
               </div>
-              <p className="t-heading-4">
+              <p className="t-heading-4 fw1">
                 <FormattedMessage id="docs/resources" />
               </p>
               <p className="c-muted-1">

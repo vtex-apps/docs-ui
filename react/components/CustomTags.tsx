@@ -55,28 +55,28 @@ export const CustomRenderers = {
     switch (props.level) {
       case 1:
         return (
-          <h1 id={hashId} className="t-heading-1 c-on-base mt7 mb7">
+          <h1 id={hashId} className="t-heading-1 fw1 c-on-base mt7 mb7">
             {props.children}
           </h1>
         )
 
       case 2:
         return (
-          <h2 id={hashId} className="t-heading-2 mt9 mb5 c-on-base">
+          <h2 id={hashId} className="t-heading-2 fw1 mt9 mb5 c-on-base">
             {props.children}
           </h2>
         )
 
       case 3:
         return (
-          <h3 id={hashId} className="t-heading-3 mt7 c-on-base">
+          <h3 id={hashId} className="t-heading-3 fw1 mt7 c-on-base">
             {props.children}
           </h3>
         )
 
       case 4:
         return (
-          <h4 id={hashId} className="t-heading-4 mt7 c-on-base">
+          <h4 id={hashId} className="t-heading-4 fw1 mt7 c-on-base">
             {props.children}
           </h4>
         )

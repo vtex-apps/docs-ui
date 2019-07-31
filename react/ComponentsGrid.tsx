@@ -44,7 +44,7 @@ const ComponentsGrid: FC<any> = ({ ComponentsListQuery }) => {
 
   return (
     <div className="pv9 w-90 center">
-      <h1 className="t-heading-1 normal center mb6">
+      <h1 className="t-heading-1 fw1 normal center mb6">
         <FormattedMessage id={`docs/components/${params.category}`} />
       </h1>
       <p className="small c-on-base center mb8">

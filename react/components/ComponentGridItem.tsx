@@ -12,7 +12,7 @@ interface Props {
 
 const ComponentGridItem: FC<Props> = ({ title, description, link }) => (
   <article className="flex flex-column items-between pv4 mh3-l bt b--muted-1">
-    <h3 className="t-heading-4">{title}</h3>
+    <h3 className="t-heading-4 fw1">{title}</h3>
     <div className="t-body c-on-base mv5">{description}</div>
     <Link to={link} className="flex items-center no-underline link c-emphasis">
       <span className="mr4 mv5">
