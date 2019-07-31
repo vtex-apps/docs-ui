@@ -25,7 +25,7 @@ const PageLayoutContainer: FC = ({ children }) => {
         <div className="w-100">
           <div className="flex flex-column">
             <TopNav />
-            <main className="flex w-90-l">{children || 'Loading'}</main>
+            <main className="flex w-90-l">{children}</main>
           </div>
           <Footer />
         </div>
