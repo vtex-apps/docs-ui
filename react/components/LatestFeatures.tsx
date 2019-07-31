@@ -1,37 +1,76 @@
-import React, { FC } from 'react'
+import React, { FC, Fragment } from 'react'
+import { Query } from 'react-apollo'
+import { ApolloError } from 'apollo-client'
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl'
+import { Link } from 'vtex.render-runtime'
 
 import { slug } from '../utils'
-import { latest } from '../content/Latest'
 import RightArrow from './icons/RightArrow'
+import Skeleton from './Skeleton'
 
-const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => (
-  <section className="mv9">
-    <h2
-      id={slug(intl.formatMessage({ id: 'docs/latest-features' }))}
-      className="t-heading-2 mv4">
-      <FormattedMessage id="docs/latest-features" />
-    </h2>
-    <p className="c-on-base">
-      <FormattedMessage id="docs/latest-features-description" />
-    </p>
-    <div className="list ml0 w-100">
-      {latest.map(item => (
-        <div
-          className="pv4 bb b--muted-3 items-center"
-          key={slug(item.description)}>
-          <p className="t-heading-4  mv2">{item.title}</p>
-          <p className="t-body c-on-base mb2">{item.description}</p>
-        </div>
-      ))}
-    </div>
-    <div className="flex items-center mv5">
-      <a href="resources" className="link no-underline c-emphasis mv5">
-        <span className="mr5">See all</span>
-        <RightArrow />
-      </a>
-    </div>
-  </section>
-)
+import * as LatestFeaturesQuery from '../graphql/storeFrameworkLatestFeatures.graphql'
+
+const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
+  return (
+    <section className="mv9">
+      <h2
+        id={slug(intl.formatMessage({ id: 'docs/latest-features' }))}
+        className="t-heading-2 mv4">
+        <FormattedMessage id="docs/latest-features" />
+      </h2>
+      <p className="c-on-base">
+        <FormattedMessage id="docs/latest-features-description" />
+      </p>
+      <div className="list ml0 w-100">
+        <Query query={LatestFeaturesQuery.default}>
+          {({
+            loading,
+            error,
+            data,
+          }: {
+            loading: boolean
+            error?: ApolloError
+            data: { storeFrameworkLatestFeatures: LatestFeatureArticle[] }
+          }) => {
+            if (loading) return <Skeleton />
+            if (error) return null
+
+            return (
+              <Fragment>
+                {data.storeFrameworkLatestFeatures.map(
+                  item =>
+                    item.title && (
+                      <div
+                        className="pv4 bb b--muted-3 items-center"
+                        key={slug(item.description)}>
+                        <h4 className="t-heading-4 mv2">{item.title}</h4>
+                        <p className="t-body c-on-base mb2 lh-copy">
+                          {item.description}
+                        </p>
+                      </div>
+                    )
+                )}
+              </Fragment>
+            )
+          }}
+        </Query>
+      </div>
+      <div className="flex items-center mv5">
+        <Link
+          href="https://github.com/vtex-apps/release-notes"
+          className="link no-underline c-emphasis mv5">
+          <span className="mr5">See all</span>
+          <RightArrow />
+        </Link>
+      </div>
+    </section>
+  )
+}
+
+interface LatestFeatureArticle {
+  title: string
+  description: string
+  path: string
+}
 
 export default injectIntl(LatestFeatures)
