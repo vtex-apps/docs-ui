@@ -1,0 +1,7 @@
+query StoreFrameworkLatestFeatures($week: String, $locale: String) {
+  storeFrameworkLatestFeatures(week: $week, locale: $locale) {
+    title
+    description
+    path
+  }
+}
