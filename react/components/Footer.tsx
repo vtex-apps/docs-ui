@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
+import { Link } from 'vtex.render-runtime'
 
 import VTEXWhite from './icons/VTEXWhite'
 import ExternalLink from './icons/ExternalLink'
-import { Link } from 'vtex.render-runtime'
 
 const Footer: FC = () => {
   const listItemClasses = 't-body mv3 c-muted-3'
