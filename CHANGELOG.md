@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Dynamic `Latest Features` section in the homepage.
+
 ## [0.18.1] - 2019-07-31
+
+### Fixed
+
+- Minor layout updates
 
 ## [0.18.0] - 2019-07-31
 
