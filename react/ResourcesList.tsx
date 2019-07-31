@@ -12,7 +12,7 @@ import Skeleton from './components/Skeleton'
 
 const ResourcesList: FC<InnerProps> = ({ ResourcesListQueryData }) => (
   <div className="pv9">
-    <h1 className="t-heading-1 fw1 normal w-90 w-80-ns center mb6">
+    <h1 className="t-heading-1  normal w-90 w-80-ns center mb6">
       <FormattedMessage id="docs/resources" />
     </h1>
     <p className="small c-on-base w-90 w-80-ns center mb8">
