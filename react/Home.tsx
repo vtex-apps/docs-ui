@@ -22,7 +22,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
       <div className="pv9 w-100">
         <h1
           id={slug(intl.formatMessage({ id: 'docs/build' }))}
-          className="t-heading-1 fw1 w-90 w-80-ns center mb6">
+          className="t-heading-1  w-90 w-80-ns center mb6">
           <FormattedMessage id="docs/build" />
         </h1>
         <p className="small c-on-base w-90 w-80-ns center mb8">
@@ -36,7 +36,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                   <FormattedMessage id="docs/getting-started" />
                 </strong>
               </p>
-              <p className="t-heading-4 fw1 mv3 normal pv6 ttu">
+              <p className="t-heading-4  mv3 normal pv6 ttu">
                 <FormattedMessage id="docs/create-stores" />
               </p>
             </div>
@@ -47,7 +47,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div className="w-25-l w-10">
                 <Recipes />
               </div>
-              <p className="t-heading-4 fw1">
+              <p className="t-heading-4 ">
                 <FormattedMessage id="docs/recipes" />
               </p>
               <p className="c-muted-1">
@@ -66,7 +66,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div className="w-25-l w-10">
                 <Components />
               </div>
-              <p className="t-heading-4 fw1">
+              <p className="t-heading-4 ">
                 <FormattedMessage id="docs/our-components" />
               </p>
               <p className="c-muted-1">
@@ -85,7 +85,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div className="w-25-l w-10">
                 <Resources />
               </div>
-              <p className="t-heading-4 fw1">
+              <p className="t-heading-4 ">
                 <FormattedMessage id="docs/resources" />
               </p>
               <p className="c-muted-1">
