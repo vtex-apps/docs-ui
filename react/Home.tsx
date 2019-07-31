@@ -19,7 +19,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
 
   return (
     <Fragment>
-      <div className="pv9">
+      <div className="pv9 w-100">
         <h1
           id={slug(intl.formatMessage({ id: 'docs/build' }))}
           className="t-heading-1 fw1 w-90 w-80-ns center mb6">

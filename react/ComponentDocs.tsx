@@ -18,7 +18,7 @@ const ComponentDocs: FC<any> = ({ AppMajorsQuery, runtime }) => {
   )
 
   return (
-    <div className="pv9 w-90-l w-100 center flex flex-column">
+    <div className="pv9 w-100 center flex flex-column">
       <Query
         query={MarkdownFile.default}
         variables={{
