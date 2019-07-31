@@ -23,7 +23,7 @@ const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
   )
 
   return (
-    <div className="pv9 w-90-l w-100 center flex flex-column">
+    <div className="pv9 w-100 center flex flex-column">
       <Query
         query={MarkdownFile.default}
         variables={{
@@ -52,7 +52,7 @@ const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
           return (
             <Fragment>
               <DocsRenderer markdown={markdown} meta={meta} />
-              <div className="flex justify-between">
+              <div className="flex w-80-l center justify-between">
                 {hasPrevArticle(currentArticle) && (
                   <Link
                     className="link no-underline t-body"
