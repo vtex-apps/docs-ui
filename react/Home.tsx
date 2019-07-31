@@ -36,7 +36,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                   <FormattedMessage id="docs/getting-started" />
                 </strong>
               </p>
-              <p className="t-heading-4  mv3 normal pv6 ttu">
+              <p className="t-heading-4 mv3 pv6 ttu">
                 <FormattedMessage id="docs/create-stores" />
               </p>
             </div>

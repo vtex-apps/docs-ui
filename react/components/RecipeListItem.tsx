@@ -13,7 +13,7 @@ interface Props {
 
 const RecipeListItem: FC<Props> = ({ title, description, link }) => (
   <article className="flex flex-column justify-center mv4 no-underline">
-    <h2 className="t-heading-2 normal">{title}</h2>
+    <h2 className="t-heading-2">{title}</h2>
     <p className="t-body c-on-base">{description}</p>
     <Link
       to={link}
