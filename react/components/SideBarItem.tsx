@@ -15,16 +15,12 @@ interface Props {
 const SideBarItem: FC<Props> = ({
   text,
   link,
-  appName,
   depth,
   hasArticles,
   children,
 }) => {
   const activeUrl = useRuntime().route.path
-  const isIODocs = appName && appName.split('@')[0] === 'vtex.io-documentation'
-  const linkUrl =
-    link && `/docs${!isIODocs && appName ? `/${appName}` : ''}/${link}`
-  const isActive = linkUrl === activeUrl
+  const isActive = link === activeUrl
   const activeCategory = activeUrl.split('/')[2]
   const activeSubCategory = activeUrl.split('/')[3]
   const hasActiveChildren =
@@ -47,12 +43,12 @@ const SideBarItem: FC<Props> = ({
         onKeyPress={() => setOpen(!open)}
         role="menuitem"
         tabIndex={-1}>
-        {linkUrl ? (
-          <Link
-            to={linkUrl}
+        {link ? (
+          <a
+            href={link}
             className={`no-underline ${isActive ? 'c-emphasis' : 'c-on-base'}`}>
             {depth === 0 ? <ZeroDepthItem /> : <NormalItem />}
-          </Link>
+          </a>
         ) : depth === 0 ? (
           <ZeroDepthItem />
         ) : (

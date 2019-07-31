@@ -1,20 +1,21 @@
 import React, { ReactElement, FC } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
+import { Drawer } from 'vtex.store-drawer'
+import { Link } from 'vtex.render-runtime'
 
 import SideBarItem from './SideBarItem'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 import { useAppNameAndFile } from '../hooks/useAppName'
-import { Drawer } from 'vtex.store-drawer'
-import { Link } from 'vtex.render-runtime'
+import { formatLink } from '../utils'
 
 import VTEXBlack from './icons/VTEXBlack'
 import * as Summary from '../graphql/appSummary.graphql'
 
 interface Chapter {
   title: string
-  path: string
+  path?: string
   articles: [] | Chapter[]
 }
 
@@ -75,9 +76,8 @@ function getArticles(
     <div className={`list ${depth > 0 ? 'pl0-l pr2-l pt5 pb5' : 'pa7-l'}`}>
       {chapterList.map((chapter: Chapter) => (
         <SideBarItem
-          appName={app}
           text={chapter.title}
-          link={chapter.path && removeFileExtension(chapter.path)}
+          link={chapter.path && formatLink(chapter.path)}
           hasArticles={chapter.articles.length > 0}
           key={chapter.title}
           depth={depth}>
@@ -86,13 +86,6 @@ function getArticles(
       ))}
     </div>
   )
-}
-
-function removeFileExtension(fileName: string) {
-  const MARKDOWN_EXTENSION = '.md'
-  return fileName.endsWith(MARKDOWN_EXTENSION)
-    ? fileName.substring(0, fileName.length - MARKDOWN_EXTENSION.length)
-    : fileName
 }
 
 export default SideBar
