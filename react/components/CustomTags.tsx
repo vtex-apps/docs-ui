@@ -29,7 +29,7 @@ export const CustomRenderers = {
 
     return (
       <div className="flex">
-        <div className="flex flex-column w-70-l">{children}</div>
+        <div className="flex flex-column w-80-l">{children}</div>
         {TOCLines.length > 0 && <ArticleNav headings={TOCLines} />}
       </div>
     )
