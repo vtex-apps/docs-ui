@@ -45,7 +45,7 @@ const RecipesList: FC<any> = ({ RecipeListQuery, runtime }) => {
 
   return (
     <div className="pv9">
-      <h1 className="t-heading-1 normal w-90 w-80-ns center mb6">
+      <h1 className="t-heading-1 normal fw1 w-90 w-80-ns center mb6">
         <FormattedMessage id={`docs/recipes/${params.category}`} />
       </h1>
       <p className="small c-on-base w-90 w-80-ns center mb8">
