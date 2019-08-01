@@ -6,7 +6,7 @@ import { renderComponent, branch } from 'recompose'
 import Skeleton from './Skeleton'
 import EmptyAppDocs from './EmptyAppDocs'
 
-import * as appMajorsQuery from '../graphql/appMajors.graphql'
+import appMajorsQuery from '../graphql/appMajors.graphql'
 
 type Action =
   | { type: 'updateMajor'; value: string }
@@ -80,7 +80,7 @@ function useAppVersionDispatch() {
 
 const EnhancedAppVersionProvider = compose(
   withRuntimeContext,
-  graphql(appMajorsQuery.default, {
+  graphql(appMajorsQuery, {
     name: 'appMajorsQuery',
     options: (props: { runtime: any }) => {
       const [appName] = props.runtime.route.params.app.split('@')

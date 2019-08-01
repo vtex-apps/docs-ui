@@ -7,7 +7,7 @@ import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
 
-import * as ResourceList from './graphql/resourcesList.graphql'
+import ResourceList from './graphql/resourcesList.graphql'
 import Skeleton from './components/Skeleton'
 
 const ResourcesList: FC<InnerProps> = ({ ResourcesListQueryData }) => (
@@ -59,7 +59,7 @@ interface InnerProps {
 }
 
 export default compose(
-  graphql(ResourceList.default, {
+  graphql(ResourceList, {
     name: 'ResourcesListQueryData',
     options: {
       variables: {
