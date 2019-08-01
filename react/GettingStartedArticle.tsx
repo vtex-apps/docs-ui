@@ -8,8 +8,8 @@ import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 
-import * as MarkdownFile from './graphql/markdownFile.graphql'
-import * as GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
+import MarkdownFile from './graphql/markdownFile.graphql'
+import GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
 
 const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
   const {
@@ -25,7 +25,7 @@ const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
   return (
     <div className="pv9 w-100 center flex flex-column">
       <Query
-        query={MarkdownFile.default}
+        query={MarkdownFile}
         variables={{
           appName: 'vtex.io-documentation@0.x',
           fileName: `GettingStarted/${params.track}/${
@@ -98,7 +98,7 @@ function hasPrevArticle(currentArticle: number) {
 
 export default compose(
   withRuntimeContext,
-  graphql(GettingStartedArticles.default, {
+  graphql(GettingStartedArticles, {
     name: 'GettingStartedArticlesQuery',
     options: (props: { runtime: any }) => {
       const { track } = props.runtime.route.params

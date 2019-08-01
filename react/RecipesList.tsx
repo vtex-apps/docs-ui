@@ -8,7 +8,7 @@ import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
 
-import * as RecipeList from './graphql/recipesList.graphql'
+import RecipeList from './graphql/recipesList.graphql'
 import Skeleton from './components/Skeleton'
 
 defineMessages({
@@ -85,7 +85,7 @@ function getShortRecipePath(path: string) {
 
 export default compose(
   withRuntimeContext,
-  graphql(RecipeList.default, {
+  graphql(RecipeList, {
     name: 'RecipeListQuery',
     options: (props: { runtime: any }) => {
       const {

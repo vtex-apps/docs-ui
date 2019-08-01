@@ -8,7 +8,7 @@ import { slug } from '../utils'
 import RightArrow from './icons/RightArrow'
 import Skeleton from './Skeleton'
 
-import * as LatestFeaturesQuery from '../graphql/storeFrameworkLatestFeatures.graphql'
+import LatestFeaturesQuery from '../graphql/storeFrameworkLatestFeatures.graphql'
 
 const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
   return (
@@ -22,7 +22,7 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
         <FormattedMessage id="docs/latest-features-description" />
       </p>
       <div className="list ml0 w-100">
-        <Query query={LatestFeaturesQuery.default}>
+        <Query query={LatestFeaturesQuery}>
           {({
             loading,
             error,
@@ -59,7 +59,9 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
         <Link
           href="https://github.com/vtex-apps/release-notes"
           className="link no-underline c-emphasis mv5">
-          <span className="mr5">See all</span>
+          <span className="mr5">
+            <FormattedMessage id="docs/see-all" />
+          </span>
           <RightArrow />
         </Link>
       </div>

@@ -7,7 +7,7 @@ import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 
-import * as MarkdownFile from './graphql/markdownFile.graphql'
+import MarkdownFile from './graphql/markdownFile.graphql'
 
 const Recipe: FC = () => {
   const {
@@ -17,7 +17,7 @@ const Recipe: FC = () => {
   return (
     <div className="pv9 w-100 center flex flex-column">
       <Query
-        query={MarkdownFile.default}
+        query={MarkdownFile}
         variables={{
           appName: 'vtex.io-documentation@0.x',
           fileName: `Recipes/${params.category}/${params.recipe}.md`,

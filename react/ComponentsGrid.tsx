@@ -8,7 +8,7 @@ import ComponentGridItem from './components/ComponentGridItem'
 import EmptyDocs from './components/EmptyDocs'
 import { slug } from './utils'
 
-import * as ComponentList from './graphql/componentsList.graphql'
+import ComponentList from './graphql/componentsList.graphql'
 import Skeleton from './components/Skeleton'
 
 defineMessages({
@@ -77,7 +77,7 @@ function removeFileExtension(fileName: string) {
 }
 
 export default compose(
-  graphql(ComponentList.default, {
+  graphql(ComponentList, {
     name: 'ComponentsListQuery',
     options: {
       variables: {

@@ -8,8 +8,8 @@ import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 
-import * as MarkdownFile from './graphql/markdownFile.graphql'
-import * as AppMajors from './graphql/appMajors.graphql'
+import MarkdownFile from './graphql/markdownFile.graphql'
+import AppMajors from './graphql/appMajors.graphql'
 
 const ComponentDocs: FC<any> = ({ AppMajorsQuery, runtime }) => {
   const { appName, fileName } = getComponentAndFileName(
@@ -20,7 +20,7 @@ const ComponentDocs: FC<any> = ({ AppMajorsQuery, runtime }) => {
   return (
     <div className="pv9 w-100 center flex flex-column">
       <Query
-        query={MarkdownFile.default}
+        query={MarkdownFile}
         variables={{
           appName,
           fileName: `${fileName}.md`,
@@ -71,7 +71,7 @@ function getComponentAndFileName(
 
 export default compose(
   withRuntimeContext,
-  graphql(AppMajors.default, {
+  graphql(AppMajors, {
     name: 'AppMajorsQuery',
     options: (props: { runtime: any }) => ({
       variables: {

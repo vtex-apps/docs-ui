@@ -11,7 +11,7 @@ import { useAppNameAndFile } from '../hooks/useAppName'
 import { formatLink } from '../utils'
 
 import VTEXBlack from './icons/VTEXBlack'
-import * as Summary from '../graphql/appSummary.graphql'
+import Summary from '../graphql/appSummary.graphql'
 
 interface Chapter {
   title: string
@@ -23,7 +23,7 @@ const SideBar: FC = () => {
   const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
 
   return (
-    <Query query={Summary.default} variables={{ appName, locale: 'en' }}>
+    <Query query={Summary} variables={{ appName, locale: 'en' }}>
       {({
         loading,
         error,
