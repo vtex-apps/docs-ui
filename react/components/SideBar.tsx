@@ -55,7 +55,7 @@ const SideBar: FC = () => {
             </div>
             {/* Desktop navigation */}
             <div className="dn db-l" role="menu">
-              <Link to="/docs/home" className="pl5">
+              <Link to="/docs/home" className="flex pt2 mt2 pl5">
                 <VTEXBlack />
               </Link>
               {getArticles(data.appSummary.chapterList, 0, appName)}
