@@ -6,97 +6,97 @@ const Skeleton = () => {
   return (
     <div className="w-90 mw8 center pv5 ph5 dn flex-l flex-column">
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 w-30 mv7`}
+        className={`${baseSkeletonPiece} bg-muted-3 w-30 mv7`}
         style={{ height: `${32}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-75-m w-80 o-80`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-75-m w-80 o-80`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
       <div
-        className={`${baseSkeletonPiece} bg-muted-2 mv3 w-60 o-60`}
+        className={`${baseSkeletonPiece} bg-muted-3 mv3 w-60 o-60`}
         style={{ height: `${20}px` }}>
         <div className="skeleton-shimmer" />
       </div>
