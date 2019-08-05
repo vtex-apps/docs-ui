@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl'
 
 const TopNav = () => (
   <nav className="w-100 flex-l dn bg-base--inverted">
-    <div className="flex w-90 justify-end">
+    <div className="flex w-100 justify-end">
       <div className="flex c-on-base--inverted pv5">
         <a
           href="https://help.vtex.com/developer-docs"
