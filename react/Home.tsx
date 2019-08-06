@@ -30,17 +30,15 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
         </p>
         <div className="w-90 w-80-ns center">
           <div className="flex w-100">
-            <div className="w-30-l w-100 ph5 bg-muted-5 flex flex-column justify-end">
-              <div className="mv5">
-                <span className="t-small">
-                  <strong className="ttu">
-                    <FormattedMessage id="docs/getting-started" />
-                  </strong>
-                </span>
-                <h4 className="t-heading-4 mv1 w-90-l ttu">
-                  <FormattedMessage id="docs/create-stores" />
-                </h4>
-              </div>
+            <div className="w-30-l w-100 ph5 pb5 bg-muted-5 flex flex-column justify-end">
+              <span className="t-small">
+                <strong className="ttu">
+                  <FormattedMessage id="docs/getting-started" />
+                </strong>
+              </span>
+              <h4 className="t-heading-4 mv1 w-90-l ttu">
+                <FormattedMessage id="docs/create-stores" />
+              </h4>
             </div>
             <div className="w-75-l pv10-l ph5-l bg-emphasis" />
           </div>
