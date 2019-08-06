@@ -29,7 +29,7 @@ const SideBarItem: FC<Props> = ({
   const [open, setOpen] = useState(hasActiveChildren || isActive)
 
   const ZeroDepthItem = () =>
-    text !== 'Introduction' ? <div className="mv4">{text}</div> : null
+    text !== 'Introduction' ? <div className="mv4 c-on-base">{text}</div> : null
 
   const NormalItem = () => <div className="mv3">{text}</div>
 
@@ -46,13 +46,13 @@ const SideBarItem: FC<Props> = ({
         {link ? (
           <Link
             href={link}
-            className={`no-underline ${isActive ? 'c-emphasis' : 'c-on-base'}`}>
+            className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
             {depth === 0 ? <ZeroDepthItem /> : <NormalItem />}
           </Link>
         ) : depth === 0 ? (
           <ZeroDepthItem />
         ) : (
-          <div className={`${isActive ? 'c-emphasis' : 'c-on-base'}`}>
+          <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
             <NormalItem />
           </div>
         )}
