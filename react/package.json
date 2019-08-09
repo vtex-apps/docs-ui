@@ -27,6 +27,7 @@
     "@vtex/intl-equalizer": "^2.3.0",
     "@vtex/test-tools": "^0.3.2",
     "eslint": "^5.15.1",
+    "eslint-config-vtex": "^10.1.0",
     "eslint-config-vtex-react": "^4.1.0",
     "graphql": "^0.13.0",
     "prettier": "^1.16.1",
@@ -34,7 +35,10 @@
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
     "react-intl": "^2.9.0",
-    "tslint-config-vtex": "^2.0.0",
-    "typescript": "3.5.2"
+    "typescript": "3.5.2",
+    "vtex.render-runtime": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.45.3/public/_types/react",
+    "vtex.docs-graphql": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.docs-graphql@1.5.0/public/_types/react",
+    "vtex.store-drawer": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store-drawer@0.1.0/public/_types/react",
+    "vtex.styleguide": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.styleguide@9.72.4/public/_types/react"
   }
 }
