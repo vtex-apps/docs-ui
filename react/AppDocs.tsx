@@ -1,35 +1,54 @@
-import React, { Fragment, FC } from 'react'
-import { Helmet } from 'vtex.render-runtime'
+import React, { FC } from 'react'
+import { Query } from 'react-apollo'
+import { ApolloError } from 'apollo-client'
 
-import Footer from './components/Footer'
-import SideBar from './components/SideBar'
-import { EnhancedAppVersionProvider } from './components/AppVersionContext'
-import VersionSelector from './components/VersionSelector'
-import favicon from './images/favicon.png'
+import DocsRenderer from './components/DocsRenderer'
+import Skeleton from './components/Skeleton'
+import EmptyDocs from './components/EmptyDocs'
+import { useApp } from './hooks/useApp'
 
-const AppDocs: FC = () => {
+import MarkdownFile from './graphql/markdownFile.graphql'
+
+const AppDocs: FC<any> = () => {
+  const { appName, fileName } = useApp()
+
   return (
-    <Fragment>
-      <Helmet>
-        <title>Docs</title>
-        <meta name="theme-color" content="#F71963" />
-        <link rel="icon" href={favicon} />
-      </Helmet>
-      <main className="w-100 bg-base flex">
-        <EnhancedAppVersionProvider>
-          <div className="w-25 min-h-100">
-            <SideBar />
-          </div>
-          <div className="pv10 w-80-l w-90 center flex flex-column">
-            <div className="self-end ph9">
-              <VersionSelector />
-            </div>
-          </div>
-        </EnhancedAppVersionProvider>
-      </main>
-      <Footer />
-    </Fragment>
+    <div className="pv9 w-100 center flex flex-column">
+      <Query
+        query={MarkdownFile}
+        variables={{
+          appName,
+          fileName: `${fileName}.md`,
+        }}>
+        {({
+          loading,
+          error,
+          data,
+        }: {
+          loading: boolean
+          error?: ApolloError
+          data: { markdownFile: { markdown: string; meta: MetaData } }
+        }) => {
+          if (loading) return <Skeleton />
+          if (error || data.markdownFile.markdown === '') return <EmptyDocs />
+
+          const {
+            markdownFile: { markdown, meta },
+          } = data
+
+          return <DocsRenderer markdown={markdown} meta={meta} />
+        }}
+      </Query>
+    </div>
   )
+}
+
+interface MetaData {
+  title: string
+  description: string
+  tags: string[]
+  version: string
+  git: string
 }
 
 export default AppDocs
