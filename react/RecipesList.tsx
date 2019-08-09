@@ -20,6 +20,10 @@ defineMessages({
     id: 'docs/recipes/layout',
     defaultMessage: '',
   },
+  app: {
+    id: 'docs/recipes/app',
+    defaultMessage: '',
+  },
   content: {
     id: 'docs/recipes/content',
     defaultMessage: '',
@@ -34,6 +38,10 @@ defineMessages({
   },
   'custom-blocks': {
     id: 'docs/recipes/custom-blocks',
+    defaultMessage: '',
+  },
+  all: {
+    id: 'docs/recipes/all',
     defaultMessage: '',
   },
 })
