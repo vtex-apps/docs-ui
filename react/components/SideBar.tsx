@@ -7,7 +7,6 @@ import { Link } from 'vtex.render-runtime'
 import SideBarItem from './SideBarItem'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
-import { useAppNameAndFile } from '../hooks/useAppName'
 import { formatLink } from '../utils'
 
 import VTEXBlack from './icons/VTEXBlack'
@@ -20,7 +19,7 @@ interface Chapter {
 }
 
 const SideBar: FC = () => {
-  const appName = useAppNameAndFile().appName || 'vtex.io-documentation@0.x'
+  const appName = 'vtex.io-documentation@0.x'
 
   return (
     <Query query={Summary} variables={{ appName, locale: 'en' }}>
