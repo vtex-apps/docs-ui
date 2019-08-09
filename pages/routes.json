@@ -12,7 +12,7 @@
     "path": "/docs/components/:category"
   },
   "docs.component": {
-    "path": "/docs/components/:category/:component(/:file)"
+    "path": "/docs/components/:category/:app(/:file)"
   },
   "docs.resources-list": {
     "path": "/docs/resources"

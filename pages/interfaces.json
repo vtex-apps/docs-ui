@@ -9,7 +9,7 @@
     "component": "Home"
   },
   "docs.app": {
-    "component": "UnderConstruction"
+    "component": "AppDocs"
   },
   "docs.construction": {
     "component": "UnderConstruction"
@@ -24,7 +24,7 @@
     "component": "ComponentsGrid"
   },
   "docs.component": {
-    "component": "ComponentDocs"
+    "component": "AppDocs"
   },
   "docs.resources-list": {
     "component": "ResourcesList"
