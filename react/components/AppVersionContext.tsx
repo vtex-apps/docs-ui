@@ -1,7 +1,7 @@
-import React, { useContext, createContext, useReducer } from 'react'
-import { useRuntime, withRuntimeContext } from 'vtex.render-runtime'
+import React, { useContext, createContext, useReducer, ReactNode } from 'react'
+import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
-import { renderComponent, branch } from 'recompose'
+import { renderComponent, branch, withProps } from 'recompose'
 
 import Skeleton from './Skeleton'
 import EmptyAppDocs from './EmptyAppDocs'
@@ -11,8 +11,10 @@ import appMajorsQuery from '../graphql/appMajors.graphql'
 type Action =
   | { type: 'updateMajor'; value: string }
   | { type: 'updateAvailableMajors'; value: string[] }
+  | { type: 'updateAppName'; value: string }
 type Dispatch = (action: Action) => void
 interface State {
+  appName: string
   major: string
   availableMajors: string[]
 }
@@ -23,10 +25,13 @@ const AppVersionDispatchContext = createContext<Dispatch | undefined>(undefined)
 function appVersionReducer(state: State, action: Action) {
   switch (action.type) {
     case 'updateMajor': {
-      return { major: action.value, availableMajors: state.availableMajors }
+      return { ...state, major: action.value }
     }
     case 'updateAvailableMajors': {
-      return { major: state.major, availableMajors: action.value }
+      return { ...state, availableMajors: action.value }
+    }
+    case 'updateAppName': {
+      return { ...state, appName: action.value }
     }
     default: {
       return state
@@ -34,18 +39,20 @@ function appVersionReducer(state: State, action: Action) {
   }
 }
 
-function AppVersionProvider({ children, appMajorsQuery }: any) {
-  const {
-    route: { params },
-  } = useRuntime()
-  const urlVersion = params.app.split('@')[1]
-  const hasVersion = !!urlVersion
-  const majorFromQuery = `${appMajorsQuery.getAppMajors.latestMajor}.x`
-  const availableMajors = appMajorsQuery.getAppMajors.publishedMajors
+function AppVersionProvider({
+  children,
+  appMajorsQuery,
+  appName,
+  appVersionFromUrl,
+}: AppVersionProviderProps) {
+  const hasVersion = !!appVersionFromUrl
+  const majorFromQuery = `${appMajorsQuery.appMajors.latestMajor}.x`
+  const availableMajors = appMajorsQuery.appMajors.publishedMajors
 
   const [versionInfo, dispatch] = useReducer(appVersionReducer, {
-    major: `${hasVersion ? urlVersion : majorFromQuery}`,
+    major: `${hasVersion ? appVersionFromUrl : majorFromQuery}`,
     availableMajors,
+    appName,
   })
 
   return (
@@ -80,25 +87,53 @@ function useAppVersionDispatch() {
 
 const EnhancedAppVersionProvider = compose(
   withRuntimeContext,
+  withProps((props: any) => {
+    const { app }: { app?: string } = props.runtime.route.params
+    const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
+    const appVersionFromUrl = app && app.split('@')[1]
+
+    return { ...props, appName, appVersionFromUrl }
+  }),
   graphql(appMajorsQuery, {
     name: 'appMajorsQuery',
-    options: (props: { runtime: any }) => {
-      const [appName] = props.runtime.route.params.app.split('@')
+    options: (props: { appName: string }) => {
       return {
         variables: {
-          appName,
+          appName: props.appName,
         },
       }
     },
   }),
   branch(
-    ({ appMajorsQuery }: any) => appMajorsQuery.loading,
+    ({ appMajorsQuery }: OuterProps) => appMajorsQuery.loading,
     renderComponent(Skeleton)
   ),
   branch(
-    ({ appMajorsQuery }: any) => !!appMajorsQuery.error,
+    ({ appMajorsQuery }: OuterProps) => !!appMajorsQuery.error,
     renderComponent(EmptyAppDocs)
   )
 )(AppVersionProvider)
+
+interface AppVersionProviderProps {
+  children: ReactNode
+  appMajorsQuery: AppMajorsQueryResponse
+  appName: string
+  appVersionFromUrl: string
+}
+
+interface AppMajorsQueryResponse {
+  appMajors: {
+    latestMajor: string
+    publishedMajors: string[]
+  }
+}
+
+interface OuterProps {
+  appMajorsQuery: {
+    data: AppMajorsQueryResponse
+    loading: boolean
+    error?: any
+  }
+}
 
 export { EnhancedAppVersionProvider, useAppVersionState, useAppVersionDispatch }
