@@ -3,7 +3,7 @@ import { FormattedMessage, defineMessages } from 'react-intl'
 import { compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
-import { withRuntimeContext } from 'vtex.render-runtime'
+import { withRuntimeContext, RenderRuntime } from 'vtex.render-runtime'
 
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
@@ -47,18 +47,18 @@ defineMessages({
   },
 })
 
-const RecipesList: FC<OuterProps & Runtime> = ({
+const RecipesList: FC<OuterProps & RenderRuntime> = ({
   RecipeListQuery,
-  runtime,
+  route,
 }) => {
   const {
-    route: { params },
-  } = runtime
+    params: { category },
+  } = route
 
   return (
     <div className="pv9">
       <h1 className="t-heading-1 w-90 w-80-ns center mb6">
-        <FormattedMessage id={`docs/recipes/${params.category}`} />
+        <FormattedMessage id={`docs/recipes/${category}`} />
       </h1>
       <p className="small c-on-base w-90 w-80-ns center mb8">
         <FormattedMessage id="docs/lorem" />
@@ -103,22 +103,11 @@ interface OuterProps {
   }
 }
 
-interface Runtime {
-  runtime: {
-    route: {
-      params: {
-        recipes: string
-        category: string
-      }
-    }
-  }
-}
-
 export default compose(
   withRuntimeContext,
   graphql(RecipeList, {
     name: 'RecipeListQuery',
-    options: (props: Runtime) => {
+    options: (props: { runtime: RenderRuntime }) => {
       const {
         route: {
           params: { category },
