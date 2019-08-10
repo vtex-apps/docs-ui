@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-explicit-any: 0 */
 /* Typings for `render-runtime` */
 declare module 'vtex.render-runtime' {
   import { Component, ReactElement } from 'react'

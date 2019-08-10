@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
-import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, graphql } from 'react-apollo'
+import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
+import { withRuntimeContext } from 'vtex.render-runtime'
 
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
@@ -46,7 +47,10 @@ defineMessages({
   },
 })
 
-const RecipesList: FC<any> = ({ RecipeListQuery, runtime }) => {
+const RecipesList: FC<OuterProps & Runtime> = ({
+  RecipeListQuery,
+  runtime,
+}) => {
   const {
     route: { params },
   } = runtime
@@ -73,12 +77,6 @@ const RecipesList: FC<any> = ({ RecipeListQuery, runtime }) => {
   )
 }
 
-interface Recipe {
-  title: string
-  description: string
-  path: string
-}
-
 function getShortRecipePath(path: string) {
   // the path will always be something like: dist/vtex.docs-graphql/Recipes/<locale>/<category>/<fileName>.md
   const PATH_PREFIX = 'dist/vtex.docs-graphql/Recipes/'
@@ -91,17 +89,44 @@ function getShortRecipePath(path: string) {
   )
 }
 
+interface Recipe {
+  title: string
+  description: string
+  path: string
+}
+
+interface OuterProps {
+  RecipeListQuery: {
+    recipeList: Recipe[]
+    loading: boolean
+    error?: ApolloError
+  }
+}
+
+interface Runtime {
+  runtime: {
+    route: {
+      params: {
+        recipes: string
+        category: string
+      }
+    }
+  }
+}
+
 export default compose(
   withRuntimeContext,
   graphql(RecipeList, {
     name: 'RecipeListQuery',
-    options: (props: { runtime: any }) => {
+    options: (props: Runtime) => {
       const {
-        route: { params },
+        route: {
+          params: { category },
+        },
       } = props.runtime
       return {
         variables: {
-          category: params.category,
+          category: category,
           appName: 'vtex.io-documentation@0.x',
           locale: 'en',
         },
@@ -109,11 +134,11 @@ export default compose(
     },
   }),
   branch(
-    ({ RecipeListQuery }: any) => RecipeListQuery.loading,
+    ({ RecipeListQuery }: OuterProps) => RecipeListQuery.loading,
     renderComponent(Skeleton)
   ),
   branch(
-    ({ RecipeListQuery }: any) => !!RecipeListQuery.error,
+    ({ RecipeListQuery }: OuterProps) => !!RecipeListQuery.error,
     renderComponent(EmptyDocs)
   )
 )(RecipesList)
