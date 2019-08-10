@@ -2,7 +2,7 @@ import React, { Fragment, FC } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
-import { useRuntime, withRuntimeContext, Link } from 'vtex.render-runtime'
+import { withRuntimeContext, Link } from 'vtex.render-runtime'
 
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
@@ -11,16 +11,19 @@ import EmptyDocs from './components/EmptyDocs'
 import MarkdownFile from './graphql/markdownFile.graphql'
 import GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
 
-const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
+const GettingStartedArticle: FC<OuterProps & Runtime> = ({
+  GettingStartedArticlesQuery,
+  runtime,
+}) => {
   const {
-    route: { params },
-  } = useRuntime()
+    route: {
+      params: { track, article },
+    },
+  } = runtime
 
   const articles = GettingStartedArticlesQuery.gettingStartedArticles
 
-  const currentArticle: number = Number.parseInt(
-    useRuntime().route.params.article
-  )
+  const currentArticle = Number.parseInt(article)
 
   return (
     <div className="pv9 w-100 center flex flex-column">
@@ -28,9 +31,7 @@ const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
         query={MarkdownFile}
         variables={{
           appName: 'vtex.io-documentation@0.x',
-          fileName: `GettingStarted/${params.track}/${
-            articles[params.article]
-          }`,
+          fileName: `GettingStarted/${track}/${articles[article]}`,
           locale: 'pt',
         }}>
         {({
@@ -76,14 +77,6 @@ const GettingStartedArticle: FC = ({ GettingStartedArticlesQuery }: any) => {
   )
 }
 
-interface MetaData {
-  title: string
-  description: string
-  tags: string[]
-  version: string
-  git: string
-}
-
 function hasNextArticle(
   articleList: Record<string, string>,
   currentArticle: number
@@ -96,11 +89,38 @@ function hasPrevArticle(currentArticle: number) {
   return currentArticle > 1
 }
 
+interface OuterProps {
+  GettingStartedArticlesQuery: {
+    gettingStartedArticles: Record<string, string>
+    loading: boolean
+    error?: ApolloError
+  }
+}
+
+interface Runtime {
+  runtime: {
+    route: {
+      params: {
+        track: string
+        article: string
+      }
+    }
+  }
+}
+
+interface MetaData {
+  title: string
+  description: string
+  tags: string[]
+  version: string
+  git: string
+}
+
 export default compose(
   withRuntimeContext,
   graphql(GettingStartedArticles, {
     name: 'GettingStartedArticlesQuery',
-    options: (props: { runtime: any }) => {
+    options: (props: Runtime) => {
       const { track } = props.runtime.route.params
       return {
         variables: {
@@ -111,7 +131,7 @@ export default compose(
     },
   }),
   branch(
-    ({ GettingStartedArticlesQuery }: any) =>
+    ({ GettingStartedArticlesQuery }: OuterProps) =>
       GettingStartedArticlesQuery.loading,
     renderComponent(Skeleton)
   )

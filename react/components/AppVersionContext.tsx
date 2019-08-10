@@ -1,7 +1,8 @@
 import React, { useContext, createContext, useReducer, ReactNode } from 'react'
-import { withRuntimeContext } from 'vtex.render-runtime'
+import { ApolloError } from 'apollo-client'
 import { compose, graphql } from 'react-apollo'
 import { renderComponent, branch, withProps } from 'recompose'
+import { withRuntimeContext } from 'vtex.render-runtime'
 
 import Skeleton from './Skeleton'
 import EmptyAppDocs from './EmptyAppDocs'
@@ -87,8 +88,8 @@ function useAppVersionDispatch() {
 
 const EnhancedAppVersionProvider = compose(
   withRuntimeContext,
-  withProps((props: any) => {
-    const { app }: { app?: string } = props.runtime.route.params
+  withProps((props: { runtime: { route: { params: { app?: string } } } }) => {
+    const { app } = props.runtime.route.params
     const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
     const appVersionFromUrl = app && app.split('@')[1]
 
@@ -132,7 +133,7 @@ interface OuterProps {
   appMajorsQuery: {
     data: AppMajorsQueryResponse
     loading: boolean
-    error?: any
+    error?: ApolloError
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { compose, graphql } from 'react-apollo'
+import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
 import { useRuntime } from 'vtex.render-runtime'
 
@@ -34,7 +35,7 @@ defineMessages({
   },
 })
 
-const ComponentsGrid: FC<any> = ({ ComponentsListQuery }) => {
+const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
   const {
     route: { params },
   } = useRuntime()
@@ -52,7 +53,7 @@ const ComponentsGrid: FC<any> = ({ ComponentsListQuery }) => {
       </p>
       <div className="flex flex-wrap">
         {componentsListForCategory &&
-          componentsListForCategory.map((component: any) => (
+          componentsListForCategory.map(component => (
             <div key={slug(component.title)} className="w-50 w-25-l">
               <ComponentGridItem
                 title={component.title}
@@ -76,6 +77,23 @@ function removeFileExtension(fileName: string) {
     : fileName
 }
 
+interface OuterProps {
+  ComponentsListQuery: {
+    componentsList: Record<
+      string,
+      {
+        appName: string
+        file: string
+        title: string
+        description: string
+        url: string
+      }[]
+    >
+    loading: boolean
+    error?: ApolloError
+  }
+}
+
 export default compose(
   graphql(ComponentList, {
     name: 'ComponentsListQuery',
@@ -87,11 +105,11 @@ export default compose(
     },
   }),
   branch(
-    ({ ComponentsListQuery }: any) => ComponentsListQuery.loading,
+    ({ ComponentsListQuery }: OuterProps) => ComponentsListQuery.loading,
     renderComponent(Skeleton)
   ),
   branch(
-    ({ ComponentsListQuery }: any) => !!ComponentsListQuery.error,
+    ({ ComponentsListQuery }: OuterProps) => !!ComponentsListQuery.error,
     renderComponent(EmptyDocs)
   )
 )(ComponentsGrid)

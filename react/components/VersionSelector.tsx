@@ -16,7 +16,7 @@ const VersionSelector: FC = () => {
       <Dropdown
         options={options}
         value={major[0]}
-        onChange={(e: any, value: string) => {
+        onChange={(e: Event, value: string) => {
           setMajorInfo({ type: 'updateMajor', value })
         }}
       />

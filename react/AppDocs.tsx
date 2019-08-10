@@ -9,7 +9,7 @@ import { useApp } from './hooks/useApp'
 
 import MarkdownFile from './graphql/markdownFile.graphql'
 
-const AppDocs: FC<any> = () => {
+const AppDocs: FC = () => {
   const { appName, fileName } = useApp()
 
   return (
