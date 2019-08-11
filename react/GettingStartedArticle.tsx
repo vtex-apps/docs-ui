@@ -2,7 +2,7 @@ import React, { Fragment, FC } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
-import { withRuntimeContext, Link, RenderRuntime } from 'vtex.render-runtime'
+import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
 
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
@@ -11,13 +11,15 @@ import EmptyDocs from './components/EmptyDocs'
 import MarkdownFile from './graphql/markdownFile.graphql'
 import GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
 
-const GettingStartedArticle: FC<OuterProps & RenderRuntime> = ({
+const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
   GettingStartedArticlesQuery,
-  route,
+  runtime,
 }) => {
   const {
-    params: { track, article },
-  } = route
+    route: {
+      params: { track, article },
+    },
+  } = runtime
 
   const articles = GettingStartedArticlesQuery.gettingStartedArticles
 
@@ -107,7 +109,7 @@ export default compose(
   withRuntimeContext,
   graphql(GettingStartedArticles, {
     name: 'GettingStartedArticlesQuery',
-    options: (props: { runtime: RenderRuntime }) => {
+    options: (props: InjectedRuntime) => {
       const { track } = props.runtime.route.params
       return {
         variables: {
