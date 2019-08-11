@@ -138,16 +138,16 @@ export const CustomRenderers = {
   },
   list: (props: any) => {
     if (props.ordered) {
-      return <ol className="mv7">{props.children}</ol>
+      return <ol className="mv4">{props.children}</ol>
     }
 
-    return <ul className="t-body c-on-base mb7 lh-copy">{props.children}</ul>
+    return <ul className="t-body c-on-base mv4 lh-copy">{props.children}</ul>
   },
   listItem: (props: any) => (
     <li className="t-body c-on-base mv4 lh-copy">{props.children}</li>
   ),
   paragraph: (props: any) => (
-    <p className="t-body c-on-base mb7 lh-copy">{props.children}</p>
+    <p className="t-body c-on-base mv5 lh-copy">{props.children}</p>
   ),
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,
   table: (props: any) => (
