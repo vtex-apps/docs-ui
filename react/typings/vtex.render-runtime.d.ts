@@ -9,6 +9,10 @@ declare module 'vtex.render-runtime' {
     }
   }
 
+  export interface InjectedRuntime {
+    runtime: RenderRuntime
+  }
+
   interface Pages {
     [name: string]: Page
   }

@@ -3,7 +3,7 @@ import { FormattedMessage, defineMessages } from 'react-intl'
 import { compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
-import { withRuntimeContext, RenderRuntime } from 'vtex.render-runtime'
+import { withRuntimeContext, InjectedRuntime } from 'vtex.render-runtime'
 
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
@@ -47,13 +47,15 @@ defineMessages({
   },
 })
 
-const RecipesList: FC<OuterProps & RenderRuntime> = ({
+const RecipesList: FC<OuterProps & InjectedRuntime> = ({
   RecipeListQuery,
-  route,
+  runtime,
 }) => {
   const {
-    params: { category },
-  } = route
+    route: {
+      params: { category },
+    },
+  } = runtime
 
   return (
     <div className="pv9">
@@ -107,7 +109,7 @@ export default compose(
   withRuntimeContext,
   graphql(RecipeList, {
     name: 'RecipeListQuery',
-    options: (props: { runtime: RenderRuntime }) => {
+    options: (props: InjectedRuntime) => {
       const {
         route: {
           params: { category },
