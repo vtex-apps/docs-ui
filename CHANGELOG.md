@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- New `AppDocs` component for `/docs/app/:app(/:file)` and `/docs/components/:category/:app` routes.
+- `EnhancedAppVersionProvider` to the `PageLayoutContainer` component.
+
 ## [0.19.3] - 2019-08-12
 
 ### Fixed
