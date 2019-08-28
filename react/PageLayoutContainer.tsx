@@ -19,16 +19,16 @@ const PageLayoutContainer: FC = ({ children }) => {
       </Helmet>
       <div className="flex flex-row-l flex-column min-vh-100">
         <EnhancedAppVersionProvider>
-          <div className="w-25-l min-h-100-l">
+          <div
+            className="w-25-l vh-100-l overflow-y-scroll"
+            style={{ maxWidth: '256px' }}>
             <SideBar />
           </div>
-          <div className="w-100 min-vh-100 h-100">
-            <div className="flex flex-column">
-              <TopNav />
-              <main className="flex w-90-l" style={{ maxWidth: '1024px' }}>
-                {children}
-              </main>
-            </div>
+          <div className="w-100 vh-100 overflow-y-scroll flex flex-column justify-between">
+            <TopNav />
+            <main className="flex w-90-l" style={{ maxWidth: '1024px' }}>
+              {children}
+            </main>
             <Footer />
           </div>
         </EnhancedAppVersionProvider>
