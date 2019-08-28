@@ -37,6 +37,10 @@ defineMessages({
     id: 'docs/recipes/plugins',
     defaultMessage: '',
   },
+  store: {
+    id: 'docs/recipes/store',
+    defaultMessage: '',
+  },
   'custom-blocks': {
     id: 'docs/recipes/custom-blocks',
     defaultMessage: '',

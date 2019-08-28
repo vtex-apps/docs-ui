@@ -29,6 +29,10 @@ defineMessages({
     id: 'docs/components/search-related',
     defaultMessage: '',
   },
+  pixel: {
+    id: 'docs/components/pixel',
+    defaultMessage: '',
+  },
   all: {
     id: 'docs/components/all',
     defaultMessage: '',
