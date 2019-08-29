@@ -44,8 +44,14 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
     route: { params },
   } = useRuntime()
 
-  const componentsListForCategory =
-    ComponentsListQuery.componentsList[params.category]
+  const [category] = params.category.split('-')
+  const shouldShowAllComponents = category === 'all'
+
+  const componentsListFromCategory = shouldShowAllComponents
+    ? Object.keys(ComponentsListQuery.componentsList).flatMap(
+        category => ComponentsListQuery.componentsList[category]
+      )
+    : ComponentsListQuery.componentsList[category]
 
   return (
     <div className="pv9 w-90 center">
@@ -56,19 +62,28 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
         <FormattedMessage id="docs/lorem" />
       </p>
       <div className="flex flex-wrap">
-        {componentsListForCategory &&
-          componentsListForCategory.map(component => (
-            <div key={slug(component.title)} className="w-50 w-25-l">
-              <ComponentGridItem
-                title={component.title}
-                description={component.description}
-                link={`${params.category}/${
-                  component.appName
-                }/${(component.file && removeFileExtension(component.file)) ||
-                  ''}`}
-              />
-            </div>
-          ))}
+        {componentsListFromCategory &&
+          componentsListFromCategory.map(component => {
+            const hasTitleAndDescription = !!(
+              component.appName && component.description
+            )
+
+            return (
+              hasTitleAndDescription && (
+                <div key={slug(component.title)} className="w-50 w-30-l">
+                  <ComponentGridItem
+                    title={component.title}
+                    description={component.description}
+                    link={`${params.category}/${
+                      component.appName
+                    }/${(component.file &&
+                      removeFileExtension(component.file)) ||
+                      ''}`}
+                  />
+                </div>
+              )
+            )
+          })}
       </div>
     </div>
   )
