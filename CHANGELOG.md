@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.22.0] - 2019-08-29
 ### Added
 - Independent scrolling on `SideBar` and main content section.
 - Max-width to the `SideBar` to prevent it from stretching on widescreens.
