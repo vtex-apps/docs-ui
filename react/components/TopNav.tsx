@@ -8,17 +8,17 @@ const TopNav = () => (
         <a
           href="https://help.vtex.com/developer-docs"
           className="link c-on-base--inverted no-underline mv3 mh5">
-          <FormattedMessage id="docs/nav/api" />
+          <FormattedMessage id="docs/nav.api" />
         </a>
         <a
           href="https://github.com/vtex-apps/release-notes"
           className="link c-on-base--inverted no-underline mv3 mh5">
-          <FormattedMessage id="docs/nav/latest" />
+          <FormattedMessage id="docs/nav.latest" />
         </a>
         <a
           href="https://www.vtex.com/partner/"
           className="link c-on-base--inverted no-underline mv3 mh5">
-          <FormattedMessage id="docs/nav/partner" />
+          <FormattedMessage id="docs/nav.partner" />
         </a>
       </div>
     </div>

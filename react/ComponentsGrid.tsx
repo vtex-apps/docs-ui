@@ -14,23 +14,27 @@ import Skeleton from './components/Skeleton'
 
 defineMessages({
   general: {
-    id: 'docs/components/general',
+    id: 'docs/components.general',
     defaultMessage: '',
   },
   navigation: {
-    id: 'docs/components/navigation',
+    id: 'docs/components.navigation',
     defaultMessage: '',
   },
   product: {
-    id: 'docs/components/product-related',
+    id: 'docs/components.product-related',
     defaultMessage: '',
   },
   search: {
-    id: 'docs/components/search-related',
+    id: 'docs/components.search-related',
+    defaultMessage: '',
+  },
+  pixel: {
+    id: 'docs/components.pixel',
     defaultMessage: '',
   },
   all: {
-    id: 'docs/components/all',
+    id: 'docs/components.all',
     defaultMessage: '',
   },
 })

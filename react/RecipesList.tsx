@@ -14,35 +14,39 @@ import Skeleton from './components/Skeleton'
 
 defineMessages({
   style: {
-    id: 'docs/recipes/style',
+    id: 'docs/recipes.style',
     defaultMessage: '',
   },
   layout: {
-    id: 'docs/recipes/layout',
+    id: 'docs/recipes.layout',
     defaultMessage: '',
   },
   app: {
-    id: 'docs/recipes/app',
+    id: 'docs/recipes.app',
     defaultMessage: '',
   },
   content: {
-    id: 'docs/recipes/content',
+    id: 'docs/recipes.content',
     defaultMessage: '',
   },
   routes: {
-    id: 'docs/recipes/routes',
+    id: 'docs/recipes.routes',
     defaultMessage: '',
   },
   plugins: {
-    id: 'docs/recipes/plugins',
+    id: 'docs/recipes.plugins',
+    defaultMessage: '',
+  },
+  store: {
+    id: 'docs/recipes.store',
     defaultMessage: '',
   },
   'custom-blocks': {
-    id: 'docs/recipes/custom-blocks',
+    id: 'docs/recipes.custom-blocks',
     defaultMessage: '',
   },
   all: {
-    id: 'docs/recipes/all',
+    id: 'docs/recipes.all',
     defaultMessage: '',
   },
 })
