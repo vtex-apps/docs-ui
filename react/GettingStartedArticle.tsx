@@ -32,7 +32,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
         variables={{
           appName: 'vtex.io-documentation@0.x',
           fileName: `GettingStarted/${track}/${articles[article]}`,
-          locale: 'pt',
+          locale: 'en',
         }}>
         {({
           loading,
@@ -114,7 +114,7 @@ export default compose(
       return {
         variables: {
           track,
-          locale: 'pt',
+          locale: 'en',
         },
       }
     },
