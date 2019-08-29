@@ -1,16 +1,12 @@
 import React, { ReactElement, FC } from 'react'
-import { Query } from 'react-apollo'
-import { ApolloError } from 'apollo-client'
 import { Drawer } from 'vtex.store-drawer'
 import { Link } from 'vtex.render-runtime'
 
 import SideBarItem from './SideBarItem'
-import Skeleton from './Skeleton'
-import EmptySummary from './EmptySummary'
 import { formatLink } from '../utils'
+import { useSideBarContentState } from './SideBarContext'
 
 import VTEXBlack from './icons/VTEXBlack'
-import Summary from '../graphql/appSummary.graphql'
 
 interface Chapter {
   title: string
@@ -20,49 +16,33 @@ interface Chapter {
 
 const SideBar: FC = () => {
   const appName = 'vtex.io-documentation@0.x'
+  const { content } = useSideBarContentState()
 
   return (
-    <Query query={Summary} variables={{ appName, locale: 'en' }}>
-      {({
-        loading,
-        error,
-        data,
-      }: {
-        loading: boolean
-        error?: ApolloError
-        data: { appSummary: { chapterList: Chapter[] } }
-      }) => {
-        if (loading) return <Skeleton />
-        if (error) return <EmptySummary />
-
-        return (
-          <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-4">
-            {/* Mobile navigation */}
-            <div className="flex items-center dn-l">
-              <div className="w-50 pl4">
-                <Drawer>
-                  <div className="flex flex-column w-90 center" role="menu">
-                    {getArticles(data.appSummary.chapterList, 0, appName)}
-                  </div>
-                </Drawer>
-              </div>
-              <div className="w-100 center">
-                <Link to="/docs/home">
-                  <VTEXBlack />
-                </Link>
-              </div>
+    <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-4">
+      {/* Mobile navigation */}
+      <div className="flex items-center dn-l">
+        <div className="w-50 pl4">
+          <Drawer>
+            <div className="flex flex-column w-90 center" role="menu">
+              {getArticles(content, 0, appName)}
             </div>
-            {/* Desktop navigation */}
-            <div className="dn db-l" role="menu">
-              <Link to="/docs/home" className="flex pt2 mt2 pl5">
-                <VTEXBlack />
-              </Link>
-              {getArticles(data.appSummary.chapterList, 0, appName)}
-            </div>
-          </nav>
-        )
-      }}
-    </Query>
+          </Drawer>
+        </div>
+        <div className="w-100 center">
+          <Link to="/docs/home">
+            <VTEXBlack />
+          </Link>
+        </div>
+      </div>
+      {/* Desktop navigation */}
+      <div className="dn db-l" role="menu">
+        <Link to="/docs/home" className="flex pt2 mt2 pl5">
+          <VTEXBlack />
+        </Link>
+        {getArticles(content, 0, appName)}
+      </div>
+    </nav>
   )
 }
 

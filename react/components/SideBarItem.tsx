@@ -35,33 +35,55 @@ const SideBarItem: FC<Props> = ({
 
   return (
     <div className="link">
-      <div
-        className={`flex justify-between items-center pointer ${
-          depth >= 2 ? 'pl4 t-small' : ''
-        }`}
-        onClick={() => setOpen(!open)}
-        onKeyPress={() => setOpen(!open)}
-        role="menuitem"
-        tabIndex={-1}>
-        {link ? (
-          <Link
-            href={link}
-            className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
-            {depth === 0 ? <ZeroDepthItem /> : <NormalItem />}
-          </Link>
-        ) : depth === 0 ? (
-          <ZeroDepthItem />
-        ) : (
-          <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
-            <NormalItem />
+      {link ? (
+        <Link
+          to={link}
+          className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
+          <div
+            className={`flex justify-between items-center pointer ${
+              depth >= 2 ? 'pl4 t-small' : ''
+            }`}
+            onClick={() => setOpen(!open)}
+            onKeyPress={() => setOpen(!open)}
+            role="menuitem"
+            tabIndex={-1}>
+            {depth === 0 ? (
+              <ZeroDepthItem />
+            ) : (
+              <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
+                <NormalItem />
+              </div>
+            )}
+            <div className="ph2">
+              {hasArticles &&
+                depth === 0 &&
+                (open ? <IconCaretDown /> : <IconCaretRight />)}
+            </div>
           </div>
-        )}
-        <div className="ph2">
-          {hasArticles &&
-            depth === 0 &&
-            (open ? <IconCaretDown /> : <IconCaretRight />)}
+        </Link>
+      ) : (
+        <div
+          className={`flex justify-between items-center pointer ${
+            depth >= 2 ? 'pl4 t-small' : ''
+          }`}
+          onClick={() => setOpen(!open)}
+          onKeyPress={() => setOpen(!open)}
+          role="menuitem"
+          tabIndex={-1}>
+          {depth === 0 ? (
+            <ZeroDepthItem />
+          ) : (
+            <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
+              <NormalItem />
+            </div>
+          )}
+          <div className="ph2">
+            {hasArticles &&
+              depth === 0 &&
+              (open ? <IconCaretDown /> : <IconCaretRight />)}
+          </div>
         </div>
-      </div>
+      )}
       {hasArticles && <div hidden={!open}>{children}</div>}
     </div>
   )
