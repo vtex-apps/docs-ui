@@ -56,7 +56,7 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
   return (
     <div className="pv9 w-90 center">
       <h1 className="t-heading-1 center mb6">
-        <FormattedMessage id={`docs/components/${params.category}`} />
+        <FormattedMessage id={`docs/components.${params.category}`} />
       </h1>
       <p className="small c-on-base center mb8">
         <FormattedMessage id="docs/lorem" />
