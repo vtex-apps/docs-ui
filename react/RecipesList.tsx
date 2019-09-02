@@ -103,7 +103,7 @@ const RecipesList: FC<OuterProps & InjectedRuntime> = ({
             key={slug(recipe.description)}
             title={recipe.title}
             description={recipe.description}
-            link={getShortRecipePath(recipe.path)}
+            link={`/docs/recipes/${getShortRecipePath(recipe.path)}`}
           />
         ))}
       </div>

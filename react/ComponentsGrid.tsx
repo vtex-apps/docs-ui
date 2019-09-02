@@ -100,7 +100,7 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
                   <ComponentGridItem
                     title={component.title}
                     description={component.description}
-                    link={`${params.category}/${
+                    link={`/docs/components/${params.category}/${
                       component.appName
                     }/${(component.file &&
                       removeFileExtension(component.file)) ||
