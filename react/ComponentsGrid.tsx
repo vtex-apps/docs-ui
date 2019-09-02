@@ -90,9 +90,8 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
       <div className="flex flex-wrap">
         {componentsListFromCategory &&
           componentsListFromCategory.map(component => {
-            const hasTitleAndDescription = !!(
-              component.appName && component.description
-            )
+            const hasTitleAndDescription =
+              component && !!(component.appName && component.description)
 
             return (
               hasTitleAndDescription && (
