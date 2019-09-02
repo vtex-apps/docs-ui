@@ -17,24 +17,48 @@ defineMessages({
     id: 'docs/components.general',
     defaultMessage: '',
   },
+  generalDescription: {
+    id: 'docs/components.general-description',
+    defaultMessage: '',
+  },
   navigation: {
     id: 'docs/components.navigation',
+    defaultMessage: '',
+  },
+  navigationDescription: {
+    id: 'docs/components.navigation-description',
     defaultMessage: '',
   },
   product: {
     id: 'docs/components.product-related',
     defaultMessage: '',
   },
+  productDescription: {
+    id: 'docs/components.product-related-description',
+    defaultMessage: '',
+  },
   search: {
     id: 'docs/components.search-related',
+    defaultMessage: '',
+  },
+  searchDescription: {
+    id: 'docs/components.search-related-description',
     defaultMessage: '',
   },
   pixel: {
     id: 'docs/components.pixel',
     defaultMessage: '',
   },
+  pixelDescription: {
+    id: 'docs/components.pixel-description',
+    defaultMessage: '',
+  },
   all: {
     id: 'docs/components.all',
+    defaultMessage: '',
+  },
+  allDescription: {
+    id: 'docs/components.all-description',
     defaultMessage: '',
   },
 })
@@ -59,7 +83,7 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
         <FormattedMessage id={`docs/components.${params.category}`} />
       </h1>
       <p className="small c-on-base center mb8">
-        <FormattedMessage id="docs/lorem" />
+        <FormattedMessage id={`docs/components.${params.category}-description`} />
       </p>
       <div className="flex flex-wrap">
         {componentsListFromCategory &&
