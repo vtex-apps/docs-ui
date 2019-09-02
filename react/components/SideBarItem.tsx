@@ -19,14 +19,26 @@ const SideBarItem: FC<Props> = ({
   hasArticles,
   children,
 }) => {
-  const activeUrl = useRuntime().route.path
-  const isActive = link === activeUrl
-  const activeCategory = activeUrl.split('/')[2]
-  const activeSubCategory = activeUrl.split('/')[3]
-  const hasActiveChildren =
-    slug(text.toLowerCase()) === activeCategory ||
-    slug(text.toLowerCase()) === activeSubCategory
-  const [open, setOpen] = useState(hasActiveChildren || isActive)
+  const {
+    route: { path },
+  } = useRuntime()
+
+  // all links follow this pattern: /docs/<section>/<subsection | undefined>/<filename | undefined>
+  const [linkSection, linkSubsection] = (link && link.split('/').slice(2)) || ''
+  const [currentSection, currentSubsection] = path.split('/').slice(2)
+
+  const isCurrentSection =
+    linkSection === currentSection ||
+    slug(text.toLowerCase()) === currentSection
+  const isCurrentGettingStartedTrack =
+    linkSubsection === currentSubsection && linkSection === 'getting-started'
+  const isCurrentSubsection =
+    currentSubsection && linkSubsection === currentSubsection
+  const isActive = link === path || isCurrentGettingStartedTrack
+
+  const shouldBeOpen = isActive || isCurrentSection || isCurrentSubsection
+
+  const [open, setOpen] = useState(shouldBeOpen)
 
   const ZeroDepthItem = () =>
     text !== 'Introduction' ? <div className="mv4 c-on-base">{text}</div> : null
@@ -43,8 +55,14 @@ const SideBarItem: FC<Props> = ({
             className={`flex justify-between items-center pointer ${
               depth >= 2 ? 'pl4 t-small' : ''
             }`}
-            onClick={() => setOpen(!open)}
-            onKeyPress={() => setOpen(!open)}
+            onClick={() => {
+              if (shouldBeOpen && open) return
+              return setOpen(!open)
+            }}
+            onKeyPress={() => {
+              if (shouldBeOpen && open) return
+              return setOpen(!open)
+            }}
             role="menuitem"
             tabIndex={-1}>
             {depth === 0 ? (
