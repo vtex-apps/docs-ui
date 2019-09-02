@@ -95,7 +95,7 @@ const RecipesList: FC<OuterProps & InjectedRuntime> = ({
         <FormattedMessage id={`docs/recipes.${category}`} />
       </h1>
       <p className="small c-on-base w-90 w-80-ns center mb8">
-      <FormattedMessage id={`docs/recipes.${category}-description`} />
+        <FormattedMessage id={`docs/recipes.${category}-description`} />
       </p>
       <div className="w-90 w-80-ns center">
         {RecipeListQuery.recipeList.map((recipe: Recipe) => (
