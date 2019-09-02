@@ -1,5 +1,6 @@
 import React, { FC, Fragment } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
+import { Link } from 'vtex.render-runtime'
 
 import { slug } from './utils'
 import LatestFeatures from './components/LatestFeatures'
@@ -7,7 +8,6 @@ import Community from './components/Community'
 import ArticleNav from './components/ArticleNav'
 import Recipes from './components/icons/Recipes'
 import Components from './components/icons/Components'
-import Resources from './components/icons/Resources'
 import RightArrow from './components/icons/RightArrow'
 
 const Home: FC<InjectedIntlProps> = ({ intl }) => {
@@ -54,12 +54,12 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                 <FormattedMessage id="docs/lorem-short" />
               </p>
               <div className="flex items-center">
-                <a
-                  href="recipes/style"
+                <Link
+                  to="recipes/style"
                   className="link no-underline c-emphasis">
                   <span className="mr5">See all</span>
                   <RightArrow />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="mh3-l mv8 mv0-l">
@@ -73,29 +73,12 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                 <FormattedMessage id="docs/lorem-short" />
               </p>
               <div className="c-emphasis flex items-center">
-                <a
-                  href="components/general"
+                <Link
+                  to="/docs/components/all"
                   className="link no-underline c-emphasis">
                   <span className="mr5">See all</span>
                   <RightArrow />
-                </a>
-              </div>
-            </div>
-            <div className="mv8 mv0-l">
-              <div className="w-25-l w-10">
-                <Resources />
-              </div>
-              <p className="t-heading-4 ">
-                <FormattedMessage id="docs/resources" />
-              </p>
-              <p className="c-muted-1">
-                <FormattedMessage id="docs/lorem-short" />
-              </p>
-              <div className="c-emphasis flex items-center">
-                <a href="resources" className="link no-underline c-emphasis">
-                  <span className="mr5">See all</span>
-                  <RightArrow />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
