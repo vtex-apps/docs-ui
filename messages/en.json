@@ -7,7 +7,7 @@
   "docs/recipes-description": "Find answers to any doubt you may have on platform functionality.",
   "docs/our-components": "Our components",
   "docs/our-components-description": "Get to know our high quality, open-code, customizable components.",
-  "docs/resources": "Resources"
+  "docs/resources": "Resources",
   "docs/resources-description": "Understand platform terminology and empower your knowledge about the VTEX IO universe.",
   "docs/community": "Community",
   "docs/latest-features": "VTEX IO latest reatures",
@@ -29,7 +29,7 @@
   "docs/recipes.layout": "Layout Recipes",
   "docs/recipes.routes-description": "Learn to configure the structure of your store components.",
   "docs/recipes.store": "Store Managing Recipes",
-  "docs/recipes.store-description": "Find all the necessary information for a better management of your store’s content."
+  "docs/recipes.store-description": "Find all the necessary information for a better management of your store’s content.",
   "docs/recipes.routes": "Routes Recipes",
   "docs/recipes.routes-description": "Discover how to create pages and customized routes/paths for your store and influence user browsing.",
   "docs/recipes.plugins": "Plugins Recipes",
