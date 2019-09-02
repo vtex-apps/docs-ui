@@ -26,7 +26,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
           <FormattedMessage id="docs/build" />
         </h1>
         <p className="small c-on-base w-90 w-80-ns center mb8">
-          <FormattedMessage id="docs/lorem-short" />
+          <FormattedMessage id="docs/build-description" />
         </p>
         <div className="w-90 w-80-ns center">
           <div className="flex w-100">
@@ -51,7 +51,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                 <FormattedMessage id="docs/recipes" />
               </p>
               <p className="c-muted-1">
-                <FormattedMessage id="docs/lorem-short" />
+                <FormattedMessage id="docs/recipes-description" />
               </p>
               <div className="flex items-center">
                 <Link
@@ -70,7 +70,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                 <FormattedMessage id="docs/our-components" />
               </p>
               <p className="c-muted-1">
-                <FormattedMessage id="docs/lorem-short" />
+                <FormattedMessage id="docs/our-components-description" />
               </p>
               <div className="c-emphasis flex items-center">
                 <Link

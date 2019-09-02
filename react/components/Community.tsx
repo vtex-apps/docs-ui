@@ -23,7 +23,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
             <FormattedMessage id="docs/community-join" />
           </h4>
           <p className="t-body c-on-base">
-            <FormattedMessage id="docs/lorem-short" />
+            <FormattedMessage id="docs/community-description" />
           </p>
         </div>
       </div>
