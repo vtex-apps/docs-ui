@@ -83,7 +83,9 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
         <FormattedMessage id={`docs/components.${params.category}`} />
       </h1>
       <p className="small c-on-base center mb8">
-        <FormattedMessage id={`docs/components.${params.category}-description`} />
+        <FormattedMessage
+          id={`docs/components.${params.category}-description`}
+        />
       </p>
       <div className="flex flex-wrap">
         {componentsListFromCategory &&

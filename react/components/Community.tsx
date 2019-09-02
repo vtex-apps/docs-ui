@@ -13,7 +13,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
     </h2>
     <a
       href="https://github.com/vtex-apps/store-discussion"
-      className="link no-underline">
+      className="link no-underline pointer">
       <div className="flex items-center">
         <div className="w-10-l w-25 mr6">
           <CommunityIcon />
@@ -22,7 +22,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
           <h4 className="t-heading-4  c-on-base">
             <FormattedMessage id="docs/community-join" />
           </h4>
-          <p className="t-body c-on-base">
+          <p className="t-body c-on-base lh-copy">
             <FormattedMessage id="docs/community-description" />
           </p>
         </div>
