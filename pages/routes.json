@@ -1,6 +1,6 @@
 {
   "docs.home": {
-    "path": "/docs/home"
+    "path": "/docs(/home)"
   },
   "docs.recipes-list": {
     "path": "/docs/recipes/:category"
