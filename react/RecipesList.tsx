@@ -147,9 +147,11 @@ export default compose(
           params: { category },
         },
       } = props.runtime
+      const shouldFetchAllRecipes = category === 'all'
+
       return {
         variables: {
-          category: category,
+          category: shouldFetchAllRecipes ? '' : category,
           appName: 'vtex.io-documentation@0.x',
           locale: 'en',
         },
