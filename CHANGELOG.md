@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - Handling of active section on `SideBarItem` component.
+- Link to all recipes at `Home`.
+
+### Added
+- `RecipesList` can now show all available recipes on `recipes/all`.
 
 ## [0.24.0] - 2019-09-02
 ### Fixed
