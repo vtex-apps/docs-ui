@@ -19,14 +19,14 @@ const PageLayoutContainer: FC = ({ children }) => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <div className="flex flex-row-l flex-column vh-100-l">
+        <EnhancedSideBarContentProvider>
+          <div
+            className="w-25-l vh-100-l overflow-y-scroll"
+            style={{ maxWidth: '256px' }}>
+            <SideBar />
+          </div>
+        </EnhancedSideBarContentProvider>
         <EnhancedAppVersionProvider>
-          <EnhancedSideBarContentProvider>
-            <div
-              className="w-25-l vh-100-l overflow-y-scroll"
-              style={{ maxWidth: '256px' }}>
-              <SideBar />
-            </div>
-          </EnhancedSideBarContentProvider>
           <div
             className="w-100 min-vh-100 overflow-y-scroll flex flex-column justify-between"
             style={{ scrollBehavior: 'smooth' }}>
