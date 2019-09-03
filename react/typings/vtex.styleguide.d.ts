@@ -13,4 +13,5 @@ declare module 'vtex.styleguide' {
   export const EmptyState
   export const Card
   export const Dropdown
+  export const Link
 }
