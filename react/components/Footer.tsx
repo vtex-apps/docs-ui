@@ -25,16 +25,16 @@ const Footer: FC = () => {
             </div>
             <div className={listItemClasses}>
               <Link
-                to="recipes/style"
+                to="recipes/all"
                 className="link no-underline c-on-base--inverted">
                 <FormattedMessage id="docs/recipes" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
-                to="components/general"
+                to="components/all"
                 className="link no-underline c-on-base--inverted">
-                <FormattedMessage id="docs/components" />
+                <FormattedMessage id="docs/our-components" />
               </Link>
             </div>
             <div className={listItemClasses}>
