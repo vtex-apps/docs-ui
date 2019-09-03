@@ -108,7 +108,7 @@ export const CustomRenderers = {
   ),
   inlineCode: (props: any) => (
     <span
-      className="t-body c-on-base pa2 mw6 br2 bg-muted-4"
+      className="t-body c-on-base pa1 mw6 br2 bg-muted-4"
       style={{ wordWrap: 'break-word' }}>
       {props.value}
     </span>
