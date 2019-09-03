@@ -54,9 +54,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                 <FormattedMessage id="docs/recipes-description" />
               </p>
               <div className="flex items-center">
-                <Link
-                  to="recipes/style"
-                  className="link no-underline c-emphasis">
+                <Link to="recipes/all" className="link no-underline c-emphasis">
                   <span className="mr5">See all</span>
                   <RightArrow />
                 </Link>
