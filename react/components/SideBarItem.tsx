@@ -28,8 +28,9 @@ const SideBarItem: FC<Props> = ({
   const [currentSection, currentSubsection] = path.split('/').slice(2)
 
   const isCurrentSection =
-    linkSection === currentSection ||
-    slug(text.toLowerCase()) === currentSection
+    currentSection &&
+    (linkSection === currentSection ||
+      slug(text.toLowerCase()) === currentSection)
   const isCurrentGettingStartedTrack =
     linkSubsection === currentSubsection && linkSection === 'getting-started'
   const isCurrentSubsection =
