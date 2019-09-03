@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
+import emoji from 'remark-emoji'
 import { FormattedMessage } from 'react-intl'
 
 import { CustomRenderers } from './CustomTags'
@@ -11,6 +12,7 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
         source={markdown}
         escapeHtml={false}
         renderers={CustomRenderers}
+        plugins={[emoji]}
       />
       {meta.git && (
         <a href={meta.git}>
