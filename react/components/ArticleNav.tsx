@@ -1,6 +1,5 @@
 import React, { FC, Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import { slug } from '../utils'
 
@@ -20,13 +19,12 @@ const ArticleNav: FC<Props> = ({ headings }) => (
         const slugifiedHeader = slug(heading)
 
         return (
-          <AnchorLink
+          <a
             className="link no-underline"
-            offset={() => 80}
             href={`#${slugifiedHeader}`}
             key={slugifiedHeader}>
             <p className="c-on-base">{heading}</p>
-          </AnchorLink>
+          </a>
         )
       })}
     </Fragment>
