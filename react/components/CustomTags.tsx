@@ -167,12 +167,14 @@ export const CustomRenderers = {
     }
 
     return (
-      <td className="t-body pa5" style={{ minWidth: '10rem' }}>
+      <td className="t-body pa5 lh-copy" style={{ minWidth: '10rem' }}>
         {props.children}
       </td>
     )
   },
-  tableRow: (props: any) => <tr className="bb b--muted-3">{props.children}</tr>,
+  tableRow: (props: any) => (
+    <tr className="bb b--muted-3 lh-copy">{props.children}</tr>
+  ),
   thematicBreak: () => <hr className="mv7" />,
 }
 
