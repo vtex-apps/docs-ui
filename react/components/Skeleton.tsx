@@ -4,7 +4,7 @@ import '../styles.global.css'
 const Skeleton = () => {
   const baseSkeletonPiece = 'pa3 br2 relative overflow-hidden'
   return (
-    <div className="w-90 mw8 center pv5 ph5 dn flex-l flex-column">
+    <div className="w-90 mw8 min-vh-100 center pv5 ph5 dn db-l flex-column">
       <div
         className={`${baseSkeletonPiece} bg-muted-3 w-30 mv7`}
         style={{ height: `${32}px` }}>
