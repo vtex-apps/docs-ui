@@ -102,7 +102,7 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
                     link={`/docs/components/${params.category}/${
                       component.appName
                     }/${(component.file &&
-                      removeFileExtension(component.file)) ||
+                      slug(removeFileExtension(component.file))) ||
                       ''}`}
                   />
                 </div>
