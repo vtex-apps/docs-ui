@@ -2,6 +2,7 @@ import React, { Fragment, FC } from 'react'
 import { Query, compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
+import { FormattedMessage } from 'react-intl'
 import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
 
 import DocsRenderer from './components/DocsRenderer'
@@ -53,19 +54,19 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
           return (
             <Fragment>
               <DocsRenderer markdown={markdown} meta={meta} />
-              <div className="flex w-80-l center justify-between">
+              <div className="flex w-80-l center justify-between mt6">
                 {hasPrevArticle(currentArticle) && (
                   <Link
-                    className="link no-underline t-body"
+                    className="link c-emphasis no-underline t-body mr-auto flex items-center"
                     to={`${currentArticle - 1}`}>
-                    <span>Previous article</span>
+                    <FormattedMessage id="docs/getting-started.previous" />
                   </Link>
                 )}
                 {hasNextArticle(articles, currentArticle) && (
                   <Link
-                    className="link no-underline t-body"
+                    className="link c-emphasis no-underline t-body ml-auto flex items-center"
                     to={`${currentArticle + 1}`}>
-                    <span>Next article</span>
+                    <FormattedMessage id="docs/getting-started.next" />
                   </Link>
                 )}
               </div>
