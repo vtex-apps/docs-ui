@@ -27,7 +27,9 @@ const PageLayoutContainer: FC = ({ children }) => {
               <SideBar />
             </div>
           </EnhancedSideBarContentProvider>
-          <div className="w-100 vh-100 overflow-y-scroll flex flex-column justify-between">
+          <div
+            className="w-100 min-vh-100 overflow-y-scroll flex flex-column justify-between"
+            style={{ scrollBehavior: 'smooth' }}>
             <TopNav />
             <main className="flex w-90-l" style={{ maxWidth: '1024px' }}>
               {children}
