@@ -2,8 +2,8 @@
 import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { coy } from 'react-syntax-highlighter/dist/styles/prism'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { useRuntime } from 'vtex.render-runtime'
+import { Link } from 'vtex.styleguide'
 
 import ArticleNav from './ArticleNav'
 import { slug } from '../utils'
@@ -121,20 +121,18 @@ export const CustomRenderers = {
     const isRelativeLink = !!props.href && props.href[0] === '/'
 
     if (isIdLink && !!props.href) {
-      return (
-        <AnchorLink offset={() => 80} href={props.href.toLowerCase()}>
-          {props.children}
-        </AnchorLink>
-      )
+      return <Link href={props.href.toLowerCase()}>{props.children}</Link>
     }
 
     if (isRelativeLink) {
       return (
-        <a href={`/docs/${route.params.app}${props.href}`}>{props.children}</a>
+        <Link href={`/docs/${route.params.app}${props.href}`}>
+          {props.children}
+        </Link>
       )
     }
 
-    return <a href={props.href}>{props.children}</a>
+    return <Link href={props.href}>{props.children}</Link>
   },
   list: (props: any) => {
     if (props.ordered) {
