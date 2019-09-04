@@ -6,7 +6,7 @@ import SideBarItem from './SideBarItem'
 import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
 
-import VTEXBlack from './icons/VTEXBlack'
+import VTEXBlack from './icons/VTEXPink'
 
 interface Chapter {
   title: string
@@ -37,7 +37,7 @@ const SideBar: FC = () => {
       </div>
       {/* Desktop navigation */}
       <div className="dn db-l" role="menu">
-        <Link to="/docs/home" className="flex pt2 mt2 pl5">
+        <Link to="/docs/home" className="flex pt2 mt2 pl3">
           <VTEXBlack />
         </Link>
         {getArticles(content, 0, appName)}
@@ -52,7 +52,10 @@ function getArticles(
   app?: string
 ): ReactElement {
   return (
-    <div className={`list ${depth > 0 ? 'pl0-l pr2-l pt5 pb5' : 'pa7-l'}`}>
+    <div
+      className={`list ${
+        depth > 0 ? 'pl0-l pr2-l pb5 pt2' : 'pv7-l pl6-l pr5-l'
+      }`}>
       {chapterList.map((chapter: Chapter) => (
         <SideBarItem
           text={chapter.title}

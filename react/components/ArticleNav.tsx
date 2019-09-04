@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ArticleNav: FC<Props> = ({ headings }) => (
-  <nav className="pa5 flex-l flex-column t-small dn">
+  <nav className="mt7 mb7 flex-l flex-column t-small dn pl7">
     <p className="ttu">
       <strong>
         <FormattedMessage id="docs/article-nav" />
@@ -20,10 +20,10 @@ const ArticleNav: FC<Props> = ({ headings }) => (
 
         return (
           <a
-            className="link no-underline"
+            className="link no-underline pb3"
             href={`#${slugifiedHeader}`}
             key={slugifiedHeader}>
-            <p className="c-on-base">{heading}</p>
+            <span className="c-on-base">{heading}</span>
           </a>
         )
       })}

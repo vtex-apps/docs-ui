@@ -31,20 +31,18 @@ const SideBarItem: FC<Props> = ({
     currentSection &&
     (linkSection === currentSection ||
       slug(text.toLowerCase()) === currentSection)
-  const isCurrentGettingStartedTrack =
-    linkSubsection === currentSubsection && linkSection === 'getting-started'
   const isCurrentSubsection =
     currentSubsection && linkSubsection === currentSubsection
-  const isActive = link === path || isCurrentGettingStartedTrack
+  const isActive = link === path
 
   const shouldBeOpen = isActive || isCurrentSection || isCurrentSubsection
 
   const [open, setOpen] = useState(shouldBeOpen)
 
   const ZeroDepthItem = () =>
-    text !== 'Introduction' ? <div className="mv4 c-on-base">{text}</div> : null
+    text !== 'Introduction' ? <div className="c-on-base">{text}</div> : null
 
-  const NormalItem = () => <div className="mv3">{text}</div>
+  const NormalItem = () => <div className="mb3">{text}</div>
 
   return (
     <div className="link">
@@ -54,7 +52,7 @@ const SideBarItem: FC<Props> = ({
           className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
           <div
             className={`flex justify-between items-center pointer ${
-              depth >= 2 ? 'pl4 t-small' : ''
+              depth >= 2 ? 'pl3 lh-title t-small' : ''
             }`}
             onClick={() => {
               if (shouldBeOpen && open) return
@@ -83,8 +81,8 @@ const SideBarItem: FC<Props> = ({
       ) : (
         <div
           className={`flex justify-between items-center pointer ${
-            depth >= 2 ? 'pl4 t-small' : ''
-          }`}
+            depth === 0 ? 'mb4' : ''
+          } ${depth >= 2 ? 'pl3 lh-title t-small' : ''}`}
           onClick={() => setOpen(!open)}
           onKeyPress={() => setOpen(!open)}
           role="menuitem"
