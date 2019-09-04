@@ -23,7 +23,6 @@
     "@types/react-dom": "^16.0.5",
     "@types/react-helmet": "^5.0.5",
     "@types/react-intl": "^2.3.5",
-    "@types/react-syntax-highlighter": "^10.2.1",
     "@types/recompose": "^0.30.6",
     "@vtex/intl-equalizer": "^2.3.0",
     "@vtex/test-tools": "^0.3.2",
