@@ -52,8 +52,8 @@ const SideBarItem: FC<Props> = ({
           className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
           <div
             className={`flex justify-between items-center pointer ${
-              depth >= 2 ? 'pl3 lh-title t-small' : ''
-            }`}
+              depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv3' : ''
+            } ${isActive ? 'b--emphasis' : 'b--muted-3'}`}
             onClick={() => {
               if (shouldBeOpen && open) return
               return setOpen(!open)
