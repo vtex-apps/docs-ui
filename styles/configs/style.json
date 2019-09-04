@@ -109,9 +109,9 @@
       "muted-5": "#f2f4f5"
     },
     "text": {
-      "action-primary": "#0F3E99",
+      "action-primary": "#134cd8",
       "action-secondary": "#eef3f7",
-      "link": "#0F3E99",
+      "link": "#134cd8",
       "emphasis": "#f71963",
       "disabled": "#979899",
       "success": "#8bc34a",
@@ -204,7 +204,7 @@
       "base": "#3f3f40",
       "base--inverted": "#ffffff",
       "action-primary": "#ffffff",
-      "action-secondary": "#0F3E99",
+      "action-secondary": "#134cd8",
       "emphasis": "#ffffff",
       "disabled": "#979899",
       "success": "#ffffff",
@@ -221,7 +221,7 @@
     },
     "hover-on": {
       "action-primary": "#ffffff",
-      "action-secondary": "#0F3E99",
+      "action-secondary": "#134cd8",
       "emphasis": "#ffffff",
       "success": "#ffffff",
       "success--faded": "#3f3f40",
@@ -232,7 +232,7 @@
     },
     "active-on": {
       "action-primary": "#ffffff",
-      "action-secondary": "#0F3E99",
+      "action-secondary": "#134cd8",
       "emphasis": "#ffffff",
       "success": "#ffffff",
       "success--faded": "#3f3f40",
@@ -266,42 +266,42 @@
     "styles": {
       "heading-1": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
-        "fontWeight": "100",
+        "fontWeight": "400",
         "fontSize": "3rem",
         "textTransform": "initial",
         "letterSpacing": "0"
       },
       "heading-2": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
-        "fontWeight": "100",
+        "fontWeight": "400",
         "fontSize": "2.25rem",
         "textTransform": "initial",
         "letterSpacing": "0"
       },
       "heading-3": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
-        "fontWeight": "100",
+        "fontWeight": "400",
         "fontSize": "1.75rem",
         "textTransform": "initial",
         "letterSpacing": "0"
       },
       "heading-4": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
-        "fontWeight": "100",
+        "fontWeight": "400",
         "fontSize": "1.5rem",
         "textTransform": "initial",
         "letterSpacing": "0"
       },
       "heading-5": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
-        "fontWeight": "100",
+        "fontWeight": "400",
         "fontSize": "1.25rem",
         "textTransform": "initial",
         "letterSpacing": "0"
       },
       "heading-6": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
-        "fontWeight": "100",
+        "fontWeight": "400",
         "fontSize": "1.25rem",
         "textTransform": "initial",
         "letterSpacing": "0"
@@ -309,9 +309,9 @@
       "body": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
         "fontWeight": "normal",
-        "fontSize": "1rem",
+        "fontSize": "18px",
         "textTransform": "initial",
-        "letterSpacing": "0"
+        "letterSpacing": "0.1px"
       },
       "small": {
         "fontFamily": "Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
@@ -351,7 +351,7 @@
       "code": {
         "fontFamily": "Consolas, monaco, monospace",
         "fontWeight": "normal",
-        "fontSize": "1rem",
+        "fontSize": "0.9rem",
         "textTransform": "initial",
         "letterSpacing": "0"
       }
