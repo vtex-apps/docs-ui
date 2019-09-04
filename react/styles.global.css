@@ -32,12 +32,21 @@
   border-width: 0px 0px 0px 4px;
   border-style: solid;
   box-sizing: border-box;
-  padding: 12px 16px;
+  padding: 20px 16px;
   margin-bottom: 1rem;
+  color: #0e4180;
+  line-height: 1.5rem;
 }
 
 .alert-info a {
   color: #f71963;
+}
+
+.alert-info code {
+  font-size: 0.9rem;
+  background-color: #b6d7ff;
+  padding: 4px 6px;
+  border-radius: 5px;
 }
 
 .alert-warning {
@@ -47,8 +56,17 @@
   border-width: 0px 0px 0px 4px;
   border-style: solid;
   box-sizing: border-box;
-  padding: 12px 16px;
+  padding: 20px 16px;
   margin-bottom: 1rem;
+  color: #804a0e;
+  line-height: 1.5rem;
+}
+
+.alert-warning code {
+  font-size: 0.9rem;
+  background-color: #ffdd91;
+  padding: 4px 6px;
+  border-radius: 5px;
 }
 
 .alert-warning a {
