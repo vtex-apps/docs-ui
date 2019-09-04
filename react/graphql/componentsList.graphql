@@ -21,14 +21,14 @@ query componentsList($appName: String, $locale: String) {
       description
       url
     }
-    search {
+    pixel {
       appName
       file
       title
       description
       url
     }
-    all {
+    search {
       appName
       file
       title
