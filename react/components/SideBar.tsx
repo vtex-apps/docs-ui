@@ -6,7 +6,7 @@ import SideBarItem from './SideBarItem'
 import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
 
-import VTEXBlack from './icons/VTEXPink'
+import VTEXPink from './icons/VTEXPink'
 
 interface Chapter {
   title: string
@@ -31,14 +31,14 @@ const SideBar: FC = () => {
         </div>
         <div className="w-100 center">
           <Link to="/docs/home">
-            <VTEXBlack />
+            <VTEXPink />
           </Link>
         </div>
       </div>
       {/* Desktop navigation */}
       <div className="dn db-l" role="menu">
         <Link to="/docs/home" className="flex pt2 mt2 pl3">
-          <VTEXBlack />
+          <VTEXPink />
         </Link>
         {getArticles(content, 0, appName)}
       </div>
