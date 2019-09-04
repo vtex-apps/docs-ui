@@ -19,16 +19,16 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
 
   return (
     <Fragment>
-      <div className="pv9 w-100">
+      <div className="pv9 w-80" style={{ maxWidth: '680px' }}>
         <h1
           id={slug(intl.formatMessage({ id: 'docs/build' }))}
-          className="t-heading-1  w-90 w-80-ns center mb6">
+          className="t-heading-1 w-90 w-100-ns center mb6">
           <FormattedMessage id="docs/build" />
         </h1>
-        <p className="small c-on-base w-90 w-80-ns center mb8 lh-copy">
+        <p className="small c-on-base w-90 w-100-ns center mb8 lh-copy">
           <FormattedMessage id="docs/build-description" />
         </p>
-        <div className="w-90 w-80-ns center">
+        <div className="w-90 w-100-ns center">
           <div className="flex w-100">
             <div className="w-30-l w-100 ph5 pb5 bg-muted-5 flex flex-column justify-end">
               <span className="t-small">
@@ -86,7 +86,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
           <Community />
         </div>
       </div>
-      <div className="pv9">
+      <div className="pv9 w-20">
         <ArticleNav headings={homeHeadings} />
       </div>
     </Fragment>

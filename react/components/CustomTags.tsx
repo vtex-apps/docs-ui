@@ -1,7 +1,7 @@
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { coy } from 'react-syntax-highlighter/dist/styles/prism'
+import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/styles/prism'
 import { useRuntime } from 'vtex.render-runtime'
 import { Link } from 'vtex.styleguide'
 
@@ -30,7 +30,7 @@ export const CustomRenderers = {
 
     return (
       <div className="flex">
-        <div className="flex flex-column w-80-l" style={{ maxWidth: '720px' }}>
+        <div className="flex flex-column w-80-l" style={{ maxWidth: '680px' }}>
           {children}
         </div>
         {TOCLines.length > 0 && <ArticleNav headings={TOCLines} />}
@@ -43,8 +43,23 @@ export const CustomRenderers = {
 
     return (
       <div className="overflow-scroll-gradient">
-        <pre className="w-100 overflow-y-auto overflow-scroll-gradient__scroller">
-          <SyntaxHighlighter language="javascript" style={coy}>
+        <pre className="w-100 overflow-y-auto overflow-scroll-gradient__scroller bg-muted-5 ba b--muted-4 br2 pa4 mb6 mt0">
+          <SyntaxHighlighter
+            language="json"
+            style={base16AteliersulphurpoolLight}
+            customStyle={{
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              marginBottom: 0,
+              marginTop: 0,
+              fontSize: '0.9rem',
+            }}
+            codeTagProps={{
+              style: {
+                background: 'transparent',
+                backgroundColor: 'transparent',
+              },
+            }}>
             {codeBlock}
           </SyntaxHighlighter>
         </pre>
@@ -65,7 +80,7 @@ export const CustomRenderers = {
 
       case 2:
         return (
-          <h2 id={hashId} className="t-heading-2 mt9 mb5 c-on-base">
+          <h2 id={hashId} className="t-heading-2 mt4 mb5 c-on-base">
             {props.children}
           </h2>
         )
@@ -102,13 +117,13 @@ export const CustomRenderers = {
     }
   },
   image: (props: any) => (
-    <span className="mv5 mh0">
+    <div className="mh0">
       <img className="shadow-4" src={props.src} alt={props.alt} />
-    </span>
+    </div>
   ),
   inlineCode: (props: any) => (
     <span
-      className="t-body c-on-base pa1 mw6 br2 bg-muted-4"
+      className="pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-4 t-code c-emphasis"
       style={{ wordWrap: 'break-word' }}>
       {props.value}
     </span>
@@ -136,16 +151,22 @@ export const CustomRenderers = {
   },
   list: (props: any) => {
     if (props.ordered) {
-      return <ol className="mv4">{props.children}</ol>
+      return (
+        <ol className="t-body c-on-base mt0 mb6 pl6 lh-copy">
+          {props.children}
+        </ol>
+      )
     }
 
-    return <ul className="t-body c-on-base mv4 lh-copy">{props.children}</ul>
+    return (
+      <ul className="t-body c-on-base mt0 mb6 pl6 lh-copy">{props.children}</ul>
+    )
   },
   listItem: (props: any) => (
-    <li className="t-body c-on-base mv4 lh-copy">{props.children}</li>
+    <li className="t-body c-on-base mb4 mt0 lh-copy">{props.children}</li>
   ),
   paragraph: (props: any) => (
-    <p className="t-body c-on-base mv5 lh-copy">{props.children}</p>
+    <p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>
   ),
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,
   table: (props: any) => (

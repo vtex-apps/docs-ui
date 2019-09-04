@@ -22,7 +22,7 @@ const PageLayoutContainer: FC = ({ children }) => {
         <EnhancedSideBarContentProvider>
           <div
             className="w-25-l vh-100-l overflow-y-scroll"
-            style={{ maxWidth: '256px' }}>
+            style={{ maxWidth: '280px', minWidth: '200px' }}>
             <SideBar />
           </div>
         </EnhancedSideBarContentProvider>
@@ -30,7 +30,7 @@ const PageLayoutContainer: FC = ({ children }) => {
           className="w-100 min-vh-100 overflow-y-scroll flex flex-column justify-between"
           style={{ scrollBehavior: 'smooth' }}>
           <TopNav />
-          <main className="w-90-l" style={{ maxWidth: '1024px' }}>
+          <main className="w-90-l center" style={{ maxWidth: '900px' }}>
             <EnhancedAppVersionProvider>
               <div className="flex">{children}</div>
             </EnhancedAppVersionProvider>

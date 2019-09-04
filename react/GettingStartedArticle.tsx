@@ -11,6 +11,8 @@ import EmptyDocs from './components/EmptyDocs'
 
 import MarkdownFile from './graphql/markdownFile.graphql'
 import GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
+import RightArrow from './components/icons/RightArrow'
+import LeftArrow from './components/icons/LeftArrow'
 
 const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
   GettingStartedArticlesQuery,
@@ -54,19 +56,29 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
           return (
             <Fragment>
               <DocsRenderer markdown={markdown} meta={meta} />
-              <div className="flex w-80-l center justify-between mt6">
+              <div className="flex w-100 center justify-between mt6">
                 {hasPrevArticle(currentArticle) && (
                   <Link
                     className="link c-emphasis no-underline t-body mr-auto flex items-center"
                     to={`${currentArticle - 1}`}>
-                    <FormattedMessage id="docs/getting-started.previous" />
+                    <div className="flex">
+                      <div className="mr5">
+                        <LeftArrow />
+                      </div>
+                      <FormattedMessage id="docs/getting-started.previous" />
+                    </div>
                   </Link>
                 )}
                 {hasNextArticle(articles, currentArticle) && (
                   <Link
                     className="link c-emphasis no-underline t-body ml-auto flex items-center"
                     to={`${currentArticle + 1}`}>
-                    <FormattedMessage id="docs/getting-started.next" />
+                    <div className="flex">
+                      <FormattedMessage id="docs/getting-started.next" />
+                      <div className="ml5">
+                        <RightArrow />
+                      </div>
+                    </div>
                   </Link>
                 )}
               </div>
