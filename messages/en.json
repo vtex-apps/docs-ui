@@ -29,7 +29,7 @@
   "docs/recipes.style-description": "Customize your store’s style and grant it its own identity.",
   "docs/recipes.layout": "Layout Recipes",
   "docs/recipes.layout-description": "Learn to configure the structure of your store components.",
-  "docs/recipes.store": "Store Managing Recipes",
+  "docs/recipes.store": "Store Management Recipes",
   "docs/recipes.store-description": "Find all the necessary information for a better management of your store’s content.",
   "docs/recipes.routes": "Routes Recipes",
   "docs/recipes.routes-description": "Discover how to create pages and customized routes/paths for your store.",
