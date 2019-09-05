@@ -27,6 +27,7 @@ const SideBarItem: FC<Props> = ({
   // all links follow this pattern: /docs/<section>/<subsection | undefined>/<filename | undefined>
   const [linkSection, linkSubsection] = (link && link.split('/').slice(2)) || ''
   const [currentSection, currentSubsection] = path.split('/').slice(2)
+  const isExternalLink = !!link && link.match(/((http(s)?):\/)|(www.)/)
 
   const isCurrentSection =
     currentSection &&
@@ -49,6 +50,7 @@ const SideBarItem: FC<Props> = ({
       {link ? (
         <Link
           to={link}
+          target={isExternalLink ? '_blank' : undefined}
           className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
           <div
             className={`flex justify-between items-center pointer ${
