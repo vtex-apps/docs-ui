@@ -41,8 +41,9 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                   <FormattedMessage id="docs/build-description" />
                 </p>
                 <div className="w-90 w-100-ns center">
-                  <div
-                    className="flex w-100 pointer dim"
+                  <Link
+                    to="/docs/getting-started/build-stores-with-vtex-io/1"
+                    className="flex w-100 pointer dim no-underline"
                     style={{ height: '480px' }}>
                     <div className="w-third-l w-100 pa6 bg-emphasis flex flex-column justify-end">
                       <span className="t-small c-on-emphasis">
@@ -59,8 +60,9 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                       style={{
                         backgroundImage:
                           'url(https://vtex.io/_v/public/assets/v1/published/vtex.io-landing@1.0.3/public/react/be2f84e526c5ea2bd40f1df1b56155ec.svg)',
-                      }}></div>
-                  </div>
+                      }}
+                    />
+                  </Link>
                   <div className="mv10 flex flex-row-l flex-column justify-around">
                     <div className="mv6 mv0-l w-50-l flex">
                       <div
@@ -79,7 +81,9 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                           <Link
                             to="/docs/recipes/all"
                             className="link no-underline c-emphasis">
-                            <span className="mr5">See all</span>
+                            <span className="mr5">
+                              <FormattedMessage id="docs/see-all" />
+                            </span>
                             <RightArrow />
                           </Link>
                         </div>
@@ -102,7 +106,9 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                           <Link
                             to="/docs/components/all"
                             className="link no-underline c-emphasis">
-                            <span className="mr5">See all</span>
+                            <span className="mr5">
+                              <FormattedMessage id="docs/see-all" />
+                            </span>
                             <RightArrow />
                           </Link>
                         </div>
