@@ -77,13 +77,15 @@ const Footer: FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex ph4 pb6 bt b--muted-5 ph8-l" style={{ height: '89px' }}>
-          <Link
-            to="https://vtex.com"
-            className="c-on-base--inverted link no-underline self-end">
-            <FormattedMessage id="docs/visit-us" /> <ExternalLink />
-          </Link>
-        </div>
+      <div
+        className="flex ph4 pb6 bt b--muted-5 ph8-l"
+        style={{ height: '89px' }}>
+        <Link
+          to="https://vtex.com"
+          className="c-on-base--inverted link no-underline self-end">
+          <FormattedMessage id="docs/visit-us" /> <ExternalLink />
+        </Link>
+      </div>
     </footer>
   )
 }

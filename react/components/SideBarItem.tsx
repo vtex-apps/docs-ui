@@ -54,9 +54,9 @@ const SideBarItem: FC<Props> = ({
             className={`flex justify-between items-center pointer ${
               depth === 0 ? 'mt4' : ''
             }
-            ${
-              depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv1' : ''
-            } ${isActive ? 'b--emphasis' : 'b--muted-3'}`}
+            ${depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv1' : ''} ${
+              isActive ? 'b--emphasis' : 'b--muted-3'
+            }`}
             onClick={() => {
               if (shouldBeOpen && open) return
               return setOpen(!open)
