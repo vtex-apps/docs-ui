@@ -43,7 +43,7 @@ export const CustomRenderers = {
 
     return (
       <div className="overflow-scroll-gradient">
-        <pre className="w-100 overflow-y-auto overflow-scroll-gradient__scroller bg-muted-5 ba b--muted-4 br2 pa4 mb6 mt0">
+        <pre className="w-100 overflow-y-auto overflow-scroll-gradient__scroller bg-muted-5 ba b--muted-3 br2 pa4 mb6 mt0">
           <SyntaxHighlighter
             language="json"
             style={base16AteliersulphurpoolLight}
@@ -136,7 +136,7 @@ export const CustomRenderers = {
   ),
   inlineCode: (props: any) => (
     <span
-      className="pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-4 t-code c-emphasis"
+      className="pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis"
       style={{ wordWrap: 'break-word' }}>
       {props.value}
     </span>

@@ -42,7 +42,7 @@ const SideBarItem: FC<Props> = ({
 
   const ZeroDepthItem = () => <div className="c-on-base">{text}</div>
 
-  const NormalItem = () => <div className="mb3">{text}</div>
+  const NormalItem = () => <div className="mv3">{text}</div>
 
   return text !== 'Introduction' ? (
     <div className="link">
@@ -52,7 +52,10 @@ const SideBarItem: FC<Props> = ({
           className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
           <div
             className={`flex justify-between items-center pointer ${
-              depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv3' : ''
+              depth === 0 ? 'mt4' : ''
+            }
+            ${
+              depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv1' : ''
             } ${isActive ? 'b--emphasis' : 'b--muted-3'}`}
             onClick={() => {
               if (shouldBeOpen && open) return
@@ -71,7 +74,7 @@ const SideBarItem: FC<Props> = ({
                 <NormalItem />
               </div>
             )}
-            <div className="ph2">
+            <div className="pl3 flex items-center" style={{ height: '24px' }}>
               {hasArticles &&
                 depth === 0 &&
                 (open ? <IconCaretDown /> : <IconCaretRight />)}
@@ -81,7 +84,7 @@ const SideBarItem: FC<Props> = ({
       ) : (
         <div
           className={`flex justify-between items-center pointer ${
-            depth === 0 ? 'mb4' : ''
+            depth === 0 ? 'mt4' : ''
           } ${depth >= 2 ? 'pl3 lh-title t-small' : ''}`}
           onClick={() => setOpen(!open)}
           onKeyPress={() => setOpen(!open)}
@@ -94,7 +97,7 @@ const SideBarItem: FC<Props> = ({
               <NormalItem />
             </div>
           )}
-          <div className="ph2">
+          <div className="pl3 flex items-center" style={{ height: '24px' }}>
             {hasArticles &&
               depth === 0 &&
               (open ? <IconCaretDown /> : <IconCaretRight />)}

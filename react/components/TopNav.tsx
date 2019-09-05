@@ -2,7 +2,7 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
 const TopNav = () => (
-  <nav className="w-100 db-l dn bg-base bb b--muted-4">
+  <nav className="w-100 db-l dn bg-base bb b--muted-3">
     <div className="flex w-100 justify-end">
       <div className="flex c-on-base--inverted pv5">
         <a
