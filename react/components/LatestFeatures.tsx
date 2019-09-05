@@ -15,10 +15,10 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
     <section className="mv9">
       <h2
         id={slug(intl.formatMessage({ id: 'docs/latest-features' }))}
-        className="t-heading-2 mv4">
+        className="t-heading-2 c-on-base--inverted mv4">
         <FormattedMessage id="docs/latest-features" />
       </h2>
-      <p className="c-on-base lh-copy">
+      <p className="c-on-base--inverted lh-copy">
         <FormattedMessage id="docs/latest-features-description" />
       </p>
       <div className="list ml0 w-100">
@@ -41,10 +41,10 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
                   item =>
                     item.title && (
                       <div
-                        className="pv4 bb b--muted-3 items-center"
+                        className="pv6 bb b--muted-1 items-center"
                         key={slug(item.description)}>
-                        <h4 className="t-heading-4 mv2">{item.title}</h4>
-                        <p className="t-body c-on-base mb2 lh-copy">
+                        <h4 className="t-heading-4 c-on-base--inverted mv2">{item.title}</h4>
+                        <p className="t-body c-muted-4 mb2 lh-copy mt4">
                           {item.description}
                         </p>
                       </div>

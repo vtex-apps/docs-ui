@@ -9,7 +9,7 @@ const Footer: FC = () => {
   const listItemClasses = 't-body mv3 c-muted-3'
 
   return (
-    <footer className="bg-base pa8-l pa6 w-100 bg-base--inverted">
+    <footer className="bg-base pa8-l pa6 w-100 bg-base--inverted bt b--muted-5">
       <div className="pt6 pb8">
         <VTEXWhite />
       </div>
