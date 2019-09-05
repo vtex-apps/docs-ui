@@ -1,5 +1,5 @@
 /* eslint @typescript-eslint/no-explicit-any: 0 */
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/styles/prism'
 import { useRuntime } from 'vtex.render-runtime'
@@ -69,13 +69,26 @@ export const CustomRenderers = {
   emphasis: (props: any) => <em className="i">{props.children}</em>,
   heading: (props: any) => {
     const hashId = getHeadingSlug(props.children)
+    const { app } = useRuntime().route.params
+    const vendor = app && app.split('.')[0]
 
     switch (props.level) {
       case 1:
         return (
-          <h1 id={hashId} className="t-heading-1 c-on-base mt7 mb7">
-            {props.children}
-          </h1>
+          <Fragment>
+            <h1
+              id={hashId}
+              className={`t-heading-1 c-on-base mt7 ${
+                vendor !== 'vtex' ? 'mb3' : 'mb7'
+              }`}>
+              {props.children}
+            </h1>
+            {vendor !== 'vtex' ? (
+              <p className="t-small c-on-base mt0 lh-copy mb6">
+                This application was created by: <strong>{vendor}</strong>
+              </p>
+            ) : null}
+          </Fragment>
         )
 
       case 2:
