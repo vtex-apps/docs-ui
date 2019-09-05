@@ -17,6 +17,7 @@
   "docs/visit-us": "visit us at www.vtex.com",
   "docs/community-help": "Need help?",
   "docs/community-join": "Join the discussion!",
+  "docs/empty.title": "Sorry :(",
   "docs/empty-docs": "We could not fetch the documentation on this component right now.",
   "docs/empty-summary": "We could not fetch the summary for this app.",
   "docs/latest-features-description": "Get a first hand look as the most recent platform releases:",
