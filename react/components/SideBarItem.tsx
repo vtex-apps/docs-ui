@@ -40,12 +40,11 @@ const SideBarItem: FC<Props> = ({
 
   const [open, setOpen] = useState(shouldBeOpen)
 
-  const ZeroDepthItem = () =>
-    text !== 'Introduction' ? <div className="c-on-base">{text}</div> : null
+  const ZeroDepthItem = () => <div className="c-on-base">{text}</div>
 
   const NormalItem = () => <div className="mb3">{text}</div>
 
-  return (
+  return text !== 'Introduction' ? (
     <div className="link">
       {link ? (
         <Link
@@ -104,7 +103,7 @@ const SideBarItem: FC<Props> = ({
       )}
       {hasArticles && <div hidden={!open}>{children}</div>}
     </div>
-  )
+  ) : null
 }
 
 export default SideBarItem
