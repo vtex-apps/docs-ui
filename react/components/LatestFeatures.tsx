@@ -40,7 +40,9 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
                 {data.storeFrameworkLatestFeatures.map(
                   item =>
                     item.title && (
-                      <Link to={`/docs/releases/${getFileFromPath(item.path)}`}>
+                      <Link
+                        to={`/docs/releases/${getFileFromPath(item.path)}`}
+                        className="no-underline">
                         <div
                           className="pv6 bb b--muted-1 items-center"
                           key={slug(item.description)}>
@@ -76,7 +78,7 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
 function getFileFromPath(path: string) {
   const PATH_PREFIX = 'dist/vtex.docs-graphql/'
   const FILE_EXTENSION = '.md'
-  return path.substring(PATH_PREFIX.length, FILE_EXTENSION.length)
+  return path.substring(PATH_PREFIX.length, path.length - FILE_EXTENSION.length)
 }
 
 interface LatestFeatureArticle {
