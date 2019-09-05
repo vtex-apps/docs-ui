@@ -1,7 +1,8 @@
 import React, { useState, FC } from 'react'
 
 import { Link, useRuntime } from 'vtex.render-runtime'
-import { IconCaretDown, IconCaretRight } from 'vtex.styleguide'
+import IconCaretDown from './icons/IconCaretDown'
+import IconCaretRight from './icons/IconCaretRight'
 import { slug } from '../utils'
 
 interface Props {
