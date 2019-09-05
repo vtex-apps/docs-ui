@@ -39,13 +39,14 @@ export const CustomRenderers = {
   },
   break: () => <br />,
   code: (props: any) => {
-    const codeBlock = props.value.replace(/“/gm, '"').replace(/”/gm, '"')
+    const { language, value } = props
+    const codeBlock = value.replace(/“/gm, '"').replace(/”/gm, '"')
 
     return (
       <div className="overflow-scroll-gradient">
         <pre className="w-100 overflow-y-auto overflow-scroll-gradient__scroller bg-muted-5 ba b--muted-3 br2 pa4 mb6 mt0">
           <SyntaxHighlighter
-            language="json"
+            language={language}
             style={base16AteliersulphurpoolLight}
             customStyle={{
               background: 'transparent',
@@ -54,6 +55,7 @@ export const CustomRenderers = {
               marginTop: 0,
               fontSize: '0.9rem',
             }}
+            showLineNumbers={!!language}
             codeTagProps={{
               style: {
                 background: 'transparent',
