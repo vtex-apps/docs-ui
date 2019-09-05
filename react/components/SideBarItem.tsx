@@ -41,9 +41,42 @@ const SideBarItem: FC<Props> = ({
 
   const [open, setOpen] = useState(shouldBeOpen)
 
-  const ZeroDepthItem = () => <div className="c-on-base">{text}</div>
+  const ZeroDepthItem = () => <div className="c-on-base dim">{text}</div>
 
-  const NormalItem = () => <div className="mv3">{text}</div>
+  const NormalItem = () => <div className="mv3 dim">{text}</div>
+
+  const BaseSideBarItem = () => (
+    <div
+      className={`flex justify-between items-center pointer ${
+        depth === 0 ? 'mt4' : ''
+      }
+            ${depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv1' : ''} ${
+        isActive ? 'b--emphasis' : 'b--muted-3'
+      }`}
+      onClick={() => {
+        if (shouldBeOpen && open) return
+        return setOpen(!open)
+      }}
+      onKeyPress={() => {
+        if (shouldBeOpen && open) return
+        return setOpen(!open)
+      }}
+      role="menuitem"
+      tabIndex={-1}>
+      {depth === 0 ? (
+        <ZeroDepthItem />
+      ) : (
+        <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
+          <NormalItem />
+        </div>
+      )}
+      <div className="pl3 flex items-center" style={{ height: '24px' }}>
+        {hasArticles &&
+          depth === 0 &&
+          (open ? <IconCaretDown /> : <IconCaretRight />)}
+      </div>
+    </div>
+  )
 
   return text !== 'Introduction' ? (
     <div className="link">
@@ -52,59 +85,10 @@ const SideBarItem: FC<Props> = ({
           to={link}
           target={isExternalLink ? '_blank' : undefined}
           className={`no-underline ${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
-          <div
-            className={`flex justify-between items-center pointer ${
-              depth === 0 ? 'mt4' : ''
-            }
-            ${depth >= 2 ? 'pl4 bl lh-title t-small bw1 pv1' : ''} ${
-              isActive ? 'b--emphasis' : 'b--muted-3'
-            }`}
-            onClick={() => {
-              if (shouldBeOpen && open) return
-              return setOpen(!open)
-            }}
-            onKeyPress={() => {
-              if (shouldBeOpen && open) return
-              return setOpen(!open)
-            }}
-            role="menuitem"
-            tabIndex={-1}>
-            {depth === 0 ? (
-              <ZeroDepthItem />
-            ) : (
-              <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
-                <NormalItem />
-              </div>
-            )}
-            <div className="pl3 flex items-center" style={{ height: '24px' }}>
-              {hasArticles &&
-                depth === 0 &&
-                (open ? <IconCaretDown /> : <IconCaretRight />)}
-            </div>
-          </div>
+          <BaseSideBarItem />
         </Link>
       ) : (
-        <div
-          className={`flex justify-between items-center pointer ${
-            depth === 0 ? 'mt4' : ''
-          } ${depth >= 2 ? 'pl3 lh-title t-small' : ''}`}
-          onClick={() => setOpen(!open)}
-          onKeyPress={() => setOpen(!open)}
-          role="menuitem"
-          tabIndex={-1}>
-          {depth === 0 ? (
-            <ZeroDepthItem />
-          ) : (
-            <div className={`${isActive ? 'c-emphasis' : 'c-muted-2'}`}>
-              <NormalItem />
-            </div>
-          )}
-          <div className="pl3 flex items-center" style={{ height: '24px' }}>
-            {hasArticles &&
-              depth === 0 &&
-              (open ? <IconCaretDown /> : <IconCaretRight />)}
-          </div>
-        </div>
+        <BaseSideBarItem />
       )}
       {hasArticles && <div hidden={!open}>{children}</div>}
     </div>

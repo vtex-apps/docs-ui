@@ -20,7 +20,7 @@ const ArticleNav: FC<Props> = ({ headings }) => (
 
         return (
           <a
-            className="link no-underline pb3"
+            className="link no-underline pb3 dim"
             href={`#${slugifiedHeader}`}
             key={slugifiedHeader}>
             <span className="c-on-base">{heading}</span>

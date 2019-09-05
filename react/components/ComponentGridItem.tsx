@@ -18,7 +18,9 @@ const ComponentGridItem: FC<Props> = ({ title, description, link }) => (
       <h2 className="t-heading-4 mv5">{title}</h2>
       <div className="t-body c-on-base lh-copy">{description}</div>
     </div>
-    <Link to={link} className="flex items-center no-underline link c-emphasis">
+    <Link
+      to={link}
+      className="flex items-center no-underline link c-emphasis dim">
       <span className="mr4 mv5">
         <FormattedMessage id="docs/read-more" />
       </span>

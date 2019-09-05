@@ -59,7 +59,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
               <div className="flex w-100 center justify-between mt6">
                 {hasPrevArticle(currentArticle) && (
                   <Link
-                    className="link c-emphasis no-underline t-body mr-auto flex items-center"
+                    className="link c-emphasis no-underline t-body mr-auto flex items-center dim"
                     to={`${currentArticle - 1}`}>
                     <div className="flex">
                       <div className="mr5">
@@ -71,7 +71,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
                 )}
                 {hasNextArticle(articles, currentArticle) && (
                   <Link
-                    className="link c-emphasis no-underline t-body ml-auto flex items-center"
+                    className="link c-emphasis no-underline t-body ml-auto flex items-center dim"
                     to={`${currentArticle + 1}`}>
                     <div className="flex">
                       <FormattedMessage id="docs/getting-started.next" />

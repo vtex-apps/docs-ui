@@ -60,7 +60,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                   <p className="c-on-base--inverted lh-copy">
                     <FormattedMessage id="docs/recipes-description" />
                   </p>
-                  <div className="flex items-center">
+                  <div className="flex items-center dim">
                     <Link
                       to="/docs/recipes/all"
                       className="link no-underline c-emphasis">
@@ -85,7 +85,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                   <p className="c-on-base--inverted lh-copy">
                     <FormattedMessage id="docs/our-components-description" />
                   </p>
-                  <div className="c-emphasis flex items-center">
+                  <div className="c-emphasis flex items-center dim">
                     <Link
                       to="/docs/components/all"
                       className="link no-underline c-emphasis">

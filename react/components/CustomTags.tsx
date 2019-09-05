@@ -55,7 +55,7 @@ export const CustomRenderers = {
               marginTop: 0,
               fontSize: '0.9rem',
             }}
-            showLineNumbers={!!language}
+            showLineNumbers={!!language && language !== 'sh'}
             codeTagProps={{
               style: {
                 background: 'transparent',
@@ -151,18 +151,26 @@ export const CustomRenderers = {
     const isRelativeLink = !!props.href && props.href[0] === '/'
 
     if (isIdLink && !!props.href) {
-      return <Link href={props.href.toLowerCase()}>{props.children}</Link>
-    }
-
-    if (isRelativeLink) {
       return (
-        <Link href={`/docs/${route.params.app}${props.href}`}>
+        <Link to={props.href.toLowerCase()} className="dim">
           {props.children}
         </Link>
       )
     }
 
-    return <Link href={props.href}>{props.children}</Link>
+    if (isRelativeLink) {
+      return (
+        <Link to={`/docs/${route.params.app}${props.href}`} className="dim">
+          {props.children}
+        </Link>
+      )
+    }
+
+    return (
+      <Link href={props.href} className="dim">
+        {props.children}
+      </Link>
+    )
   },
   list: (props: any) => {
     if (props.ordered) {
