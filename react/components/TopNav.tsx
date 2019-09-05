@@ -17,7 +17,7 @@ const TopNav = () => (
         </a>
         <a
           href="https://www.vtex.com/partner/"
-          className="t-small link c-on-base no-underline mv3 mh5">
+          className="t-small link c-emphasis no-underline mv3 mh5">
           <FormattedMessage id="docs/nav.partner" />
         </a>
       </div>
