@@ -1,4 +1,5 @@
 import React, { ReactElement, FC } from 'react'
+import { FormattedMessage } from 'react-intl'
 import { Drawer } from 'vtex.store-drawer'
 import { Link } from 'vtex.render-runtime'
 
@@ -36,19 +37,23 @@ const SideBar: FC = () => {
         </div>
       </div>
       {/* Desktop navigation */}
-      <div className="dn flex-l flex-column min-vh-100 justify-between" role="menu">
+      <div
+        className="dn flex-l flex-column min-vh-100 justify-between"
+        role="menu">
         <div>
-        <Link to="/docs/home" className="flex pt2 mt2 pl3">
-          <VTEXPink />
-        </Link>
-        {getArticles(content, 0, appName)}
+          <Link to="/docs/home" className="flex pt2 mt2 pl3">
+            <VTEXPink />
+          </Link>
+          {getArticles(content, 0, appName)}
         </div>
-        <div className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3" style={{ maxWidth: '280px', minWidth: '215px' }}>
+        <div
+          className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3"
+          style={{ maxWidth: '280px', minWidth: '215px' }}>
           <div className="t-small mb2">
-            Didn't find your answer?
+            <FormattedMessage id="docs/did-not-find-your-answer" />
           </div>
           <div className="t-body c-emphasis">
-            Ask the Community!
+            <FormattedMessage id="docs/join-discussion" />
           </div>
         </div>
       </div>
