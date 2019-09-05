@@ -21,7 +21,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
           <CommunityIcon />
         </div>
         <div className="ml6">
-          <h4 className="t-heading-4 c-on-base--inverted mt0 mb3">
+          <h4 className="t-heading-4 c-on-base--inverted mt0 mb3 dim">
             <FormattedMessage id="docs/community-join" />
           </h4>
           <p className="t-body c-muted-4 lh-copy mv0">

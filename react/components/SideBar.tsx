@@ -41,7 +41,7 @@ const SideBar: FC = () => {
         className="dn flex-l flex-column min-vh-100 justify-between"
         role="menu">
         <div>
-          <Link to="/docs/home" className="flex pt2 mt2 pl3">
+          <Link to="/docs/home" className="flex pt2 mt2 pl3 dim">
             <VTEXPink />
           </Link>
           {getArticles(content, 0, appName)}
@@ -56,7 +56,7 @@ const SideBar: FC = () => {
             to="https://github.com/vtex-apps/store-discussion"
             target="_blank"
             rel="noopener noreferrer"
-            className="t-body c-emphasis no-underline">
+            className="t-body c-emphasis no-underline dim">
             <FormattedMessage id="docs/join-discussion" />
           </Link>
         </div>

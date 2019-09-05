@@ -4,9 +4,12 @@ import emoji from 'remark-emoji'
 import { FormattedMessage } from 'react-intl'
 
 import { CustomRenderers } from './CustomTags'
+import EmptyDocs from './EmptyDocs'
 
 const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
-  return (
+  const isEmptyDocs = markdown === ''
+
+  return !isEmptyDocs ? (
     <article className="ph0-l ph5 w-100 min-vh-100">
       <ReactMarkdown
         source={markdown}
@@ -15,11 +18,13 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
         plugins={[emoji]}
       />
       {meta.git && (
-        <a href={meta.git}>
+        <a href={meta.git} className="c-emphasis no-underline dim flex mt8">
           <FormattedMessage id="docs/renderer-github" />
         </a>
       )}
     </article>
+  ) : (
+    <EmptyDocs />
   )
 }
 

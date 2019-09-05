@@ -19,28 +19,28 @@ const Footer: FC = () => {
             <div className={listItemClasses}>
               <Link
                 to="getting-started/what-is-vtex-io/1"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/getting-started" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
                 to="recipes/all"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/recipes" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
                 to="components/all"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/our-components" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
                 to="resources"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/resources" />
               </Link>
             </div>
@@ -49,28 +49,28 @@ const Footer: FC = () => {
             <div className={listItemClasses}>
               <Link
                 to="https://github.com/vtex-apps/store-discussion"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/community" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
                 to="https://github.com/vtex-apps/release-notes"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/latest-features" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
                 to="https://help.vtex.com/developer-docs"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/apis" />
               </Link>
             </div>
             <div className={listItemClasses}>
               <Link
                 to="https://www.vtex.com/partner/"
-                className="link no-underline c-on-base--inverted">
+                className="link no-underline c-on-base--inverted dim">
                 <FormattedMessage id="docs/partner" />
               </Link>
             </div>
@@ -82,7 +82,7 @@ const Footer: FC = () => {
         style={{ height: '89px' }}>
         <Link
           to="https://vtex.com"
-          className="c-on-base--inverted link no-underline self-end">
+          className="c-on-base--inverted link no-underline self-end dim">
           <FormattedMessage id="docs/visit-us" /> <ExternalLink />
         </Link>
       </div>
