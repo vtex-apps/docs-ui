@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
+import { Link } from 'vtex.render-runtime'
 
 import { slug } from '../utils'
 import CommunityIcon from './icons/CommunityIcon'
@@ -11,7 +12,8 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
       className="t-heading-2 c-on-base--inverted">
       <FormattedMessage id="docs/community-help" />
     </h2>
-    <a
+    <Link
+      target="_blank"
       href="https://github.com/vtex-apps/store-discussion"
       className="link no-underline pointer">
       <div className="flex items-center">
@@ -27,7 +29,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
           </p>
         </div>
       </div>
-    </a>
+    </Link>
   </section>
 )
 

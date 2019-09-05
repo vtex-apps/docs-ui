@@ -64,6 +64,7 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
       <div className="flex items-center mv5">
         <Link
           href="https://github.com/vtex-apps/release-notes"
+          target="_blank"
           className="link no-underline c-emphasis mv5">
           <span className="mr5">
             <FormattedMessage id="docs/see-all" />
