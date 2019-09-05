@@ -43,7 +43,9 @@ const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
                       <div
                         className="pv6 bb b--muted-1 items-center"
                         key={slug(item.description)}>
-                        <h4 className="t-heading-4 c-on-base--inverted mv2">{item.title}</h4>
+                        <h4 className="t-heading-4 c-on-base--inverted mv2">
+                          {item.title}
+                        </h4>
                         <p className="t-body c-muted-4 mb2 lh-copy mt4">
                           {item.description}
                         </p>
