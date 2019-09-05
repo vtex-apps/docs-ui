@@ -83,7 +83,7 @@ export const CustomRenderers = {
               }`}>
               {props.children}
             </h1>
-            {vendor !== 'vtex' ? (
+            {vendor && vendor !== 'vtex' ? (
               <p className="t-small c-on-base mt0 lh-copy mb6">
                 This application was created by: <strong>{vendor}</strong>
               </p>
