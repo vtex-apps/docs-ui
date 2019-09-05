@@ -43,7 +43,7 @@ const SideBar: FC = () => {
         </Link>
         {getArticles(content, 0, appName)}
         </div>
-        <div className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3" style={{ maxWidth: '280px', minWidth: '200px' }}>
+        <div className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3" style={{ maxWidth: '280px', minWidth: '215px' }}>
           <div className="t-small mb2">
             Didn't find your answer?
           </div>

@@ -9,11 +9,11 @@ const Footer: FC = () => {
   const listItemClasses = 't-body mv3 c-muted-3'
 
   return (
-    <footer className="bg-base pa8-l pa6 w-100 bg-base--inverted bt b--muted-5">
-      <div className="pt6 pb8">
+    <footer className="bg-base pt8-l ph0-l pb0-l w-100 bg-base--inverted bt b--muted-5">
+      <div className="pb8 ph7-l">
         <VTEXWhite />
       </div>
-      <div className="flex-l ph4 flex-wrap justify-between w-100">
+      <div className="flex-l ph4 flex-wrap justify-between w-100 ph8-l pb8-l">
         <div className="flex justify-between w-50-l w-100">
           <div className="list">
             <div className={listItemClasses}>
@@ -76,14 +76,14 @@ const Footer: FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex">
+      </div>
+      <div className="flex ph4 pb6 bt b--muted-5 ph8-l" style={{ height: '89px' }}>
           <Link
             to="https://vtex.com"
             className="c-on-base--inverted link no-underline self-end">
             <FormattedMessage id="docs/visit-us" /> <ExternalLink />
           </Link>
         </div>
-      </div>
     </footer>
   )
 }
