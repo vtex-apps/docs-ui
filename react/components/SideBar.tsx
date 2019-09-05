@@ -19,9 +19,9 @@ const SideBar: FC = () => {
   const { content } = useSideBarContentState()
 
   return (
-    <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-4">
+    <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-3 flex-l flex-column">
       {/* Mobile navigation */}
-      <div className="flex items-center dn-l">
+      <div className="flex items-center dn-l bb b--muted-3">
         <div className="w-50 pl4">
           <Drawer>
             <div className="flex flex-column w-90 center" role="menu">
@@ -36,11 +36,21 @@ const SideBar: FC = () => {
         </div>
       </div>
       {/* Desktop navigation */}
-      <div className="dn db-l" role="menu">
+      <div className="dn flex-l flex-column min-vh-100 justify-between" role="menu">
+        <div>
         <Link to="/docs/home" className="flex pt2 mt2 pl3">
           <VTEXPink />
         </Link>
         {getArticles(content, 0, appName)}
+        </div>
+        <div className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3" style={{ maxWidth: '280px', minWidth: '200px' }}>
+          <div className="t-small mb2">
+            Didn't find your answer?
+          </div>
+          <div className="t-body c-emphasis">
+            Ask the Community!
+          </div>
+        </div>
       </div>
     </nav>
   )
@@ -54,7 +64,7 @@ function getArticles(
   return (
     <div
       className={`list ${
-        depth > 0 ? 'pl0-l pr2-l pb5 pt2' : 'pv7-l pl6-l pr5-l'
+        depth > 0 ? 'pl0-l pr2-l pb2 mt3' : 'pv6-l pl6-l pr5-l'
       }`}>
       {chapterList.map((chapter: Chapter) => (
         <SideBarItem
