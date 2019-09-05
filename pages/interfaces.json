@@ -38,8 +38,8 @@
     "component": "Resource",
     "around": ["docs-wrapper"]
   },
-  "docs.latest": {
-    "component": "UnderConstruction",
+  "docs.release-article": {
+    "component": "ReleaseArticle",
     "around": ["docs-wrapper"]
   },
   "docs.getting-started": {

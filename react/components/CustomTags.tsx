@@ -165,9 +165,10 @@ export const CustomRenderers = {
   listItem: (props: any) => (
     <li className="t-body c-on-base mb4 mt0 lh-copy">{props.children}</li>
   ),
-  paragraph: (props: any) => (
-    <p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>
-  ),
+  paragraph: (props: any) => {
+    if (props.children === '' || props.children.length === 0) return null
+    return <p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>
+  },
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,
   table: (props: any) => (
     <div className="overflow-x-auto">
