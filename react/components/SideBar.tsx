@@ -52,9 +52,13 @@ const SideBar: FC = () => {
           <div className="t-small mb2">
             <FormattedMessage id="docs/did-not-find-your-answer" />
           </div>
-          <div className="t-body c-emphasis">
+          <Link
+            to="https://github.com/vtex-apps/store-discussion"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="t-body c-emphasis no-underline">
             <FormattedMessage id="docs/join-discussion" />
-          </div>
+          </Link>
         </div>
       </div>
     </nav>
