@@ -16,7 +16,7 @@
   "docs/partner": "Become a partner",
   "docs/visit-us": "visit us at www.vtex.com",
   "docs/community-help": "Need help?",
-  "docs/community-join": "Join our community!",
+  "docs/community-join": "Join the discussion!",
   "docs/empty-docs": "We could not fetch the documentation on this component right now.",
   "docs/empty-summary": "We could not fetch the summary for this app.",
   "docs/latest-features-description": "Get a first hand look as the most recent platform releases:",
@@ -56,6 +56,8 @@
   "docs/nav.api": "VTEX Commerce APIs",
   "docs/nav.latest": "Latest Features",
   "docs/nav.partner": "Become a partner",
+  "docs/join-discussion": "Join the discussion!",
+  "docs/did-not-find-your-answer": "Didn't find your answer?",
   "docs/lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ligula sagittis, dignissim nisi non, interdum elit. Vivamus eget dolor egestas, hendrerit urna a, finibus enim. Phasellus mollis mollis dui ut mattis. In ut purus sem. Quisque volutpat ornare consequat.",
   "docs/lorem-short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 }
