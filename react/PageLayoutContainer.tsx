@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 import favicon from './images/favicon.png'
 import SideBar from './components/SideBar'
 import TopNav from './components/TopNav'
-import { EnhancedAppVersionProvider } from './components/AppVersionContext'
 import { EnhancedSideBarContentProvider } from './components/SideBarContext'
 
 const PageLayoutContainer: FC = ({ children }) => {
@@ -30,11 +29,7 @@ const PageLayoutContainer: FC = ({ children }) => {
           className="w-100 min-vh-100 overflow-y-scroll flex flex-column justify-between"
           style={{ scrollBehavior: 'smooth' }}>
           <TopNav />
-          <main className="w-90-l center" style={{ maxWidth: '900px' }}>
-            <EnhancedAppVersionProvider>
-              <div className="flex">{children}</div>
-            </EnhancedAppVersionProvider>
-          </main>
+          {children}
           <Footer />
         </div>
       </div>
