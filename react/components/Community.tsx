@@ -8,21 +8,21 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
     <h2
       id={slug(intl.formatMessage({ id: 'docs/community-help' }))}
-      className="t-heading-2">
+      className="t-heading-2 c-on-base--inverted">
       <FormattedMessage id="docs/community-help" />
     </h2>
     <a
       href="https://github.com/vtex-apps/store-discussion"
       className="link no-underline pointer">
       <div className="flex items-center">
-        <div className="w-10-l w-25 mr6">
+        <div style={{ minWidth: '84px' }}>
           <CommunityIcon />
         </div>
         <div className="ml6">
-          <h4 className="t-heading-4  c-on-base">
+          <h4 className="t-heading-4 c-on-base--inverted mt0 mb3">
             <FormattedMessage id="docs/community-join" />
           </h4>
-          <p className="t-body c-on-base lh-copy">
+          <p className="t-body c-muted-4 lh-copy mv0">
             <FormattedMessage id="docs/community-description" />
           </p>
         </div>

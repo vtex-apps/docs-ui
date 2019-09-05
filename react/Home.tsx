@@ -9,6 +9,7 @@ import ArticleNav from './components/ArticleNav'
 import Recipes from './components/icons/Recipes'
 import Components from './components/icons/Components'
 import RightArrow from './components/icons/RightArrow'
+import { url } from 'inspector';
 
 const Home: FC<InjectedIntlProps> = ({ intl }) => {
   const homeHeadings = [
@@ -19,75 +20,79 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
 
   return (
     <Fragment>
-      <div className="pv9 w-80" style={{ maxWidth: '680px' }}>
-        <h1
-          id={slug(intl.formatMessage({ id: 'docs/build' }))}
-          className="t-heading-1 w-90 w-100-ns center mb6">
-          <FormattedMessage id="docs/build" />
-        </h1>
-        <p className="small c-on-base w-90 w-100-ns center mb8 lh-copy">
-          <FormattedMessage id="docs/build-description" />
-        </p>
-        <div className="w-90 w-100-ns center">
-          <div className="flex w-100">
-            <div className="w-30-l w-100 ph5 pb5 bg-muted-5 flex flex-column justify-end">
-              <span className="t-small">
-                <strong className="ttu">
-                  <FormattedMessage id="docs/getting-started" />
-                </strong>
-              </span>
-              <h4 className="t-heading-4 mv1 w-90-l ttu">
-                <FormattedMessage id="docs/create-stores" />
-              </h4>
+      <div className="bg-base--inverted">
+        <div className="pv9 w-100">
+          <h1
+            id={slug(intl.formatMessage({ id: 'docs/build' }))}
+            className="t-heading-1 w-90 w-100-ns mb6 c-on-base--inverted" style={{ fontSize: '115px', maxWidth: '680px' }}>
+            <FormattedMessage id="docs/build" />
+          </h1>
+          <p className="small c-on-base--inverted w-90 w-100-ns center mb8 lh-copy">
+            <FormattedMessage id="docs/build-description" />
+          </p>
+          <div className="w-90 w-100-ns center">
+            <div className="flex w-100 pointer dim" style={{ height: '480px' }}>
+              <div className="w-third-l w-100 pa6 bg-emphasis flex flex-column justify-end">
+                <span className="t-small c-on-emphasis">
+                  <div className="ttu fw5 pb5">
+                    <FormattedMessage id="docs/getting-started" />
+                  </div>
+                </span>
+                <h4 className="t-heading-2 mv1 w-90-l ttu c-on-emphasis">
+                  <FormattedMessage id="docs/create-stores" />
+                </h4>
+              </div>
+              <div className="w-two-thirds-l ph5-l bg-base--inverted" style={{ backgroundImage: 'url(https://vtex.io/_v/public/assets/v1/published/vtex.io-landing@1.0.3/public/react/be2f84e526c5ea2bd40f1df1b56155ec.svg)' }}>
+              </div>
             </div>
-            <div className="w-75-l pv10-l ph5-l bg-emphasis" />
+            <div className="mv10 flex flex-row-l flex-column justify-around">
+              <div className="mv6 mv0-l w-50-l flex">
+                <div className="c-on-base--inverted" style={{ minWidth: '84px' }}>
+                  <Recipes />
+                </div>
+                <div className="ph5">
+                  <p className="t-heading-3 c-on-base--inverted mt0">
+                    <FormattedMessage id="docs/recipes" />
+                  </p>
+                  <p className="c-on-base--inverted lh-copy">
+                    <FormattedMessage id="docs/recipes-description" />
+                  </p>
+                  <div className="flex items-center">
+                    <Link
+                      to="/docs/recipes/all"
+                      className="link no-underline c-emphasis">
+                      <span className="mr5">See all</span>
+                      <RightArrow />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="mh3-l mv8 mv0-l w-50-l flex">
+                <div className="c-on-base--inverted" style={{ minWidth: '84px' }}>
+                  <Components />
+                </div>
+                <div className="ph5">
+                  <p className="t-heading-3 c-on-base--inverted mt0">
+                    <FormattedMessage id="docs/our-components" />
+                  </p>
+                  <p className="c-on-base--inverted lh-copy">
+                    <FormattedMessage id="docs/our-components-description" />
+                  </p>
+                  <div className="c-emphasis flex items-center">
+                    <Link
+                      to="/docs/components/all"
+                      className="link no-underline c-emphasis">
+                      <span className="mr5">See all</span>
+                      <RightArrow />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <LatestFeatures />
+            <Community />
           </div>
-          <div className="mv9 flex flex-row-l flex-column justify-around">
-            <div className="mv6 mv0-l">
-              <div className="w-25-l w-10">
-                <Recipes />
-              </div>
-              <p className="t-heading-4">
-                <FormattedMessage id="docs/recipes" />
-              </p>
-              <p className="c-muted-1 lh-copy">
-                <FormattedMessage id="docs/recipes-description" />
-              </p>
-              <div className="flex items-center">
-                <Link
-                  to="/docs/recipes/all"
-                  className="link no-underline c-emphasis">
-                  <span className="mr5">See all</span>
-                  <RightArrow />
-                </Link>
-              </div>
-            </div>
-            <div className="mh3-l mv8 mv0-l">
-              <div className="w-25-l w-10">
-                <Components />
-              </div>
-              <p className="t-heading-4 ">
-                <FormattedMessage id="docs/our-components" />
-              </p>
-              <p className="c-muted-1 lh-copy">
-                <FormattedMessage id="docs/our-components-description" />
-              </p>
-              <div className="c-emphasis flex items-center">
-                <Link
-                  to="/docs/components/all"
-                  className="link no-underline c-emphasis">
-                  <span className="mr5">See all</span>
-                  <RightArrow />
-                </Link>
-              </div>
-            </div>
-          </div>
-          <LatestFeatures />
-          <Community />
         </div>
-      </div>
-      <div className="pv9 w-20">
-        <ArticleNav headings={homeHeadings} />
       </div>
     </Fragment>
   )
