@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/styles/prism'
 import { useRuntime } from 'vtex.render-runtime'
+import { useDevice } from 'vtex.device-detector'
 import { Link } from 'vtex.styleguide'
 
 import ArticleNav from './ArticleNav'
@@ -11,9 +12,14 @@ import { slug } from '../utils'
 export const CustomRenderers = {
   root: ({ children }: any) => {
     /* eslint-disable react-hooks/rules-of-hooks */
-    const { hints } = useRuntime()
+    const { isMobile } = useDevice()
 
-    if (hints.mobile) return children
+    if (isMobile)
+      return (
+        <div className="flex flex-column center" style={{ maxWidth: '95vw' }}>
+          {children}
+        </div>
+      )
 
     const TOCLines: string[] = children.reduce(
       (acc: any, { key, props }: any) => {

@@ -10,7 +10,7 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
   const isEmptyDocs = markdown === ''
 
   return !isEmptyDocs ? (
-    <article className="ph0-l ph5 w-100 min-vh-100">
+    <article className="ph0-l ph5 w-100-l w-90 min-vh-100">
       <ReactMarkdown
         source={markdown}
         escapeHtml={false}

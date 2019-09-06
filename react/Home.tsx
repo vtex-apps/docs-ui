@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
+import { useDevice } from 'vtex.device-detector'
 
 import { slug } from './utils'
 import LatestFeatures from './components/LatestFeatures'
@@ -11,6 +12,8 @@ import RightArrow from './components/icons/RightArrow'
 import ProductImage from './images/product.png'
 
 const Home: FC<InjectedIntlProps> = ({ intl }) => {
+  const { isMobile } = useDevice()
+
   return (
     <main className="w-100-l center bg-base--inverted">
       <div className="w-90 center" style={{ maxWidth: '900px' }}>
@@ -18,7 +21,10 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
           <h1
             id={slug(intl.formatMessage({ id: 'docs/build' }))}
             className="t-heading-1 w-90 w-100-ns mb6 c-on-base--inverted"
-            style={{ fontSize: '115px', maxWidth: '680px' }}>
+            style={{
+              fontSize: `${isMobile ? '85px' : '115px'}`,
+              maxWidth: '680px',
+            }}>
             <FormattedMessage id="docs/build" />
           </h1>
           <p className="small c-on-base--inverted w-90 w-100-ns center mb8 lh-copy">

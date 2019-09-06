@@ -14,13 +14,12 @@
   "dependencies": {
     "vtex.styleguide": "9.x",
     "vtex.store-drawer": "0.x",
-    "vtex.docs-graphql": "1.x"
+    "vtex.docs-graphql": "1.x",
+    "vtex.device-detector": "0.x"
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "settingsSchema": {},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
