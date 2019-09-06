@@ -14,12 +14,13 @@ export const CustomRenderers = {
     /* eslint-disable react-hooks/rules-of-hooks */
     const { isMobile } = useDevice()
 
-    if (isMobile)
+    if (isMobile) {
       return (
         <div className="flex flex-column center" style={{ maxWidth: '95vw' }}>
           {children}
         </div>
       )
+    }
 
     const TOCLines: string[] = children.reduce(
       (acc: any, { key, props }: any) => {
