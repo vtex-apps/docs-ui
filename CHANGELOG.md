@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Overflow on mobile layout.
 
+### Changed
+- Open `SideBarItem` behavior.
+
 ## [0.29.0] - 2019-09-06
 ### Changed
 - Overall layout adjustments for v1.0 release.
