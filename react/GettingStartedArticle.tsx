@@ -56,16 +56,18 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
           return (
             <Fragment>
               <DocsRenderer markdown={markdown} meta={meta} />
-              <div className="flex w-100 center justify-between mt6">
+              <div className="flex w-100-l w-90 center justify-between mt6">
                 {hasPrevArticle(currentArticle) && (
                   <Link
                     className="link c-emphasis no-underline t-body mr-auto flex items-center dim"
                     to={`${currentArticle - 1}`}>
-                    <div className="flex">
+                    <div className="flex flex-column flex-row-l">
                       <div className="mr5">
                         <LeftArrow />
                       </div>
-                      <FormattedMessage id="docs/getting-started.previous" />
+                      <span className="dn db-l">
+                        <FormattedMessage id="docs/getting-started.previous" />
+                      </span>
                     </div>
                   </Link>
                 )}
@@ -73,8 +75,10 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
                   <Link
                     className="link c-emphasis no-underline t-body ml-auto flex items-center dim"
                     to={`${currentArticle + 1}`}>
-                    <div className="flex">
-                      <FormattedMessage id="docs/getting-started.next" />
+                    <div className="flex flex-column flex-row-l">
+                      <span className="dn db-l">
+                        <FormattedMessage id="docs/getting-started.next" />
+                      </span>
                       <div className="ml5">
                         <RightArrow />
                       </div>
