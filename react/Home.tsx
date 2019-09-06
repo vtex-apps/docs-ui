@@ -41,8 +41,8 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div
                 className="w-two-thirds-l ph5-l bg-base--inverted"
                 style={{
-                  backgroundImage:
-                    'url(https://vtex.io/_v/public/assets/v1/published/vtex.io-landing@1.0.3/public/react/be2f84e526c5ea2bd40f1df1b56155ec.svg)',
+                  background:
+                    'no-repeat center/80% url(https://imgur.com/EDcfPY5.png)',
                 }}
               />
             </Link>
