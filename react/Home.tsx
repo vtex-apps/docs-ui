@@ -8,6 +8,7 @@ import Community from './components/Community'
 import Recipes from './components/icons/Recipes'
 import Components from './components/icons/Components'
 import RightArrow from './components/icons/RightArrow'
+import ProductImage from './images/product.png'
 
 const Home: FC<InjectedIntlProps> = ({ intl }) => {
   return (
@@ -41,8 +42,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
               <div
                 className="w-two-thirds-l ph5-l bg-base--inverted"
                 style={{
-                  background:
-                    'no-repeat center/80% url(https://imgur.com/EDcfPY5.png)',
+                  background: `no-repeat center/90% url(${ProductImage})`,
                 }}
               />
             </Link>
