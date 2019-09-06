@@ -54,11 +54,9 @@ const SideBarItem: FC<Props> = ({
         isActive ? 'b--emphasis' : 'b--muted-3'
       }`}
       onClick={() => {
-        if (shouldBeOpen && open) return
         return setOpen(!open)
       }}
       onKeyPress={() => {
-        if (shouldBeOpen && open) return
         return setOpen(!open)
       }}
       role="menuitem"
