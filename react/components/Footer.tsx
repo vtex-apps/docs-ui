@@ -9,12 +9,12 @@ const Footer: FC = () => {
   const listItemClasses = 't-body mv3 c-muted-3'
 
   return (
-    <footer className="bg-base pt8-l ph0-l pb0-l w-100 bg-base--inverted bt b--muted-5">
+    <footer className="bg-base pt8-l pt6 ph0-l pb0-l w-100 bg-base--inverted bt b--muted-5">
       <div className="pb8 ph7-l">
         <VTEXWhite />
       </div>
       <div className="flex-l ph4 flex-wrap justify-between w-100 ph8-l pb8-l">
-        <div className="flex justify-between w-50-l w-100">
+        <div className="flex justify-between w-50-l w-100 pb5 pb0-l">
           <div className="list">
             <div className={listItemClasses}>
               <Link
