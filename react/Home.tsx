@@ -33,7 +33,7 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
           <div className="w-90 w-100-ns center">
             <Link
               to="/docs/getting-started/build-stores-with-vtex-io/1"
-              className="flex w-100 pointer dim no-underline"
+              className="flex-l w-100 pointer dim no-underline"
               style={{ height: '480px' }}>
               <div className="w-third-l w-100 pa6 bg-emphasis flex flex-column justify-end">
                 <span className="t-small c-on-emphasis">
@@ -46,9 +46,9 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
                 </h4>
               </div>
               <div
-                className="w-two-thirds-l ph5-l bg-base--inverted"
+                className="w-two-thirds-l ph5-l h5 h-auto-l bg-base--inverted"
                 style={{
-                  background: `no-repeat center/90% url(${ProductImage})`,
+                  background: `no-repeat center/100% url(${ProductImage})`,
                 }}
               />
             </Link>
