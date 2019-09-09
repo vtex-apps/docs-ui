@@ -1,5 +1,6 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
+import { Link } from 'vtex.render-runtime'
 
 const TopNav = () => (
   <nav className="w-100 db-l dn bg-base bb b--muted-3">
@@ -10,11 +11,11 @@ const TopNav = () => (
           className="t-small link c-on-base no-underline mv3 mh5 dim">
           <FormattedMessage id="docs/nav.api" />
         </a>
-        <a
-          href="https://github.com/vtex-apps/release-notes"
+        <Link
+          to="/docs#latest-releases"
           className="t-small link c-on-base no-underline mv3 mh5 dim">
-          <FormattedMessage id="docs/nav.latest" />
-        </a>
+            <FormattedMessage id="docs/latest-features" />
+        </Link>
         <a
           href="https://www.vtex.com/partner/"
           className="t-small link c-emphasis no-underline mv3 mh5 dim">

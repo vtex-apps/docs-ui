@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Changed top bar link and text to latest releases
+
 ## [1.0.0] - 2019-09-06
 ### Fixed
 - Overflow on mobile layout.
