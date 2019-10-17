@@ -17,7 +17,7 @@ interface Chapter {
 
 function pageView() {
   if (typeof ga() === 'undefined') {
-    initialize('1')
+    initialize('UA-150301985-1')
   }
   pageview(window.location.pathname + window.location.search)
 }
