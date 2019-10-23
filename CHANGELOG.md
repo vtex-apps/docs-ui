@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## Added
+
+- `google analytics` pageview tracking on `SideBar`
+
 ## [1.0.2] - 2019-09-16
 ### Changed
 - Message `docs/latest-features`.
