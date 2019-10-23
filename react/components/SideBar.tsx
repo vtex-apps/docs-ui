@@ -1,8 +1,8 @@
-import React, { ReactElement, FC } from 'react'
+import React, { ReactElement, FC, useEffect } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Drawer } from 'vtex.store-drawer'
 import { Link } from 'vtex.render-runtime'
-
+import { initialize, pageview, ga } from 'react-ga'
 import SideBarItem from './SideBarItem'
 import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
@@ -15,9 +15,17 @@ interface Chapter {
   articles: [] | Chapter[]
 }
 
+function pageView() {
+  if (typeof ga() === 'undefined') {
+    initialize('UA-150301985-1')
+  }
+  pageview(window.location.pathname + window.location.search)
+}
+
 const SideBar: FC = () => {
   const appName = 'vtex.io-documentation@0.x'
   const { content } = useSideBarContentState()
+  useEffect(() => pageView())
 
   return (
     <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-3 flex-l flex-column">
