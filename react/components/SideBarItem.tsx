@@ -31,10 +31,13 @@ const SideBarItem: FC<Props> = ({
 
   const isCurrentSection =
     currentSection &&
+    depth === 0 &&
     (linkSection === currentSection ||
       slug(text.toLowerCase()) === currentSection)
+
   const isCurrentSubsection =
-    currentSubsection && linkSubsection === currentSubsection
+    currentSubsection && depth === 1 && linkSubsection === currentSubsection
+
   const isActive = link === path
 
   const shouldBeOpen = isActive || isCurrentSection || isCurrentSubsection
