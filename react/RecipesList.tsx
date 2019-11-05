@@ -4,7 +4,7 @@ import { compose, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
 import { withRuntimeContext, InjectedRuntime } from 'vtex.render-runtime'
-
+import { APP_NAME } from './utils/constants'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
@@ -152,7 +152,7 @@ export default compose(
       return {
         variables: {
           category: shouldFetchAllRecipes ? '' : category,
-          appName: 'vtex.io-documentation@0.x',
+          appName: APP_NAME,
           locale: 'en',
         },
       }

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { compose, graphql } from 'react-apollo'
 import { branch, renderComponent } from 'recompose'
-
+import { APP_NAME } from './utils/constants'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
@@ -63,7 +63,7 @@ export default compose(
     name: 'ResourcesListQueryData',
     options: {
       variables: {
-        appName: 'vtex.io-documentation@0.x',
+        appName: APP_NAME,
         locale: 'en',
       },
     },

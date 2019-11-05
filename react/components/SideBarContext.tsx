@@ -8,7 +8,7 @@ import React, {
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
 import { compose, graphql } from 'react-apollo'
-
+import { APP_NAME } from '../utils/constants'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 
@@ -32,7 +32,6 @@ interface Chapter {
 const SideBarStateContext = createContext<State | undefined>(undefined)
 const SideBarDispatchContext = createContext<Dispatch | undefined>(undefined)
 
-const APP_NAME = 'vtex.io-documentation@0.x'
 const DEFAULT_LOCALE = 'en'
 
 function SideBarContentReducer(state: State, action: Action) {
