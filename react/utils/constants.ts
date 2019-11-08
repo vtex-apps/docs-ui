@@ -1,1 +1,1 @@
-export const APP_NAME = 'vtex.io-documentation@0.x'
+export const IO_DOCUMENTATION = 'vtex.io-documentation@0.x'

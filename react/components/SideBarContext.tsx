@@ -8,7 +8,7 @@ import React, {
 import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
 import { compose, graphql } from 'react-apollo'
-import { APP_NAME } from '../utils/constants'
+import { IO_DOCUMENTATION } from '../utils/constants'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 
@@ -88,7 +88,7 @@ const EnhancedSideBarContentProvider: FC = compose(
     name: 'appSummaryQuery',
     options: {
       variables: {
-        appName: APP_NAME,
+        appName: IO_DOCUMENTATION,
         locale: DEFAULT_LOCALE,
       },
     },

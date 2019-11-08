@@ -8,7 +8,7 @@ import { useRuntime } from 'vtex.render-runtime'
 import ComponentGridItem from './components/ComponentGridItem'
 import EmptyDocs from './components/EmptyDocs'
 import { slug } from './utils'
-import { APP_NAME } from './utils/constants'
+import { IO_DOCUMENTATION } from './utils/constants'
 import ComponentList from './graphql/componentsList.graphql'
 import Skeleton from './components/Skeleton'
 
@@ -143,7 +143,7 @@ export default compose(
     name: 'ComponentsListQuery',
     options: {
       variables: {
-        appName: APP_NAME,
+        appName: IO_DOCUMENTATION,
         locale: 'en',
       },
     },

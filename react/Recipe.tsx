@@ -6,7 +6,7 @@ import { useRuntime } from 'vtex.render-runtime'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
-import { APP_NAME } from './utils/constants'
+import { IO_DOCUMENTATION } from './utils/constants'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const Recipe: FC = () => {
@@ -19,7 +19,7 @@ const Recipe: FC = () => {
       <Query
         query={MarkdownFile}
         variables={{
-          appName: APP_NAME,
+          appName: IO_DOCUMENTATION,
           fileName: `Recipes/${params.category}/${params.recipe}.md`,
           locale: 'en',
         }}>
