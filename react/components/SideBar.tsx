@@ -6,7 +6,7 @@ import { initialize, pageview, ga } from 'react-ga'
 import SideBarItem from './SideBarItem'
 import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
-
+import { IO_DOCUMENTATION } from '../utils/constants'
 import VTEXPink from './icons/VTEXPink'
 
 interface Chapter {
@@ -23,7 +23,6 @@ function pageView() {
 }
 
 const SideBar: FC = () => {
-  const appName = 'vtex.io-documentation@0.x'
   const { content } = useSideBarContentState()
   useEffect(() => pageView())
 
@@ -34,7 +33,7 @@ const SideBar: FC = () => {
         <div className="w-50 pl4">
           <Drawer>
             <div className="flex flex-column w-90 center" role="menu">
-              {getArticles(content, 0, appName)}
+              {getArticles(content, 0, IO_DOCUMENTATION)}
             </div>
           </Drawer>
         </div>
@@ -52,7 +51,7 @@ const SideBar: FC = () => {
           <Link to="/docs/home" className="flex pt2 mt2 pl3 dim">
             <VTEXPink />
           </Link>
-          {getArticles(content, 0, appName)}
+          {getArticles(content, 0, IO_DOCUMENTATION)}
         </div>
         <div
           className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3"

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { useRuntime } from 'vtex.render-runtime'
-
+import { IO_DOCUMENTATION } from './utils/constants'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
@@ -19,7 +19,7 @@ const Resource: FC = () => {
       <Query
         query={MarkdownFile}
         variables={{
-          appName: 'vtex.io-documentation@0.x',
+          appName: IO_DOCUMENTATION,
           fileName: `Resources/${params.resource}.md`,
           locale: 'en',
         }}>

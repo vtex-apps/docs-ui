@@ -4,7 +4,7 @@ import { ApolloError } from 'apollo-client'
 import { branch, renderComponent } from 'recompose'
 import { FormattedMessage } from 'react-intl'
 import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
-
+import { IO_DOCUMENTATION } from './utils/constants'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
@@ -33,7 +33,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
       <Query
         query={MarkdownFile}
         variables={{
-          appName: 'vtex.io-documentation@0.x',
+          appName: IO_DOCUMENTATION,
           fileName: `GettingStarted/${track}/${articles[article]}`,
           locale: 'en',
         }}>
