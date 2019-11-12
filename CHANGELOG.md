@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Support for more programming languages through the use of `highlight.js`.
 
 ## [1.1.2] - 2019-11-08
 
@@ -14,8 +16,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Logic when to open sidebar subitems.
 
 ## [1.1.0] - 2019-10-23
-### Added
 
+## [1.1.0] - 2019-10-23
+### Added
 - `google analytics` pageview tracking on `SideBar`
 
 ## [1.0.2] - 2019-09-16
@@ -24,7 +27,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.0.1] - 2019-09-09
 ### Changed
-
 - Changed top bar link and text to latest releases
 
 ## [1.0.0] - 2019-09-06
