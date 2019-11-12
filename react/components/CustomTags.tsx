@@ -8,6 +8,7 @@ import { Link } from 'vtex.styleguide'
 
 import ArticleNav from './ArticleNav'
 import { slug } from '../utils'
+import CodeBlock from './CodeBlock'
 
 export const CustomRenderers = {
   root: ({ children }: any) => {
@@ -49,36 +50,7 @@ export const CustomRenderers = {
     )
   },
   break: () => <br />,
-  code: (props: any) => {
-    const { language, value } = props
-    const codeBlock = value.replace(/“/gm, '"').replace(/”/gm, '"')
-
-    return (
-      <div className="overflow-scroll-gradient">
-        <pre className="w-100 overflow-y-auto overflow-scroll-gradient__scroller bg-muted-5 ba b--muted-3 br2 pa4 mb6 mt0">
-          <SyntaxHighlighter
-            language={language}
-            style={base16AteliersulphurpoolLight}
-            customStyle={{
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              marginBottom: 0,
-              marginTop: 0,
-              fontSize: '0.9rem',
-            }}
-            showLineNumbers={!!language && language !== 'sh'}
-            codeTagProps={{
-              style: {
-                background: 'transparent',
-                backgroundColor: 'transparent',
-              },
-            }}>
-            {codeBlock}
-          </SyntaxHighlighter>
-        </pre>
-      </div>
-    )
-  },
+  code: CodeBlock,
   emphasis: (props: any) => <em className="i">{props.children}</em>,
   heading: (props: any) => {
     const hashId = getHeadingSlug(props.children)
