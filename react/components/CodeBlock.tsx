@@ -3,12 +3,11 @@ import hljs from 'highlight.js'
 
 interface Props {
   language: string
-  value: any
+  value: string
 }
 
 const CodeBlock: FC<Props> = ({ language, value }) => {
   const codeBlockRef = useRef<HTMLPreElement>(null)
-
   useEffect(() => {
     if (codeBlockRef && codeBlockRef.current) {
       hljs.highlightBlock(codeBlockRef.current)
