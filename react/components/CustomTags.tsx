@@ -1,7 +1,5 @@
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import React, { Fragment } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/styles/prism'
 import { useRuntime } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import { Link } from 'vtex.styleguide'
