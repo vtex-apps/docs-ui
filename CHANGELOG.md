@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ## [1.3.0] - 2019-11-18
+### Added
+- Title tags in component pages being first headline of documentation
 
 ## [1.2.0] - 2019-11-12
 ### Added
