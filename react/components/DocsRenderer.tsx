@@ -21,7 +21,7 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
       <article className="ph0-l ph5 w-100-l w-90 min-vh-100">
         <ReactMarkdown
           source={markdown}
-          escapeHtml
+          escapeHtml={false}
           renderers={CustomRenderers}
           plugins={[emoji]}
         />
