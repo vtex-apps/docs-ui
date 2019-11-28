@@ -21,7 +21,7 @@ const PageLayoutContainer: FC = ({ children }) => {
         <EnhancedSideBarContentProvider>
           <div
             className="w-25-l vh-100-l overflow-y-auto"
-            style={{ maxWidth: 280, minWidth: 200 }}>
+            style={{ maxWidth: '280px', minWidth: '200px' }}>
             <SideBar />
           </div>
         </EnhancedSideBarContentProvider>
