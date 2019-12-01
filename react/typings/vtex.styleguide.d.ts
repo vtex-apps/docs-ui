@@ -14,4 +14,6 @@ declare module 'vtex.styleguide' {
   export const Card
   export const Dropdown
   export const Link
+  export const InputSearch
+  export const IconSearch
 }
