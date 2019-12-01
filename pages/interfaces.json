@@ -11,6 +11,9 @@
   "docs.home": {
     "component": "Home"
   },
+  "docs.search": {
+    "component": "Search"
+  },
   "docs.app": {
     "component": "AppDocs",
     "around": ["docs-main-content-wrapper"]
