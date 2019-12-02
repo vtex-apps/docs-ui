@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.3] - 2019-12-02
+
 ## [1.3.2] - 2019-11-28
 ### Fixed
 - Use `overflow-y-auto` instead of `overflow-y-scroll`.
