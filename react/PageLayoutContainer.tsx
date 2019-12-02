@@ -16,6 +16,10 @@ const PageLayoutContainer: FC = ({ children }) => {
         <meta name="theme-color" content="#F71963" />
         <meta name="description" content="Documentation on VTEX IO" />
         <link rel="icon" href={favicon} />
+        <meta
+          name="google-site-verification"
+          content="ZY7HyfLauXkjLwWBR75Ff2YSVYbosRZuuk4mFk4wjig"
+        />
       </Helmet>
       <div className="flex flex-row-l flex-column vh-100-l">
         <EnhancedSideBarContentProvider>
