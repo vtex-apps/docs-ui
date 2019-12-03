@@ -156,7 +156,9 @@ export const CustomRenderers = {
   list: (props: any) => {
     if (props.ordered) {
       return (
-        <ol className="t-body c-on-base mt0 mb6 pl6 lh-copy">
+        <ol
+          start={props.start}
+          className="t-body c-on-base mt0 mb6 pl6 lh-copy">
           {props.children}
         </ol>
       )
