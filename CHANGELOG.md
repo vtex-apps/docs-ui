@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.5] - 2019-12-05
+
 ## [1.3.4] - 2019-12-03
 ### Fixed
 - Ordered list indexes being reset during rendering of the markdown content.
