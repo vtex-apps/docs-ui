@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, Fragment } from 'react'
-import { Link, Card } from 'vtex.styleguide'
 import { cseSearch } from './clients/cse'
+import RightArrow from './components/icons/RightArrow'
 
 interface Props {
   query: {
@@ -27,20 +27,22 @@ const Search: FC<Props> = ({ query }) => {
       <h1 className="center">
         Results for <span className="c-emphasis">{queryString}</span>
       </h1>
-      <ul className="list pl0 center mt8 mw8">
+      <ul className="list pl0 center mt5 mw8">
         {results
           ? results.map((result: any, index: number) => (
               <li key={index} className="mh8 mv8">
-                <div>
-                  <Link href={result.link}>
-                    <Card>
-                      <div className="result-card">
-                        <h2>{result.title}</h2>
-                        <p>{result.snippet}</p>
-                      </div>
-                    </Card>
-                  </Link>
-                </div>
+                <h2>{result.title}</h2>
+                <p>{result.snippet}</p>
+                <a
+                  className="link c-emphasis no-underline t-body ml-auto flex items-center dim"
+                  href={result.link}>
+                  <div className="flex flex-column flex-row-l">
+                    <span className="dn db-l">Read More</span>
+                    <div className="ml5">
+                      <RightArrow />
+                    </div>
+                  </div>
+                </a>
               </li>
             ))
           : null}
