@@ -1,14 +1,14 @@
 import React, { FC, useState, Fragment } from 'react'
 import { InputSearch } from 'vtex.styleguide'
 import { useRuntime } from 'vtex.render-runtime'
+
 const SearchBar: FC = () => {
   const {
     navigate,
-    query: {
-      q: queryString
-    },
+    query: { q: queryString },
   } = useRuntime()
   const [inputString, setInputString] = useState(queryString || '')
+
   return (
     <Fragment>
       <InputSearch
@@ -20,10 +20,17 @@ const SearchBar: FC = () => {
         }}
         onSubmit={(e: any) => {
           e.preventDefault()
-          navigate({ page: 'docs.search', query: `q=${inputString}`, fetchPage: true })
+          if (inputString !== '') {
+            navigate({
+              page: 'docs.search',
+              query: `q=${inputString}`,
+              fetchPage: true,
+            })
+          }
         }}
       />
     </Fragment>
   )
 }
+
 export default SearchBar
