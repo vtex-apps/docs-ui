@@ -37,7 +37,7 @@
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
     "react-intl": "^2.9.0",
-    "typescript": "3.5.2",
+    "typescript": "3.7.3",
     "vtex.docs-graphql": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.docs-graphql@1.5.0/public/_types/react",
     "vtex.render-runtime": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.45.3/public/_types/react",
     "vtex.store-drawer": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store-drawer@0.1.0/public/_types/react",
