@@ -88,6 +88,10 @@
   color: #f71963;
 }
 
+.searchBar {
+  max-width: 200px;
+}
+
 /* Base16 Atelier Sulphurpool Light - Theme */
 /* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */

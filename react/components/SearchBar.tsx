@@ -1,4 +1,4 @@
-import React, { FC, useState, Fragment } from 'react'
+import React, { FC, useState } from 'react'
 import { InputSearch } from 'vtex.styleguide'
 import { useRuntime } from 'vtex.render-runtime'
 
@@ -10,11 +10,10 @@ const SearchBar: FC = () => {
   const [inputString, setInputString] = useState(queryString || '')
 
   return (
-    <Fragment>
+    <div className="searchBar">
       <InputSearch
-        placeholder="How to use a shelf"
+        size="small"
         value={inputString}
-        size="large"
         onChange={(e: { target: { value: React.SetStateAction<string> } }) => {
           setInputString(e.target.value)
         }}
@@ -29,7 +28,7 @@ const SearchBar: FC = () => {
           }
         }}
       />
-    </Fragment>
+    </div>
   )
 }
 
