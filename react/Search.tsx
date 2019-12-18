@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, Fragment } from 'react'
+import React, { FC, Fragment } from 'react'
 import { prop } from 'ramda'
 import { useQuery } from 'react-apollo'
 import RightArrow from './components/icons/RightArrow'
