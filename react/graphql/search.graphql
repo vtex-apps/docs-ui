@@ -1,0 +1,7 @@
+query searchEngine($searchQuery: String) {
+  searchEngine(searchQuery: $searchQuery) {
+    title
+    link
+    snippet
+  }
+}

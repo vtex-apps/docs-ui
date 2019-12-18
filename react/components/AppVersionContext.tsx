@@ -1,7 +1,7 @@
 import React, { useContext, createContext, useReducer, ReactNode } from 'react'
 import { ApolloError } from 'apollo-client'
-import { compose, graphql } from 'react-apollo'
-import { renderComponent, branch, withProps } from 'recompose'
+import { graphql } from 'react-apollo'
+import { renderComponent, branch, withProps, compose } from 'recompose'
 import { withRuntimeContext } from 'vtex.render-runtime'
 
 import Skeleton from './Skeleton'
@@ -86,7 +86,7 @@ function useAppVersionDispatch() {
   return context
 }
 
-const EnhancedAppVersionProvider = compose(
+const EnhancedAppVersionProvider = compose<any, any>(
   withRuntimeContext,
   withProps((props: { runtime: { route: { params: { app?: string } } } }) => {
     const { app } = props.runtime.route.params

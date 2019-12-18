@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect, Fragment } from 'react'
-import { cseSearch } from './clients/cse'
+import { prop } from 'ramda'
+import { useQuery } from 'react-apollo'
 import RightArrow from './components/icons/RightArrow'
+import searchEngine from './graphql/search.graphql'
 
 interface Props {
   query: {
@@ -15,13 +17,14 @@ interface SearchResult {
 }
 
 const Search: FC<Props> = ({ query }) => {
-  const [results, setResults] = useState<SearchResult[]>([])
   const queryString = query.q || ''
-  useEffect(() => {
-    ;(async () => {
-      setResults(await cseSearch(queryString))
-    })()
-  }, [query, queryString])
+
+  const { data } = useQuery(searchEngine, {
+    variables: { searchQuery: queryString },
+  })
+
+  const results: [SearchResult] = prop('searchEngine', data) || []
+
   return (
     <Fragment>
       <h1 className="center">

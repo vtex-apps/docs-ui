@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
-import { compose, graphql } from 'react-apollo'
+import { graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { branch, renderComponent } from 'recompose'
+import { branch, compose, renderComponent } from 'recompose'
 import { withRuntimeContext, InjectedRuntime } from 'vtex.render-runtime'
 import { IO_DOCUMENTATION } from './utils/constants'
 import RecipeListItem from './components/RecipeListItem'
@@ -137,7 +137,7 @@ interface OuterProps {
   }
 }
 
-export default compose(
+export default compose<any, any>(
   withRuntimeContext,
   graphql(RecipeList, {
     name: 'RecipeListQuery',

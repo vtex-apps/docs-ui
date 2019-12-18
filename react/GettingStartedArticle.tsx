@@ -1,7 +1,7 @@
 import React, { Fragment, FC } from 'react'
-import { Query, compose, graphql } from 'react-apollo'
+import { Query, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { branch, renderComponent } from 'recompose'
+import { branch, compose, renderComponent } from 'recompose'
 import { FormattedMessage } from 'react-intl'
 import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
 import { IO_DOCUMENTATION } from './utils/constants'
@@ -122,7 +122,7 @@ interface MetaData {
   git: string
 }
 
-export default compose(
+export default compose<any, any>(
   withRuntimeContext,
   graphql(GettingStartedArticles, {
     name: 'GettingStartedArticlesQuery',
