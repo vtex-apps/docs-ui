@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { InputSearch } from 'vtex.styleguide'
+import SearchIcon from './icons/SearchIcon'
 import { useRuntime } from 'vtex.render-runtime'
 
 const SearchBar: FC = () => {
@@ -10,13 +10,8 @@ const SearchBar: FC = () => {
   const [inputString, setInputString] = useState(queryString || '')
 
   return (
-    <div className="searchBar">
-      <InputSearch
-        size="small"
-        value={inputString}
-        onChange={(e: { target: { value: React.SetStateAction<string> } }) => {
-          setInputString(e.target.value)
-        }}
+    <div className="mh4">
+      <form
         onSubmit={(e: any) => {
           e.preventDefault()
           if (inputString !== '') {
@@ -26,8 +21,22 @@ const SearchBar: FC = () => {
               fetchPage: true,
             })
           }
-        }}
-      />
+        }}>
+        <div className="flex center searchBarContainer items-center pa3">
+          <input
+            type="search"
+            className="searchBar pa1 bg-transparent b--none"
+            placeholder="Search IO Docs..."
+            value={inputString}
+            onChange={(e: {
+              target: { value: React.SetStateAction<string> }
+            }) => {
+              setInputString(e.target.value)
+            }}
+          />
+          <SearchIcon />
+        </div>
+      </form>
     </div>
   )
 }

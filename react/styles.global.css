@@ -3,6 +3,7 @@
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(50%, 0, 0);
   }
@@ -14,15 +15,14 @@
   position: absolute;
   top: 0;
   left: -100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 255, 255, 0)
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0));
   background-size: 50% 100%;
   animation: shimmer-anim 0.7s linear infinite;
 }
+
 /* end Skeleton animation */
 
 .alert-info {
@@ -88,8 +88,41 @@
   color: #f71963;
 }
 
-.searchBar {
+
+.searchBarContainer {
   max-width: 200px;
+  border-radius: 4px;
+  background-color: #374255;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  line-height: 24px;
+  font-size: 14px;
+  border-color: transparent;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.searchBar {
+  outline: none;
+  color: #FFFFFF;
+}
+
+.searchResult {
+  padding-bottom: 35px;
+  line-height: 150%;
+}
+
+.searchResultBorder {
+  border-bottom: 1px solid #CACBCC;
+}
+
+.searchTitle {
+  line-height: 150%;
+}
+
+.searchSnippet {
+  color: #797979;
+  letter-spacing: 0.015em;
 }
 
 /* Base16 Atelier Sulphurpool Light - Theme */

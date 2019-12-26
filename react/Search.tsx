@@ -25,19 +25,29 @@ const Search: FC<Props> = ({ query }) => {
 
   const results: [SearchResult] = prop('searchEngine', data) || []
 
+  const isNotLastResult = (results: [SearchResult], index: number) =>
+    index !== results.length - 1
+
   return (
     <Fragment>
-      <h1 className="center">
-        Results for <span className="c-emphasis">{queryString}</span>
+      <h1 className="t-heading-1 center">
+        {results.length > 0
+          ? `Results for "${queryString}"`
+          : 'No Results Found'}
       </h1>
       <ul className="list pl0 center mt5 mw8">
         {results
-          ? results.map((result: any, index: number) => (
-              <li key={index} className="mh8 mv8">
-                <h2>{result.title}</h2>
-                <p>{result.snippet}</p>
+          ? results.map((result: SearchResult, index: number) => (
+              <li
+                key={index}
+                className={`mh8 mv8 searchResult ${
+                  isNotLastResult(results, index) ? 'searchResultBorder' : ''
+                }`}>
+                <h2 className="t-heading-2 searchTitle">{result.title}</h2>
+                <p className="t-body searchSnippet">{result.snippet}</p>
                 <a
-                  className="link c-emphasis no-underline t-body ml-auto flex items-center dim"
+                  className={`link c-emphasis no-underline t-body ml-auto
+                flex items-center dim`}
                   href={result.link}>
                   <div className="flex flex-column flex-row-l">
                     <span className="dn db-l">Read More</span>
