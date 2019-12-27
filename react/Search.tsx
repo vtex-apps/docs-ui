@@ -3,6 +3,7 @@ import { prop } from 'ramda'
 import { useQuery } from 'react-apollo'
 import RightArrow from './components/icons/RightArrow'
 import searchEngine from './graphql/search.graphql'
+import Skeleton from './components/Skeleton'
 
 interface Props {
   query: {
@@ -19,7 +20,7 @@ interface SearchResult {
 const Search: FC<Props> = ({ query }) => {
   const queryString = query.q || ''
 
-  const { data } = useQuery(searchEngine, {
+  const { data, loading } = useQuery(searchEngine, {
     variables: { searchQuery: queryString },
   })
 
@@ -27,6 +28,8 @@ const Search: FC<Props> = ({ query }) => {
 
   const isNotLastResult = (results: [SearchResult], index: number) =>
     index !== results.length - 1
+
+  if (loading) return <Skeleton />
 
   return (
     <Fragment>
