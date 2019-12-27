@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { compose, graphql } from 'react-apollo'
-import { branch, renderComponent } from 'recompose'
+import { graphql } from 'react-apollo'
+import { branch, compose, renderComponent } from 'recompose'
 import { IO_DOCUMENTATION } from './utils/constants'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
@@ -58,7 +58,7 @@ interface InnerProps {
   ResourcesListQueryData: QueryResults
 }
 
-export default compose(
+export default compose<any, any>(
   graphql(ResourceList, {
     name: 'ResourcesListQueryData',
     options: {

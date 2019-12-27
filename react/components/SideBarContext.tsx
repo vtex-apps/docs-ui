@@ -6,8 +6,8 @@ import React, {
   FC,
 } from 'react'
 import { ApolloError } from 'apollo-client'
-import { branch, renderComponent } from 'recompose'
-import { compose, graphql } from 'react-apollo'
+import { branch, compose, renderComponent } from 'recompose'
+import { graphql } from 'react-apollo'
 import { IO_DOCUMENTATION } from '../utils/constants'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
@@ -83,7 +83,7 @@ function useSideBarContentDispatch() {
   return context
 }
 
-const EnhancedSideBarContentProvider: FC = compose(
+const EnhancedSideBarContentProvider = compose<any, any>(
   graphql(Summary, {
     name: 'appSummaryQuery',
     options: {

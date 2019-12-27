@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
-import { compose, graphql } from 'react-apollo'
+import { graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { branch, renderComponent } from 'recompose'
+import { branch, compose, renderComponent } from 'recompose'
 import { useRuntime } from 'vtex.render-runtime'
 
 import ComponentGridItem from './components/ComponentGridItem'
@@ -138,7 +138,7 @@ interface OuterProps {
   }
 }
 
-export default compose(
+export default compose<OuterProps, OuterProps>(
   graphql(ComponentList, {
     name: 'ComponentsListQuery',
     options: {

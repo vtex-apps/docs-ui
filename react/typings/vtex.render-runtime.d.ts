@@ -56,7 +56,9 @@ declare module 'vtex.render-runtime' {
     production: boolean
     publicEndpoint: string
     renderMajor: number
-    query?: Record<string, string>
+    query: {
+      q?: string
+    }
     start: boolean
     runtimeMeta: {
       version: string
@@ -69,6 +71,7 @@ declare module 'vtex.render-runtime' {
     rootPath?: string
     workspaceCookie: string
     hasNewExtensions: boolean
+    navigate: any
   }
 
   export const Link: any
