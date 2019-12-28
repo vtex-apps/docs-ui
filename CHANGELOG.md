@@ -6,8 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Duplicated loading states on certain routes.
 
 ## [1.4.0] - 2019-12-27
+### Added
+- Support for search functionality.
 
 ## [1.3.5] - 2019-12-05
 
