@@ -1,5 +1,12 @@
 query componentsList($appName: String, $locale: String) {
   componentsList(appName: $appName, locale: $locale) {
+    layout {
+      appName
+      file
+      title
+      description
+      url
+    }
     general {
       appName
       file
