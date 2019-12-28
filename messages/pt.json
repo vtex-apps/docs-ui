@@ -40,6 +40,8 @@
   "docs/recipes.all-description": "All the answers to any platform related questions can be found here! Find all the recipes for VTEX IO functionalities below:",
   "docs/recipes.app": "Apps Recipes",
   "docs/read-more": "Read more",
+  "docs/components.layout": "Layout Components",
+  "docs/components.layout-description": "Check out our most flexible components to add different layout elements into your store.",
   "docs/components.general": "General Components",
   "docs/components.general-description": "The entire online store interface is made up of several different components. Explore the list of available components your store can already use here.",
   "docs/components.navigation": "Navigation Components",

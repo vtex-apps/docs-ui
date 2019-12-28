@@ -13,6 +13,14 @@ import ComponentList from './graphql/componentsList.graphql'
 import Skeleton from './components/Skeleton'
 
 defineMessages({
+  layout: {
+    id: 'docs/components.layout',
+    defaultMessage: '',
+  },
+  layoutDescription: {
+    id: 'docs/components.layout-description',
+    defaultMessage: '',
+  },
   general: {
     id: 'docs/components.general',
     defaultMessage: '',
