@@ -1,7 +1,7 @@
 import React, { Fragment, FC } from 'react'
 import { Query, graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { branch, compose, renderComponent } from 'recompose'
+import { compose, renderNothing, branch } from 'recompose'
 import { FormattedMessage } from 'react-intl'
 import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
 import { IO_DOCUMENTATION } from './utils/constants'
@@ -139,6 +139,6 @@ export default compose<any, any>(
   branch(
     ({ GettingStartedArticlesQuery }: OuterProps) =>
       GettingStartedArticlesQuery.loading,
-    renderComponent(Skeleton)
+    renderNothing
   )
 )(GettingStartedArticle)
