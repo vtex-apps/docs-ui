@@ -1,9 +1,9 @@
 import React, { FC, Fragment } from 'react'
 import { prop } from 'ramda'
 import { useQuery } from 'react-apollo'
+
 import RightArrow from './components/icons/RightArrow'
 import searchEngine from './graphql/search.graphql'
-// import Skeleton from './components/Skeleton'
 
 interface Props {
   query: {
