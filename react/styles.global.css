@@ -88,7 +88,6 @@
   color: #f71963;
 }
 
-
 .searchBarContainer {
   max-width: 200px;
   border-radius: 4px;
@@ -184,8 +183,9 @@
   overflow-x: auto;
   background: #f5f7ff;
   color: #5e6687;
-  padding: 0.5em;
+  padding: 1em;
   font-size: 0.9rem;
+  border-radius: 4px;
 }
 
 .hljs-emphasis {
