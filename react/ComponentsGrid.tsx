@@ -12,6 +12,14 @@ import { IO_DOCUMENTATION } from './utils/constants'
 import ComponentList from './graphql/componentsList.graphql'
 
 defineMessages({
+  layout: {
+    id: 'docs/components.layout',
+    defaultMessage: '',
+  },
+  layoutDescription: {
+    id: 'docs/components.layout-description',
+    defaultMessage: '',
+  },
   general: {
     id: 'docs/components.general',
     defaultMessage: '',
