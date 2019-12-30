@@ -1,10 +1,15 @@
 import React, { useContext, createContext, useReducer, ReactNode } from 'react'
 import { ApolloError } from 'apollo-client'
 import { graphql } from 'react-apollo'
-import { renderComponent, branch, withProps, compose } from 'recompose'
+import {
+  renderComponent,
+  branch,
+  withProps,
+  compose,
+  renderNothing,
+} from 'recompose'
 import { withRuntimeContext } from 'vtex.render-runtime'
 
-import Skeleton from './Skeleton'
 import EmptyAppDocs from './EmptyAppDocs'
 
 import appMajorsQuery from '../graphql/appMajors.graphql'
@@ -107,7 +112,7 @@ const EnhancedAppVersionProvider = compose<any, any>(
   }),
   branch(
     ({ appMajorsQuery }: OuterProps) => appMajorsQuery.loading,
-    renderComponent(Skeleton)
+    renderNothing
   ),
   branch(
     ({ appMajorsQuery }: OuterProps) => !!appMajorsQuery.error,

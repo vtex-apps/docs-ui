@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { branch, compose, renderComponent } from 'recompose'
+import { branch, compose, renderComponent, renderNothing } from 'recompose'
 import { useRuntime } from 'vtex.render-runtime'
 
 import ComponentGridItem from './components/ComponentGridItem'
@@ -10,7 +10,6 @@ import EmptyDocs from './components/EmptyDocs'
 import { slug } from './utils'
 import { IO_DOCUMENTATION } from './utils/constants'
 import ComponentList from './graphql/componentsList.graphql'
-import Skeleton from './components/Skeleton'
 
 defineMessages({
   general: {
@@ -150,7 +149,7 @@ export default compose<OuterProps, OuterProps>(
   }),
   branch(
     ({ ComponentsListQuery }: OuterProps) => ComponentsListQuery.loading,
-    renderComponent(Skeleton)
+    renderNothing
   ),
   branch(
     ({ ComponentsListQuery }: OuterProps) => !!ComponentsListQuery.error,

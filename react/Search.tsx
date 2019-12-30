@@ -1,9 +1,9 @@
 import React, { FC, Fragment } from 'react'
 import { prop } from 'ramda'
 import { useQuery } from 'react-apollo'
+
 import RightArrow from './components/icons/RightArrow'
 import searchEngine from './graphql/search.graphql'
-import Skeleton from './components/Skeleton'
 
 interface Props {
   query: {
@@ -29,7 +29,7 @@ const Search: FC<Props> = ({ query }) => {
   const isNotLastResult = (results: [SearchResult], index: number) =>
     index !== results.length - 1
 
-  if (loading) return <Skeleton />
+  if (loading) return null
 
   return (
     <Fragment>
