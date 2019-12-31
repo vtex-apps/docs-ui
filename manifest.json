@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "docs-ui",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "title": "VTEX IO Docs UI",
   "description": "VTEX IO Docs UI",
   "builders": {
