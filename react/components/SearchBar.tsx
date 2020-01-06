@@ -34,7 +34,9 @@ const SearchBar: FC = () => {
               setInputString(e.target.value)
             }}
           />
-          <SearchIcon />
+          <button type="submit" className="searchSubmitButton">
+            <SearchIcon />
+          </button>
         </div>
       </form>
     </div>

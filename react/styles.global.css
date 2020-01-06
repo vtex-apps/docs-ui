@@ -15,10 +15,12 @@
   position: absolute;
   top: 0;
   left: -100%;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0.35),
-      rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0)
+  );
   background-size: 50% 100%;
   animation: shimmer-anim 0.7s linear infinite;
 }
@@ -103,7 +105,18 @@
 
 .searchBar {
   outline: none;
-  color: #FFFFFF;
+  color: #ffffff;
+}
+
+.searchSubmitButton {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  max-height: 16px;
 }
 
 .searchResult {
@@ -112,7 +125,7 @@
 }
 
 .searchResultBorder {
-  border-bottom: 1px solid #CACBCC;
+  border-bottom: 1px solid #cacbcc;
 }
 
 .searchTitle {
