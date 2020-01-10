@@ -9,7 +9,7 @@
     "react": "3.x",
     "messages": "1.x",
     "pages": "1.x",
-    "styles": "1.x"
+    "styles": "2.x"
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
@@ -19,9 +19,7 @@
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "settingsSchema": {},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
