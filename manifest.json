@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "docs-ui",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "title": "VTEX IO Docs UI",
   "description": "VTEX IO Docs UI",
   "builders": {
@@ -19,7 +19,9 @@
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "settingsSchema": {},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

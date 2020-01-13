@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.4.5] - 2020-01-13
+
 ### Updated
 - Styles builder major to `2.x`
 
