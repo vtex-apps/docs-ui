@@ -9,10 +9,12 @@ import { Helmet } from 'vtex.render-runtime'
 
 const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
   const isEmptyDocs = markdown === ''
+
   const title = markdown
-    .split('\n')[0]
-    .replace('#', '')
+    .split('# ')[1] // everything after the #
+    .split('\n')[0] // Only the headline
     .trim()
+
   return !isEmptyDocs ? (
     <Fragment>
       <Helmet>
