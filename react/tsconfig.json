@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
-    "types": ["node", "jest"],
+    "types": [
+      "node",
+      "jest"
+    ],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "jsx": "react",
-    "lib": ["es2019", "dom"],
-    "module": "es6",
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "module": "esnext",
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es2017",
@@ -15,6 +21,12 @@
   "typeAcquisition": {
     "enable": false
   },
-  "include": ["./**/*.tsx", "./typings", "./typings.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./**/*.tsx",
+    "./typings",
+    "./typings.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
