@@ -8,6 +8,7 @@ import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
 import { IO_DOCUMENTATION } from '../utils/constants'
 import VTEXPink from './icons/VTEXPink'
+import BlackSearchIcon from './icons/BlackSearchIcon'
 
 interface Chapter {
   title: string
@@ -40,6 +41,11 @@ const SideBar: FC = () => {
         <div className="w-100 center">
           <Link to="/docs/home">
             <VTEXPink />
+          </Link>
+        </div>
+        <div>
+          <Link to="/docs/search" className="pr5">
+            <BlackSearchIcon />
           </Link>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchIcon = () => (
+const WhiteSearchIcon = () => (
   <svg
     width="16"
     height="16"
@@ -14,4 +14,4 @@ const SearchIcon = () => (
   </svg>
 )
 
-export default SearchIcon
+export default WhiteSearchIcon
