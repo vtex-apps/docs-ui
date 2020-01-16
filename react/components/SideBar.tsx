@@ -43,11 +43,9 @@ const SideBar: FC = () => {
             <VTEXPink />
           </Link>
         </div>
-        <div>
-          <Link to="/docs/search" className="pr5">
-            <SearchIcon fill="#142032" />
-          </Link>
-        </div>
+        <Link to="/docs/search" className="pr5 db">
+          <SearchIcon fill="#142032" />
+        </Link>
       </div>
       {/* Desktop navigation */}
       <div
