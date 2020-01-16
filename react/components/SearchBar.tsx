@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import WhiteSearchIcon from './icons/WhiteSearchIcon'
+import SearchIcon from './icons/SearchIcon'
 import { useRuntime } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import { InputSearch } from 'vtex.styleguide'
@@ -57,7 +57,7 @@ const SearchBar: FC = () => {
             }}
           />
           <button type="submit" className="searchSubmitButton">
-            <WhiteSearchIcon />
+            <SearchIcon fill="#CACBCC" />
           </button>
         </div>
       </form>
