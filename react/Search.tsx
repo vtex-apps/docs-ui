@@ -40,7 +40,7 @@ const Search: FC<Props> = ({ query }) => {
 
   return (
     <Fragment>
-      {isMobile ? <SearchBar /> : ''}
+      {isMobile && <SearchBar />}
       {!loading ? (
         <div className={`pv6 w-100 flex flex-column`}>
           <h1
