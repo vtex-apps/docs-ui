@@ -1,4 +1,5 @@
-/* eslint @typescript-eslint/no-explicit-any: 0 */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable react/display-name */
 import React, { Fragment } from 'react'
 import { useRuntime } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
@@ -7,6 +8,7 @@ import { Link } from 'vtex.styleguide'
 import ArticleNav from './ArticleNav'
 import { slug } from '../utils'
 import CodeBlock from './CodeBlock'
+import DocProp from './DocProp'
 
 export const CustomRenderers = {
   root: ({ children }: any) => {
@@ -168,11 +170,18 @@ export const CustomRenderers = {
       <ul className="t-body c-on-base mt0 mb6 pl6 lh-copy">{props.children}</ul>
     )
   },
-  listItem: (props: any) => (
-    <li className="t-body c-on-base mb4 mt0 lh-copy">{props.children}</li>
-  ),
+  listItem: (props: any) => {
+    return (
+      <li className="t-body c-on-base mb4 mt0 lh-copy">{props.children}</li>
+    )
+  },
   paragraph: (props: any) => {
     if (props.children === '' || props.children.length === 0) return null
+    const paragraphValue = props.children[0].props.value
+    if (paragraphValue.includes('%PROPS')) {
+      return <DocProp block={paragraphValue.match(/=([^%]+)/i)[1]} />
+    }
+
     return <p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>
   },
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,

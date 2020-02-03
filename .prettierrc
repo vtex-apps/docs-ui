@@ -1,3 +1,5 @@
+"@vtex/prettier-config"
+
 {
   "semi": false,
   "singleQuote": true,

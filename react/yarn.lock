@@ -5726,25 +5726,25 @@ vfile@^2.0.0:
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
 
-"vtex.device-detector@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector":
+"vtex.device-detector@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector":
   version "0.2.4"
-  resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector#bdf7ba78ba34e4ada63cca2bdf56e1674da068b9"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector#bdf7ba78ba34e4ada63cca2bdf56e1674da068b9"
 
-"vtex.docs-graphql@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.docs-graphql@1.9.0/public/@types/vtex.docs-graphql":
+"vtex.docs-graphql@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.docs-graphql@1.9.0/public/@types/vtex.docs-graphql":
   version "1.9.0"
-  resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.docs-graphql@1.9.0/public/@types/vtex.docs-graphql#f6caf6f29c1c96fe87a09e07b0c2c2c024f141d8"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.docs-graphql@1.9.0/public/@types/vtex.docs-graphql#f6caf6f29c1c96fe87a09e07b0c2c2c024f141d8"
 
-"vtex.render-runtime@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.89.0/public/@types/vtex.render-runtime":
-  version "8.89.0"
-  resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.89.0/public/@types/vtex.render-runtime#52ba790ad82c60a33e43951a85172db5d11a394d"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.90.2/public/@types/vtex.render-runtime":
+  version "8.90.2"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.90.2/public/@types/vtex.render-runtime#48dc07cc1ca15280871226fe0fd85ac85fa5ef2e"
 
-"vtex.store-drawer@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store-drawer@0.5.0/public/@types/vtex.store-drawer":
-  version "0.5.0"
-  resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store-drawer@0.5.0/public/@types/vtex.store-drawer#bf19e0bdf49d576148e0d0b75d040c941d27788f"
+"vtex.store-drawer@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-drawer@0.6.1/public/@types/vtex.store-drawer":
+  version "0.6.1"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-drawer@0.6.1/public/@types/vtex.store-drawer#ddee45441a463bee4f73a140f15bae5a23a4b3d8"
 
-"vtex.styleguide@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.styleguide@9.104.7/public/@types/vtex.styleguide":
-  version "9.104.7"
-  resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.styleguide@9.104.7/public/@types/vtex.styleguide#95d7fdb877204b97fedc8744b25c9108734587d0"
+"vtex.styleguide@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.108.1/public/@types/vtex.styleguide":
+  version "9.108.1"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.108.1/public/@types/vtex.styleguide#e65aa6d49944c14b9e7e20d6fbd5a8e6244a14b2"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

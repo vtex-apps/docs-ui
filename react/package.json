@@ -39,10 +39,10 @@
     "react-dom": "^16.8.6",
     "react-intl": "^2.9.0",
     "typescript": "3.7.3",
-    "vtex.device-detector": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector",
-    "vtex.store-drawer": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store-drawer@0.5.0/public/@types/vtex.store-drawer",
-    "vtex.docs-graphql": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.docs-graphql@1.9.0/public/@types/vtex.docs-graphql",
-    "vtex.render-runtime": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.89.0/public/@types/vtex.render-runtime",
-    "vtex.styleguide": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.styleguide@9.104.7/public/@types/vtex.styleguide"
+    "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.108.1/public/@types/vtex.styleguide",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.90.2/public/@types/vtex.render-runtime",
+    "vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector",
+    "vtex.store-drawer": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-drawer@0.6.1/public/@types/vtex.store-drawer",
+    "vtex.docs-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.docs-graphql@1.9.0/public/@types/vtex.docs-graphql"
   }
 }

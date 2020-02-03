@@ -3,7 +3,7 @@ import React, {
   createContext,
   useReducer,
   ReactNode,
-  FC,
+  // FC,
 } from 'react'
 import { ApolloError } from 'apollo-client'
 import { branch, compose, renderComponent } from 'recompose'

@@ -1,16 +1,10 @@
 {
   "compilerOptions": {
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "jsx": "react",
-    "lib": [
-      "es2019",
-      "dom"
-    ],
+    "lib": ["es2019", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -21,12 +15,7 @@
   "typeAcquisition": {
     "enable": false
   },
-  "include": [
-    "./**/*.tsx",
-    "./typings",
-    "./typings.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./**/*.tsx", "./typings", "./typings.d.ts", "./**/*.ts"],
+  "exclude": ["node_modules"],
+  "extends": "@vtex/tsconfig"
 }
