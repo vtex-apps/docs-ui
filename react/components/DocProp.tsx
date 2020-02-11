@@ -13,15 +13,16 @@ const DocProp = () => {
     renderMajor: RENDERMAJOR,
   }
 
-  // const { fetchComponents } = useRuntime()
+  const { fetchComponents } = useRuntime()
 
   return (
     <Query query={appAssetsQuery} variables={variables}>
       {({ data, loading }: any) => {
         if (loading) return null
-        // console.log(fetchComponents(data.appAssets.componentsJSON))
-
-        return <h1>oh, hello</h1>
+        let la = JSON.parse(data.appAssets.componentsJSON)
+        console.log(la.entries[0])
+        console.log(fetchComponents(la.entries[0]))
+        return <h1>props</h1>
       }}
     </Query>
   )
