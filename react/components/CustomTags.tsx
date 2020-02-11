@@ -179,7 +179,7 @@ export const CustomRenderers = {
     if (props.children === '' || props.children.length === 0) return null
     const paragraphValue = props.children[0].props.value
     if (paragraphValue.includes('%PROPS')) {
-      return <DocProp block={paragraphValue.match(/=([^%]+)/i)[1]} />
+      return <DocProp/>
     }
 
     return <p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>

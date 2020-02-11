@@ -1,0 +1,7 @@
+query appAssets ($appId: String!, $renderMajor: Int!) {
+  appAssets(appId:$appId, renderMajor: $renderMajor) {
+		componentsJSON,
+    interfacesJSON,
+    messagesJSON
+  }
+}
