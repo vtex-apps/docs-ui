@@ -19,12 +19,13 @@ const DocProp: FC<AppAssetsProps> = () => {
   if (loading) return <p>Loading ...</p>
   if (error) return <p>Error...</p>
   const la = JSON.parse(data.appAssets.componentsJSON)
-  console.log(la[0])
-  //console.log(fetchComponents(la[0]))
+  console.log(Object.keys(la[0]))
+  const components = Object.keys(la[0])
+  console.log(components[1])
   fetchComponents(la[0]).then(result =>
     console.log(
-      'finished fetch: ',
-      __RENDER_8_COMPONENTS__[APPID + '/Countdown'].schema.properties
+      'finished fetching schema: ',
+      __RENDER_8_COMPONENTS__[components[1]].schema.properties
     )
   )
   return <h1>props</h1>
