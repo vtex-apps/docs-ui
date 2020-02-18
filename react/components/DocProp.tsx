@@ -1,10 +1,10 @@
 import React from 'react'
 import { useQuery } from 'react-apollo'
-
+import PropsTable from './PropsTable'
 import appAssetsQuery from '../graphql/appAssets.graphql'
 import { useRuntime } from 'vtex.render-runtime'
 
-const APPID = 'vtex.doc-prop@0.x'
+const APPID = 'vtex.iframe@0.x'
 const RENDERMAJOR = 8
 
 const DocProp: FC<AppAssetsProps> = () => {
@@ -19,16 +19,27 @@ const DocProp: FC<AppAssetsProps> = () => {
   if (loading) return <p>Loading ...</p>
   if (error) return <p>Error...</p>
   const la = JSON.parse(data.appAssets.componentsJSON)
-  console.log(Object.keys(la[0]))
+  const messages = JSON.parse(data.appAssets.messagesJSON)
+  if (
+    typeof la === 'undefined' ||
+    Object.keys(la).length === 0 ||
+    Object.keys(la[0]).length === 0
+  ) {
+    return
+  }
   const components = Object.keys(la[0])
-  console.log(components[1])
   fetchComponents(la[0]).then(result =>
+    const componentData = __RENDER_8_COMPONENTS__[components[components.length - 1]]
+    if (typeof componentData === 'undefined' || typeof componentData.schema === 'undefined') {
+      return
+    }
     console.log(
       'finished fetching schema: ',
-      __RENDER_8_COMPONENTS__[components[1]].schema.properties
+      componentData.schema.properties
     )
+    // <PropsTable/>
   )
-  return <h1>props</h1>
+  return <PropsTable/>
 }
 
 interface AppAssetsProps {
