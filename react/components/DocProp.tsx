@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from 'react-apollo'
 import PropsTable from './PropsTable'
 import appAssetsQuery from '../graphql/appAssets.graphql'
@@ -7,6 +7,23 @@ import { useRuntime } from 'vtex.render-runtime'
 const APPID = 'vtex.iframe@0.x'
 const RENDERMAJOR = 8
 
+const useFetchComponents = async (
+  fetchComponents: any,
+  componentAssets: any,
+  callback: any
+) => {
+  await fetchComponents(componentAssets)
+  const component = Object.keys(componentAssets)
+  const componentData = __RENDER_8_COMPONENTS__[component[component.length - 1]]
+  if (
+    typeof componentData === 'undefined' ||
+    typeof componentData.schema === 'undefined'
+  ) {
+    return
+  }
+  callback()
+}
+
 const DocProp: FC<AppAssetsProps> = () => {
   const variables = {
     appId: APPID,
@@ -14,6 +31,7 @@ const DocProp: FC<AppAssetsProps> = () => {
   }
 
   const { fetchComponents } = useRuntime()
+  const [isFetched, setFetched] = useState(false)
 
   const { loading, error, data } = useQuery(appAssetsQuery, { variables })
   if (loading) return <p>Loading ...</p>
@@ -27,19 +45,11 @@ const DocProp: FC<AppAssetsProps> = () => {
   ) {
     return
   }
-  const components = Object.keys(la[0])
-  fetchComponents(la[0]).then(result =>
-    const componentData = __RENDER_8_COMPONENTS__[components[components.length - 1]]
-    if (typeof componentData === 'undefined' || typeof componentData.schema === 'undefined') {
-      return
-    }
-    console.log(
-      'finished fetching schema: ',
-      componentData.schema.properties
-    )
-    // <PropsTable/>
-  )
-  return <PropsTable/>
+
+  useFetchComponents(fetchComponents, la[0], () => {
+    setFetched(true)
+  })
+  return isFetched ? <PropsTable /> : <p>Loading...</p>
 }
 
 interface AppAssetsProps {
