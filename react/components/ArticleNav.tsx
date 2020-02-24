@@ -8,22 +8,20 @@ interface Props {
 }
 
 const ArticleNav: FC<Props> = ({ headings }) => (
-  <nav className="mt7 mb7 flex-l flex-column t-small dn pl7">
-    <p className="ttu">
-      <strong>
-        <FormattedMessage id="docs/article-nav" />
-      </strong>
-    </p>
+  <nav className="flex-l flex-column dn">
+    <div className="ttu t-small b pb3">
+      <FormattedMessage id="docs/article-nav" />
+    </div>
     <Fragment>
       {headings.map(heading => {
         const slugifiedHeader = slug(heading)
 
         return (
           <a
-            className="link no-underline pb3 dim"
+            className="link c-muted-1 t-mini no-underline pb3 dim"
             href={`#${slugifiedHeader}`}
             key={slugifiedHeader}>
-            <span className="c-on-base">{heading}</span>
+            {heading}
           </a>
         )
       })}

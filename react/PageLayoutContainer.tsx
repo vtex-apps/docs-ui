@@ -5,6 +5,8 @@ import Footer from './components/Footer'
 import TopNav from './components/TopNav'
 import favicon from './images/favicon.png'
 import SideBar from './components/SideBar'
+import PageView from './components/PageView'
+import MobileSideBar from './components/MobileSideBar'
 import { EnhancedSideBarContentProvider } from './components/SideBarContext'
 
 const PageLayoutContainer: FC = ({ children }) => (
@@ -19,22 +21,23 @@ const PageLayoutContainer: FC = ({ children }) => (
         content="ZY7HyfLauXkjLwWBR75Ff2YSVYbosRZuuk4mFk4wjig"
       />
     </Helmet>
-    <div className="flex flex-row-l flex-column vh-100-l">
-      <EnhancedSideBarContentProvider>
-        <div
-          className="w-25-l vh-100-l overflow-y-auto"
-          style={{ maxWidth: '280px', minWidth: '200px' }}>
-          <SideBar />
+    <EnhancedSideBarContentProvider>
+      <TopNav />
+      <PageView />
+      <div className="navPusher">
+        <div className="wrapper w-100 flex">
+          <div className="docsNavContainer" style={{ maxWidth: '280px' }}>
+            <SideBar />
+          </div>
+          <div
+            className="mainContainer pt7 pl8-l"
+            style={{ scrollBehavior: 'smooth' }}>
+            {children}
+          </div>
         </div>
-      </EnhancedSideBarContentProvider>
-      <div
-        className="w-100 min-vh-100 overflow-y-auto flex flex-column justify-between"
-        style={{ scrollBehavior: 'smooth' }}>
-        <TopNav />
-        {children}
         <Footer />
       </div>
-    </div>
+    </EnhancedSideBarContentProvider>
   </Fragment>
 )
 

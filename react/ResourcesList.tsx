@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { graphql } from 'react-apollo'
 import { branch, compose, renderComponent } from 'recompose'
@@ -11,7 +11,7 @@ import ResourceList from './graphql/resourcesList.graphql'
 import Skeleton from './components/Skeleton'
 
 const ResourcesList: FC<InnerProps> = ({ ResourcesListQueryData }) => (
-  <div className="pv9">
+  <Fragment>
     <h1 className="t-heading-1 w-90 w-80-ns center mb6">
       <FormattedMessage id="docs/resources" />
     </h1>
@@ -28,7 +28,7 @@ const ResourcesList: FC<InnerProps> = ({ ResourcesListQueryData }) => (
         />
       ))}
     </div>
-  </div>
+  </Fragment>
 )
 
 function getShortResourcePath(path: string) {

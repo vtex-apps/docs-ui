@@ -15,7 +15,7 @@ const Recipe: FC = () => {
   } = useRuntime()
 
   return (
-    <div className="pv9 w-100 center flex flex-column">
+    <div className="w-100 center flex flex-column">
       <Query
         query={MarkdownFile}
         variables={{

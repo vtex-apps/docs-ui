@@ -29,7 +29,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
   const currentArticle = Number.parseInt(article)
 
   return (
-    <div className="pv9 w-100 center flex flex-column">
+    <div className="w-100 center flex flex-column">
       <Query
         query={MarkdownFile}
         variables={{
@@ -56,7 +56,9 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
           return (
             <Fragment>
               <DocsRenderer markdown={markdown} meta={meta} />
-              <div className="flex w-100-l w-90 center justify-between mt6">
+              <div
+                className="flex w-100 justify-between mv6"
+                style={{ maxWidth: '680px' }}>
                 {hasPrevArticle(currentArticle) && (
                   <Link
                     className="link c-emphasis no-underline t-body mr-auto flex items-center dim"

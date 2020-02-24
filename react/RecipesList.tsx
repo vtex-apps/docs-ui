@@ -89,14 +89,14 @@ const RecipesList: FC<OuterProps & InjectedRuntime> = ({
   } = runtime
 
   return (
-    <div className="pv9">
-      <h1 className="t-heading-1 w-90 w-80-ns center mb6">
+    <div>
+      <h1 className="t-heading-1 mb6">
         <FormattedMessage id={`docs/recipes.${category}`} />
       </h1>
-      <p className="small c-on-base w-90 w-80-ns center mb8">
+      <p className="t-body c-on-base w-70-ns">
         <FormattedMessage id={`docs/recipes.${category}-description`} />
       </p>
-      <div className="w-90 w-80-ns center">
+      <div className="">
         {RecipeListQuery.recipeList.map((recipe: Recipe) => (
           <RecipeListItem
             key={slug(recipe.description)}

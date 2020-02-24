@@ -1,11 +1,8 @@
 import React, { FC, useState } from 'react'
-import SearchIcon from './icons/SearchIcon'
 import { useRuntime } from 'vtex.render-runtime'
-import { useDevice } from 'vtex.device-detector'
 import { InputSearch } from 'vtex.styleguide'
 
 const SearchBar: FC = () => {
-  const { isMobile } = useDevice()
   const {
     navigate,
     query: { q: queryString },
@@ -23,9 +20,10 @@ const SearchBar: FC = () => {
       })
     }
   }
-  if (isMobile) {
-    return (
-      <div className="pt10 ph8 w-100 center flex flex-column">
+
+  return (
+    <div className={`flex items-center`}>
+      <form onSubmit={(e: any) => handleSubmit(e)}>
         <InputSearch
           placeholder="Search IO Docs..."
           value={inputString}
@@ -35,31 +33,8 @@ const SearchBar: FC = () => {
             setInputString(e.target.value)
           }}
           onSubmit={(e: any) => handleSubmit(e)}
-          size="large"
+          size="small"
         />
-      </div>
-    )
-  }
-
-  return (
-    <div className="mh4">
-      <form onSubmit={(e: any) => handleSubmit(e)}>
-        <div className="flex center searchBarContainer items-center pa3">
-          <input
-            type="search"
-            className="searchBar pa1 bg-transparent b--none"
-            placeholder="Search IO Docs..."
-            value={inputString}
-            onChange={(e: {
-              target: { value: React.SetStateAction<string> }
-            }) => {
-              setInputString(e.target.value)
-            }}
-          />
-          <button type="submit" className="searchSubmitButton">
-            <SearchIcon fill="#CACBCC" />
-          </button>
-        </div>
       </form>
     </div>
   )

@@ -12,7 +12,7 @@ function CommunityIcon() {
         d="M25.066 35.807l6.507 16.122a5.158 5.158 0 01-2.855 6.701v0a5.157 5.157 0 01-6.7-2.855l-9.765-24.04"
       />
       <path
-        stroke="#FFFFFF"
+        stroke="#142032"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
@@ -20,7 +20,7 @@ function CommunityIcon() {
         d="M48.5 43.009c5.8 0 10.5-9.404 10.5-21.005C59 10.404 54.3 1 48.5 1 42.703 1 38 10.404 38 22.004c0 11.6 4.702 21.005 10.5 21.005z"
       />
       <path
-        stroke="#FFFFFF"
+        stroke="#142032"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"

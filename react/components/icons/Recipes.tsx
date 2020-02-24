@@ -12,7 +12,7 @@ function Recipes() {
         d="M14 12h2M22 12h12M14 20h2M22 20h12M14 28h2M22 28h12M14 36h10"
       />
       <path
-        stroke="#FFFFFF"
+        stroke="#142032"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
@@ -20,7 +20,7 @@ function Recipes() {
         d="M30 46V34h12"
       />
       <path
-        stroke="#FFFFFF"
+        stroke="#142032"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"

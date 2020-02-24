@@ -41,21 +41,19 @@ const Search: FC<Props> = ({ query }) => {
       {isMobile && <SearchBar />}
       {!loading ? (
         queryString && (
-          <div className={`pv6 w-100 flex flex-column`}>
-            <h1
-              className={`t-heading-1 right ph6 ${isMobile ? '' : 'center'}`}
-              style={{ fontSize: `${isMobile ? '24px' : '48px'}` }}>
+          <div className={`w-100 flex flex-column`}>
+            <h1 className="t-heading-3">
               {results.length > 0
                 ? `Results for "${queryString}"`
-                : 'No Results Found'}
+                : 'No results Found'}
             </h1>
 
             {results && (
-              <ul className="w-100 list pl0 center mw8">
+              <ul className="w-70 list pl0">
                 {results.map((result: SearchResult, index: number) => (
                   <li
                     key={index}
-                    className={`mh8 ${
+                    className={`${
                       isFirstResult(index) ? '' : 'mv8'
                     } searchResult ${
                       isNotLastResult(results, index)

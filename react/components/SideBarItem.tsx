@@ -44,9 +44,9 @@ const SideBarItem: FC<Props> = ({
 
   const [open, setOpen] = useState(shouldBeOpen)
 
-  const ZeroDepthItem = () => <div className="c-on-base dim">{text}</div>
+  const ZeroDepthItem = () => <div className="c-on-base f5 b">{text}</div>
 
-  const NormalItem = () => <div className="mv3 dim">{text}</div>
+  const NormalItem = () => <div className="mv3 dim f6">{text}</div>
 
   const BaseSideBarItem = () => (
     <div
@@ -71,7 +71,7 @@ const SideBarItem: FC<Props> = ({
           <NormalItem />
         </div>
       )}
-      <div className="pl3 flex items-center" style={{ height: '24px' }}>
+      <div className="pl3 flex items-center f5">
         {hasArticles &&
           depth === 0 &&
           (open ? <IconCaretDown /> : <IconCaretRight />)}

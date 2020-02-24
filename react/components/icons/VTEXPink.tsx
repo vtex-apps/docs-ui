@@ -2,8 +2,7 @@ import React from 'react'
 
 const VTEXPink = () => (
   <svg
-    width="115"
-    height="58"
+    height="40"
     viewBox="0 0 115 58"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">

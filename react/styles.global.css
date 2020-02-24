@@ -9,6 +9,83 @@
   }
 }
 
+/* Limits the page width */
+.wrapper {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+@media only screen and (min-width: 1500px) {
+  .wrapper {
+    max-width: 1400px;
+  }
+}
+
+/* Makes the header fixed */
+.navPusher {
+  left: 0;
+  min-height: 100%;
+  padding-top: 56px;
+  position: relative;
+  z-index: 99;
+}
+
+@media screen and (min-width: 1024px) {
+  .navPusher {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 56px);
+    padding-top: 56px;
+  }
+
+  .navPusher,
+  .navPusher > :first-child {
+    flex-grow: 1;
+  }
+}
+
+/* Sidebar */
+@media only screen and (min-width: 1024px) {
+  .docsNavContainer {
+    flex: 0 0 240px;
+    height: calc(100vh - 50px);
+    position: -webkit-sticky;
+    position: sticky;
+    overflow-y: auto;
+    top: 50px;
+  }
+}
+
+.t-body {
+  line-height: 24px;
+}
+
+/* Main content */
+.mainContainer {
+  flex: 1 1 0%;
+  max-width: 100%;
+}
+
+.mainContainer h1:first-of-type {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* On Page Nav */
+@media only screen and (min-width: 1024px) {
+  .onPageNav {
+    align-self: flex-start;
+    display: block;
+    flex: 0 0 240px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 90px;
+  }
+}
+
 .shimmer {
   width: 200%;
   height: 100%;
@@ -88,35 +165,6 @@
 
 .alert-danger a {
   color: #f71963;
-}
-
-.searchBarContainer {
-  max-width: 200px;
-  border-radius: 4px;
-  background-color: #374255;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  line-height: 24px;
-  font-size: 14px;
-  border-color: transparent;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.searchBar {
-  outline: none;
-  color: #ffffff;
-}
-
-.searchSubmitButton {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  max-height: 16px;
 }
 
 .searchResult {
