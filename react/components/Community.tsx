@@ -9,7 +9,7 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
   <section className="mv9">
     <h2
       id={slug(intl.formatMessage({ id: 'docs/community-help' }))}
-      className="t-heading-2 c-on-base--inverted">
+      className="t-heading-2 c-on-base">
       <FormattedMessage id="docs/community-help" />
     </h2>
     <Link
@@ -21,10 +21,10 @@ const Community: FC<InjectedIntlProps> = ({ intl }) => (
           <CommunityIcon />
         </div>
         <div className="ml6">
-          <h4 className="t-heading-4 c-on-base--inverted mt0 mb3 dim">
+          <h4 className="t-heading-4 c-on-base mt0 mb3 dim">
             <FormattedMessage id="docs/community-join" />
           </h4>
-          <p className="t-body c-muted-4 lh-copy mv0">
+          <p className="t-body c-on-base lh-copy mv0">
             <FormattedMessage id="docs/community-description" />
           </p>
         </div>

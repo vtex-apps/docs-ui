@@ -1,14 +1,10 @@
 import React, { ReactElement, FC, useEffect } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { Drawer } from 'vtex.store-drawer'
 import { Link } from 'vtex.render-runtime'
-import { initialize, pageview, ga } from 'react-ga'
 import SideBarItem from './SideBarItem'
 import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
 import { IO_DOCUMENTATION } from '../utils/constants'
-import VTEXPink from './icons/VTEXPink'
-import SearchIcon from './icons/SearchIcon'
 
 interface Chapter {
   title: string
@@ -16,47 +12,15 @@ interface Chapter {
   articles: [] | Chapter[]
 }
 
-function pageView() {
-  if (typeof ga() === 'undefined') {
-    initialize('UA-150301985-1')
-  }
-  pageview(window.location.pathname + window.location.search)
-}
-
 const SideBar: FC = () => {
   const { content } = useSideBarContentState()
-  useEffect(() => pageView())
 
   return (
     <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-3 flex-l flex-column">
-      {/* Mobile navigation */}
-      <div className="flex items-center dn-l bb b--muted-3">
-        <div className="w-50 pl4">
-          <Drawer>
-            <div className="flex flex-column w-90 center" role="menu">
-              {getArticles(content, 0, IO_DOCUMENTATION)}
-            </div>
-          </Drawer>
-        </div>
-        <div className="w-100 center">
-          <Link to="/docs/home">
-            <VTEXPink />
-          </Link>
-        </div>
-        <Link to="/docs/search" className="pr5 db">
-          <SearchIcon fill="#142032" />
-        </Link>
-      </div>
-      {/* Desktop navigation */}
       <div
         className="dn flex-l flex-column min-vh-100 justify-between"
         role="menu">
-        <div>
-          <Link to="/docs/home" className="flex pt2 mt2 pl3 dim">
-            <VTEXPink />
-          </Link>
-          {getArticles(content, 0, IO_DOCUMENTATION)}
-        </div>
+        <div>{getArticles(content, 0, IO_DOCUMENTATION)}</div>
         <div
           className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3"
           style={{ maxWidth: '280px', minWidth: '215px' }}>
@@ -83,9 +47,7 @@ function getArticles(
 ): ReactElement {
   return (
     <div
-      className={`list ${
-        depth > 0 ? 'pl0-l pr2-l pb2 mt3' : 'pv6-l pl6-l pr5-l'
-      }`}>
+      className={`list ${depth > 0 ? 'pl0-l pr2-l pb2 mt3' : 'pv6-l pr5-l'}`}>
       {chapterList.map((chapter: Chapter) => (
         <SideBarItem
           text={chapter.title}

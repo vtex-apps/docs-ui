@@ -20,7 +20,7 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <article className="ph0-l ph5 w-100-l w-90 min-vh-100">
+      <article className="min-vh-100">
         <ReactMarkdown
           source={markdown}
           escapeHtml={false}

@@ -13,7 +13,7 @@ const AppDocs: FC = () => {
   const { appName, fileName } = useApp()
 
   return (
-    <div className="pv9 w-100 center flex flex-column">
+    <div className="w-100 center flex flex-column">
       <Query
         query={MarkdownFile}
         variables={{

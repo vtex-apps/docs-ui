@@ -35,12 +35,14 @@ export const CustomRenderers = {
     )
 
     return (
-      <div className="flex">
+      <div className="flex justify-between">
         <div className="flex flex-column w-80-l" style={{ maxWidth: '680px' }}>
           {children}
         </div>
         {TOCLines.length > 0 && (
-          <div className="sticky h-50" style={{ top: 0 }}>
+          <div
+            className="sticky h-50 bl b--muted-3 pl5"
+            style={{ top: '82px', width: '240px' }}>
             <ArticleNav headings={TOCLines} />
           </div>
         )}

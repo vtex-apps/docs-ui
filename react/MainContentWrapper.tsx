@@ -7,12 +7,8 @@ const MainContentWrapper: FC = ({ children }) => {
   const { isMobile } = useDevice()
 
   return (
-    <main
-      className="w-90-l center"
-      style={{ maxWidth: `${isMobile ? '95vw' : '900px'}` }}>
-      <EnhancedAppVersionProvider>
-        <div className="flex">{children}</div>
-      </EnhancedAppVersionProvider>
+    <main className="flex">
+      <EnhancedAppVersionProvider>{children}</EnhancedAppVersionProvider>
     </main>
   )
 }
