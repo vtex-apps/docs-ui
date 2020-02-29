@@ -6,7 +6,7 @@ import TopNav from './components/TopNav'
 import favicon from './images/favicon.png'
 import SideBar from './components/SideBar'
 import PageView from './components/PageView'
-import MobileSideBar from './components/MobileSideBar'
+import { EnhancedAppVersionProvider } from './components/AppVersionContext'
 import { EnhancedSideBarContentProvider } from './components/SideBarContext'
 
 const PageLayoutContainer: FC = ({ children }) => (
@@ -32,7 +32,11 @@ const PageLayoutContainer: FC = ({ children }) => (
           <div
             className="mainContainer pt7 pl8-l"
             style={{ scrollBehavior: 'smooth' }}>
-            {children}
+            <main className="flex">
+              <EnhancedAppVersionProvider>
+                {children}
+              </EnhancedAppVersionProvider>
+            </main>
           </div>
         </div>
         <Footer />
