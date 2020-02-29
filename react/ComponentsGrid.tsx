@@ -85,7 +85,7 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
     : ComponentsListQuery.componentsList[category]
 
   return (
-    <div className="w-100-l w-90 center">
+    <div className="w-100 center">
       <h1 className="t-heading-1 center mb6">
         <FormattedMessage id={`docs/components.${params.category}`} />
       </h1>
@@ -102,7 +102,7 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
 
             return (
               hasTitleAndDescription && (
-                <div key={slug(component.title)} className="w-50 w-third-l">
+                <div key={slug(component.title)} className="w-50 w-third-ns">
                   <ComponentGridItem
                     title={component.title}
                     description={component.description}

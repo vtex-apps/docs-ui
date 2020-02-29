@@ -2,10 +2,8 @@ import React, { FC, Fragment } from 'react'
 import { prop } from 'ramda'
 import { useQuery } from 'react-apollo'
 
-import { useDevice } from 'vtex.device-detector'
 import RightArrow from './components/icons/RightArrow'
 import searchEngine from './graphql/search.graphql'
-import SearchBar from './components/SearchBar'
 import Skeleton from './components/Skeleton'
 
 interface Props {
@@ -27,8 +25,6 @@ const Search: FC<Props> = ({ query }) => {
     variables: { searchQuery: queryString },
   })
 
-  const { isMobile } = useDevice()
-
   const results: [SearchResult] = prop('searchEngine', data) || []
 
   const isNotLastResult = (results: [SearchResult], index: number) =>
@@ -38,7 +34,6 @@ const Search: FC<Props> = ({ query }) => {
 
   return (
     <Fragment>
-      {isMobile && <SearchBar />}
       {!loading ? (
         queryString && (
           <div className={`w-100 flex flex-column`}>
@@ -49,7 +44,7 @@ const Search: FC<Props> = ({ query }) => {
             </h1>
 
             {results && (
-              <ul className="w-70 list pl0">
+              <ul className="w-70-ns list pl0">
                 {results.map((result: SearchResult, index: number) => (
                   <li
                     key={index}

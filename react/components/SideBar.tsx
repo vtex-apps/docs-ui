@@ -17,9 +17,7 @@ const SideBar: FC = () => {
 
   return (
     <nav className="w-100 fixed static-l bg-base z-2 min-h-100-l br-l b--muted-3 flex-l flex-column">
-      <div
-        className="dn flex-l flex-column min-vh-100 justify-between"
-        role="menu">
+      <div className="dn flex-l flex-column justify-between" role="menu">
         <div>{getArticles(content, 0, IO_DOCUMENTATION)}</div>
         <div
           className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3"

@@ -1,14 +1,13 @@
-import React, { useContext, createContext, useReducer, ReactNode } from 'react'
+import React, {
+  useContext,
+  createContext,
+  useReducer,
+  ReactNode,
+  FC,
+} from 'react'
 import { ApolloError } from 'apollo-client'
-import { graphql } from 'react-apollo'
-import {
-  renderComponent,
-  branch,
-  withProps,
-  compose,
-  renderNothing,
-} from 'recompose'
-import { withRuntimeContext } from 'vtex.render-runtime'
+import { useQuery } from 'react-apollo'
+import { useRuntime } from 'vtex.render-runtime'
 
 import EmptyAppDocs from './EmptyAppDocs'
 
@@ -91,34 +90,39 @@ function useAppVersionDispatch() {
   return context
 }
 
-const EnhancedAppVersionProvider = compose<any, any>(
-  withRuntimeContext,
-  withProps((props: { runtime: { route: { params: { app?: string } } } }) => {
-    const { app } = props.runtime.route.params
-    const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
-    const appVersionFromUrl = app && app.split('@')[1]
-
-    return { ...props, appName, appVersionFromUrl }
-  }),
-  graphql(appMajorsQuery, {
-    name: 'appMajorsQuery',
-    options: (props: { appName: string }) => {
-      return {
-        variables: {
-          appName: props.appName,
-        },
-      }
+const EnhancedAppVersionProvider: FC = ({ children }) => {
+  const {
+    route: {
+      params: { app },
     },
-  }),
-  branch(
-    ({ appMajorsQuery }: OuterProps) => appMajorsQuery.loading,
-    renderNothing
-  ),
-  branch(
-    ({ appMajorsQuery }: OuterProps) => !!appMajorsQuery.error,
-    renderComponent(EmptyAppDocs)
+  } = useRuntime()
+  const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
+  const appVersionFromUrl = app && app.split('@')[1]
+
+  const { data, loading, error } = useQuery(appMajorsQuery, {
+    variables: {
+      appName,
+    },
+  })
+
+  if (loading) {
+    return null
+  }
+
+  if (!!error) {
+    return <EmptyAppDocs />
+  }
+
+  return (
+    <AppVersionProvider
+      key={appName}
+      appMajorsQuery={data}
+      appName={appName}
+      appVersionFromUrl={appVersionFromUrl}>
+      {children}
+    </AppVersionProvider>
   )
-)(AppVersionProvider)
+}
 
 interface AppVersionProviderProps {
   children: ReactNode

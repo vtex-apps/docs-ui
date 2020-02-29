@@ -1,0 +1,9 @@
+.gridItem {
+  min-height: 11em;
+}
+
+@media screen and (min-width: 40em) {
+  .gridItem {
+    min-height: 12em;
+  }
+}

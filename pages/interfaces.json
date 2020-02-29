@@ -2,9 +2,6 @@
   "docs-wrapper": {
     "component": "PageLayoutContainer"
   },
-  "docs-main-content-wrapper": {
-    "component": "MainContentWrapper"
-  },
   "docs": {
     "around": ["docs-wrapper"]
   },
@@ -15,43 +12,33 @@
     "component": "Search"
   },
   "docs.app": {
-    "component": "AppDocs",
-    "around": ["docs-main-content-wrapper"]
+    "component": "AppDocs"
   },
   "docs.construction": {
-    "component": "UnderConstruction",
-    "around": ["docs-main-content-wrapper"]
+    "component": "UnderConstruction"
   },
   "docs.recipes-list": {
-    "component": "RecipesList",
-    "around": ["docs-main-content-wrapper"]
+    "component": "RecipesList"
   },
   "docs.recipe": {
-    "component": "Recipe",
-    "around": ["docs-main-content-wrapper"]
+    "component": "Recipe"
   },
   "docs.components-list": {
-    "component": "ComponentsGrid",
-    "around": ["docs-main-content-wrapper"]
+    "component": "ComponentsGrid"
   },
   "docs.component": {
-    "component": "AppDocs",
-    "around": ["docs-main-content-wrapper"]
+    "component": "AppDocs"
   },
   "docs.resources-list": {
-    "component": "ResourcesList",
-    "around": ["docs-main-content-wrapper"]
+    "component": "ResourcesList"
   },
   "docs.resource": {
-    "component": "Resource",
-    "around": ["docs-main-content-wrapper"]
+    "component": "Resource"
   },
   "docs.release-article": {
-    "component": "ReleaseArticle",
-    "around": ["docs-main-content-wrapper"]
+    "component": "ReleaseArticle"
   },
   "docs.getting-started": {
-    "component": "GettingStartedArticle",
-    "around": ["docs-main-content-wrapper"]
+    "component": "GettingStartedArticle"
   }
 }
