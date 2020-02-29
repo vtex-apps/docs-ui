@@ -44,7 +44,7 @@ const Search: FC<Props> = ({ query }) => {
             </h1>
 
             {results && (
-              <ul className="w-70 list pl0">
+              <ul className="w-70-ns list pl0">
                 {results.map((result: SearchResult, index: number) => (
                   <li
                     key={index}
