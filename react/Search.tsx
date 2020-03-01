@@ -18,6 +18,11 @@ interface SearchResult {
   link: string
 }
 
+const isNotLastResult = (results: [SearchResult], index: number) =>
+  index !== results.length - 1
+
+const isFirstResult = (index: number) => index === 0
+
 const Search: FC<Props> = ({ query }) => {
   const queryString = query.q || ''
 
@@ -26,11 +31,6 @@ const Search: FC<Props> = ({ query }) => {
   })
 
   const results: [SearchResult] = prop('searchEngine', data) || []
-
-  const isNotLastResult = (results: [SearchResult], index: number) =>
-    index !== results.length - 1
-
-  const isFirstResult = (index: number) => index === 0
 
   return (
     <Fragment>
