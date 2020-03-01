@@ -23,6 +23,9 @@
   "docs.resource": {
     "path": "/docs/resources/:resource"
   },
+  "docs.release-notes": {
+    "path": "/docs/releases"
+  },
   "docs.release-article": {
     "path": "/docs/releases/:week/:article"
   },

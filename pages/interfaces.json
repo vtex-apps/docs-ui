@@ -35,6 +35,9 @@
   "docs.resource": {
     "component": "Resource"
   },
+  "docs.release-notes": {
+    "component": "ReleaseNotes"
+  },
   "docs.release-article": {
     "component": "ReleaseArticle"
   },

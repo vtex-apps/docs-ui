@@ -37,9 +37,6 @@ const TopNav = () => {
             className={navLinkClass}>
             <FormattedMessage id="docs/nav.api" />
           </a>
-          <Link to="/docs#latest-releases" className={navLinkClass}>
-            <FormattedMessage id="docs/latest-features" />
-          </Link>
           <a href="https://www.vtex.com/partner/" className={navLinkClass}>
             <FormattedMessage id="docs/nav.partner" />
           </a>

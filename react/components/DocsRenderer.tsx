@@ -28,7 +28,7 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
           plugins={[emoji]}
         />
         {meta.git && (
-          <a href={meta.git} className="c-emphasis no-underline dim flex mt8">
+          <a href={meta.git} className="c-emphasis no-underline dim flex mb6">
             <FormattedMessage id="docs/renderer-github" />
           </a>
         )}

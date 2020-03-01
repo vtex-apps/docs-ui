@@ -1,0 +1,21 @@
+query ReleaseNotes($after: String) {
+  releaseNotes(first: 10, after: $after) {
+    edges {
+      cursor
+      node {
+        id
+        title
+        description
+        date
+        git
+        markdown
+      }
+    }
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}

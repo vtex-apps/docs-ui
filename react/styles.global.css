@@ -167,6 +167,10 @@
   color: #f71963;
 }
 
+.transparent-text {
+  color: transparent;
+}
+
 .searchResult {
   padding-bottom: 35px;
   line-height: 150%;

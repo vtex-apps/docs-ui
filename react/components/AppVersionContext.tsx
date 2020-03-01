@@ -91,11 +91,8 @@ function useAppVersionDispatch() {
 }
 
 const EnhancedAppVersionProvider: FC = ({ children }) => {
-  const {
-    route: {
-      params: { app },
-    },
-  } = useRuntime()
+  const { route } = useRuntime()
+  const app = route?.params?.app
   const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
   const appVersionFromUrl = app && app.split('@')[1]
 
