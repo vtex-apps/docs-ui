@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.6.0] - 2020-03-01
+
 ## [1.5.3] - 2020-02-29
 ### Fixed
 - Issue when opening a page already in cache
