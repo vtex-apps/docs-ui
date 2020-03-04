@@ -1,19 +1,7 @@
 import React, { FC } from 'react'
-import {
-  FormattedMessage,
-  injectIntl,
-  defineMessages,
-  InjectedIntlProps,
-} from 'react-intl'
+import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
 
 import { EmptyState } from 'vtex.styleguide'
-
-defineMessages({
-  emptyStateTitle: {
-    id: 'docs/empty.title',
-    defaultMessage: '',
-  },
-})
 
 const EmptyDocs: FC<InjectedIntlProps> = ({ intl }) => (
   <div className="pa7 w-100 flex justify-center">
