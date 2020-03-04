@@ -14,8 +14,14 @@
   "docs.components-list": {
     "path": "/docs/components/:category"
   },
+  "docs.apps-list": {
+    "path": "/docs/apps/:category"
+  },
   "docs.component": {
     "path": "/docs/components/:category/:app(/:file)"
+  },
+  "docs.apps": {
+    "path": "/docs/apps/:category/:app(/:file)"
   },
   "docs.resources-list": {
     "path": "/docs/resources"
@@ -31,6 +37,12 @@
   },
   "docs.getting-started": {
     "path": "/docs/getting-started/:track/:article"
+  },
+  "docs.introduction": {
+    "path": "/docs/introduction/:article"
+  },
+  "docs.concepts": {
+    "path": "/docs/concepts"
   },
   "docs.app": {
     "path": "/docs/app/:app(/:file)"

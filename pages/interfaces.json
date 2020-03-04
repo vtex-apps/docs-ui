@@ -26,7 +26,13 @@
   "docs.components-list": {
     "component": "ComponentsGrid"
   },
+  "docs.apps-list": {
+    "component": "ComponentsGrid"
+  },
   "docs.component": {
+    "component": "AppDocs"
+  },
+  "docs.apps": {
     "component": "AppDocs"
   },
   "docs.resources-list": {
@@ -43,5 +49,11 @@
   },
   "docs.getting-started": {
     "component": "GettingStartedArticle"
+  },
+  "docs.introduction": {
+    "component": "IntroductionArticle"
+  },
+  "docs.concepts": {
+    "component": "ConceptsList"
   }
 }
