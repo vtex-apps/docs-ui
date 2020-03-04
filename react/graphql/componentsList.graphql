@@ -14,6 +14,13 @@ query componentsList($appName: String, $locale: String) {
       description
       url
     }
+    content {
+      appName
+      file
+      title
+      description
+      url
+    }
     navigation {
       appName
       file
