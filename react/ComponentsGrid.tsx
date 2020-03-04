@@ -1,8 +1,6 @@
 import React, { FC } from 'react'
-import { FormattedMessage, defineMessages } from 'react-intl'
-import { graphql } from 'react-apollo'
-import { ApolloError } from 'apollo-client'
-import { branch, compose, renderComponent, renderNothing } from 'recompose'
+import { FormattedMessage } from 'react-intl'
+import { useQuery } from 'react-apollo'
 import { useRuntime } from 'vtex.render-runtime'
 
 import ComponentGridItem from './components/ComponentGridItem'
@@ -11,78 +9,54 @@ import { slug } from './utils'
 import { IO_DOCUMENTATION } from './utils/constants'
 import ComponentList from './graphql/componentsList.graphql'
 
-defineMessages({
-  layout: {
-    id: 'docs/components.layout',
-    defaultMessage: '',
-  },
-  layoutDescription: {
-    id: 'docs/components.layout-description',
-    defaultMessage: '',
-  },
-  general: {
-    id: 'docs/components.general',
-    defaultMessage: '',
-  },
-  generalDescription: {
-    id: 'docs/components.general-description',
-    defaultMessage: '',
-  },
-  navigation: {
-    id: 'docs/components.navigation',
-    defaultMessage: '',
-  },
-  navigationDescription: {
-    id: 'docs/components.navigation-description',
-    defaultMessage: '',
-  },
-  product: {
-    id: 'docs/components.product-related',
-    defaultMessage: '',
-  },
-  productDescription: {
-    id: 'docs/components.product-related-description',
-    defaultMessage: '',
-  },
-  search: {
-    id: 'docs/components.search-related',
-    defaultMessage: '',
-  },
-  searchDescription: {
-    id: 'docs/components.search-related-description',
-    defaultMessage: '',
-  },
-  pixel: {
-    id: 'docs/components.pixel',
-    defaultMessage: '',
-  },
-  pixelDescription: {
-    id: 'docs/components.pixel-description',
-    defaultMessage: '',
-  },
-  all: {
-    id: 'docs/components.all',
-    defaultMessage: '',
-  },
-  allDescription: {
-    id: 'docs/components.all-description',
-    defaultMessage: '',
-  },
-})
+function removeFileExtension(fileName: string) {
+  const MARKDOWN_EXTENSION = '.md'
+  return fileName.endsWith(MARKDOWN_EXTENSION)
+    ? fileName.substring(0, fileName.length - MARKDOWN_EXTENSION.length)
+    : fileName
+}
 
-const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
+const ComponentsGrid: FC = () => {
   const {
     route: { params },
+    page,
   } = useRuntime()
+
+  const useAppsDirectory = page === 'docs.apps-list'
+
+  const { data, error, loading } = useQuery<{
+    componentsList: Record<
+      string,
+      {
+        appName: string
+        file: string
+        title: string
+        description: string
+        url: string
+      }[]
+    >
+  }>(ComponentList, {
+    variables: {
+      appName: IO_DOCUMENTATION,
+      locale: 'en',
+      useAppsDirectory,
+    },
+  })
+
+  if (loading) return null
+
+  if (error || !data) {
+    return <EmptyDocs />
+  }
 
   const [category] = params.category.split('-')
   const shouldShowAllComponents = category === 'all'
 
   const componentsListFromCategory = shouldShowAllComponents
-    ? Object.keys(ComponentsListQuery.componentsList).flatMap(
-        category => ComponentsListQuery.componentsList[category]
+    ? Object.keys(data.componentsList).flatMap(
+        category => data.componentsList[category]
       )
-    : ComponentsListQuery.componentsList[category]
+    : data.componentsList[category]
 
   return (
     <div className="w-100 center">
@@ -121,46 +95,4 @@ const ComponentsGrid: FC<OuterProps> = ({ ComponentsListQuery }) => {
   )
 }
 
-function removeFileExtension(fileName: string) {
-  const MARKDOWN_EXTENSION = '.md'
-  return fileName.endsWith(MARKDOWN_EXTENSION)
-    ? fileName.substring(0, fileName.length - MARKDOWN_EXTENSION.length)
-    : fileName
-}
-
-interface OuterProps {
-  ComponentsListQuery: {
-    componentsList: Record<
-      string,
-      {
-        appName: string
-        file: string
-        title: string
-        description: string
-        url: string
-      }[]
-    >
-    loading: boolean
-    error?: ApolloError
-  }
-}
-
-export default compose<OuterProps, OuterProps>(
-  graphql(ComponentList, {
-    name: 'ComponentsListQuery',
-    options: {
-      variables: {
-        appName: IO_DOCUMENTATION,
-        locale: 'en',
-      },
-    },
-  }),
-  branch(
-    ({ ComponentsListQuery }: OuterProps) => ComponentsListQuery.loading,
-    renderNothing
-  ),
-  branch(
-    ({ ComponentsListQuery }: OuterProps) => !!ComponentsListQuery.error,
-    renderComponent(EmptyDocs)
-  )
-)(ComponentsGrid)
+export default ComponentsGrid
