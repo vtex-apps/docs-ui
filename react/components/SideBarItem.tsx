@@ -79,7 +79,7 @@ const SideBarItem: FC<Props> = ({
     </div>
   )
 
-  return text !== 'Introduction' ? (
+  return (
     <div className="link">
       {link ? (
         <Link
@@ -93,7 +93,7 @@ const SideBarItem: FC<Props> = ({
       )}
       {hasArticles && <div hidden={!open}>{children}</div>}
     </div>
-  ) : null
+  )
 }
 
 export default SideBarItem
