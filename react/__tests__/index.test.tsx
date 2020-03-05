@@ -1,4 +1,4 @@
-describe('Orders List Scenarios', () => {
+describe('Placeholder test', () => {
   it('should work', () => {
     expect(1).toBe(1)
   })
