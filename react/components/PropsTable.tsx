@@ -1,76 +1,14 @@
-import React from 'react'
+import React, { FC, Fragment } from 'react'
 import {
   EXPERIMENTAL_Table as Table,
   EXPERIMENTAL_useTableMeasures as useMeasures,
   EXPERIMENTAL_useTableProportion as useProportion,
 } from 'vtex.styleguide'
+import { toPairs } from 'ramda'
+import EnumTable from './EnumTable'
 // import 'vtex-tachyons'
 
-const lang = __RUNTIME__.culture.language || 'en'
-
-const MOCKED_PROPS = {
-  dynamicSrc: {
-    title: 'editor.dynamiciframe.dynamicSrc.title',
-    description: 'editor.dynamiciframe.dynamicSrc.description',
-    type: 'string',
-    default: null,
-  },
-  width: {
-    title: 'editor.dynamiciframe.width.title',
-    type: 'number',
-    default: null,
-  },
-  height: {
-    title: 'editor.dynamiciframe.height.title',
-    type: 'number',
-    default: null,
-  },
-  title: {
-    title: 'editor.dynamiciframe.title.title',
-    type: 'string',
-    default: null,
-  },
-  __proto__: Object,
-}
-
-const MOCKED_MESSAGES: { [key: string]: { [key: string]: string } } = {
-  en: {
-    'editor.iframe.title': 'Iframe',
-    'editor.iframe.src.description': 'Source url of the iframe',
-    'editor.iframe.src.title': 'Src',
-    'editor.iframe.height.title': 'Height',
-    'editor.iframe.width.title': 'Width',
-    'editor.iframe.title.title': 'Title',
-    'editor.dynamiciframe.title': 'Dynamic Iframe',
-    'editor.dynamiciframe.title.title': 'Title',
-    'editor.dynamiciframe.dynamicSrc.description':
-      'url to be used by iframe, use {param} for dynamic parameters',
-    'editor.dynamiciframe.dynamicSrc.title': 'Prepend',
-    'editor.dynamiciframe.height.title': 'Height',
-    'editor.dynamiciframe.width.title': 'Width',
-  },
-  es: {
-    'editor.iframe.title': 'Iframe',
-    'editor.iframe.src.description': 'Dirección de origen del iframe',
-    'editor.iframe.src.title': 'Src',
-    'editor.iframe.height.title': 'Altura',
-    'editor.iframe.width.title': 'Longitud',
-  },
-  pt: {
-    'editor.iframe.title': 'Iframe',
-    'editor.iframe.src.description': 'Endereço de origem do iframe',
-    'editor.iframe.src.title': 'Src',
-    'editor.iframe.height.title': 'Altura',
-    'editor.iframe.width.title': 'Comprimento',
-    'editor.dynamiciframe.title': 'Iframe Dinâmico',
-    'editor.dynamiciframe.title.title': 'Título',
-    'editor.dynamiciframe.dynamicSrc.description':
-      'url a ser usada pelo iframe, use {param} para parâmetros dinâmicos',
-    'editor.dynamiciframe.dynamicSrc.title': 'Prepend',
-    'editor.dynamiciframe.height.title': 'Altura',
-    'editor.dynamiciframe.width.title': 'Comprimento',
-  },
-}
+const lang = 'en'
 
 const TITLE_LANGUAGES: { [key: string]: { [key: string]: string }} = {
   en: {
@@ -117,32 +55,56 @@ const columns = [
   },
 ]
 
-function mapPropsToColumns(propsObj: any, lang: string) {
-  return Object.values(propsObj).map(({ title, description, type, default: defaultValue }: any) => ({
-      title: MOCKED_MESSAGES[lang][title],
-      description: MOCKED_MESSAGES[lang][description],
-      type,
-      default: defaultValue || 'null',
+function mapPropsToColumns(propsObj: { [key: string]: { [key: string]: string } }, lang: string, messages: { [key: string]: { [key: string]: string } }) {
+  return toPairs(propsObj).map(([key, { description, type, default: defaultValue }]: any) => ({
+    title: key,
+    description: messages[lang][description],
+    type: type.charAt(0).toUpperCase() + type.slice(1),
+    default: defaultValue || 'null',
   })
 }
 
-const dataBeforeMessages = mapPropsToColumns(MOCKED_PROPS, lang)
+let mapCustomTypes = (propsObj: { [key: string]: { [key: string]: string } }, messages: any, data: {
+  title: any;
+  description: string;
+  type: any;
+  default: any;
+}[]) => {
+  let customTypes = []
+  console.log(propsObj.enum)
+  for (var key in propsObj) {
+    var customProp = propsObj[key]
+    if (customProp.enum) {
+      console.log('prop with enum - ', customProp, key)
+      customTypes.push(<EnumTable enumProps = {customProp} messages = {messages} propTitle = {key}/>)
+    }
+  }
+  return customTypes
+}
 
-// const data =
 
-function PropsTable() {
-  /** The useTableMeasures hook will be discussed on the Measures section */
-  const measures = useMeasures({ size: dataBeforeMessages.length || 3 })
-  const { sizedColumns } = useProportion({ columns, ratio: [1, 1, 0.5, 1] })
+const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
+  let data = mapPropsToColumns(fetchedProps, lang, fetchedMessages)
+  console.log('data:', data)
+  const measures = useMeasures({ size: data.length || 3 })
+  const { sizedColumns } = useProportion({ columns, ratio: [1, 0.5, 0.5, 1] })
+  const customTypesTables = mapCustomTypes(fetchedProps, fetchedMessages, data)
   return (
-    <Table
-      measures={measures}
-      items={dataBeforeMessages}
-      columns={sizedColumns}
-      highlightOnHover
-    />
+    <Fragment>
+      <Table
+        measures={measures}
+        items={data}
+        columns={sizedColumns}
+        highlightOnHover
+      />
+      {customTypesTables}
+    </Fragment>
   )
 }
-;<PropsTable />
+
+interface PropTableProps {
+  fetchedProps: { [key: string]: { [key: string]: string } },
+  fetchedMessages: { [key: string]: { [key: string]: string } }
+}
 
 export default PropsTable
