@@ -1,4 +1,5 @@
 import { useRuntime } from 'vtex.render-runtime'
+
 import { useAppVersionState } from '../components/AppVersionContext'
 
 export function useApp() {

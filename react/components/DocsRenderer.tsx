@@ -2,10 +2,10 @@ import React, { FC, Fragment } from 'react'
 import ReactMarkdown from 'react-markdown'
 import emoji from 'remark-emoji'
 import { FormattedMessage } from 'react-intl'
+import { Helmet } from 'vtex.render-runtime'
 
 import { CustomRenderers } from './CustomTags'
 import EmptyDocs from './EmptyDocs'
-import { Helmet } from 'vtex.render-runtime'
 
 const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
   const isEmptyDocs = markdown === ''

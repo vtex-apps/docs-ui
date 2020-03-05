@@ -27,13 +27,13 @@ const ComponentsGrid: FC = () => {
   const { data, error, loading } = useQuery<{
     componentsList: Record<
       string,
-      {
+      Array<{
         appName: string
         file: string
         title: string
         description: string
         url: string
-      }[]
+      }>
     >
   }>(ComponentList, {
     variables: {
@@ -54,7 +54,7 @@ const ComponentsGrid: FC = () => {
 
   const componentsListFromCategory = shouldShowAllComponents
     ? Object.keys(data.componentsList).flatMap(
-        category => data.componentsList[category]
+        categoryName => data.componentsList[categoryName]
       )
     : data.componentsList[category]
 
@@ -69,27 +69,26 @@ const ComponentsGrid: FC = () => {
         />
       </p>
       <div className="flex flex-wrap">
-        {componentsListFromCategory &&
-          componentsListFromCategory.map(component => {
-            const hasTitleAndDescription =
-              component && !!(component.appName && component.description)
+        {componentsListFromCategory?.map(component => {
+          const hasTitleAndDescription =
+            component && !!(component.appName && component.description)
 
-            return (
-              hasTitleAndDescription && (
-                <div key={slug(component.title)} className="w-50 w-third-ns">
-                  <ComponentGridItem
-                    title={component.title}
-                    description={component.description}
-                    link={`/docs/components/${params.category}/${
-                      component.appName
-                    }/${(component.file &&
-                      slug(removeFileExtension(component.file))) ||
-                      ''}`}
-                  />
-                </div>
-              )
+          return (
+            hasTitleAndDescription && (
+              <div key={slug(component.title)} className="w-50 w-third-ns">
+                <ComponentGridItem
+                  title={component.title}
+                  description={component.description}
+                  link={`/docs/components/${params.category}/${
+                    component.appName
+                  }/${(component.file &&
+                    slug(removeFileExtension(component.file))) ||
+                    ''}`}
+                />
+              </div>
             )
-          })}
+          )
+        })}
       </div>
     </div>
   )

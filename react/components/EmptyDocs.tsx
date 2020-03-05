@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { FormattedMessage, useIntl } from 'react-intl'
-
 import { EmptyState } from 'vtex.styleguide'
 
 const EmptyDocs: FC = () => {

@@ -2,11 +2,11 @@ import React, { FC, Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { graphql } from 'react-apollo'
 import { branch, compose, renderComponent } from 'recompose'
+
 import { IO_DOCUMENTATION } from './utils/constants'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
-
 import ResourceList from './graphql/resourcesList.graphql'
 import Skeleton from './components/Skeleton'
 

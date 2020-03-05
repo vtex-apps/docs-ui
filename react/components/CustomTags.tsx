@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import React, { Fragment } from 'react'
 import { useRuntime } from 'vtex.render-runtime'
@@ -55,7 +56,7 @@ export const CustomRenderers = {
   heading: (props: any) => {
     const hashId = getHeadingSlug(props.children)
     const { app } = useRuntime().route.params
-    const vendor = app && app.split('.')[0]
+    const vendor = app?.split('.')[0]
 
     switch (props.level) {
       case 1:

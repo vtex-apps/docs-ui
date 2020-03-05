@@ -4,11 +4,11 @@ import { ApolloError } from 'apollo-client'
 import { compose, renderNothing, branch } from 'recompose'
 import { FormattedMessage } from 'react-intl'
 import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
+
 import { IO_DOCUMENTATION } from './utils/constants'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
-
 import MarkdownFile from './graphql/markdownFile.graphql'
 import GettingStartedArticles from './graphql/gettingStartedArticles.graphql'
 import RightArrow from './components/icons/RightArrow'
@@ -26,7 +26,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
 
   const articles = GettingStartedArticlesQuery.gettingStartedArticles
 
-  const currentArticle = Number.parseInt(article)
+  const currentArticle = Number.parseInt(article, 10)
 
   return (
     <div className="w-100 center flex flex-column">
