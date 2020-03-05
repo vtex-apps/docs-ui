@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
-import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
-import { useDevice } from 'vtex.device-detector'
 
 import { slug } from './utils'
 import LatestFeatures from './components/LatestFeatures'
@@ -11,8 +10,8 @@ import Components from './components/icons/Components'
 import RightArrow from './components/icons/RightArrow'
 import ProductImage from './images/product.png'
 
-const Home: FC<InjectedIntlProps> = ({ intl }) => {
-  const { isMobile } = useDevice()
+const Home: FC = () => {
+  const intl = useIntl()
 
   return (
     <main className="w-100 w-70-ns">
@@ -104,4 +103,4 @@ const Home: FC<InjectedIntlProps> = ({ intl }) => {
   )
 }
 
-export default injectIntl(Home)
+export default Home
