@@ -1,14 +1,19 @@
 import React, { FC, Fragment } from 'react'
+import styles from '../styles.css'
+// import {useCssHandles} from 'vtex.css-handles'
 import {
   EXPERIMENTAL_Table as Table,
   EXPERIMENTAL_useTableMeasures as useMeasures,
   EXPERIMENTAL_useTableProportion as useProportion,
 } from 'vtex.styleguide'
-import { toPairs } from 'ramda'
+import { toPairs, propSatisfies } from 'ramda'
 import EnumTable from './EnumTable'
 // import 'vtex-tachyons'
 
 const lang = 'en'
+const customTypes = []
+
+// const CSS_HANDLES = ['contentContainer']
 
 const TITLE_LANGUAGES: { [key: string]: { [key: string]: string }} = {
   en: {
@@ -31,27 +36,42 @@ const TITLE_LANGUAGES: { [key: string]: { [key: string]: string }} = {
   }
 }
 
+
 /** Columns definition, must be an array */
 const columns = [
   {
     /** Prop that this column represents */
     id: 'title',
+    cellRenderer: ({data}: {data: string}) => {
+        return <span className={'pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis'}>{data}</span>
+    },
     /** Title that will appear on Header */
-    title: TITLE_LANGUAGES[lang].title,
+    title: <p className={'t-body fw5 c-muted-1 bb bw1 pa2 pb3 b--muted-3 tl'}>{TITLE_LANGUAGES[lang].title}</p>,
     /** Fixed width */
-    width: '3rem',
+    maxWidth: 20,
   },
   {
     id: 'description',
-    title: TITLE_LANGUAGES[lang].description,
+    cellRenderer: ({data}: {data: string}) => {
+      return <span className={'pv1 ph2 mw6 ma7 br2 pv7'}>{data}</span>
+    },
+    title: <p className={'t-body fw5 c-muted-1 bb bw1 pa2 pb3 b--muted-3 tl'}>{TITLE_LANGUAGES[lang].description}</p>,
+    /** Fixed width */
+    maxWidth: 50,
   },
   {
     id: 'type',
-    title: TITLE_LANGUAGES[lang].type,
+    cellRenderer: ({data}: {data: string}) => {
+      return <span className={'pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis'}>{data}</span>
+    },
+    title: <p className={'t-body fw5 c-muted-1 bb bw1 pa2 pb3 b--muted-3 tl'}>{TITLE_LANGUAGES[lang].type}</p>,
   },
   {
     id: 'default',
-    title: TITLE_LANGUAGES[lang].default,
+    cellRenderer: ({data}: {data: string}) => {
+      return <span className={'pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis'}>{data}</span>
+    },
+    title: <p className={'t-body fw5 c-muted-1 bb bw1 pa2 pb3 b--muted-3 tl'}>{TITLE_LANGUAGES[lang].default}</p>,
   },
 ]
 
@@ -70,35 +90,38 @@ let mapCustomTypes = (propsObj: { [key: string]: { [key: string]: string } }, me
   type: any;
   default: any;
 }[]) => {
-  let customTypes = []
   console.log(propsObj.enum)
   for (var key in propsObj) {
     var customProp = propsObj[key]
     if (customProp.enum) {
       console.log('prop with enum - ', customProp, key)
+      propsObj[key].type = key.charAt(0).toLocaleUpperCase() + key.slice(1)
       customTypes.push(<EnumTable enumProps = {customProp} messages = {messages} propTitle = {key}/>)
     }
   }
-  return customTypes
+  return propsObj
 }
 
 
 const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
-  let data = mapPropsToColumns(fetchedProps, lang, fetchedMessages)
+  // const handles = useCssHandles(CSS_HANDLES)
+  const mappedProps = mapCustomTypes(fetchedProps, fetchedMessages, data)
+  let data = mapPropsToColumns(mappedProps, lang, fetchedMessages)
   console.log('data:', data)
   const measures = useMeasures({ size: data.length || 3 })
   const { sizedColumns } = useProportion({ columns, ratio: [1, 0.5, 0.5, 1] })
-  const customTypesTables = mapCustomTypes(fetchedProps, fetchedMessages, data)
   return (
-    <Fragment>
+    <div>
+      <div className={'overflow-x-auto'}>
       <Table
         measures={measures}
         items={data}
         columns={sizedColumns}
         highlightOnHover
       />
-      {customTypesTables}
-    </Fragment>
+      </div>
+      {customTypes}
+    </div>
   )
 }
 
