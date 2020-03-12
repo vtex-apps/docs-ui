@@ -24,8 +24,8 @@ export const CustomRenderers = {
 
     const TOCLines: string[] = children.reduce(
       (acc: any, { key, props }: any) => {
-        // Skip non-headings and H1's
-        if (key.indexOf('heading') !== 0 || props.level === 1) {
+        // Skip non-headings and only use H2s
+        if (key.indexOf('heading') !== 0 || props.level !== 2) {
           return acc
         }
 
