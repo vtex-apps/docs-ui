@@ -1,6 +1,6 @@
 {
   "name": "vtex.docs-ui",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "scripts": {
     "lint": "tsc --noEmit && eslint --ext ts,tsx .",
     "lint:locales": "intl-equalizer",
