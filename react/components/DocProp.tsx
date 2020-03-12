@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, Component } from 'react'
 import { useQuery } from 'react-apollo'
 import PropsTable from './PropsTable'
 import appAssetsQuery from '../graphql/appAssets.graphql'
@@ -6,8 +6,18 @@ import { useRuntime } from 'vtex.render-runtime'
 
 const APPID = 'vtex.rich-text@0.x'
 const RENDERMAJOR = 8
+let componentName = ''
 
 let fetchedPropsContent: { [key: string]: { [key: string]: string } }
+
+function getIndex(component: string, componentList: string[]) {
+  for (let key of componentList) {
+    if (key.includes(component)) {
+      return key
+    }
+  }
+  return ''
+}
 
 const useFetchComponents = async (
   fetchComponents: any,
@@ -15,8 +25,10 @@ const useFetchComponents = async (
   callback: any
 ) => {
   await fetchComponents(componentAssets)
-  const component = Object.keys(componentAssets)
-  const componentData = __RENDER_8_COMPONENTS__[component[component.length - 1]]
+  const componentData =
+    __RENDER_8_COMPONENTS__[
+      getIndex(componentName, Object.keys(componentAssets))
+    ]
   if (
     typeof componentData === 'undefined' ||
     typeof componentData.schema === 'undefined'
@@ -34,16 +46,15 @@ const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
     appId: APPID,
     renderMajor: RENDERMAJOR,
   }
-
-  console.log(blockInterface)
-
+  componentName = blockInterface
   const { fetchComponents } = useRuntime()
   const [isFetched, setFetched] = useState(false)
 
   const { loading, error, data } = useQuery(appAssetsQuery, { variables })
-  if (loading) return <p>Loading ...</p>
+  if (loading) {
+    return <p>Loading ...</p>
+  }
   if (error) {
-    console.log(error)
     return <p>Error...</p>
   }
   const la = JSON.parse(data.appAssets.componentsJSON)

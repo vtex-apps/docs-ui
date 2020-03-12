@@ -181,6 +181,7 @@ export const CustomRenderers = {
     if (paragraphValue.includes('%PROPS')) {
       var match = paragraphValue.match(/%PROPS=([^%]+)/i)
       const blockInterface = match[1]
+      console.log('blockinterface:', blockInterface)
       return <DocProp blockInterface={blockInterface} />
     }
 
