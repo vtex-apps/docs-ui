@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
-import { useSideBarContentState } from './SideBarContext'
 import { Drawer } from 'vtex.store-drawer'
-import { IO_DOCUMENTATION } from '../utils/constants'
 
+import { useSideBarContentState } from './SideBarContext'
+import { IO_DOCUMENTATION } from '../utils/constants'
 import VTEXPink from './icons/VTEXPink'
 import SearchBar from './SearchBar'
 import { formatLink } from '../utils'

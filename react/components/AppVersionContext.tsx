@@ -5,12 +5,10 @@ import React, {
   ReactNode,
   FC,
 } from 'react'
-import { ApolloError } from 'apollo-client'
 import { useQuery } from 'react-apollo'
 import { useRuntime } from 'vtex.render-runtime'
 
 import EmptyAppDocs from './EmptyAppDocs'
-
 import appMajorsQuery from '../graphql/appMajors.graphql'
 
 type Action =
@@ -46,13 +44,13 @@ function appVersionReducer(state: State, action: Action) {
 
 function AppVersionProvider({
   children,
-  appMajorsQuery,
+  appMajorsQueryResult,
   appName,
   appVersionFromUrl,
 }: AppVersionProviderProps) {
   const hasVersion = !!appVersionFromUrl
-  const majorFromQuery = `${appMajorsQuery.appMajors.latestMajor}.x`
-  const availableMajors = appMajorsQuery.appMajors.publishedMajors
+  const majorFromQuery = `${appMajorsQueryResult.appMajors.latestMajor}.x`
+  const availableMajors = appMajorsQueryResult.appMajors.publishedMajors
 
   const [versionInfo, dispatch] = useReducer(appVersionReducer, {
     major: `${hasVersion ? appVersionFromUrl : majorFromQuery}`,
@@ -94,7 +92,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
   const { route } = useRuntime()
   const app = route?.params?.app
   const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
-  const appVersionFromUrl = app && app.split('@')[1]
+  const appVersionFromUrl = app?.split('@')[1]
 
   const { data, loading, error } = useQuery(appMajorsQuery, {
     variables: {
@@ -106,14 +104,14 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
     return null
   }
 
-  if (!!error) {
+  if (error) {
     return <EmptyAppDocs />
   }
 
   return (
     <AppVersionProvider
       key={appName}
-      appMajorsQuery={data}
+      appMajorsQueryResult={data}
       appName={appName}
       appVersionFromUrl={appVersionFromUrl}>
       {children}
@@ -123,7 +121,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
 
 interface AppVersionProviderProps {
   children: ReactNode
-  appMajorsQuery: AppMajorsQueryResponse
+  appMajorsQueryResult: AppMajorsQueryResponse
   appName: string
   appVersionFromUrl: string
 }
@@ -132,14 +130,6 @@ interface AppMajorsQueryResponse {
   appMajors: {
     latestMajor: string
     publishedMajors: string[]
-  }
-}
-
-interface OuterProps {
-  appMajorsQuery: {
-    data: AppMajorsQueryResponse
-    loading: boolean
-    error?: ApolloError
   }
 }
 

@@ -6,9 +6,10 @@ import { useRuntime } from 'vtex.render-runtime'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
+import { IO_DOCUMENTATION } from './utils/constants'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
-const ReleaseArticle: FC = () => {
+const IntroductionArticle: FC = () => {
   const {
     route: { params },
   } = useRuntime()
@@ -18,8 +19,9 @@ const ReleaseArticle: FC = () => {
       <Query
         query={MarkdownFile}
         variables={{
-          appName: 'vtex.io-release-notes@0.x',
-          fileName: `${params.week}/${params.article}.md`,
+          appName: IO_DOCUMENTATION,
+          fileName: `Introduction/${params.article}.md`,
+          locale: 'en',
         }}>
         {({
           loading,
@@ -52,4 +54,4 @@ interface MetaData {
   git: string
 }
 
-export default ReleaseArticle
+export default IntroductionArticle

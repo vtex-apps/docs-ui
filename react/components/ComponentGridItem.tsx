@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
-import styles from './ComponentGridItem.css'
 
+import styles from './ComponentGridItem.css'
 import RightArrow from './icons/RightArrow'
 
 interface Props {

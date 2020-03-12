@@ -1,17 +1,11 @@
-import React, {
-  useContext,
-  createContext,
-  useReducer,
-  ReactNode,
-  FC,
-} from 'react'
+import React, { useContext, createContext, useReducer, ReactNode } from 'react'
 import { ApolloError } from 'apollo-client'
 import { branch, compose, renderComponent } from 'recompose'
 import { graphql } from 'react-apollo'
+
 import { IO_DOCUMENTATION } from '../utils/constants'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
-
 import Summary from '../graphql/appSummary.graphql'
 
 interface Action {

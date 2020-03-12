@@ -1,6 +1,6 @@
 import React, { useState, FC } from 'react'
-
 import { Link, useRuntime } from 'vtex.render-runtime'
+
 import IconCaretDown from './icons/IconCaretDown'
 import IconCaretRight from './icons/IconCaretRight'
 import { slug } from '../utils'
@@ -25,7 +25,7 @@ const SideBarItem: FC<Props> = ({
   } = useRuntime()
 
   // all links follow this pattern: /docs/<section>/<subsection | undefined>/<filename | undefined>
-  const [linkSection, linkSubsection] = (link && link.split('/').slice(2)) || ''
+  const [linkSection, linkSubsection] = link?.split('/').slice(2) ?? ''
   const [currentSection, currentSubsection] = path.split('/').slice(2)
   const isExternalLink = !!link && link.match(/((http(s)?):\/)|(www.)/)
 
@@ -79,7 +79,7 @@ const SideBarItem: FC<Props> = ({
     </div>
   )
 
-  return text !== 'Introduction' ? (
+  return (
     <div className="link">
       {link ? (
         <Link
@@ -93,7 +93,7 @@ const SideBarItem: FC<Props> = ({
       )}
       {hasArticles && <div hidden={!open}>{children}</div>}
     </div>
-  ) : null
+  )
 }
 
 export default SideBarItem

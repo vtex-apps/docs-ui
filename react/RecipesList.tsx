@@ -1,82 +1,15 @@
 import React, { FC } from 'react'
-import { FormattedMessage, defineMessages } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import { graphql } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { branch, compose, renderComponent, renderNothing } from 'recompose'
 import { withRuntimeContext, InjectedRuntime } from 'vtex.render-runtime'
+
 import { IO_DOCUMENTATION } from './utils/constants'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
 import { slug } from './utils'
-
 import RecipeList from './graphql/recipesList.graphql'
-
-defineMessages({
-  style: {
-    id: 'docs/recipes.style',
-    defaultMessage: '',
-  },
-  styleDescription: {
-    id: 'docs/recipes.style-description',
-    defaultMessage: '',
-  },
-  layout: {
-    id: 'docs/recipes.layout',
-    defaultMessage: '',
-  },
-  layoutDescription: {
-    id: 'docs/recipes.layout-description',
-    defaultMessage: '',
-  },
-  app: {
-    id: 'docs/recipes.app',
-    defaultMessage: '',
-  },
-  appDescription: {
-    id: 'docs/recipes.app-description',
-    defaultMessage: '',
-  },
-  routes: {
-    id: 'docs/recipes.routes',
-    defaultMessage: '',
-  },
-  routesDescription: {
-    id: 'docs/recipes.routes-description',
-    defaultMessage: '',
-  },
-  plugins: {
-    id: 'docs/recipes.plugins',
-    defaultMessage: '',
-  },
-  pluginsDescription: {
-    id: 'docs/recipes.plugins-description',
-    defaultMessage: '',
-  },
-  store: {
-    id: 'docs/recipes.store',
-    defaultMessage: '',
-  },
-  storeDescription: {
-    id: 'docs/recipes.store-description',
-    defaultMessage: '',
-  },
-  'custom-blocks': {
-    id: 'docs/recipes.custom-blocks',
-    defaultMessage: '',
-  },
-  'custom-blocksDescription': {
-    id: 'docs/recipes.custom-blocks-description',
-    defaultMessage: '',
-  },
-  all: {
-    id: 'docs/recipes.all',
-    defaultMessage: '',
-  },
-  allDescription: {
-    id: 'docs/recipes.all-description',
-    defaultMessage: '',
-  },
-})
 
 const RecipesList: FC<OuterProps & InjectedRuntime> = ({
   RecipeListQuery,

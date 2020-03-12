@@ -8,7 +8,7 @@ const SearchBar: FC = () => {
     query: { q: queryString },
   } = useRuntime()
 
-  const [inputString, setInputString] = useState(queryString || '')
+  const [inputString, setInputString] = useState(queryString ?? '')
 
   const handleSubmit = (e: any) => {
     e.preventDefault()

@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import React, { FC } from 'react'
 import { useQuery } from 'react-apollo'
 import { ButtonPlain } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
@@ -8,7 +8,7 @@ import releaseNotes from './graphql/releaseNotes.graphql'
 interface ReleseNotesQuery {
   releaseNotes: {
     __typename: string
-    edges: {
+    edges: Array<{
       cursor: string
       node: {
         id: string
@@ -17,7 +17,7 @@ interface ReleseNotesQuery {
         date: string
         markdown: string
       }
-    }[]
+    }>
     pageInfo: {
       hasPreviousPage: boolean
       hasNextPage: boolean
@@ -31,9 +31,12 @@ const isNotLastResult = (results: any[], index: number) =>
   index !== results.length - 1
 
 const ReleaseNotes: FC = () => {
-  const { data, loading, fetchMore } = useQuery<ReleseNotesQuery>(releaseNotes, {
-    fetchPolicy: "cache-and-network"
-  })
+  const { data, loading, fetchMore } = useQuery<ReleseNotesQuery>(
+    releaseNotes,
+    {
+      fetchPolicy: 'cache-and-network',
+    }
+  )
 
   return (
     <section className="w-100 flex flex-column">
@@ -58,40 +61,47 @@ const ReleaseNotes: FC = () => {
               className={`link c-emphasis no-underline mv4 t-body ml-auto
                 flex items-center dim`}
               href={`/docs/releases/${edge.node.id}/README`}>
-                {edge.node.title.replace(/(VTEX IO Release Notes - |VTEX IO Highlights - )/, '')}
+              {edge.node.title.replace(
+                /(VTEX IO Release Notes - |VTEX IO Highlights - )/,
+                ''
+              )}
             </a>
           </li>
         ))}
         {loading && <ListSkeleton />}
       </ul>
 
-      {data?.releaseNotes?.pageInfo.hasNextPage &&
+      {data?.releaseNotes?.pageInfo.hasNextPage && (
         <div className="mb6">
-          <ButtonPlain onClick={() => {
-            const after = data?.releaseNotes?.edges[data?.releaseNotes?.edges.length - 1].cursor
-            fetchMore({
-              variables: {
-                after,
-              },
-              updateQuery: (prev, { fetchMoreResult }) => {
-                const newEdges = fetchMoreResult!.releaseNotes!.edges;
-                const pageInfo = fetchMoreResult!.releaseNotes!.pageInfo;
+          <ButtonPlain
+            onClick={() => {
+              const after =
+                data?.releaseNotes?.edges[data?.releaseNotes?.edges.length - 1]
+                  .cursor
+              fetchMore({
+                variables: {
+                  after,
+                },
+                updateQuery: (prev, { fetchMoreResult }) => {
+                  const newEdges = fetchMoreResult!.releaseNotes!.edges
+                  const { pageInfo } = fetchMoreResult!.releaseNotes!
 
-                return newEdges.length
-                  ? {
-                    releaseNotes: {
-                      __typename: prev.releaseNotes.__typename,
-                      edges: [...prev.releaseNotes.edges, ...newEdges],
-                      pageInfo,
-                    }
-                  }
-                  : prev
-              }
-            })
-          }}>
+                  return newEdges.length
+                    ? {
+                        releaseNotes: {
+                          __typename: prev.releaseNotes.__typename,
+                          edges: [...prev.releaseNotes.edges, ...newEdges],
+                          pageInfo,
+                        },
+                      }
+                    : prev
+                },
+              })
+            }}>
             <FormattedMessage id="docs/see-previous-releases" />
           </ButtonPlain>
-        </div>}
+        </div>
+      )}
     </section>
   )
 }
@@ -109,9 +119,9 @@ function SkeletonLine({ big = false }) {
 function ListSkeleton() {
   return (
     <>
-      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) =>
-        <SkeletonLine key={index} big={index % 2 ? true : false} />
-      )}
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
+        <SkeletonLine key={index} big={!!(index % 2)} />
+      ))}
     </>
   )
 }

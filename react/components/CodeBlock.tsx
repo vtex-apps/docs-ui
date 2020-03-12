@@ -9,7 +9,7 @@ interface Props {
 const CodeBlock: FC<Props> = ({ language, value }) => {
   const codeBlockRef = useRef<HTMLPreElement>(null)
   useEffect(() => {
-    if (codeBlockRef && codeBlockRef.current) {
+    if (codeBlockRef?.current) {
       hljs.highlightBlock(codeBlockRef.current)
     }
   }, [codeBlockRef])

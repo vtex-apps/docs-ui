@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- New `/docs/apps/:category`, `/docs/apps/:category/:app(/:file)`, `/docs/introduction/:article` and `/docs/concepts routes to acomodate new content organization.
+- Messages to render in each of these routes.
+
+### Fixed
+- Render would break if an empty markdown file was received by `DocsRenderer` component.
 
 ## [1.6.0] - 2020-03-01
 

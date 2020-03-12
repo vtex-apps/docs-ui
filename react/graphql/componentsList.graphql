@@ -1,5 +1,13 @@
-query componentsList($appName: String, $locale: String) {
-  componentsList(appName: $appName, locale: $locale) {
+query componentsList(
+  $appName: String
+  $locale: String
+  $useAppsDirectory: Boolean
+) {
+  componentsList(
+    appName: $appName
+    locale: $locale
+    useAppsDirectory: $useAppsDirectory
+  ) {
     layout {
       appName
       file
@@ -8,6 +16,13 @@ query componentsList($appName: String, $locale: String) {
       url
     }
     general {
+      appName
+      file
+      title
+      description
+      url
+    }
+    content {
       appName
       file
       title

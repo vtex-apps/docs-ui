@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import React, { Fragment } from 'react'
 import { useRuntime } from 'vtex.render-runtime'
@@ -23,8 +24,8 @@ export const CustomRenderers = {
 
     const TOCLines: string[] = children.reduce(
       (acc: any, { key, props }: any) => {
-        // Skip non-headings and H1's
-        if (key.indexOf('heading') !== 0 || props.level === 1) {
+        // Skip non-headings and only use H2s
+        if (key.indexOf('heading') !== 0 || props.level !== 2) {
           return acc
         }
 
@@ -55,7 +56,7 @@ export const CustomRenderers = {
   heading: (props: any) => {
     const hashId = getHeadingSlug(props.children)
     const { app } = useRuntime().route.params
-    const vendor = app && app.split('.')[0]
+    const vendor = app?.split('.')[0]
 
     switch (props.level) {
       case 1:

@@ -6,7 +6,6 @@ import { Link } from 'vtex.render-runtime'
 import { slug } from '../utils'
 import RightArrow from './icons/RightArrow'
 import Skeleton from './Skeleton'
-
 import LatestFeaturesQuery from '../graphql/storeFrameworkLatestFeatures.graphql'
 
 interface LatestFeaturesQueryI {

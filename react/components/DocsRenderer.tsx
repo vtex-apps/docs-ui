@@ -2,20 +2,24 @@ import React, { FC, Fragment } from 'react'
 import ReactMarkdown from 'react-markdown'
 import emoji from 'remark-emoji'
 import { FormattedMessage } from 'react-intl'
+import { Helmet } from 'vtex.render-runtime'
 
 import { CustomRenderers } from './CustomTags'
 import EmptyDocs from './EmptyDocs'
-import { Helmet } from 'vtex.render-runtime'
 
 const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
   const isEmptyDocs = markdown === ''
+
+  if (isEmptyDocs) {
+    return <EmptyDocs />
+  }
 
   const title = markdown
     .split('# ')[1] // everything after the #
     .split('\n')[0] // Only the headline
     .trim()
 
-  return !isEmptyDocs ? (
+  return (
     <Fragment>
       <Helmet>
         <title>{title}</title>
@@ -34,8 +38,6 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
         )}
       </article>
     </Fragment>
-  ) : (
-    <EmptyDocs />
   )
 }
 

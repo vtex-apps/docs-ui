@@ -2,11 +2,11 @@ import React, { FC } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
 import { useRuntime } from 'vtex.render-runtime'
+
 import { IO_DOCUMENTATION } from './utils/constants'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
-
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const Resource: FC = () => {

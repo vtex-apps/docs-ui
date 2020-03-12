@@ -1,6 +1,7 @@
-import React, { ReactElement, FC, useEffect } from 'react'
+import React, { ReactElement, FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
+
 import SideBarItem from './SideBarItem'
 import { formatLink } from '../utils'
 import { useSideBarContentState } from './SideBarContext'
