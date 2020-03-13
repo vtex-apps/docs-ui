@@ -1,4 +1,5 @@
-import React, { useState, FC, Component } from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState, FC } from 'react'
 import { useQuery } from 'react-apollo'
 import PropsTable from './PropsTable'
 import appAssetsQuery from '../graphql/appAssets.graphql'
@@ -39,6 +40,24 @@ const useFetchComponents = async (
   callback()
 }
 
+// const useMyFetchComponents = async (
+//   fetchComponents: any,
+//   componentAssets: any
+// ) => {
+//   await fetchComponents(componentAssets)
+//   const componentData =
+//     __RENDER_8_COMPONENTS__[
+//       getIndex(componentName, Object.keys(componentAssets))
+//     ]
+//   if (
+//     typeof componentData === 'undefined' ||
+//     typeof componentData.schema === 'undefined'
+//   ) {
+//     return
+//   }
+//   fetchedPropsContent = componentData.schema.properties
+// }
+
 const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
   // const APPID = __RUNTIME__.route.params.app + '@0.x'
 
@@ -67,9 +86,16 @@ const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
     return
   }
 
+  // useEffect(() => {
+  //   console.log(isFetched)
+  //   useMyFetchComponents(fetchComponents, la[0])
+  //   setFetched(true)
+  // }, [fetchComponents, la])
+
   useFetchComponents(fetchComponents, la[0], () => {
     setFetched(true)
   })
+
   const fetchedMessagesContent = messages
   return isFetched ? (
     <PropsTable
