@@ -1,0 +1,7 @@
+query conceptList($appName: String, $category: String, $locale: String) {
+  conceptList(appName: $appName, category: $category, locale: $locale) {
+    title
+    description
+    path
+  }
+}
