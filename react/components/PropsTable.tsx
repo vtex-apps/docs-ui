@@ -1,19 +1,14 @@
-import React, { FC, Fragment } from 'react'
-import styles from '../styles.css'
-// import {useCssHandles} from 'vtex.css-handles'
+import React, { FC } from 'react'
 import {
   EXPERIMENTAL_Table as Table,
   EXPERIMENTAL_useTableMeasures as useMeasures,
   EXPERIMENTAL_useTableProportion as useProportion,
 } from 'vtex.styleguide'
-import { toPairs, propSatisfies } from 'ramda'
+import { toPairs } from 'ramda'
 import EnumTable from './EnumTable'
-// import 'vtex-tachyons'
 
 const lang = 'en'
 const customTypes:FC[] = []
-
-// const CSS_HANDLES = ['contentContainer']
 
 const TITLE_LANGUAGES: { [key: string]: { [key: string]: string }} = {
   en: {
