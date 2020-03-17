@@ -35,11 +35,11 @@
   "docs.apps": {
     "component": "AppDocs"
   },
-  "docs.resources-list": {
-    "component": "ResourcesList"
+  "docs.concept-list": {
+    "component": "ConceptList"
   },
-  "docs.resource": {
-    "component": "Resource"
+  "docs.concept": {
+    "component": "Concept"
   },
   "docs.release-notes": {
     "component": "ReleaseNotes"

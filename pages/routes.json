@@ -23,11 +23,11 @@
   "docs.apps": {
     "path": "/docs/apps/:category/:app(/:file)"
   },
-  "docs.resources-list": {
-    "path": "/docs/resources"
+  "docs.concept-list": {
+    "path": "/docs/concepts"
   },
-  "docs.resource": {
-    "path": "/docs/resources/:resource"
+  "docs.concept": {
+    "path": "/docs/concepts/:concept"
   },
   "docs.release-notes": {
     "path": "/docs/releases"
@@ -40,9 +40,6 @@
   },
   "docs.introduction": {
     "path": "/docs/introduction/:article"
-  },
-  "docs.concepts": {
-    "path": "/docs/concepts"
   },
   "docs.app": {
     "path": "/docs/app/:app(/:file)"
