@@ -29,7 +29,7 @@ const RecipesList: FC<OuterProps & InjectedRuntime> = ({
       <p className="t-body c-on-base w-70-ns">
         <FormattedMessage id={`docs/recipes.${category}-description`} />
       </p>
-      <div className="">
+      <div>
         {RecipeListQuery.recipeList.map((recipe: Recipe) => (
           <RecipeListItem
             key={slug(recipe.description)}

@@ -9,7 +9,7 @@ import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
-const Resource: FC = () => {
+const Concept: FC = () => {
   const {
     route: { params },
   } = useRuntime()
@@ -20,7 +20,7 @@ const Resource: FC = () => {
         query={MarkdownFile}
         variables={{
           appName: IO_DOCUMENTATION,
-          fileName: `Resources/${params.resource}.md`,
+          fileName: `Concepts/${params.concept}.md`,
           locale: 'en',
         }}>
         {({
@@ -54,4 +54,4 @@ interface MetaData {
   git: string
 }
 
-export default Resource
+export default Concept
