@@ -1,0 +1,10 @@
+query published($appName: String) {
+  appMajors(appName: $appName) {
+    latestMajor
+    publishedMajors
+  }
+  appVersions(appName: $appName) {
+    latestStable
+    publishedVersions
+  }
+}

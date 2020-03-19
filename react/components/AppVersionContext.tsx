@@ -9,7 +9,7 @@ import { useQuery } from 'react-apollo'
 import { useRuntime } from 'vtex.render-runtime'
 
 import EmptyAppDocs from './EmptyAppDocs'
-import appMajorsQuery from '../graphql/appMajors.graphql'
+import publishedQuery from '../graphql/published.graphql'
 
 type Action =
   | { type: 'updateMajor'; value: string }
@@ -44,13 +44,14 @@ function appVersionReducer(state: State, action: Action) {
 
 function AppVersionProvider({
   children,
-  appMajorsQueryResult,
+  appVersionsQueryResult,
   appName,
   appVersionFromUrl,
 }: AppVersionProviderProps) {
   const hasVersion = !!appVersionFromUrl
-  const majorFromQuery = `${appMajorsQueryResult.appMajors.latestMajor}.x`
-  const availableMajors = appMajorsQueryResult.appMajors.publishedMajors
+  console.log({ appVersionsQueryResult })
+  const majorFromQuery = `${appVersionsQueryResult.appMajors.latestMajor}.x`
+  const availableMajors = appVersionsQueryResult.appMajors.publishedMajors
 
   const [versionInfo, dispatch] = useReducer(appVersionReducer, {
     major: `${hasVersion ? appVersionFromUrl : majorFromQuery}`,
@@ -94,7 +95,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
   const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
   const appVersionFromUrl = app?.split('@')[1]
 
-  const { data, loading, error } = useQuery(appMajorsQuery, {
+  const { data, loading, error } = useQuery(publishedQuery, {
     variables: {
       appName,
     },
@@ -111,7 +112,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
   return (
     <AppVersionProvider
       key={appName}
-      appMajorsQueryResult={data}
+      appVersionsQueryResult={data}
       appName={appName}
       appVersionFromUrl={appVersionFromUrl}>
       {children}
@@ -121,7 +122,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
 
 interface AppVersionProviderProps {
   children: ReactNode
-  appMajorsQueryResult: AppMajorsQueryResponse
+  appVersionsQueryResult: AppMajorsQueryResponse
   appName: string
   appVersionFromUrl: string
 }
