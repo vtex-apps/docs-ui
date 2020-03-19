@@ -12,6 +12,7 @@ import { useRuntime } from 'vtex.render-runtime'
 import EmptyAppDocs from './EmptyAppDocs'
 import publishedQuery from '../graphql/published.graphql'
 import { IO_DOCUMENTATION } from '../utils/constants'
+
 type Action =
   | { type: 'updateMajor'; value: string }
   | { type: 'updateAvailableMajors'; value: string[] }
@@ -107,8 +108,8 @@ function useAppVersionDispatch() {
 
 const EnhancedAppVersionProvider: FC = ({ children }) => {
   const { route, navigate } = useRuntime()
-  const app = route?.params?.app
-  const appName = (app || IO_DOCUMENTATION).split('@')[0]
+  const app = route?.params?.app || IO_DOCUMENTATION
+  const appName = app.split('@')[0]
   const appVersionFromUrl = app?.split('@')[1]
 
   const { data, loading, error } = useQuery(publishedQuery, {
