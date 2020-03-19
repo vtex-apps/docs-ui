@@ -2,6 +2,7 @@ import React, {
   useContext,
   createContext,
   useReducer,
+  useEffect,
   ReactNode,
   FC,
 } from 'react'
@@ -10,16 +11,20 @@ import { useRuntime } from 'vtex.render-runtime'
 
 import EmptyAppDocs from './EmptyAppDocs'
 import publishedQuery from '../graphql/published.graphql'
-
+import { IO_DOCUMENTATION } from '../utils/constants'
 type Action =
   | { type: 'updateMajor'; value: string }
   | { type: 'updateAvailableMajors'; value: string[] }
   | { type: 'updateAppName'; value: string }
+  | { type: 'updateAppVersion'; value: string }
+  | { type: 'updateAvailableVersions'; value: string[] }
 type Dispatch = (action: Action) => void
 interface State {
   appName: string
   major: string
   availableMajors: string[]
+  version: string
+  availableVersions: string[]
 }
 
 const AppVersionStateContext = createContext<State | undefined>(undefined)
@@ -36,6 +41,12 @@ function appVersionReducer(state: State, action: Action) {
     case 'updateAppName': {
       return { ...state, appName: action.value }
     }
+    case 'updateAppVersion': {
+      return { ...state, major: action.value }
+    }
+    case 'updateAvailableVersions': {
+      return { ...state, availableMajors: action.value }
+    }
     default: {
       return state
     }
@@ -44,18 +55,23 @@ function appVersionReducer(state: State, action: Action) {
 
 function AppVersionProvider({
   children,
-  appVersionsQueryResult,
+  publishedQueryResult,
   appName,
   appVersionFromUrl,
 }: AppVersionProviderProps) {
+  const {
+    appMajors: { latestMajor, publishedMajors },
+    appVersions: { latestStable, publishedVersions },
+  } = publishedQueryResult
+
   const hasVersion = !!appVersionFromUrl
-  console.log({ appVersionsQueryResult })
-  const majorFromQuery = `${appVersionsQueryResult.appMajors.latestMajor}.x`
-  const availableMajors = appVersionsQueryResult.appMajors.publishedMajors
+  const majorFromQuery = `${latestMajor}.x`
 
   const [versionInfo, dispatch] = useReducer(appVersionReducer, {
     major: `${hasVersion ? appVersionFromUrl : majorFromQuery}`,
-    availableMajors,
+    availableMajors: publishedMajors,
+    version: latestStable,
+    availableVersions: publishedVersions,
     appName,
   })
 
@@ -90,9 +106,9 @@ function useAppVersionDispatch() {
 }
 
 const EnhancedAppVersionProvider: FC = ({ children }) => {
-  const { route } = useRuntime()
+  const { route, navigate } = useRuntime()
   const app = route?.params?.app
-  const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
+  const appName = (app || IO_DOCUMENTATION).split('@')[0]
   const appVersionFromUrl = app?.split('@')[1]
 
   const { data, loading, error } = useQuery(publishedQuery, {
@@ -100,6 +116,22 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
       appName,
     },
   })
+
+  useEffect(() => {
+    if (!app || appVersionFromUrl || !data?.appVersions) {
+      return
+    }
+    const { params: currentParams } = route
+    const {
+      appVersions: { latestStable },
+    } = data
+    const updatedApp = `${app.split('@')[0]}@${latestStable}`
+    navigate({
+      page: route.id,
+      params: { ...currentParams, app: updatedApp },
+      preventRemount: true,
+    })
+  }, [app, appName, data])
 
   if (loading) {
     return null
@@ -112,7 +144,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
   return (
     <AppVersionProvider
       key={appName}
-      appVersionsQueryResult={data}
+      publishedQueryResult={data}
       appName={appName}
       appVersionFromUrl={appVersionFromUrl}>
       {children}
@@ -122,15 +154,19 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
 
 interface AppVersionProviderProps {
   children: ReactNode
-  appVersionsQueryResult: AppMajorsQueryResponse
+  publishedQueryResult: PublishedQueryResponse
   appName: string
   appVersionFromUrl: string
 }
 
-interface AppMajorsQueryResponse {
+interface PublishedQueryResponse {
   appMajors: {
     latestMajor: string
     publishedMajors: string[]
+  }
+  appVersions: {
+    latestStable: string
+    publishedVersions: string[]
   }
 }
 
