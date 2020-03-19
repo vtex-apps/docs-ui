@@ -70,7 +70,7 @@ function AppVersionProvider({
   const [versionInfo, dispatch] = useReducer(appVersionReducer, {
     major: `${hasVersion ? appVersionFromUrl : majorFromQuery}`,
     availableMajors: publishedMajors,
-    version: latestStable,
+    version: appVersionFromUrl || latestStable,
     availableVersions: publishedVersions,
     appName,
   })
@@ -125,11 +125,11 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
     const {
       appVersions: { latestStable },
     } = data
+
     const updatedApp = `${app.split('@')[0]}@${latestStable}`
     navigate({
       page: route.id,
       params: { ...currentParams, app: updatedApp },
-      preventRemount: true,
     })
   }, [app, appName, data])
 
