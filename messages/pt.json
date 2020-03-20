@@ -63,6 +63,8 @@
   "docs/components.product-related-description": "Find all the components responsible for rendering your store’s product data below.",
   "docs/components.pixel": "Pixel Components",
   "docs/components.pixel-description": "Pixel components are used to collect user data for a third-party of your choosing. Check out some of the already available implementations on our platform.",
+  "docs/components.functional": "Functional Apps",
+  "docs/components.functional-description": "Apps that provide a certain functionality to your store.",
   "docs/components.search-related": "Search Related Components",
   "docs/components.search-related-description": "All your search-related platform components in just one place.",
   "docs/components.all": "All Components",
