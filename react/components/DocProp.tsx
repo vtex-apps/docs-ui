@@ -5,7 +5,7 @@ import PropsTable from './PropsTable'
 import appAssetsQuery from '../graphql/appAssets.graphql'
 import { useRuntime } from 'vtex.render-runtime'
 
-const APPID = 'vtex.rich-text@0.x'
+const APPID = 'vtex.doc-prop@0.x'
 const RENDERMAJOR = 8
 let componentName = ''
 
@@ -65,7 +65,7 @@ const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
     appId: APPID,
     renderMajor: RENDERMAJOR,
   }
-  componentName = blockInterface
+  componentName = 'Countdown'
   const { fetchComponents } = useRuntime()
   const [isFetched, setFetched] = useState(false)
 

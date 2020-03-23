@@ -44,5 +44,9 @@
   "intl-equalizer": {
     "referenceLocale": "en",
     "localeDirectory": "messages"
+  },
+  "dependencies": {
+    "global": "^4.4.0",
+    "vtex": "^2.92.1"
   }
 }

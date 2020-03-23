@@ -1,19 +1,20 @@
 import React, { FC, Fragment } from 'react'
 import styles from '../styles.css'
-// import {useCssHandles} from 'vtex.css-handles'
+
 import {
   EXPERIMENTAL_Table as Table,
   EXPERIMENTAL_useTableMeasures as useMeasures,
   EXPERIMENTAL_useTableProportion as useProportion,
 } from 'vtex.styleguide'
-import { toPairs, propSatisfies } from 'ramda'
+import { toPairs } from 'ramda'
 import EnumTable from './EnumTable'
-// import 'vtex-tachyons'
+import ObjectsTable from './ObjectsTable'
+import ArrayTable from './ArrayTable'
+
 
 const lang = 'en'
 const customTypes:FC[] = []
 
-// const CSS_HANDLES = ['contentContainer']
 
 const TITLE_LANGUAGES: { [key: string]: { [key: string]: string }} = {
   en: {
@@ -90,6 +91,15 @@ let mapCustomTypes = (propsObj: { [key: string]: { [key: string]: string } }, me
     if (customProp.enum) {
       propsObj[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(1)}Enum`
       customTypes.push(<EnumTable enumProps = {customProp} messages = {messages} propTitle = {key}/>)
+    }
+    if (customProp.type === "object") {
+      propsObj[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(1)}`
+      customTypes.push(<ObjectsTable objectProp = {customProp.properties} propTitle = {key}/>)
+    }
+    if (customProp.type === "array") {
+      console.log(customProp)
+      propsObj[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(1)}`
+      customTypes.push(<ArrayTable arrayProp = {customProp.items} propTitle = {key}/>)
     }
   }
   return propsObj

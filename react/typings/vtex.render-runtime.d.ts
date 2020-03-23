@@ -39,6 +39,7 @@ declare module 'vtex.render-runtime' {
     account: string
     accountId: string
     appsEtag: string
+    fetchComponents: (any) => any
     workspace: string
     disableSSR: boolean
     hints: {
