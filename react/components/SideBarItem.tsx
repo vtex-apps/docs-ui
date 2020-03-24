@@ -38,7 +38,7 @@ const SideBarItem: FC<Props> = ({
   const isCurrentSubsection =
     currentSubsection && depth === 1 && linkSubsection === currentSubsection
 
-  const isActive = link === path
+  const isActive = path.includes(link!)
 
   const shouldBeOpen = isActive || isCurrentSection || isCurrentSubsection
 

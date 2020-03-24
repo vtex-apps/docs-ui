@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - Using `replace` when navigating to app's specific version.
+- Updating Sidebar verification if the current link is on.
 
 ## [1.11.0] - 2020-03-24
 ### Added
