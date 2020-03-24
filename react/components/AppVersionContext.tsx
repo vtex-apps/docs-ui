@@ -131,8 +131,9 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
     navigate({
       page: route.id,
       params: { ...currentParams, app: updatedApp },
+      replace: true
     })
-  }, [app, appName, data])
+  }, [data])
 
   if (loading) {
     return null
