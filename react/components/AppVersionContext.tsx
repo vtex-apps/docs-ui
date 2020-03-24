@@ -2,6 +2,7 @@ import React, {
   useContext,
   createContext,
   useReducer,
+  useEffect,
   ReactNode,
   FC,
 } from 'react'
@@ -9,17 +10,22 @@ import { useQuery } from 'react-apollo'
 import { useRuntime } from 'vtex.render-runtime'
 
 import EmptyAppDocs from './EmptyAppDocs'
-import appMajorsQuery from '../graphql/appMajors.graphql'
+import publishedQuery from '../graphql/published.graphql'
+import { IO_DOCUMENTATION } from '../utils/constants'
 
 type Action =
   | { type: 'updateMajor'; value: string }
   | { type: 'updateAvailableMajors'; value: string[] }
   | { type: 'updateAppName'; value: string }
+  | { type: 'updateAppVersion'; value: string }
+  | { type: 'updateAvailableVersions'; value: string[] }
 type Dispatch = (action: Action) => void
 interface State {
   appName: string
   major: string
   availableMajors: string[]
+  version: string
+  availableVersions: string[]
 }
 
 const AppVersionStateContext = createContext<State | undefined>(undefined)
@@ -36,6 +42,12 @@ function appVersionReducer(state: State, action: Action) {
     case 'updateAppName': {
       return { ...state, appName: action.value }
     }
+    case 'updateAppVersion': {
+      return { ...state, major: action.value }
+    }
+    case 'updateAvailableVersions': {
+      return { ...state, availableMajors: action.value }
+    }
     default: {
       return state
     }
@@ -44,17 +56,23 @@ function appVersionReducer(state: State, action: Action) {
 
 function AppVersionProvider({
   children,
-  appMajorsQueryResult,
+  publishedQueryResult,
   appName,
   appVersionFromUrl,
 }: AppVersionProviderProps) {
+  const {
+    appMajors: { latestMajor, publishedMajors },
+    appVersions: { latestStable, publishedVersions },
+  } = publishedQueryResult
+
   const hasVersion = !!appVersionFromUrl
-  const majorFromQuery = `${appMajorsQueryResult.appMajors.latestMajor}.x`
-  const availableMajors = appMajorsQueryResult.appMajors.publishedMajors
+  const majorFromQuery = `${latestMajor}.x`
 
   const [versionInfo, dispatch] = useReducer(appVersionReducer, {
     major: `${hasVersion ? appVersionFromUrl : majorFromQuery}`,
-    availableMajors,
+    availableMajors: publishedMajors,
+    version: appVersionFromUrl || latestStable,
+    availableVersions: publishedVersions,
     appName,
   })
 
@@ -89,16 +107,32 @@ function useAppVersionDispatch() {
 }
 
 const EnhancedAppVersionProvider: FC = ({ children }) => {
-  const { route } = useRuntime()
-  const app = route?.params?.app
-  const appName = app ? app.split('@')[0] : 'vtex.io-documentation'
+  const { route, navigate } = useRuntime()
+  const app = route?.params?.app || IO_DOCUMENTATION
+  const appName = app.split('@')[0]
   const appVersionFromUrl = app?.split('@')[1]
 
-  const { data, loading, error } = useQuery(appMajorsQuery, {
+  const { data, loading, error } = useQuery(publishedQuery, {
     variables: {
       appName,
     },
   })
+
+  useEffect(() => {
+    if (!app || appVersionFromUrl || !data?.appVersions) {
+      return
+    }
+    const { params: currentParams } = route
+    const {
+      appVersions: { latestStable },
+    } = data
+
+    const updatedApp = `${app.split('@')[0]}@${latestStable}`
+    navigate({
+      page: route.id,
+      params: { ...currentParams, app: updatedApp },
+    })
+  }, [app, appName, data])
 
   if (loading) {
     return null
@@ -111,7 +145,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
   return (
     <AppVersionProvider
       key={appName}
-      appMajorsQueryResult={data}
+      publishedQueryResult={data}
       appName={appName}
       appVersionFromUrl={appVersionFromUrl}>
       {children}
@@ -121,15 +155,19 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
 
 interface AppVersionProviderProps {
   children: ReactNode
-  appMajorsQueryResult: AppMajorsQueryResponse
+  publishedQueryResult: PublishedQueryResponse
   appName: string
   appVersionFromUrl: string
 }
 
-interface AppMajorsQueryResponse {
+interface PublishedQueryResponse {
   appMajors: {
     latestMajor: string
     publishedMajors: string[]
+  }
+  appVersions: {
+    latestStable: string
+    publishedVersions: string[]
   }
 }
 
