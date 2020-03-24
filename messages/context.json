@@ -64,7 +64,7 @@
   "docs/components.pixel": "Pixel Components",
   "docs/components.pixel-description": "Pixel components are used to collect user data for a third-party of your choosing. Check out some of the already available implementations on our platform.",
   "docs/components.functional": "Functional Apps",
-  "docs/components.functional-description": "Apps that provide a certain functionality to your store.",
+  "docs/components.functional-description": "In addition to the blocks that build the store's layout and interface content, we also have the apps that are not rendered by themselves, but that have important roles for the functioning of your store. Check the full list of functional apps below:",
   "docs/components.search-related": "Search Related Components",
   "docs/components.search-related-description": "All your search-related platform components in just one place.",
   "docs/components.all": "All Components",
