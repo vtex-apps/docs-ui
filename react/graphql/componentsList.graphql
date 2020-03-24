@@ -50,6 +50,13 @@ query componentsList(
       description
       url
     }
+    functional {
+      appName
+      file
+      title
+      description
+      url
+    }
     search {
       appName
       file
