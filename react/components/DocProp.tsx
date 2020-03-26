@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, FC } from 'react'
 import { useQuery } from 'react-apollo'
@@ -9,7 +10,7 @@ const APPID = 'vtex.doc-prop@0.x'
 const RENDERMAJOR = 8
 let componentName = ''
 
-let fetchedPropsContent: { [key: string]: { [key: string]: string } }
+let fetchedPropsContent: Record<string, ObjSchemaInterface>
 
 function getIndex(component: string, componentList: string[]) {
   for (let key of componentList) {
@@ -40,27 +41,8 @@ const useFetchComponents = async (
   callback()
 }
 
-// const useMyFetchComponents = async (
-//   fetchComponents: any,
-//   componentAssets: any
-// ) => {
-//   await fetchComponents(componentAssets)
-//   const componentData =
-//     __RENDER_8_COMPONENTS__[
-//       getIndex(componentName, Object.keys(componentAssets))
-//     ]
-//   if (
-//     typeof componentData === 'undefined' ||
-//     typeof componentData.schema === 'undefined'
-//   ) {
-//     return
-//   }
-//   fetchedPropsContent = componentData.schema.properties
-// }
-
 const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
   // const APPID = __RUNTIME__.route.params.app + '@0.x'
-
   const variables = {
     appId: APPID,
     renderMajor: RENDERMAJOR,
@@ -83,14 +65,8 @@ const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
     Object.keys(la).length === 0 ||
     Object.keys(la[0]).length === 0
   ) {
-    return
+    return null
   }
-
-  // useEffect(() => {
-  //   console.log(isFetched)
-  //   useMyFetchComponents(fetchComponents, la[0])
-  //   setFetched(true)
-  // }, [fetchComponents, la])
 
   useFetchComponents(fetchComponents, la[0], () => {
     setFetched(true)

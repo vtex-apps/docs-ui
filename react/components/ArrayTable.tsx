@@ -7,9 +7,10 @@ import {
 import { toPairs } from 'ramda'
 // import EnumTable from './EnumTable'
 import ObjectsTable from './ObjectsTable'
+import { titleCell, codeCell } from './TableCellComponents'
 
 const lang = 'en'
-const customTypes: FC[] = []
+const customTypes: JSX.Element[] = []
 
 const TITLE_LANGUAGES: { [key: string]: { [key: string]: string } } = {
   en: {
@@ -30,52 +31,38 @@ const columns = [
   {
     /** Prop that this column represents */
     id: 'title',
+    cellRenderer: ({ data }: { data: string }) => {
+      return titleCell({ title: data })
+    },
     /** Title that will appear on Header */
     title: (
-      <p className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
+      <span className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
         {TITLE_LANGUAGES[lang].title}
-      </p>
-    ),
-    cellRenderer: ({ data }: { data: string }) => (
-      <span
-        className={
-          'pv1 ph2 br2 bg-muted-5 ba mv7 b--muted-3 t-code c-emphasis'
-        }>
-        {data}
       </span>
     ),
     /** Fixed width */
-    width: '3rem',
+    maxWidth: 20,
   },
   {
     id: 'type',
+    cellRenderer: ({ data }: { data: string }) => {
+      return codeCell({ code: data })
+    },
     title: (
       <p className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
         {TITLE_LANGUAGES[lang].type}
       </p>
     ),
-    cellRenderer: ({ data }: { data: string }) => (
-      <span
-        className={
-          'pv1 ph2 br2 bg-muted-5 ba mv7 b--muted-3 t-code c-emphasis'
-        }>
-        {data}
-      </span>
-    ),
   },
 ]
 
-function mapArrayToNames(arrayProp: {
-  [key: string]: { [key: string]: string }
-}) {
+function mapArrayToNames(arrayProp: Record<string, ObjSchemaInterface>) {
   return toPairs(arrayProp).map(([key, { type }]: any) => ({
     title: key,
     type: type,
   }))
 }
-let mapCustomTypes = (arrayProp: {
-  [key: string]: { [key: string]: string }
-}) => {
+let mapCustomTypes = (arrayProp: Record<string, ObjSchemaInterface>) => {
   for (let key in arrayProp) {
     let customProp = arrayProp[key]
     // if (customProp.enum) {
@@ -94,16 +81,17 @@ let mapCustomTypes = (arrayProp: {
       arrayProp[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(
         1
       )}`
-      customTypes.push(
-        <ArrayTable arrayProp={customProp.items} propTitle={key} />
-      )
+      if (customProp.items) {
+        customTypes.push(
+          <ArrayTable arrayProp={customProp.items} propTitle={key} />
+        )
+      }
     }
   }
   return arrayProp
 }
 
 const ArrayTable: FC<ArrayTableProps> = ({ arrayProp, propTitle }) => {
-  console.log(arrayProp)
   const data = mapArrayToNames(mapCustomTypes(arrayProp))
   const measures = useMeasures({ size: data.length + 1 || 3 })
   const { sizedColumns } = useProportion({ columns, ratio: [0.5, 0.5] })
@@ -132,7 +120,7 @@ const ArrayTable: FC<ArrayTableProps> = ({ arrayProp, propTitle }) => {
 }
 
 interface ArrayTableProps {
-  arrayProp: { [key: string]: { [key: string]: string } }
+  arrayProp: Record<string, ObjSchemaInterface>
   propTitle: string
 }
 

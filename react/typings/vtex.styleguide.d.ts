@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 declare module 'vtex.styleguide' {
   export const Alert
   export const Button
@@ -16,4 +17,7 @@ declare module 'vtex.styleguide' {
   export const Link
   export const InputSearch
   export const IconSearch
+  export const EXPERIMENTAL_Table
+  export const EXPERIMENTAL_useTableMeasures
+  export const EXPERIMENTAL_useTableProportion
 }
