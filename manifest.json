@@ -22,6 +22,19 @@
   "registries": [
     "smartcheckout"
   ],
-  "settingsSchema": {},
+  "settingsSchema": {
+    "title": "DOCS-UI",
+    "type": "object",
+    "properties": {
+      "customHeader": {
+        "title": "Custom Header",
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    }
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
