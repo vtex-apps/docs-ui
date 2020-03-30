@@ -55,9 +55,9 @@ const columns = [
 function mapEnumToNames(
   keys: string[],
   names: string[],
-  messages: Record<string, string>
+  messages: Record<string, Record<string, string>>
 ) {
-  return keys.map((key, index) => ({
+  return keys.map((key: string, index: number) => ({
     title: key,
     description: messages[lang][names[index]],
   }))
@@ -95,7 +95,7 @@ const EnumTable: FC<EnumTableProps> = ({ enumProps, messages, propTitle }) => {
 
 interface EnumTableProps {
   enumProps: ObjSchemaInterface
-  messages: Record<string, string>
+  messages: Record<string, Record<string, string>>
   propTitle: string
 }
 

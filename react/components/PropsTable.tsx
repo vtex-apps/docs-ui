@@ -92,7 +92,7 @@ const columns = [
 let mapPropsToColumns = (
   propsObj: Record<string, ObjSchemaInterface>,
   lang: string,
-  messages: Record<string, string>
+  messages: Record<string, Record<string, string>>
 ) => {
   return toPairs(propsObj).map(
     ([key, { description, type, default: defaultValue }]: any) => ({
@@ -106,7 +106,7 @@ let mapPropsToColumns = (
 
 let mapCustomTypes = (
   propsObj: Record<string, ObjSchemaInterface>,
-  messages: Record<string, string>
+  messages: Record<string, Record<string, string>>
 ) => {
   for (let key in propsObj) {
     let customProp = propsObj[key]
@@ -158,7 +158,7 @@ const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
 
 interface PropTableProps {
   fetchedProps: Record<string, ObjSchemaInterface>
-  fetchedMessages: Record<string, string>
+  fetchedMessages: Record<string, Record<string, string>>
 }
 
 export default PropsTable
