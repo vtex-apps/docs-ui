@@ -7,6 +7,7 @@ import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 import { IO_DOCUMENTATION } from './utils/constants'
+import { maybeAddMdExtension } from './utils'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const IntroductionArticle: FC = () => {
@@ -20,7 +21,7 @@ const IntroductionArticle: FC = () => {
         query={MarkdownFile}
         variables={{
           appName: IO_DOCUMENTATION,
-          fileName: `Introduction/${params.article}.md`,
+          fileName: `Introduction/${maybeAddMdExtension(params.article)}`,
           locale: 'en',
         }}>
         {({
