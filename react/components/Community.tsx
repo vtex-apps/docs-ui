@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
+import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
 import { slug } from '../utils'
 import CommunityIcon from './icons/CommunityIcon'
 
-const Community: FC<InjectedIntlProps> = ({ intl }) => (
+const Community: FC<WrappedComponentProps> = ({ intl }) => (
   <section className="mv9">
     <h2
       id={slug(intl.formatMessage({ id: 'docs/community-help' }))}

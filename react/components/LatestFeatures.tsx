@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react'
 import { Query } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl'
+import { FormattedMessage, WrappedComponentProps, injectIntl } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
 import { slug } from '../utils'
@@ -10,7 +10,7 @@ import Skeleton from './Skeleton'
 
 import LatestFeaturesQuery from '../graphql/storeFrameworkLatestFeatures.graphql'
 
-const LatestFeatures: FC<InjectedIntlProps> = ({ intl }) => {
+const LatestFeatures: FC<WrappedComponentProps> = ({ intl }) => {
   return (
     <section className="mv9">
       <h2

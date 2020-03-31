@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useRuntime } from 'vtex.render-runtime'
 import { useApolloClient } from 'react-apollo'
 import appAssetsQuery from '../graphql/appAssets.graphql'
+const RENDER_MAJOR = 8
+
 function getIndex(component: string, componentList: string[]) {
   for (let key of componentList) {
     if (key.includes(component)) {
@@ -10,29 +12,24 @@ function getIndex(component: string, componentList: string[]) {
   }
   return ''
 }
-interface DataInterface {
-  schema: Record<string, ObjSchemaInterface>
-  messages: Record<string, Record<string, string>>
-}
-const useEffectComponent = (queryVariables: {
-  appId: string
-  renderMajor: number
-}) => {
+
+const useComponentSchema = (appId: string, componentName: string) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [data, setData] = useState<DataInterface | null>(null)
+  const [data, setData] = useState<ComponentDataInterface | null>(null)
   const { fetchComponents } = useRuntime()
   const client = useApolloClient()
-  const componentName = 'Countdown'
 
   useEffect(() => {
     client
       .query({
         query: appAssetsQuery,
-        variables: queryVariables,
+        variables: { appId, renderMajor: RENDER_MAJOR },
       })
       .then(({ data }) => {
-        const { appAssets: { componentsJSON, messagesJSON } } = data
+        const {
+          appAssets: { componentsJSON, messagesJSON },
+        } = data
         const assetsList = JSON.parse(componentsJSON)
         const messagesFetched = JSON.parse(messagesJSON)
 
@@ -71,4 +68,4 @@ const useEffectComponent = (queryVariables: {
   }
 }
 
-export default useEffectComponent
+export default useComponentSchema

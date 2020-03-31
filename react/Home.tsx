@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl'
+import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 
@@ -11,7 +11,7 @@ import Components from './components/icons/Components'
 import RightArrow from './components/icons/RightArrow'
 import ProductImage from './images/product.png'
 
-const Home: FC<InjectedIntlProps> = ({ intl }) => {
+const Home: FC<WrappedComponentProps> = ({ intl }) => {
   const { isMobile } = useDevice()
 
   return (

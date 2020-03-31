@@ -3,7 +3,7 @@ import {
   FormattedMessage,
   injectIntl,
   defineMessages,
-  InjectedIntlProps,
+  WrappedComponentProps,
 } from 'react-intl'
 
 import { EmptyState } from 'vtex.styleguide'
@@ -15,7 +15,7 @@ defineMessages({
   },
 })
 
-const EmptyDocs: FC<InjectedIntlProps> = ({ intl }) => (
+const EmptyDocs: FC<WrappedComponentProps> = ({ intl }) => (
   <div className="pa7 w-100 flex justify-center">
     <EmptyState title={intl.formatMessage({ id: 'docs/empty.title' })}>
       <p>
