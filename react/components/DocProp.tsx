@@ -38,11 +38,7 @@ const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
   console.log('HEHE:', data.schema)
 
   return (
-    <div>
-      <h1>OI TESTE LOOP</h1>
-    </div>
-
-    // <PropsTable fetchedProps={data.schema} fetchedMessages={data.messages} />
+    <PropsTable fetchedProps={data.schema} fetchedMessages={data.messages} />
   )
 }
 

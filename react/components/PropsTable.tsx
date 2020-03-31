@@ -138,7 +138,9 @@ let mapCustomTypes = (
 
 const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
   const mappedProps = mapCustomTypes(fetchedProps, fetchedMessages)
-  let data = mapPropsToColumns(mappedProps, lang, fetchedMessages)
+  let data = mapPropsToColumns(mappedProps, lang, fetchedMessages).map(
+    data => ({ ...data, id: data.title })
+  )
   const measures = useMeasures({ size: data.length + 1 || 3 })
   const { sizedColumns } = useProportion({ columns, ratio: [1, 0.5, 0.5, 1] })
   return (

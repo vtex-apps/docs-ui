@@ -24,44 +24,46 @@ const useEffectComponent = (queryVariables: {
   const { fetchComponents } = useRuntime()
   const client = useApolloClient()
   const componentName = 'Countdown'
+
   useEffect(() => {
     client
       .query({
         query: appAssetsQuery,
         variables: queryVariables,
       })
-      .then(async ({ data }) => {
-        const assetsList = JSON.parse(data.appAssets.componentsJSON)
-        const messagesFetched = JSON.parse(data.appAssets.messagesJSON)
+      .then(({ data }) => {
+        const { appAssets: { componentsJSON, messagesJSON } } = data
+        const assetsList = JSON.parse(componentsJSON)
+        const messagesFetched = JSON.parse(messagesJSON)
+
         const componentAssets = assetsList.length > 0 && assetsList[0]
         if (!componentAssets) {
-          console.log('componentAssets')
-          setLoading(false)
-          setError('Couldnt load component asset')
-          return
+          throw new Error(`Couldnt load component's asset`)
         }
-        await fetchComponents(assetsList[0])
+        return fetchComponents(assetsList[0]).then(() => ({
+          componentAssets,
+          messagesFetched,
+        }))
+      })
+      .then(({ componentAssets, messagesFetched }) => {
         const componentData =
           window.__RENDER_8_COMPONENTS__[
             getIndex(componentName, Object.keys(componentAssets))
           ]
         if (componentData.schema) {
-          console.log('IOIOO')
-          console.log(componentData.schema.properties)
-          setLoading(false)
           setData({
             schema: componentData.schema.properties,
             messages: messagesFetched,
           })
-          console.log('data:', data)
         }
       })
       .catch((error: { msg: any }) => {
-        console.log('error')
-        setLoading(false)
         setError(error.msg)
       })
-  }, [queryVariables])
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [])
   return {
     loading,
     error,
