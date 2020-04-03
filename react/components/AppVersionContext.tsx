@@ -118,8 +118,22 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
     },
   })
 
+  // Just a bit hacky: It always check if the url has a trailing slash, setting it if not.
+  // It's useful for README's that link to other files
   useEffect(() => {
-    if (!app || appVersionFromUrl || !data?.appVersions) {
+    if (!appVersionFromUrl || route.path.endsWith('/')){
+      return
+    }
+    navigate({
+      to: route.path + '/',
+      replace: true,
+      preventRemount: true
+    })
+  }, [route.path])
+
+  // Always set the app's version on the URL (except io-documentation)
+  useEffect(() => {
+    if (!app || appVersionFromUrl || !data?.appVersions?.latestStable) {
       return
     }
     const { params: currentParams } = route
