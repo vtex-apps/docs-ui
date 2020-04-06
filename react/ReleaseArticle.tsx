@@ -6,6 +6,7 @@ import { useRuntime } from 'vtex.render-runtime'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
+import { maybeAddMdExtension } from './utils'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const ReleaseArticle: FC = () => {
@@ -19,7 +20,7 @@ const ReleaseArticle: FC = () => {
         query={MarkdownFile}
         variables={{
           appName: 'vtex.io-release-notes@0.x',
-          fileName: `${params.week}/${params.article}.md`,
+          fileName: `${params.week}/${maybeAddMdExtension(params.article)}`,
         }}>
         {({
           loading,

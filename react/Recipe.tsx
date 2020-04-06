@@ -7,6 +7,7 @@ import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 import { IO_DOCUMENTATION } from './utils/constants'
+import { maybeAddMdExtension } from './utils'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const Recipe: FC = () => {
@@ -20,7 +21,9 @@ const Recipe: FC = () => {
         query={MarkdownFile}
         variables={{
           appName: IO_DOCUMENTATION,
-          fileName: `Recipes/${params.category}/${params.recipe}.md`,
+          fileName: `Recipes/${params.category}/${maybeAddMdExtension(
+            params.recipe
+          )}`,
           locale: 'en',
         }}>
         {({

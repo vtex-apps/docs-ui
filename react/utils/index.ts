@@ -1,5 +1,7 @@
 import slugify from 'slugify'
 
+const MARKDOWN_EXTENSION = '.md'
+
 function slug(str: string) {
   const replaced =
     (typeof str === 'string' && str.replace(/[*+~.()'"!:@&[\]]/g, '')) || ''
@@ -19,7 +21,6 @@ function formatLink(path: string) {
 }
 
 function removeFileExtension(fileName: string) {
-  const MARKDOWN_EXTENSION = '.md'
   const hasExtension = fileName.endsWith(MARKDOWN_EXTENSION)
 
   return !hasExtension
@@ -27,4 +28,10 @@ function removeFileExtension(fileName: string) {
     : fileName.substring(0, fileName.length - MARKDOWN_EXTENSION.length)
 }
 
-export { slug, formatLink, removeFileExtension }
+function maybeAddMdExtension(fileName: string) {
+  return fileName.endsWith(MARKDOWN_EXTENSION)
+    ? fileName
+    : `${fileName}${MARKDOWN_EXTENSION}`
+}
+
+export { slug, formatLink, removeFileExtension, maybeAddMdExtension }

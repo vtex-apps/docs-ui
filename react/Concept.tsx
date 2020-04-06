@@ -7,6 +7,7 @@ import { IO_DOCUMENTATION } from './utils/constants'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
+import { maybeAddMdExtension } from './utils'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const Concept: FC = () => {
@@ -20,7 +21,7 @@ const Concept: FC = () => {
         query={MarkdownFile}
         variables={{
           appName: IO_DOCUMENTATION,
-          fileName: `Concepts/${params.concept}.md`,
+          fileName: `Concepts/${maybeAddMdExtension(params.concept)}`,
           locale: 'en',
         }}>
         {({

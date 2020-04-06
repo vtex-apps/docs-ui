@@ -37,13 +37,6 @@ const Footer: FC = () => {
                 <FormattedMessage id="docs/our-components" />
               </Link>
             </div>
-            <div className={listItemClasses}>
-              <Link
-                to="resources"
-                className="link no-underline c-on-base--inverted dim">
-                <FormattedMessage id="docs/resources" />
-              </Link>
-            </div>
           </div>
           <div className="list">
             <div className={listItemClasses}>

@@ -5,16 +5,9 @@ import { useRuntime } from 'vtex.render-runtime'
 
 import ComponentGridItem from './components/ComponentGridItem'
 import EmptyDocs from './components/EmptyDocs'
-import { slug } from './utils'
+import { slug, removeFileExtension } from './utils'
 import { IO_DOCUMENTATION } from './utils/constants'
 import ComponentList from './graphql/componentsList.graphql'
-
-function removeFileExtension(fileName: string) {
-  const MARKDOWN_EXTENSION = '.md'
-  return fileName.endsWith(MARKDOWN_EXTENSION)
-    ? fileName.substring(0, fileName.length - MARKDOWN_EXTENSION.length)
-    : fileName
-}
 
 const ComponentsGrid: FC = () => {
   const {
