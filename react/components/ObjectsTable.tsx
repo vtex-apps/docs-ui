@@ -5,27 +5,11 @@ import {
   EXPERIMENTAL_useTableProportion as useProportion,
 } from 'vtex.styleguide'
 import { toPairs } from 'ramda'
-// import EnumTable from './EnumTable'
-import ArrayTable from './ArrayTable'
 import { titleCell, codeCell } from './TableCellComponents'
+import { FormattedMessage } from 'react-intl'
+import { mapCustomTypes } from '../hooks/mapCustomTypes'
 
-const lang = 'en'
 const customTypes: JSX.Element[] = []
-
-const TITLE_LANGUAGES: { [key: string]: { [key: string]: string } } = {
-  en: {
-    title: 'Name',
-    type: 'Type',
-  },
-  es: {
-    title: 'Nombre',
-    type: 'Tipo',
-  },
-  pt: {
-    title: 'Nome',
-    type: 'Tipo',
-  },
-}
 
 const columns = [
   {
@@ -37,7 +21,7 @@ const columns = [
     /** Title that will appear on Header */
     title: (
       <span className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
-        {TITLE_LANGUAGES[lang].title}
+        <FormattedMessage id="DocProp.table.title"></FormattedMessage>
       </span>
     ),
     /** Fixed width */
@@ -50,7 +34,7 @@ const columns = [
     },
     title: (
       <p className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
-        {TITLE_LANGUAGES[lang].type}
+        <FormattedMessage id="DocProp.table.type"></FormattedMessage>
       </p>
     ),
   },
@@ -63,43 +47,20 @@ function mapObjectsToNames(objectProp: Record<string, ObjSchemaInterface>) {
   }))
 }
 
-let mapCustomTypes = (objectProp: Record<string, ObjSchemaInterface>) => {
-  for (let key in objectProp) {
-    let customProp = objectProp[key]
-    // if (customProp.enum) {
-    //   objectProp[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(1)}Enum`
-    //   customTypes.push(<EnumTable enumProps = {customProp} messages = {messages} propTitle = {key}/>)
-    // }
-    if (customProp.type === 'object') {
-      objectProp[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(
-        1
-      )}`
-      customTypes.push(
-        <ObjectsTable objectProp={customProp.properties} propTitle={key} />
-      )
-    }
-    if (customProp.type === 'array') {
-      objectProp[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(
-        1
-      )}`
-      if (customProp.items) {
-        customTypes.push(
-          <ArrayTable arrayProp={customProp.items} propTitle={key} />
-        )
-      }
-    }
-  }
-  return objectProp
-}
-
-const ObjectsTable: FC<ObjectTableProps> = ({ objectProp, propTitle }) => {
-  const data = mapObjectsToNames(mapCustomTypes(objectProp))
+const ObjectsTable: FC<ObjectTableProps> = ({
+  objectProp,
+  propTitle,
+  messages,
+}) => {
+  const data = mapObjectsToNames(
+    mapCustomTypes(objectProp, messages).mappedProps
+  )
   const measures = useMeasures({ size: data.length + 1 || 3 })
   const { sizedColumns } = useProportion({ columns, ratio: [0.5, 0.5] })
   return (
     <div className={'overflow-x-auto'}>
       <div className={'t-body c-on-base mt0 lh-copy mb6 pt7 pb0'}>
-        Here are the properties of the object{' '}
+        <FormattedMessage id="DocProp.objectTable.title"></FormattedMessage>
         <span
           className={
             'pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis'
@@ -122,6 +83,7 @@ const ObjectsTable: FC<ObjectTableProps> = ({ objectProp, propTitle }) => {
 
 interface ObjectTableProps {
   objectProp: Record<string, ObjSchemaInterface>
+  messages: Record<string, Record<string, string>>
   propTitle: string
 }
 

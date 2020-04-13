@@ -1,0 +1,9 @@
+{
+  "DocProp.table.title": "Name",
+  "DocProp.table.type": "Type",
+  "DocProp.table.description": "Description",
+  "DocProp.table.defaultValue": "Default Value",
+  "DocProp.arrayTable.title": "Here are the items/properties of the array ",
+  "DocProp.objectTable.title": "Here are the properties of the object ",
+  "DocProp.enumTable.title": "Here are the values of the enum "
+}

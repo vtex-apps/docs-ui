@@ -15,3 +15,8 @@ interface ComponentDataInterface {
   schema: Record<string, ObjSchemaInterface>
   messages: Record<string, Record<string, string>>
 }
+
+interface CustomComponent {
+  component?: JSX.Element
+  typeName?: string
+}

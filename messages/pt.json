@@ -59,5 +59,12 @@
   "docs/join-discussion": "Join the discussion!",
   "docs/did-not-find-your-answer": "Didn't find your answer?",
   "docs/lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ligula sagittis, dignissim nisi non, interdum elit. Vivamus eget dolor egestas, hendrerit urna a, finibus enim. Phasellus mollis mollis dui ut mattis. In ut purus sem. Quisque volutpat ornare consequat.",
-  "docs/lorem-short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+  "docs/lorem-short": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+  "DocProp.table.title": "Nome",
+  "DocProp.table.type": "Tipo",
+  "DocProp.table.description": "Descrição",
+  "DocProp.table.defaultValue": "Valor Default",
+  "DocProp.arrayTable.title": "Estes são os itens da lista ",
+  "DocProp.objectTable.title": "Estas são as propriedades do objeto ",
+  "DocProp.enumTable.title": "Estes são os valores do enum "
 }

@@ -6,34 +6,11 @@ import {
   EXPERIMENTAL_useTableProportion as useProportion,
 } from 'vtex.styleguide'
 import { toPairs } from 'ramda'
-import EnumTable from './EnumTable'
-import ObjectsTable from './ObjectsTable'
-import ArrayTable from './ArrayTable'
 import { titleCell, descriptionCell, codeCell } from './TableCellComponents'
+import { FormattedMessage } from 'react-intl'
+import { mapCustomTypes } from '../hooks/mapCustomTypes'
 
 const lang = 'en'
-const customTypes: JSX.Element[] = []
-
-const TITLE_LANGUAGES: { [key: string]: { [key: string]: string } } = {
-  en: {
-    title: 'Name',
-    description: 'Description',
-    type: 'Type',
-    default: 'Default Value',
-  },
-  es: {
-    title: 'Nombre',
-    description: 'Descripción',
-    type: 'Tipo',
-    default: 'Valor Default',
-  },
-  pt: {
-    title: 'Nome',
-    description: 'Descrição',
-    type: 'Tipo',
-    default: 'Valor Default',
-  },
-}
 
 /** Columns definition, must be an array */
 const columns = [
@@ -46,7 +23,7 @@ const columns = [
     /** Title that will appear on Header */
     title: (
       <span className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
-        {TITLE_LANGUAGES[lang].title}
+        <FormattedMessage id="DocProp.table.title"></FormattedMessage>
       </span>
     ),
     /** Fixed width */
@@ -59,7 +36,7 @@ const columns = [
     },
     title: (
       <p className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
-        {TITLE_LANGUAGES[lang].description}
+        <FormattedMessage id="DocProp.table.description"></FormattedMessage>
       </p>
     ),
     /** Fixed width */
@@ -72,7 +49,7 @@ const columns = [
     },
     title: (
       <p className={'t-body fw5 c-muted-1 bw1 pa2 pb3 b--muted-3 tl'}>
-        {TITLE_LANGUAGES[lang].type}
+        <FormattedMessage id="DocProp.table.type"></FormattedMessage>
       </p>
     ),
   },
@@ -83,7 +60,7 @@ const columns = [
     },
     title: (
       <p className={'t-body fw5 c-muted-1 tl'}>
-        {TITLE_LANGUAGES[lang].default}
+        <FormattedMessage id="DocProp.table.defaultValue"></FormattedMessage>
       </p>
     ),
   },
@@ -104,43 +81,13 @@ let mapPropsToColumns = (
   )
 }
 
-let mapCustomTypes = (
-  propsObj: Record<string, ObjSchemaInterface>,
-  messages: Record<string, Record<string, string>>
-) => {
-  for (let key in propsObj) {
-    let customProp = propsObj[key]
-    if (customProp.enum) {
-      propsObj[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(
-        1
-      )}Enum`
-      customTypes.push(
-        <EnumTable enumProps={customProp} messages={messages} propTitle={key} />
-      )
-    }
-    if (customProp.type === 'object') {
-      propsObj[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(1)}`
-      customTypes.push(
-        <ObjectsTable objectProp={customProp.properties} propTitle={key} />
-      )
-    }
-    if (customProp.type === 'array') {
-      propsObj[key].type = `${key.charAt(0).toLocaleUpperCase()}${key.slice(1)}`
-      if (customProp.items) {
-        customTypes.push(
-          <ArrayTable arrayProp={customProp.items} propTitle={key} />
-        )
-      }
-    }
-  }
-  return propsObj
-}
-
 const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
-  const mappedProps = mapCustomTypes(fetchedProps, fetchedMessages)
-  let data = mapPropsToColumns(mappedProps, lang, fetchedMessages).map(
-    data => ({ ...data, id: data.title })
-  )
+  const customTypes = mapCustomTypes(fetchedProps, fetchedMessages)
+  let data = mapPropsToColumns(
+    customTypes.mappedProps,
+    lang,
+    fetchedMessages
+  ).map(data => ({ ...data, id: data.title }))
   const measures = useMeasures({ size: data.length + 1 || 3 })
   const { sizedColumns } = useProportion({ columns, ratio: [1, 0.5, 0.5, 1] })
   return (
@@ -153,7 +100,7 @@ const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
           highlightOnHover
         />
       </div>
-      {customTypes}
+      {customTypes.mappedTypes}
     </div>
   )
 }

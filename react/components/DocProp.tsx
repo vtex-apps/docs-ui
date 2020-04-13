@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 
 import PropsTable from './PropsTable'
 
-import useComponentSchema from './useComponentSchema'
+import useComponentSchema from '../hooks/useComponentSchema'
+import { Spinner, Alert } from 'vtex.styleguide'
 
 const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
   const appId = window.__RUNTIME__.route.params.app + '@0.x'
@@ -10,18 +11,22 @@ const DocProp: FC<DocPropProps> = ({ blockInterface }) => {
   const { loading, error, data } = useComponentSchema(appId, blockInterface)
 
   if (loading) {
-    return <p>Loading...</p>
+    return (
+      <span className="dib c-muted-1">
+        <Spinner color="currentColor" size={20} />
+      </span>
+    )
   }
   if (error) {
-    return <p>Error...</p>
+    return (
+      <div className="mb5">
+        <Alert type="error">Something went wrong...</Alert>
+      </div>
+    )
   }
-  if (!data) {
-    console.log('No data:', data)
-    return null
-  }
-  return (
+  return data ? (
     <PropsTable fetchedProps={data.schema} fetchedMessages={data.messages} />
-  )
+  ) : null
 }
 
 interface DocPropProps {
