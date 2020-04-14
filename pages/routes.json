@@ -26,6 +26,9 @@
   "docs.release-article": {
     "path": "/docs/releases/:week/:article"
   },
+  "no-wrapper.doc-prop": {
+    "path": "/docs/props/app/:app/:interfaceId"
+  },
   "docs.getting-started": {
     "path": "/docs/getting-started/:track/:article"
   },

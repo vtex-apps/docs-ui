@@ -59,21 +59,25 @@ const EnumTable: FC<EnumTableProps> = ({ enumProps, messages, propTitle }) => {
   const { sizedColumns } = useProportion({ columns, ratio: [0.5, 0.5] })
   return (
     <div className={'overflow-x-auto'}>
-      <div className={'t-body c-on-base mt0 lh-copy mb6 pt7 pb0'}>
-        <FormattedMessage id="DocProp.enumTable.title"></FormattedMessage>
-        <span
-          className={
-            'pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis'
-          }>
-          {propTitle.charAt(0).toUpperCase() + propTitle.slice(1)}
-        </span>
+      <div className={'t-body c-on-base mt1 lh-copy mb1 pb1'}>
+        <div className={'mb4'}>
+          <FormattedMessage id="DocProp.enumTable.title"></FormattedMessage>
+          <span
+            className={
+              'pv1 ph2 mw6 br2 bg-muted-5 ba b--muted-3 t-code c-emphasis'
+            }>
+            {propTitle.charAt(0).toUpperCase() + propTitle.slice(1)}
+          </span>
+        </div>
+        <div className={'mb7'}>
+          <Table
+            measures={measures}
+            items={data}
+            columns={sizedColumns}
+            highlightOnHover
+          />
+        </div>
       </div>
-      <Table
-        measures={measures}
-        items={data}
-        columns={sizedColumns}
-        highlightOnHover
-      />
     </div>
   )
 }

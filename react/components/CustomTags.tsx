@@ -8,7 +8,7 @@ import { Link } from 'vtex.styleguide'
 import ArticleNav from './ArticleNav'
 import { slug } from '../utils'
 import CodeBlock from './CodeBlock'
-import DocProp from './DocProp'
+import DocProp from '../DocProp'
 
 export const CustomRenderers = {
   root: ({ children }: any) => {

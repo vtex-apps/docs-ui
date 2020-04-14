@@ -53,5 +53,11 @@
   "docs.getting-started": {
     "component": "GettingStartedArticle",
     "around": ["docs-main-content-wrapper"]
+  },
+  "no-wrapper": {
+    "around": []
+  },
+  "no-wrapper.doc-prop": {
+    "component": "DocProp"
   }
 }

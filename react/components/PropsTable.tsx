@@ -91,8 +91,8 @@ const PropsTable: FC<PropTableProps> = ({ fetchedProps, fetchedMessages }) => {
   const measures = useMeasures({ size: data.length + 1 || 3 })
   const { sizedColumns } = useProportion({ columns, ratio: [1, 0.5, 0.5, 1] })
   return (
-    <div>
-      <div className={'overflow-x-auto'}>
+    <div className={'pa4'}>
+      <div className={'overflow-x-auto mb7'}>
         <Table
           measures={measures}
           items={data}
