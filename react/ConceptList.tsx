@@ -51,10 +51,10 @@ const ConceptList: FC = () => {
   return (
     <div>
       <h1 className="t-heading-1 mb6">
-        <FormattedMessage id="docs/concepts" />
+        <FormattedMessage id="docs-ui/concepts" />
       </h1>
       <p className="t-body c-on-base w-70-ns">
-        <FormattedMessage id="docs/concepts-description" />
+        <FormattedMessage id="docs-ui/concepts-description" />
       </p>
       <div>
         {data?.conceptList.map((concept: Concept) => (
@@ -66,7 +66,7 @@ const ConceptList: FC = () => {
               to={`/docs/concepts/${getShortResourcePath(concept.path)}`}
               className="flex items-center mb5 c-emphasis link no-underline dim">
               <span className="mr4">
-                <FormattedMessage id="docs/read-more" />
+                <FormattedMessage id="docs-ui/read-more" />
               </span>
               <RightArrow />
             </Link>

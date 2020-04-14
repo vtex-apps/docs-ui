@@ -24,14 +24,14 @@ const SideBar: FC = () => {
           className="bg-base sticky pa6 z3 bottom-0 w-100 bt b--muted-3"
           style={{ maxWidth: '280px', minWidth: '215px' }}>
           <div className="t-small mb2">
-            <FormattedMessage id="docs/did-not-find-your-answer" />
+            <FormattedMessage id="docs-ui/did-not-find-your-answer" />
           </div>
           <Link
             to="https://github.com/vtex-apps/store-discussion"
             target="_blank"
             rel="noopener noreferrer"
             className="t-body c-emphasis no-underline dim">
-            <FormattedMessage id="docs/join-discussion" />
+            <FormattedMessage id="docs-ui/join-discussion" />
           </Link>
         </div>
       </div>

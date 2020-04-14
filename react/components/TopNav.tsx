@@ -35,10 +35,10 @@ const TopNav = () => {
           <a
             href="https://help.vtex.com/developer-docs"
             className={navLinkClass}>
-            <FormattedMessage id="docs/nav.api" />
+            <FormattedMessage id="docs-ui/nav.api" />
           </a>
           <a href="https://www.vtex.com/partner/" className={navLinkClass}>
-            <FormattedMessage id="docs/nav.partner" />
+            <FormattedMessage id="docs-ui/nav.partner" />
           </a>
           <SearchBar />
         </div>

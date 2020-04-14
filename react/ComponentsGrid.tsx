@@ -54,11 +54,11 @@ const ComponentsGrid: FC = () => {
   return (
     <div className="w-100 center">
       <h1 className="t-heading-1 center mb6">
-        <FormattedMessage id={`docs/components.${params.category}`} />
+        <FormattedMessage id={`docs-ui/components.${params.category}`} />
       </h1>
       <p className="t-body c-on-base center mb8 lh-copy">
         <FormattedMessage
-          id={`docs/components.${params.category}-description`}
+          id={`docs-ui/components.${params.category}-description`}
         />
       </p>
       <div className="flex flex-wrap">

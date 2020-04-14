@@ -41,11 +41,11 @@ const ReleaseNotes: FC = () => {
   return (
     <section className="w-100 flex flex-column">
       <h1 className="t-heading-3">
-        <FormattedMessage id="docs/release-notes" />
+        <FormattedMessage id="docs-ui/release-notes" />
       </h1>
 
       <p className="c-on-base lh-copy">
-        <FormattedMessage id="docs/release-notes-description" />
+        <FormattedMessage id="docs-ui/release-notes-description" />
       </p>
 
       <ul className="w-50-ns pl6 mt0">
@@ -98,7 +98,7 @@ const ReleaseNotes: FC = () => {
                 },
               })
             }}>
-            <FormattedMessage id="docs/see-previous-releases" />
+            <FormattedMessage id="docs-ui/see-previous-releases" />
           </ButtonPlain>
         </div>
       )}

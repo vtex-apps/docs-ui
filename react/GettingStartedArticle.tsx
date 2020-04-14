@@ -67,7 +67,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
                       <div className="dn db-l mr5">
                         <LeftArrow />
                       </div>
-                      <FormattedMessage id="docs/getting-started.previous" />
+                      <FormattedMessage id="docs-ui/getting-started.previous" />
                     </div>
                   </Link>
                 )}
@@ -76,7 +76,7 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
                     className="link c-emphasis no-underline t-body ml-auto flex items-center dim"
                     to={`${currentArticle + 1}`}>
                     <div className="flex flex-column flex-row-l">
-                      <FormattedMessage id="docs/getting-started.next" />
+                      <FormattedMessage id="docs-ui/getting-started.next" />
                       <div className="dn db-l ml5">
                         <RightArrow />
                       </div>

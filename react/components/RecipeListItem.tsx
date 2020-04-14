@@ -19,7 +19,7 @@ const RecipeListItem: FC<Props> = ({ title, description, link }) => (
       to={link}
       className="flex items-center mb5 c-emphasis link no-underline dim">
       <span className="mr4">
-        <FormattedMessage id="docs/read-more" />
+        <FormattedMessage id="docs-ui/read-more" />
       </span>
       <RightArrow />
     </Link>

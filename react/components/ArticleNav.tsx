@@ -10,7 +10,7 @@ interface Props {
 const ArticleNav: FC<Props> = ({ headings }) => (
   <nav className="flex-l flex-column dn">
     <div className="ttu t-small b pb3">
-      <FormattedMessage id="docs/article-nav" />
+      <FormattedMessage id="docs-ui/article-nav" />
     </div>
     <Fragment>
       {headings.map(heading => {
