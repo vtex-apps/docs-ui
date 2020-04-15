@@ -6,7 +6,7 @@ const EmptySummary: FC = () => (
   <div className="w-100 flex justify-center">
     <EmptyState title="Something went wrong">
       <p>
-        <FormattedMessage id="docs/empty-summary" />
+        <FormattedMessage id="docs-ui/empty-summary" />
       </p>
     </EmptyState>
   </div>

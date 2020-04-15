@@ -2,58 +2,58 @@
   "docs-wrapper": {
     "component": "PageLayoutContainer"
   },
-  "docs": {
+  "docs-ui": {
     "around": ["docs-wrapper"]
   },
-  "docs.home": {
+  "docs-ui.home": {
     "component": "Home"
   },
-  "docs.search": {
+  "docs-ui.search": {
     "component": "Search"
   },
-  "docs.app": {
+  "docs-ui.app": {
     "component": "AppDocs"
   },
-  "docs.construction": {
+  "docs-ui.construction": {
     "component": "UnderConstruction"
   },
-  "docs.recipes-list": {
+  "docs-ui.recipes-list": {
     "component": "RecipesList"
   },
-  "docs.recipe": {
+  "docs-ui.recipe": {
     "component": "Recipe"
   },
-  "docs.components-list": {
+  "docs-ui.components-list": {
     "component": "ComponentsGrid"
   },
-  "docs.apps-list": {
+  "docs-ui.apps-list": {
     "component": "ComponentsGrid"
   },
-  "docs.component": {
+  "docs-ui.component": {
     "component": "AppDocs"
   },
-  "docs.apps": {
+  "docs-ui.apps": {
     "component": "AppDocs"
   },
-  "docs.concept-list": {
+  "docs-ui.concept-list": {
     "component": "ConceptList"
   },
-  "docs.concept": {
+  "docs-ui.concept": {
     "component": "Concept"
   },
-  "docs.release-notes": {
+  "docs-ui.release-notes": {
     "component": "ReleaseNotes"
   },
-  "docs.release-article": {
+  "docs-ui.release-article": {
     "component": "ReleaseArticle"
   },
-  "docs.getting-started": {
+  "docs-ui.getting-started": {
     "component": "GettingStartedArticle"
   },
-  "docs.introduction": {
+  "docs-ui.introduction": {
     "component": "IntroductionArticle"
   },
-  "docs.concepts": {
+  "docs-ui.concepts": {
     "component": "ConceptsList"
   }
 }

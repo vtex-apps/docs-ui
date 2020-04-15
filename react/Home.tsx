@@ -16,15 +16,15 @@ const Home: FC = () => {
   return (
     <main className="w-100 w-70-ns">
       <h1
-        id={slug(intl.formatMessage({ id: 'docs/build' }))}
+        id={slug(intl.formatMessage({ id: 'docs-ui/build' }))}
         className="t-heading-1 w-90 w-100-ns mb6 c-on-base"
         style={{
           maxWidth: '680px',
         }}>
-        <FormattedMessage id="docs/build" />
+        <FormattedMessage id="docs-ui/build" />
       </h1>
       <p className="small c-on-base w-100 mb8 lh-copy">
-        <FormattedMessage id="docs/build-description" />
+        <FormattedMessage id="docs-ui/build-description" />
       </p>
       <div className="w-100 center">
         <Link
@@ -34,11 +34,11 @@ const Home: FC = () => {
           <div className="w-third-l w-100 pa6 bg-emphasis flex flex-column justify-end">
             <span className="t-small c-on-emphasis">
               <div className="ttu fw5 pb5">
-                <FormattedMessage id="docs/getting-started" />
+                <FormattedMessage id="docs-ui/getting-started" />
               </div>
             </span>
             <h4 className="t-heading-2 mv1 w-90-l ttu c-on-emphasis">
-              <FormattedMessage id="docs/create-stores" />
+              <FormattedMessage id="docs-ui/create-stores" />
             </h4>
           </div>
           <div
@@ -55,17 +55,17 @@ const Home: FC = () => {
             </div>
             <div className="ph5">
               <p className="t-heading-3 c-on-base mt0">
-                <FormattedMessage id="docs/recipes" />
+                <FormattedMessage id="docs-ui/recipes" />
               </p>
               <p className="c-on-base lh-copy">
-                <FormattedMessage id="docs/recipes-description" />
+                <FormattedMessage id="docs-ui/recipes-description" />
               </p>
               <div className="flex items-center dim">
                 <Link
                   to="/docs/recipes/all"
                   className="link no-underline c-emphasis">
                   <span className="mr5">
-                    <FormattedMessage id="docs/see-all" />
+                    <FormattedMessage id="docs-ui/see-all" />
                   </span>
                   <RightArrow />
                 </Link>
@@ -78,17 +78,17 @@ const Home: FC = () => {
             </div>
             <div className="ph5">
               <p className="t-heading-3 c-on-base mt0">
-                <FormattedMessage id="docs/our-components" />
+                <FormattedMessage id="docs-ui/our-components" />
               </p>
               <p className="c-on-base lh-copy">
-                <FormattedMessage id="docs/our-components-description" />
+                <FormattedMessage id="docs-ui/our-components-description" />
               </p>
               <div className="c-emphasis flex items-center dim">
                 <Link
                   to="/docs/components/all"
                   className="link no-underline c-emphasis">
                   <span className="mr5">
-                    <FormattedMessage id="docs/see-all" />
+                    <FormattedMessage id="docs-ui/see-all" />
                   </span>
                   <RightArrow />
                 </Link>

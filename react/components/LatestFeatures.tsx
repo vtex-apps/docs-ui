@@ -21,12 +21,12 @@ const LatestFeatures: FC = () => {
   return (
     <section className="mv9">
       <h2
-        id={slug(intl.formatMessage({ id: 'docs/latest-features' }))}
+        id={slug(intl.formatMessage({ id: 'docs-ui/latest-features' }))}
         className="t-heading-2 c-on-base mv4">
-        <FormattedMessage id="docs/latest-features" />
+        <FormattedMessage id="docs-ui/latest-features" />
       </h2>
       <p className="c-on-base lh-copy">
-        <FormattedMessage id="docs/latest-features-description" />
+        <FormattedMessage id="docs-ui/latest-features-description" />
       </p>
       <div className="list ml0 w-100">
         {loading ? (
@@ -56,7 +56,7 @@ const LatestFeatures: FC = () => {
           page="docs.release-notes"
           className="link no-underline c-emphasis mv5 dim">
           <span className="mr5">
-            <FormattedMessage id="docs/see-previous-releases" />
+            <FormattedMessage id="docs-ui/see-previous-releases" />
           </span>
           <RightArrow />
         </Link>

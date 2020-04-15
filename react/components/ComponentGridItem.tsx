@@ -22,7 +22,7 @@ const ComponentGridItem: FC<Props> = ({ title, description, link }) => (
       to={link}
       className="flex items-center no-underline link c-emphasis dim">
       <span className="mr4 mt3 mt5-ns mv5">
-        <FormattedMessage id="docs/read-more" />
+        <FormattedMessage id="docs-ui/read-more" />
       </span>
       <span className="dn db-ns">
         <RightArrow />

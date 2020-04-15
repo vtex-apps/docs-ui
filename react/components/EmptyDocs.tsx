@@ -7,9 +7,9 @@ const EmptyDocs: FC = () => {
 
   return (
     <div className="pa7 w-100 flex justify-center">
-      <EmptyState title={intl.formatMessage({ id: 'docs/empty.title' })}>
+      <EmptyState title={intl.formatMessage({ id: 'docs-ui/empty.title' })}>
         <p>
-          <FormattedMessage id="docs/empty-docs" />
+          <FormattedMessage id="docs-ui/empty-docs" />
         </p>
       </EmptyState>
     </div>

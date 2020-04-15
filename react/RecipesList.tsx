@@ -24,10 +24,10 @@ const RecipesList: FC<OuterProps & InjectedRuntime> = ({
   return (
     <div>
       <h1 className="t-heading-1 mb6">
-        <FormattedMessage id={`docs/recipes.${category}`} />
+        <FormattedMessage id={`docs-ui/recipes.${category}`} />
       </h1>
       <p className="t-body c-on-base w-70-ns">
-        <FormattedMessage id={`docs/recipes.${category}-description`} />
+        <FormattedMessage id={`docs-ui/recipes.${category}-description`} />
       </p>
       <div>
         {RecipeListQuery.recipeList.map((recipe: Recipe) => (

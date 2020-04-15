@@ -11,9 +11,9 @@ const Community: FC = () => {
   return (
     <section className="mv9">
       <h2
-        id={slug(intl.formatMessage({ id: 'docs/community-help' }))}
+        id={slug(intl.formatMessage({ id: 'docs-ui/community-help' }))}
         className="t-heading-2 c-on-base">
-        <FormattedMessage id="docs/community-help" />
+        <FormattedMessage id="docs-ui/community-help" />
       </h2>
       <Link
         target="_blank"
@@ -25,10 +25,10 @@ const Community: FC = () => {
           </div>
           <div className="ml6">
             <h4 className="t-heading-4 c-on-base mt0 mb3 dim">
-              <FormattedMessage id="docs/community-join" />
+              <FormattedMessage id="docs-ui/community-join" />
             </h4>
             <p className="t-body c-on-base lh-copy mv0">
-              <FormattedMessage id="docs/community-description" />
+              <FormattedMessage id="docs-ui/community-description" />
             </p>
           </div>
         </div>
