@@ -14,7 +14,7 @@ const SearchBar: FC = () => {
     e.preventDefault()
     if (inputString !== '') {
       navigate({
-        page: 'docs.search',
+        page: 'docs-ui.search',
         query: `q=${inputString}`,
         fetchPage: true,
       })
