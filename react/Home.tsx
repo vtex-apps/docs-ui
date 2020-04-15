@@ -28,7 +28,7 @@ const Home: FC = () => {
       </p>
       <div className="w-100 center">
         <Link
-          to="/docs/getting-started/build-stores-with-vtex-io/1"
+          to="/docs/getting-started/build-stores-with-store-framework/1"
           className="flex-l mb8 w-100 pointer dim no-underline"
           style={{ height: '480px' }}>
           <div className="w-third-l w-100 pa6 bg-emphasis flex flex-column justify-end">
