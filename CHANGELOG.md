@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- fix a few links that were not moved from `docs` to `docs-ui`
+- Fix a few links that were not moved from `docs` to `docs-ui`
 
 ## [2.0.0] - 2020-04-15
 ### Changed
