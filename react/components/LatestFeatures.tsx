@@ -53,7 +53,7 @@ const LatestFeatures: FC = () => {
       </div>
       <div className="flex items-center mv5">
         <Link
-          page="docs.release-notes"
+          page="docs-ui.release-notes"
           className="link no-underline c-emphasis mv5 dim">
           <span className="mr5">
             <FormattedMessage id="docs-ui/see-previous-releases" />
