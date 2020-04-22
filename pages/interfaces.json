@@ -1,59 +1,71 @@
 {
-  "docs-wrapper": {
+  "navigation-wrapper": {
     "component": "PageLayoutContainer"
   },
   "docs-ui": {
-    "around": ["docs-wrapper"]
   },
   "docs-ui.home": {
+    "around": ["navigation-wrapper"],
     "component": "Home"
   },
   "docs-ui.search": {
+    "around": ["navigation-wrapper"],
     "component": "Search"
   },
   "docs-ui.app": {
+    "around": ["navigation-wrapper"],
     "component": "AppDocs"
   },
   "docs-ui.construction": {
+    "around": ["navigation-wrapper"],
     "component": "UnderConstruction"
   },
   "docs-ui.recipes-list": {
+    "around": ["navigation-wrapper"],
     "component": "RecipesList"
   },
   "docs-ui.recipe": {
+    "around": ["navigation-wrapper"],
     "component": "Recipe"
   },
   "docs-ui.components-list": {
+    "around": ["navigation-wrapper"],
     "component": "ComponentsGrid"
   },
   "docs-ui.apps-list": {
+    "around": ["navigation-wrapper"],
     "component": "ComponentsGrid"
   },
   "docs-ui.component": {
+    "around": ["navigation-wrapper"],
     "component": "AppDocs"
   },
   "docs-ui.apps": {
+    "around": ["navigation-wrapper"],
     "component": "AppDocs"
   },
   "docs-ui.concept-list": {
+    "around": ["navigation-wrapper"],
     "component": "ConceptList"
   },
   "docs-ui.concept": {
+    "around": ["navigation-wrapper"],
     "component": "Concept"
   },
   "docs-ui.release-notes": {
+    "around": ["navigation-wrapper"],
     "component": "ReleaseNotes"
   },
   "docs-ui.release-article": {
+    "around": ["navigation-wrapper"],
     "component": "ReleaseArticle"
   },
   "docs-ui.getting-started": {
+    "around": ["navigation-wrapper"],
     "component": "GettingStartedArticle"
   },
   "docs-ui.introduction": {
+    "around": ["navigation-wrapper"],
     "component": "IntroductionArticle"
-  },
-  "docs-ui.concepts": {
-    "component": "ConceptsList"
   }
 }
