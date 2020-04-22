@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
-- moved the `around` logic to more specific interfaces
-- Removed `docs-ui.concepts` from `interfaces.json`
-- Renamed `docs-wrapper` to `navigation-wrapper`
+- Moved the `around` logic to more specific interfaces.
+- Renamed `docs-wrapper` to `navigation-wrapper`.
+
+### Removed
+- `docs-ui.concepts` from `interfaces.json`.
 
 ## [2.0.2] - 2020-04-15
 ### Fixed
