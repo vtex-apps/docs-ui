@@ -15,7 +15,7 @@ const ComponentsGrid: FC = () => {
     page,
   } = useRuntime()
 
-  const useAppsDirectory = page === 'docs.apps-list'
+  const useAppsDirectory = page === 'docs-ui.apps-list'
 
   const { data, error, loading } = useQuery<{
     componentsList: Record<
