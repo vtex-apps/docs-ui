@@ -1,5 +1,4 @@
 import React, { FC, Fragment } from 'react'
-import { prop } from 'ramda'
 import { useQuery } from 'react-apollo'
 
 import RightArrow from './components/icons/RightArrow'
@@ -12,13 +11,17 @@ interface Props {
   }
 }
 
+interface SearchQueryResult {
+  searchEngine: SearchResult[]
+}
+
 interface SearchResult {
   title: string
   snippet: string
   link: string
 }
 
-const isNotLastResult = (results: [SearchResult], index: number) =>
+const isNotLastResult = (results: SearchResult[], index: number) =>
   index !== results.length - 1
 
 const isFirstResult = (index: number) => index === 0
@@ -26,17 +29,17 @@ const isFirstResult = (index: number) => index === 0
 const Search: FC<Props> = ({ query }) => {
   const queryString = query.q || ''
 
-  const { data, loading } = useQuery(searchEngine, {
+  const { data, loading } = useQuery<SearchQueryResult>(searchEngine, {
     variables: { searchQuery: queryString },
   })
 
-  const results: [SearchResult] = prop('searchEngine', data) || []
+  const results = data?.searchEngine ?? []
 
   return (
     <Fragment>
       {!loading ? (
         queryString && (
-          <div className={`w-100 flex flex-column`}>
+          <div className="w-100 flex flex-column">
             <h1 className="t-heading-3">
               {results.length > 0
                 ? `Results for "${queryString}"`
