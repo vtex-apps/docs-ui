@@ -109,7 +109,7 @@ function useAppVersionDispatch() {
 const EnhancedAppVersionProvider: FC = ({ children }) => {
   const { route, navigate } = useRuntime()
   const app = route?.params?.app || IO_DOCUMENTATION
-  const appName = app.split('@')[0]
+  const [appName] = app.split('@')
   const appVersionFromUrl = app?.split('@')[1]
 
   const { data, loading, error } = useQuery(publishedQuery, {
@@ -121,14 +121,15 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
   // Just a bit hacky: It always check if the url has a trailing slash, setting it if not.
   // It's useful for README's that link to other files
   useEffect(() => {
-    if (!appVersionFromUrl || route.path.endsWith('/')){
+    if (!appVersionFromUrl || route.path.endsWith('/')) {
       return
     }
     navigate({
-      to: route.path + '/',
+      to: `${route.path}/`,
       replace: true,
-      preventRemount: true
+      preventRemount: true,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route.path])
 
   // Always set the app's version on the URL (except io-documentation)
@@ -145,8 +146,9 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
     navigate({
       page: route.id,
       params: { ...currentParams, app: updatedApp },
-      replace: true
+      replace: true,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   if (loading) {

@@ -10,7 +10,7 @@ const SearchBar: FC = () => {
 
   const [inputString, setInputString] = useState(queryString ?? '')
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (inputString !== '') {
       navigate({
@@ -22,8 +22,8 @@ const SearchBar: FC = () => {
   }
 
   return (
-    <div className={`flex items-center`}>
-      <form onSubmit={(e: any) => handleSubmit(e)}>
+    <div className="flex items-center">
+      <form onSubmit={(e: React.FormEvent) => handleSubmit(e)}>
         <InputSearch
           placeholder="Search IO Docs..."
           value={inputString}
@@ -32,7 +32,7 @@ const SearchBar: FC = () => {
           }) => {
             setInputString(e.target.value)
           }}
-          onSubmit={(e: any) => handleSubmit(e)}
+          onSubmit={(e: React.FormEvent) => handleSubmit(e)}
           size="small"
         />
       </form>
