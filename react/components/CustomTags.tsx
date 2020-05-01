@@ -9,21 +9,46 @@ import ArticleNav from './ArticleNav'
 import { slug } from '../utils'
 import CodeBlock from './CodeBlock'
 
+function findContributorsHeadingNode(childNodes: any[]) {
+  return childNodes.findIndex(child => {
+    const childChildrenNodes = child.props.children
+
+    if (!childChildrenNodes || childChildrenNodes.length === 0) {
+      return false
+    }
+
+    const isHeading2Node =
+      child.key.includes('heading') && child.props.level === 2
+
+    return (
+      isHeading2Node && child.props.children[0].props.value === 'Contributors'
+    )
+  })
+}
+
 export const CustomRenderers = {
-  root: ({ children }: any) => {
+  root: ({ children }: { children: any[] }) => {
     /* eslint-disable react-hooks/rules-of-hooks */
     const { isMobile } = useDevice()
+    const allContributorsHeadingNodeIndex = findContributorsHeadingNode(
+      children
+    )
+
+    const childrenWithoutContributors =
+      allContributorsHeadingNodeIndex > -1
+        ? children.slice(0, allContributorsHeadingNodeIndex)
+        : children
 
     if (isMobile) {
       return (
         <div className="flex flex-column center" style={{ maxWidth: '95vw' }}>
-          {children}
+          {childrenWithoutContributors}
         </div>
       )
     }
 
-    const TOCLines: string[] = children.reduce(
-      (acc: any, { key, props }: any) => {
+    const TOCLines = childrenWithoutContributors.reduce(
+      (acc: string[], { key, props }: any) => {
         // Skip non-headings and only use H2s
         if (key.indexOf('heading') !== 0 || props.level !== 2) {
           return acc
@@ -38,7 +63,7 @@ export const CustomRenderers = {
     return (
       <div className="flex justify-between">
         <div className="flex flex-column w-80-l" style={{ maxWidth: '680px' }}>
-          {children}
+          {childrenWithoutContributors}
         </div>
         {TOCLines.length > 0 && (
           <div
