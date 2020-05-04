@@ -3,7 +3,7 @@ import { ApolloError } from 'apollo-client'
 import { branch, compose, renderComponent } from 'recompose'
 import { graphql } from 'react-apollo'
 
-import { IO_DOCUMENTATION } from '../utils/constants'
+import { IO_DOCUMENTATION } from '../modules/constantExports'
 import Skeleton from './Skeleton'
 import EmptySummary from './EmptySummary'
 import Summary from '../graphql/appSummary.graphql'

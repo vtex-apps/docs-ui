@@ -11,7 +11,7 @@ import { useRuntime } from 'vtex.render-runtime'
 
 import EmptyAppDocs from './EmptyAppDocs'
 import publishedQuery from '../graphql/published.graphql'
-import { IO_DOCUMENTATION } from '../utils/constants'
+import { IO_DOCUMENTATION } from '../modules/constantExports'
 
 type Action =
   | { type: 'updateMajor'; value: string }

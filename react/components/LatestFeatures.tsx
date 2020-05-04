@@ -3,7 +3,7 @@ import { useQuery } from 'react-apollo'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
-import { slug } from '../utils'
+import { slug } from '../modules'
 import RightArrow from './icons/RightArrow'
 import Skeleton from './Skeleton'
 import LatestFeaturesQuery from '../graphql/storeFrameworkLatestFeatures.graphql'

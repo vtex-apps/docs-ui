@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { slug } from '../utils'
+import { slug } from '../modules'
 
 interface Props {
   headings: string[]

@@ -6,7 +6,7 @@ import { useRuntime } from 'vtex.render-runtime'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
-import { maybeAddMdExtension } from './utils'
+import { maybeAddMdExtension } from './modules'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const ReleaseArticle: FC = () => {

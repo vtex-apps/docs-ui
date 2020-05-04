@@ -6,7 +6,7 @@ import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
 import { useApp } from './hooks/useApp'
-import { maybeAddMdExtension } from './utils'
+import { maybeAddMdExtension } from './modules'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const AppDocs: FC = () => {

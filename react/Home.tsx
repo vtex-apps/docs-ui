@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
-import { slug } from './utils'
+import { slug } from './modules'
 import LatestFeatures from './components/LatestFeatures'
 import Community from './components/Community'
 import Recipes from './components/icons/Recipes'
