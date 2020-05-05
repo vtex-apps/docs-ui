@@ -6,24 +6,35 @@ import { useDevice } from 'vtex.device-detector'
 import { Link } from 'vtex.styleguide'
 
 import ArticleNav from './ArticleNav'
-import { slug } from '../utils'
+import { slug } from '../modules'
+import {
+  findDocsIgnoreNodes,
+  removeIgnoredNodesFromDocs,
+} from '../modules/ignoreTokens'
 import CodeBlock from './CodeBlock'
 
 export const CustomRenderers = {
-  root: ({ children }: any) => {
+  root: ({ children }: { children: any[] }) => {
     /* eslint-disable react-hooks/rules-of-hooks */
     const { isMobile } = useDevice()
+    const { start, end } = findDocsIgnoreNodes(children)
+
+    const childrenWithoutIgnoredNodes = removeIgnoredNodesFromDocs(
+      start,
+      end,
+      children
+    )
 
     if (isMobile) {
       return (
         <div className="flex flex-column center" style={{ maxWidth: '95vw' }}>
-          {children}
+          {childrenWithoutIgnoredNodes}
         </div>
       )
     }
 
-    const TOCLines: string[] = children.reduce(
-      (acc: any, { key, props }: any) => {
+    const TOCLines = childrenWithoutIgnoredNodes.reduce(
+      (acc: string[], { key, props }: any) => {
         // Skip non-headings and only use H2s
         if (key.indexOf('heading') !== 0 || props.level !== 2) {
           return acc
@@ -38,7 +49,7 @@ export const CustomRenderers = {
     return (
       <div className="flex justify-between">
         <div className="flex flex-column w-80-l" style={{ maxWidth: '680px' }}>
-          {children}
+          {childrenWithoutIgnoredNodes}
         </div>
         {TOCLines.length > 0 && (
           <div

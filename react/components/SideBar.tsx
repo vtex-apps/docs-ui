@@ -3,9 +3,9 @@ import { FormattedMessage } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
 import SideBarItem from './SideBarItem'
-import { formatLink } from '../utils'
+import { formatLink } from '../modules'
 import { useSideBarContentState } from './SideBarContext'
-import { IO_DOCUMENTATION } from '../utils/constants'
+import { IO_DOCUMENTATION } from '../modules/constantExports'
 
 interface Chapter {
   title: string

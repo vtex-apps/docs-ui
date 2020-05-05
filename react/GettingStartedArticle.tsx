@@ -5,7 +5,7 @@ import { compose, renderNothing, branch } from 'recompose'
 import { FormattedMessage } from 'react-intl'
 import { withRuntimeContext, Link, InjectedRuntime } from 'vtex.render-runtime'
 
-import { IO_DOCUMENTATION } from './utils/constants'
+import { IO_DOCUMENTATION } from './modules/constantExports'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'

@@ -6,8 +6,8 @@ import { useRuntime } from 'vtex.render-runtime'
 import DocsRenderer from './components/DocsRenderer'
 import Skeleton from './components/Skeleton'
 import EmptyDocs from './components/EmptyDocs'
-import { IO_DOCUMENTATION } from './utils/constants'
-import { maybeAddMdExtension } from './utils'
+import { IO_DOCUMENTATION } from './modules/constantExports'
+import { maybeAddMdExtension } from './modules'
 import MarkdownFile from './graphql/markdownFile.graphql'
 
 const IntroductionArticle: FC = () => {

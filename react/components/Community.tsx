@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 
-import { slug } from '../utils'
+import { slug } from '../modules'
 import CommunityIcon from './icons/CommunityIcon'
 
 const Community: FC = () => {

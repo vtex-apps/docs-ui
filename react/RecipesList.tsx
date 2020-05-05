@@ -5,10 +5,10 @@ import { ApolloError } from 'apollo-client'
 import { branch, compose, renderComponent, renderNothing } from 'recompose'
 import { withRuntimeContext, InjectedRuntime } from 'vtex.render-runtime'
 
-import { IO_DOCUMENTATION } from './utils/constants'
+import { IO_DOCUMENTATION } from './modules/constantExports'
 import RecipeListItem from './components/RecipeListItem'
 import EmptyDocs from './components/EmptyAppDocs'
-import { slug } from './utils'
+import { slug } from './modules'
 import RecipeList from './graphql/recipesList.graphql'
 
 const RecipesList: FC<OuterProps & InjectedRuntime> = ({

@@ -5,8 +5,8 @@ import { useRuntime } from 'vtex.render-runtime'
 
 import ComponentGridItem from './components/ComponentGridItem'
 import EmptyDocs from './components/EmptyDocs'
-import { slug, removeFileExtension } from './utils'
-import { IO_DOCUMENTATION } from './utils/constants'
+import { slug, removeFileExtension } from './modules'
+import { IO_DOCUMENTATION } from './modules/constantExports'
 import ComponentList from './graphql/componentsList.graphql'
 
 const ComponentsGrid: FC = () => {

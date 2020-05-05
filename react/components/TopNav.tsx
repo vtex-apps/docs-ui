@@ -4,10 +4,10 @@ import { Link } from 'vtex.render-runtime'
 import { Drawer } from 'vtex.store-drawer'
 
 import { useSideBarContentState } from './SideBarContext'
-import { IO_DOCUMENTATION } from '../utils/constants'
+import { IO_DOCUMENTATION } from '../modules/constantExports'
 import VTEXPink from './icons/VTEXPink'
 import SearchBar from './SearchBar'
-import { formatLink } from '../utils'
+import { formatLink } from '../modules'
 import SideBarItem from './SideBarItem'
 
 const navLinkClass =

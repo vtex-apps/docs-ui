@@ -3,7 +3,7 @@ import { Link, useRuntime } from 'vtex.render-runtime'
 
 import IconCaretDown from './icons/IconCaretDown'
 import IconCaretRight from './icons/IconCaretRight'
-import { slug } from '../utils'
+import { slug } from '../modules'
 
 interface Props {
   text: string
