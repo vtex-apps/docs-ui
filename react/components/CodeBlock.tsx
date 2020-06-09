@@ -14,9 +14,12 @@ const CodeBlock: FC<Props> = ({ language, value }) => {
     }
   }, [codeBlockRef])
 
+  // highlight.js does not support `.jsonc` files
+  const codeBlockLanguage = language === 'jsonc' ? 'json' : language
+
   return (
     <pre>
-      <code ref={codeBlockRef} className={`language-${language}`}>
+      <code ref={codeBlockRef} className={`language-${codeBlockLanguage}`}>
         {value}
       </code>
     </pre>
