@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- Link `Next Article` to work with trailing slash.
+- Link `Next Article` and `Previous Article` to work with trailing slash.
 
 ## [2.1.1] - 2020-06-12
 ### Fixed

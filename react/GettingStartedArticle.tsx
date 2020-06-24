@@ -62,7 +62,11 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
                 {hasPrevArticle(currentArticle) && (
                   <Link
                     className="link c-emphasis no-underline t-body mr-auto flex items-center dim"
-                    to={`${currentArticle - 1}`}>
+                    page="docs-ui.getting-started"
+                    params={{
+                      track,
+                      article: `${currentArticle - 1}`,
+                    }}>
                     <div className="flex flex-column flex-row-l">
                       <div className="dn db-l mr5">
                         <LeftArrow />
