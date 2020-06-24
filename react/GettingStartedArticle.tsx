@@ -74,7 +74,11 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
                 {hasNextArticle(articles, currentArticle) && (
                   <Link
                     className="link c-emphasis no-underline t-body ml-auto flex items-center dim"
-                    to={`${currentArticle + 1}`}>
+                    page="docs-ui.getting-started"
+                    params={{
+                      track,
+                      article: `${currentArticle + 1}`,
+                    }}>
                     <div className="flex flex-column flex-row-l">
                       <FormattedMessage id="docs-ui/getting-started.next" />
                       <div className="dn db-l ml5">
