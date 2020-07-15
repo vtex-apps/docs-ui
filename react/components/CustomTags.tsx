@@ -4,6 +4,7 @@ import React, { Fragment } from 'react'
 import { useRuntime } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import { Link } from 'vtex.styleguide'
+import { DocProp } from 'vtex.doc-prop'
 
 import ArticleNav from './ArticleNav'
 import { slug } from '../modules'
@@ -12,6 +13,7 @@ import {
   removeIgnoredNodesFromDocs,
 } from '../modules/ignoreTokens'
 import CodeBlock from './CodeBlock'
+import { DOC_PROP_PLACEHOLDER_MATCH, DOC_PROP_PLACEHOLDER } from '../utils/constants'
 
 export const CustomRenderers = {
   root: ({ children }: { children: any[] }) => {
@@ -187,7 +189,8 @@ export const CustomRenderers = {
   ),
   paragraph: (props: any) => {
     if (props.children === '' || props.children.length === 0) return null
-    return <p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>
+
+    return checkDocProp(props) ? (<p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>) : getDocProp(props)
   },
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,
   table: (props: any) => (
@@ -224,4 +227,17 @@ function getHeadingSlug(childNodes: any) {
   return (
     (childNodes[0].props.children && slug(childNodes[0].props.children)) || ''
   )
+}
+
+function checkDocProp(props: any) {
+  const paragraphValue = props?.children[0]?.props?.value ?? ''
+
+  return paragraphValue.includes(DOC_PROP_PLACEHOLDER)
+}
+
+function getDocProp(props: any) {
+  const match = props.children[0].props.value.match(DOC_PROP_PLACEHOLDER_MATCH)
+  const blockInterface = match?.[1] ?? ''
+
+  return <DocProp blockInterface={blockInterface} />
 }
