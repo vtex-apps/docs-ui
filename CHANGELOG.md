@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.2.0] - 2020-07-15
-
 ### Added
 - Doc Prop dependency and integration (via markdown placeholder on components readme.md).
 
