@@ -190,7 +190,8 @@ export const CustomRenderers = {
   paragraph: (props: any) => {
     if (props.children === '' || props.children.length === 0) return null
 
-    return checkDocProp(props) ? (<p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>) : getDocProp(props)
+    return checkDocProp(props) ?
+    getDocProp(props) : (<p className="t-body c-on-base mt0 lh-copy mb6">{props.children}</p>)
   },
   strong: (props: any) => <strong className="fw7">{props.children}</strong>,
   table: (props: any) => (
