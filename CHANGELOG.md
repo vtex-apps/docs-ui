@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Doc Prop dependency and integration (via markdown placeholder on components readme.md).
+
 ## [2.1.2] - 2020-06-24
 ### Fixed
 - Link `Next Article` and `Previous Article` to work with trailing slash.
