@@ -26,6 +26,14 @@ const isNotLastResult = (results: SearchResult[], index: number) =>
 
 const isFirstResult = (index: number) => index === 0
 
+const removeAppVersionFromSearchResult = (url: string) => {
+  // https://regex101.com/r/gbllfu/1
+  const versionRegex = /@[\d.]+/g
+  const containsAppVersion = versionRegex.test(url)
+
+  return containsAppVersion ? url.replace(versionRegex, '') : url
+}
+
 const Search: FC<Props> = ({ query }) => {
   const queryString = query.q || ''
 
@@ -67,7 +75,7 @@ const Search: FC<Props> = ({ query }) => {
                     <a
                       className={`link c-emphasis no-underline t-body ml-auto
                 flex items-center dim`}
-                      href={result.link}>
+                      href={removeAppVersionFromSearchResult(result.link)}>
                       <div className="flex flex-column flex-row di">
                         <span>Read More</span>
                         <div className="ml5">
