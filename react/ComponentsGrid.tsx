@@ -34,6 +34,7 @@ const ComponentsGrid: FC = () => {
       locale: 'en',
       useAppsDirectory,
     },
+    ssr: false
   })
 
   if (loading) return null

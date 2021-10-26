@@ -15,7 +15,7 @@ interface LatestFeaturesQueryI {
 const LatestFeatures: FC = () => {
   const intl = useIntl()
   const { data, loading, error } = useQuery<LatestFeaturesQueryI>(
-    LatestFeaturesQuery
+    LatestFeaturesQuery,{ssr: false}
   )
 
   return (

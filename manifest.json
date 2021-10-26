@@ -14,7 +14,7 @@
   "dependencies": {
     "vtex.styleguide": "9.x",
     "vtex.store-drawer": "0.x",
-    "vtex.docs-graphql": "1.x",
+    "vtex.docs-graphql": "2.x",
     "vtex.device-detector": "0.x"
   },
   "mustUpdateAt": "2018-09-05",

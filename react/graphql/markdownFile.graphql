@@ -1,4 +1,4 @@
-query markdownFile($appName: String, $fileName: String, $locale: String) {
+query markdownFile($appName: String, $fileName: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   markdownFile(appName: $appName, fileName: $fileName, locale: $locale) {
     meta {
       title

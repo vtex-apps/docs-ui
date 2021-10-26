@@ -1,4 +1,4 @@
-query recipeList($appName: String, $category: String, $locale: String) {
+query recipeList($appName: String, $category: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   recipeList(appName: $appName, category: $category, locale: $locale) {
     title
     description

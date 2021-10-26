@@ -19,7 +19,8 @@ const AppDocs: FC = () => {
         variables={{
           appName,
           fileName: maybeAddMdExtension(fileName),
-        }}>
+        }}
+        ssr={false}>
         {({
           loading,
           error,

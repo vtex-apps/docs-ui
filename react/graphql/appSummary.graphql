@@ -1,4 +1,4 @@
-query appSummary($appName: String, $locale: String) {
+query appSummary($appName: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   appSummary(appName: $appName, locale: $locale) {
     markdown
     chapterList {

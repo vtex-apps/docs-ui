@@ -23,7 +23,8 @@ const Concept: FC = () => {
           appName: IO_DOCUMENTATION,
           fileName: `Concepts/${maybeAddMdExtension(params.concept)}`,
           locale: 'en',
-        }}>
+        }}
+        ssr={false}>
         {({
           loading,
           error,

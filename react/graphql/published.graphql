@@ -1,4 +1,4 @@
-query published($appName: String) {
+query published($appName: String) @context(provider: "vtex.docs-graphql@2.x"){
   appMajors(appName: $appName) {
     latestMajor
     publishedMajors

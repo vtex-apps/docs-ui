@@ -34,6 +34,7 @@ const ReleaseNotes: FC = () => {
   const { data, loading, fetchMore } = useQuery<ReleseNotesQuery>(
     releaseNotes,
     {
+      ssr:false,
       fetchPolicy: 'cache-and-network',
     }
   )

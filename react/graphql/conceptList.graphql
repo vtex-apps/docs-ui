@@ -1,4 +1,4 @@
-query conceptList($appName: String, $category: String, $locale: String) {
+query conceptList($appName: String, $category: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   conceptList(appName: $appName, category: $category, locale: $locale) {
     title
     description

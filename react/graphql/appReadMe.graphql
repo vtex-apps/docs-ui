@@ -1,4 +1,4 @@
-query appReadMe($appName: String, $locale: String) {
+query appReadMe($appName: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   appReadMe(appName: $appName, locale: $locale) {
     meta {
       title

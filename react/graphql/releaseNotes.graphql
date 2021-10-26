@@ -1,4 +1,4 @@
-query ReleaseNotes($after: String) {
+query ReleaseNotes($after: String) @context(provider: "vtex.docs-graphql@2.x"){
   releaseNotes(first: 10, after: $after) {
     edges {
       cursor

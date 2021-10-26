@@ -116,6 +116,7 @@ const EnhancedAppVersionProvider: FC = ({ children }) => {
     variables: {
       appName,
     },
+    ssr: false
   })
 
   // Just a bit hacky: It always check if the url has a trailing slash, setting it if not.

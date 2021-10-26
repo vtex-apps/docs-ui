@@ -38,6 +38,13 @@ const ConceptList: FC = () => {
       appName: IO_DOCUMENTATION,
       locale: 'en',
     },
+
+
+
+
+
+    
+    ssr:false, 
   })
 
   if (loading) {

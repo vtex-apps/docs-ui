@@ -21,7 +21,8 @@ const ReleaseArticle: FC = () => {
         variables={{
           appName: 'vtex.io-release-notes@0.x',
           fileName: `${params.week}/${maybeAddMdExtension(params.article)}`,
-        }}>
+        }}
+        ssr={false}>
         {({
           loading,
           error,

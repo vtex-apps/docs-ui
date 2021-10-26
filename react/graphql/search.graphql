@@ -1,4 +1,4 @@
-query searchEngine($searchQuery: String) {
+query searchEngine($searchQuery: String) @context(provider: "vtex.docs-graphql@2.x"){
   searchEngine(searchQuery: $searchQuery) {
     title
     link

@@ -25,7 +25,8 @@ const Recipe: FC = () => {
             params.recipe
           )}`,
           locale: 'en',
-        }}>
+        }}
+        ssr={false}>
         {({
           loading,
           error,

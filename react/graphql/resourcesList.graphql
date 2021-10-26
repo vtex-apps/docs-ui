@@ -1,4 +1,4 @@
-query resourcesList($appName: String, $category: String, $locale: String) {
+query resourcesList($appName: String, $category: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   resourcesList(appName: $appName, category: $category, locale: $locale) {
     title
     description

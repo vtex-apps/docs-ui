@@ -1,8 +1,8 @@
-query componentsList(
+query componentsList (
   $appName: String
   $locale: String
   $useAppsDirectory: Boolean
-) {
+) @context(provider: "vtex.docs-graphql@2.x"){
   componentsList(
     appName: $appName
     locale: $locale

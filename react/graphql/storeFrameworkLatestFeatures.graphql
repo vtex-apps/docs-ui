@@ -1,4 +1,4 @@
-query StoreFrameworkLatestFeatures($week: String, $locale: String) {
+query StoreFrameworkLatestFeatures($week: String, $locale: String) @context(provider: "vtex.docs-graphql@2.x"){
   storeFrameworkLatestFeatures(week: $week, locale: $locale) {
     title
     description

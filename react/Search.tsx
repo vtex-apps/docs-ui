@@ -39,6 +39,7 @@ const Search: FC<Props> = ({ query }) => {
 
   const { data, loading } = useQuery<SearchQueryResult>(searchEngine, {
     variables: { searchQuery: queryString },
+    ssr: false
   })
 
   const results = data?.searchEngine ?? []

@@ -36,7 +36,8 @@ const GettingStartedArticle: FC<OuterProps & InjectedRuntime> = ({
           appName: IO_DOCUMENTATION,
           fileName: `GettingStarted/${track}/${articles[article]}`,
           locale: 'en',
-        }}>
+        }}
+        ssr={false}>
         {({
           loading,
           error,

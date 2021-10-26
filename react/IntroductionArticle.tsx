@@ -23,7 +23,8 @@ const IntroductionArticle: FC = () => {
           appName: IO_DOCUMENTATION,
           fileName: `Introduction/${maybeAddMdExtension(params.article)}`,
           locale: 'en',
-        }}>
+        }}
+        ssr={false}>
         {({
           loading,
           error,
