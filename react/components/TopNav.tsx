@@ -26,7 +26,7 @@ const TopNav = () => {
           </Drawer>
         </div>
 
-        <Link to="/docs/home" className="flex items-center">
+        <Link to="https://developers.vtex.com/vtex-developer-docs/docs/welcome" className="flex items-center">
           <VTEXPink />
         </Link>
 
