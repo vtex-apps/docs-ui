@@ -6,7 +6,6 @@ import { Drawer } from 'vtex.store-drawer'
 import { useSideBarContentState } from './SideBarContext'
 import { IO_DOCUMENTATION } from '../modules/constantExports'
 import VTEXPink from './icons/VTEXPink'
-import SearchBar from './SearchBar'
 import { formatLink } from '../modules'
 import SideBarItem from './SideBarItem'
 
@@ -40,7 +39,6 @@ const TopNav = () => {
           <a href="https://www.vtex.com/partner/" className={navLinkClass}>
             <FormattedMessage id="docs-ui/nav.partner" />
           </a>
-          <SearchBar />
         </div>
       </div>
     </nav>
