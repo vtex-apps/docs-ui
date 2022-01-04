@@ -22,7 +22,7 @@ const DocsRenderer: FC<Props> = ({ markdown, meta }) => {
   return (
     <Fragment>
       <Helmet>
-        <meta name="robots" content="noindex">
+        <meta name="robots" content="noindex" />
         <title>{title}</title>
       </Helmet>
       <article className="min-vh-100">
