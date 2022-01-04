@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Blocked search indexing with the `noindex` tag
+
 ## [2.1.4] - 2021-12-01
 
 ### Fixed
